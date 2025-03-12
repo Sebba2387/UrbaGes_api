@@ -1,6 +1,6 @@
 #### UrbaGes API ####
 # Installation de l'environnement de développement
-- Bootstrap
+- Bootstrap 	✅
 - Configuration du Docker
 - Configuration de MongoDB
 
