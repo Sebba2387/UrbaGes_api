@@ -1,0 +1,42 @@
+urbages_api/
+│── api/                  # Endpoints REST pour le backend
+│   ├── login.php
+│── config/               # Configurations et connexions aux bases de données
+│   ├── Database.php      # Connexion MySQL
+│   ├── MongoDB.php       # Connexion MongoDB
+│   ├── config.php        # Configuration globale
+│── controllers/          # Contrôleurs (logique métier)
+│   ├── AuthController.php
+│   ├── UserController.php
+│── models/               # Modèles (interactions avec la base de données)
+│   ├── UserModel.php
+│── logs/                 # Logs d'activité (ex. : erreurs, connexion)
+│   ├── app.log
+│── public/               # Frontend accessible par le navigateur
+│   ├── assets/           # Ressources statiques (CSS, JS, images)
+│   │   ├── css/
+│   │   │   ├── style.css
+│   │   │   ├── custom.css
+│   │   ├── js/
+│   │   │   ├── router.js
+│   │   │   ├── main.js
+│   │   ├── images/
+│   ├── components/       # Composants réutilisables (Header, Sidebar)
+│   │   ├── header.html
+│   │   ├── sidebar.html
+│   ├── pages/            # Pages du frontend (HTML partiel)
+│   │   ├── home.html
+│   │   ├── dashboard.html
+│   │   ├── login.html
+│   ├── index.html        # Page principale du frontend
+│── resources/            # Fichiers non accessibles publiquement
+│   ├── scss/             # Styles SCSS personnalisés
+│   │   ├── custom.scss
+│   ├── bootstrap/        # Bootstrap (si utilisé en local)
+│   │   ├── js/
+│   │   ├── scss/
+│── .htaccess             # Réécriture d'URL pour API et routing
+│── .env                  # Variables d'environnement (accès DB, clé JWT)
+│── composer.json         # Dépendances PHP (ex: PHPMailer, Dotenv)
+│── package.json          # Dépendances frontend (ex: Bootstrap, Sass)
+│── README.md             # Documentation du projet
