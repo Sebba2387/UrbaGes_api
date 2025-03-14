@@ -10,17 +10,14 @@
     <title>UrbaGes</title>
 </head>
 <body>
-    <header>
-        <h1>Menu</h1>
-    </header>
+    <header id="header"></header> <!-- Header chargé dynamiquement -->
+    <aside id="sidebar-container"></aside> <!-- Sidebar chargée dynamiquement -->
     <main id="main-page">
         <!-- Ici le contenu sera injecté -->
     </main>
-    <footer>
-        <h2>Le footer de mon site</h2>
-    </footer>
+<script src="public/assets/js/script.js" defer></script>
+<script type="module" src="/public/router/routerPages.js"></script>
+<script src="public/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     
-    <script type="module" src="/public/router/router.js"></script>
-    <script src="public/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
