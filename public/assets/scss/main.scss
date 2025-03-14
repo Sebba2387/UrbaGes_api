@@ -91,6 +91,41 @@ body {
     font-size: 20px;
 }
 
+/* Liens de la sidebar */
+.nav-link {
+    position: relative;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    white-space: nowrap;
+}
+
+.nav-link i {
+    font-size: 20px;
+}
+
+#sidebar.collapsed .nav-link {
+    top: 220px;
+}
+/* Texte masqué quand la sidebar est réduite */
+#sidebar.collapsed .nav-link span,
+#sidebar.collapsed .photo-profil,
+#sidebar.collapsed .pseudo {
+    display: none;
+}
+
+/* Style actif des liens */
+.nav-link.active {
+    background-color: #0d6efd;
+    color: white;
+}
+
+.nav-link.active i {
+    color: white;
+}
+
 /* Rendre le content responsive */
 @media (max-width: 992px) {
     /* Pour les écrans moyens et petits */
@@ -113,6 +148,10 @@ body {
         height: 100vh;
     }
 
+    #sidebar.collapsed .nav-link {
+        top: 60px;
+    }
+
     #content {
         margin-left: 0;
     }
@@ -124,7 +163,7 @@ body {
     /* Le bouton toggle devient plus visible */
     #toggle-btn {
         left: 10px;
-        top: 60px;
+        top: 80px;
     }
 }
 
@@ -138,40 +177,12 @@ body {
         top: 56px;
         height: 100vh;
         }
+    #sidebar.collapsed .nav-link {
+        top: 60px; 
+    }
 
     #toggle-btn {
         left: 10px;
-        top: 60px;
+        top: 80px;
     }
-}
-
-/* Liens de la sidebar */
-.nav-link {
-    position: relative;
-    top: 150px;
-    color: white;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 15px;
-    white-space: nowrap;
-}
-
-.nav-link i {
-    font-size: 20px;
-}
-
-/* Texte masqué quand la sidebar est réduite */
-#sidebar.collapsed .nav-link span {
-    display: none;
-}
-
-/* Style actif des liens */
-.nav-link.active {
-    background-color: #0d6efd;
-    color: white;
-}
-
-.nav-link.active i {
-    color: white;
 }

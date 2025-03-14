@@ -1,9 +1,26 @@
-<!-- header.html -->
-<nav class="navbar navbar-white bg-primary fixed-top" style="height: 60px;">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
     <div class="container-fluid">
-        <div class="mb-3 d-flex align-items-center justify-content-center">
-            <img src="/public/assets/images/img_logo.png" class="img-fluid" style="height: 40px; width: auto;" alt="image du Logo">
-            <h2 class="text-dark fw-bold ms-2 mb-0">UrbaGes</h2>
+        <!-- Logo -->
+        <a class="navbar-brand d-flex align-items-center" href="/" onclick="route(event)">
+            <img src="/public/assets/images/img_logo.png" class="img-fluid" style="height: 30px; width: auto;" alt="Logo">
+            <h3 class="text-dark fw-bold ms-2 mb-0">UrbaGes</h3>
+        </a>
+
+        <!-- Bouton Burger pour mobile -->
+        
+        <div class="dropdown dropdown-menu-end">
+            <button class="btn btn-primary text-dark fw-bold dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Menu équipe
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item text-dark" type="button"><i class="bi bi-person-fill text-dark me-2 fs-5"></i>Mon profil</a></li>
+                <li><a class="dropdown-item text-dark" type="button"><i class="bi bi-people-fill text-dark me-2 fs-5"></i>Mon équipe</a></li>
+                <li><a class="dropdown-item text-dark" type="button"><i class="bi bi-calendar2-week-fill text-dark me-2 fs-5"></i>Présence</a></li>
+                <li><a class="dropdown-item text-dark" type="button"><i class="bi bi-power text-dark me-2 fs-5"></i>Déconnexion</a></li>
+            </ul>
         </div>
+
+        
     </div>
 </nav>
+

@@ -1,27 +1,69 @@
 <!-- sidebar.html -->
-<div id="sidebar" class="bg-secondary">
+<div id="sidebar" class="bg-dark">
     <!-- Bouton Toggle Sidebar -->
     <button id="toggle-btn" class="btn btn-primary">
         <i id="toggle-icon" class="bi bi-chevron-left"></i>
     </button>
 
     <ul class="nav flex-column">
-        <li class="nav-item">
+        <li class="nav-item mb-2">
+            <div class="photo-profil ms-4 mb-2 mt-4">
+                <img src="/public/assets/images/img_profil_homme.jpg" 
+                     class="rounded-5 d-none d-md-block" 
+                     alt="Profil" style="max-width: 80%; max-height: 150px;">
+            </div>
+        </li>
+        <li class="nav-item mb-2">
+            <div class="pseudo">
+                <h2 class="text-primary ms-4 mt-4">AbbesB</h2>
+            </div>
+        </li>
+        <li class="nav-item mb-2">
             <a class="nav-link d-flex align-items-center" href="#" onclick="setActive(this)">
                 <i class="bi bi-bar-chart-line-fill fs-5"></i>
                 <span class="fs-5 ms-2">Statistiques</span>
             </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mb-2">
             <a class="nav-link d-flex align-items-center" href="#" onclick="setActive(this)">
-                <i class="bi bi-people-fill fs-5"></i>
-                <span class="fs-5 ms-2">Utilisateurs</span>
+                <i class="bi bi-search fs-5"></i>
+                <span class="fs-5 ms-2">Rechercher</span>
             </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mb-2">
             <a class="nav-link d-flex align-items-center" href="#" onclick="setActive(this)">
                 <i class="bi bi-folder-fill fs-5"></i>
                 <span class="fs-5 ms-2">Dossiers</span>
+            </a>
+        </li>
+        <li class="nav-item mb-2">
+            <a class="nav-link d-flex align-items-center" href="#" onclick="setActive(this)">
+                <i class="bi bi-app-indicator fs-5"></i>
+                <span class="fs-5 ms-2">Attributions</span>
+            </a>
+        </li>
+        <li class="nav-item mb-2">
+            <a class="nav-link d-flex align-items-center" href="#" onclick="setActive(this)">
+                <i class="bi bi-map-fill"></i>
+                <span class="fs-5 ms-2">PLU</span>
+            </a>
+        </li>
+        <li class="nav-item mb-2">
+            <a class="nav-link d-flex align-items-center" href="#" onclick="setActive(this)">
+                <i class="bi bi-layers-fill fs-5"></i>
+                <span class="fs-5 ms-2">Communes</span>
+            </a>
+        </li>
+        <li class="nav-item mb-2">
+            <a class="nav-link d-flex align-items-center" href="#" onclick="setActive(this)">
+                <i class="bi bi-envelope-fill fs-5"></i>
+                <span class="fs-5 ms-2">Courriers</span>
+            </a>
+        </li>
+        <li class="nav-item mb-2">
+            <a class="nav-link d-flex align-items-center" href="#" onclick="setActive(this)">
+                <i class="bi bi-journal-richtext fs-5"></i>
+                <span class="fs-5 ms-2">Supports</span>
             </a>
         </li>
     </ul>
