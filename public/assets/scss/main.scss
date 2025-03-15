@@ -7,6 +7,13 @@ body {
     margin: 0;
 }
 
+header {
+    height: 60px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
 /* Contenu principal */
 #main-page {
     margin-left: 200px;
@@ -15,6 +22,7 @@ body {
     padding: 20px;
     width: calc(100% - 200px);
 }
+
 
 /* Style des sections à l'intérieur du content */
 .section {
@@ -139,13 +147,13 @@ body {
         position: absolute;
         top: 56px;
         left: -250px;
-        height: 100vh;
+        height: 100vh !important;
         z-index: 1050;
     }
 
     #sidebar.collapsed {
         left: 0;
-        height: 100vh;
+        height: 100vh !important;
     }
 
     #sidebar.collapsed .nav-link {
@@ -177,6 +185,10 @@ body {
         top: 56px;
         height: 100vh;
         }
+    #sidebar.collapsed {
+        left: 0;
+        height: 100vh !important;
+    }
     #sidebar.collapsed .nav-link {
         top: 60px; 
     }
@@ -185,4 +197,55 @@ body {
         left: 10px;
         top: 80px;
     }
+}
+
+/* Image en arrière-plan */
+.bg-login {
+    background: url('/public/assets/images/img_login.jpg') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+}
+
+/* Formulaire centré avec top: 200px */
+.login-form {
+    position: absolute;
+    top: 100px;
+    width: 400px;
+    height: 400px;
+    background: rgba(0, 123, 255, 0.9); /* Bleu Bootstrap avec opacité */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Responsive : ajustement pour petits écrans */
+@media (max-width: 576px) {
+    .login-form {
+        width: 90%; /* Plus flexible sur mobile */
+        height: auto;
+        top: 200px;
+    }
+}
+
+/* Animation bouton connexion */
+.btn-login {
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-login:hover {
+    background-color: #000; /* Devient noir au survol */
+    transform: translateY(-3px); /* Légère montée */
+}
+
+.btn-login:active {
+    transform: translateY(1px) scale(0.98); /* Effet de pression */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 }

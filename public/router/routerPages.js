@@ -5,51 +5,58 @@ const routes = [
     { path: '/profil', component: 'profil.html' },
 ];
 
-function loadHeaderAndSidebar() {
+// Fonction asynchrone pour charger dynamiquement le header et la sidebar
+async function loadHeaderAndSidebar() {
     const header = document.getElementById('header');
     const sidebar = document.getElementById('sidebar-container');
     
-    // Charger dynamiquement le header et la sidebar
-    fetch('/public/components/header.html')
-        .then(response => response.text())
-        .then(html => {
-            header.innerHTML = html;
-        })
-        .catch(error => console.error('Erreur de chargement du header:', error));
+    try {
+        // Charger dynamiquement le header
+        const headerResponse = await fetch('/public/components/header.html');
+        const headerHtml = await headerResponse.text();
+        header.innerHTML = headerHtml;
 
-    fetch('/public/components/sidebar.html')
-        .then(response => response.text())
-        .then(html => {
-            sidebar.innerHTML = html;
-            setupSidebarToggle();  // Initialiser le toggle de la sidebar après son chargement
-        })
-        .catch(error => console.error('Erreur de chargement de la sidebar:', error));
+        // Charger dynamiquement la sidebar
+        const sidebarResponse = await fetch('/public/components/sidebar.html');
+        const sidebarHtml = await sidebarResponse.text();
+        sidebar.innerHTML = sidebarHtml;
+        
+        // Initialiser le toggle de la sidebar après son chargement
+        setupSidebarToggle();  
+    } catch (error) {
+        console.error('Erreur de chargement du header ou de la sidebar:', error);
+    }
 }
 
+// Fonction pour initialiser le toggle de la sidebar
 function setupSidebarToggle() {
     const sidebar = document.getElementById('sidebar');
     const toggleBtn = document.getElementById('toggle-btn');
     const toggleIcon = document.getElementById('toggle-icon');
 
-    // Toggle de la sidebar
-    toggleBtn.addEventListener('click', function () {
-        sidebar.classList.toggle('collapsed');  // Toggle la classe qui réduit/agrandit la sidebar
-        toggleIcon.classList.toggle('bi-chevron-left');  // Changer de direction du chevron
-        toggleIcon.classList.toggle('bi-chevron-right');
-    });
+    if (sidebar && toggleBtn && toggleIcon) {
+        // Ajouter l'événement de clic sur le bouton de toggle
+        toggleBtn.addEventListener('click', function () {
+            sidebar.classList.toggle('collapsed');  // Toggle la classe qui réduit/agrandit la sidebar
+            toggleIcon.classList.toggle('bi-chevron-left');  // Changer de direction du chevron
+            toggleIcon.classList.toggle('bi-chevron-right');
+        });
+    }
 }
 
-function router() {
+// Fonction de routage principale
+async function router() {
     const path = window.location.pathname;
     const route = routes.find(route => route.path === path) || routes[0];
 
     // Si on est sur la page de connexion, ne pas charger header et sidebar
     if (route.path !== '/') {
-        loadHeaderAndSidebar();  // Charger le header et la sidebar
+        await loadHeaderAndSidebar();  // Charger le header et la sidebar
     }
 
-    loadComponent(route.component);  // Charger le contenu de la page
+    // Charger le composant de la page en fonction de la route
+    await loadComponent(route.component);  
 }
 
-// Exécutez le router une fois que le contenu de la page est chargé
+// Exécuter le router une fois que le contenu de la page est chargé
 window.addEventListener('DOMContentLoaded', router);
