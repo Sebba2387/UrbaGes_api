@@ -3,10 +3,22 @@ import { loadComponent } from './loader.js';
 const routes = [
     { path: '/', component: 'home.html' },  // Page de connexion
     { path: '/profil', component: 'profil.html' },
+    { path: '/statistiques', component: 'statistiques.html' },
+    { path: '/dossiers', component: 'dossiers.html' },
+    { path: '/attributions', component: 'attributions.html' },
+    { path: '/gep', component: 'gep.html' },
+    { path: '/plu', component: 'plu.html' },
+    { path: '/communes', component: 'communes.html' },
+    { path: '/courriers', component: 'courriers.html' },
 ];
+
+// Flag pour savoir si le header et la sidebar sont déjà chargés
+let componentsLoaded = false;
 
 // Fonction asynchrone pour charger dynamiquement le header et la sidebar
 async function loadHeaderAndSidebar() {
+    if (componentsLoaded) return;  // Ne charger que si ce n'est pas déjà fait
+
     const header = document.getElementById('header');
     const sidebar = document.getElementById('sidebar-container');
     
@@ -23,24 +35,10 @@ async function loadHeaderAndSidebar() {
         
         // Initialiser le toggle de la sidebar après son chargement
         setupSidebarToggle();  
+        
+        componentsLoaded = true;  // Marquer que les composants sont chargés
     } catch (error) {
         console.error('Erreur de chargement du header ou de la sidebar:', error);
-    }
-}
-
-// Fonction pour initialiser le toggle de la sidebar
-function setupSidebarToggle() {
-    const sidebar = document.getElementById('sidebar');
-    const toggleBtn = document.getElementById('toggle-btn');
-    const toggleIcon = document.getElementById('toggle-icon');
-
-    if (sidebar && toggleBtn && toggleIcon) {
-        // Ajouter l'événement de clic sur le bouton de toggle
-        toggleBtn.addEventListener('click', function () {
-            sidebar.classList.toggle('collapsed');  // Toggle la classe qui réduit/agrandit la sidebar
-            toggleIcon.classList.toggle('bi-chevron-left');  // Changer de direction du chevron
-            toggleIcon.classList.toggle('bi-chevron-right');
-        });
     }
 }
 
@@ -51,12 +49,52 @@ async function router() {
 
     // Si on est sur la page de connexion, ne pas charger header et sidebar
     if (route.path !== '/') {
-        await loadHeaderAndSidebar();  // Charger le header et la sidebar
+        await loadHeaderAndSidebar();  // Charger le header et la sidebar si ce n'est pas déjà fait
     }
 
     // Charger le composant de la page en fonction de la route
-    await loadComponent(route.component);  
+    await loadComponent(route.component);
+
+    // Ajouter la classe 'active' au lien correspondant
+    updateActiveLink(route.path);
 }
+
+// Fonction pour mettre à jour l'état actif des liens de navigation
+function updateActiveLink(path) {
+    // Récupérer tous les liens de navigation
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    // Retirer la classe 'active' de tous les liens
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+    });
+
+    // Ajouter la classe 'active' au lien correspondant à la route
+    const activeLink = [...navLinks].find(link => link.getAttribute('href') === path);
+    if (activeLink) {
+        activeLink.classList.add('active');
+    }
+}
+
+// Fonction pour gérer les changements d'URL sans rechargement de la page
+function changePage(path) {
+    window.history.pushState({}, '', path);  // Modifier l'URL sans recharger la page
+    router();  // Recharger le contenu et mettre à jour la page
+}
+
+// Ajouter un event listener pour intercepter les changements d'URL
+window.addEventListener('popstate', () => {
+    router();  // Recharger la page en fonction de la nouvelle URL
+});
 
 // Exécuter le router une fois que le contenu de la page est chargé
 window.addEventListener('DOMContentLoaded', router);
+
+// Ajouter un event listener sur les liens pour éviter le rechargement de la page
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();  // Empêcher le rechargement de la page
+        const path = link.getAttribute('href');
+        changePage(path);  // Changer de page sans recharger
+    });
+});

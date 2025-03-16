@@ -1,0 +1,131 @@
+<!-- Formulaire d'information des communes -->
+<div id="form1" class="form-container mb-5 mt-5 h-auto">
+    <button class="btn btn-primary fw-bold toggle-btn" onclick="toggleForm('form1')">
+        <i class="bi bi-layers-fill"></i> Communes
+    </button>
+    <div class="card">
+        <form>
+            <!-- Ligne 1 -->
+            <div class="row">
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="number" class="form-control" placeholder="Code insee">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" placeholder="Code postal">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" placeholder="Commune">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <select class="form-control" placeholder="Réseau">
+                        <option>C@rteADS</option>
+                        <option>Hors C@rteADS</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Ligne 2 -->
+            <div class="row">
+                <div class="col-12 col-md-4 mb-3">
+                    <input type="text" class="form-control" placeholder="Contact">
+                </div>
+                <div class="col-12 col-md-4 mb-3">
+                    <input type="mail" class="form-control" placeholder="Email contact">
+                </div>
+                <div class="col-12 col-md-4 mb-3">
+                    <input type="tel" class="form-control" placeholder="Tel contact">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Formulaire d'ajout de dossier -->
+<div id="form2" class="form-container mb-5 mt-5 h-auto">
+    <button class="btn btn-primary fw-bold toggle-btn" onclick="toggleForm('form2')">
+        <i class="bi bi-folder-fill"></i> Ajouter
+    </button>
+    <div class="card">
+        <form>
+            <!-- Ligne 1 -->
+            <div class="row">
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" placeholder="Cadastre">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" placeholder="Nom de rue">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" placeholder="Nom de dossier">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <select class="form-control">
+                        <option value="" disabled selected>-- Sélectionnez le type de dossier --</option>
+                        <option>Instruction complexe</option>
+                        <option>Projet</option>
+                        <option>Accompagnement</option>
+                        <option>Servitude</option>
+                        <option>Réctrocession</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Ligne 2 -->
+            <div class="row">
+                
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" placeholder="Nom du propriétaire">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="email" class="form-control" placeholder="Mail du propriétaire">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="email" class="form-control" placeholder="Tel du propriétaire">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="email" class="form-control" placeholder="Adresse du propriétaire">
+                </div>
+                <div class="col-12 col-md-2 mb-3 d-flex align-items-end offset-md-10">
+                    <button type="submit" class="btn btn-primary fw-bold w-100">Ajouter</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Formulaire de recherche de dossier -->
+<div id="form3" class="form-container mb-5 mt-5">
+    <button class="btn btn-primary toggle-btn" onclick="toggleForm('form3')">
+        <i class="bi bi-search"></i> Rechercher
+    </button>
+    <div class="card">
+        <form>
+            <!-- Ligne 1 -->
+            <div class="row">
+                <div class="col-12 col-md-2 mb-3">
+                    <input type="text" class="form-control" placeholder="Commune">
+                </div>
+                <div class="col-12 col-md-2 mb-3">
+                    <input type="text" class="form-control" placeholder="Cadastre">
+                </div>
+                <div class="col-12 col-md-2 mb-3">
+                    <input type="text" class="form-control" placeholder="Nom de rue">
+                </div>
+                <div class="col-12 col-md-2 mb-3">
+                    <input type="text" class="form-control" placeholder="Nom de dossier">
+                </div>
+                <div class="col-12 col-md-2 mb-3">
+                    <select class="form-control">
+                        <option value="" disabled selected>-- Sélectionnez le type de dossier --</option>
+                        <option>Instruction complexe</option>
+                        <option>Projet</option>
+                        <option>Accompagnement</option>
+                        <option>Note de calcul</option>
+                        <option>Servitude</option>
+                        <option>Réctrocession</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-2 mb-3">
+                    <button type="submit" class="btn btn-primary fw-bold w-100">Rechercher</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
