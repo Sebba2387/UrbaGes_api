@@ -25,3 +25,29 @@ function toggleForm(formId) {
     let form = document.getElementById(formId);
     form.classList.toggle("expanded");
 }
+
+// Fonction pour copier les liens des dossiers
+function copierTexte(event) {
+    event.preventDefault(); // Empêche la soumission du formulaire
+
+    let input = document.querySelector("input[name='lien_courrier']");
+    if (input) {
+        input.select();
+        input.setSelectionRange(0, 99999);
+        navigator.clipboard.writeText(input.value) // Copie le texte
+            .catch(err => console.error("Erreur de copie :", err));
+    }
+}
+
+// Fonction pour copier les liens
+function copierTexte(event, inputName) {
+    event.preventDefault(); // Empêche la soumission du formulaire
+
+    let input = document.querySelector(`input[name='${inputName}']`);
+    if (input) {
+        input.select();
+        input.setSelectionRange(0, 99999);
+        navigator.clipboard.writeText(input.value) // Copie le texte
+            .catch(err => console.error("Erreur de copie :", err));
+    }
+}

@@ -8,7 +8,7 @@
 # Frontend
 - Index.html 	✅
 - Configuration des routes 	✅
-- Construction des pages 	❌
+- Construction des pages 	✅
 - Validation des champs 	❌
 - Contrôle des rôles 	❌
 

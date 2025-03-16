@@ -1,0 +1,68 @@
+<!-- Formulaire d'inscription -->
+<div id="form2" class="form-container mb-5 mt-5 h-auto">
+    <button class="btn btn-primary fw-bold toggle-btn" onclick="toggleForm('form2')">
+        <i class="bi bi-people-fill"></i> Inscription
+    </button>
+    <div class="card p-3">
+        <form>
+            <div class="row">
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" name="nom" placeholder="Nom">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" name="prenom" placeholder="Prénom">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <select class="form-control" name="genre">
+                        <option value="" disabled selected>Genre</option>
+                        <option>Homme</option>
+                        <option>Femme</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="date" class="form-control" name="date_naissance" placeholder="Date de naissance">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" name="poste" placeholder="Poste">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="password" class="form-control" name="password" placeholder="Mot de passe">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="password" class="form-control" placeholder="Confirmez">
+                </div>
+                <div class="col-12 col-md-3 mb-3 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary fw-bold w-100">Inscrire</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Formulaire de recherche -->
+<div id="form3" class="form-container mb-5 mt-5 h-auto">
+    <button class="btn btn-primary toggle-btn" onclick="toggleForm('form3')">
+        <i class="bi bi-search"></i> Rechercher
+    </button>
+    <div class="card">
+        <form>
+            <!-- Ligne 1 -->
+            <div class="row">
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" name="poste" placeholder="Poste">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" name="nom" placeholder="Nom">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" name="prenom" placeholder="Prénom">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <button type="submit" class="btn btn-primary fw-bold w-100">Rechercher</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

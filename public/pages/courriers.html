@@ -1,6 +1,49 @@
+<!-- Formulaire d'ajout de courrier -->
+<div id="form1" class="form-container mb-5 mt-5">
+    <button class="btn btn-primary toggle-btn" onclick="toggleForm('form1')">
+        <i class="bi bi-envelope-fill"></i> Ajouter
+    </button>
+    <div class="card">
+        <form>
+            <!-- Ligne 1 -->
+            <div class="row">
+                <div class="col-12 col-md-4 mb-3">
+                    <input type="nombre" class="form-control" name="code_courrier" placeholder="Code courrier">
+                </div>
+                <div class="col-12 col-md-4 mb-3">
+                    <select class="form-control" name="type_courrier">
+                        <option value="" disabled selected>-- Sélectionnez le type de courrier --</option>
+                        <option>Instruction complexe</option>
+                        <option>Projet</option>
+                        <option>Accompagnement</option>
+                        <option>Note de calcul</option>
+                        <option>Servitude</option>
+                        <option>Réctrocession</option>
+                        <option>PLU</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-4 mb-3">
+                    <input type="text" class="form-control" name="libelle_courrier" placeholder="Libelle du courrier">
+                </div>
+            </div>
+            <!-- Ligne 2 -->
+            <div class="row">
+                <div class="col-12 col-md-4 mb-3">
+                    <input type="text" class="form-control" name="lien_courrier" placeholder="Lien du courrier">
+                </div>
+                <div class="col-12 col-md-4 mb-3">
+                    <textarea type="textaria" class="form-control" name="description" placeholder="Description du courrier"></textarea>
+                </div>
+                <div class="col-12 col-md-4 mb-3">
+                    <button type="submit" class="btn btn-primary fw-bold w-100">Ajouter</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 <!-- Formulaire de recherche de courrier -->
-<div id="form3" class="form-container mb-5 mt-5">
-    <button class="btn btn-primary toggle-btn" onclick="toggleForm('form3')">
+<div id="form2" class="form-container mb-5 mt-5">
+    <button class="btn btn-primary toggle-btn" onclick="toggleForm('form2')">
         <i class="bi bi-search"></i> Rechercher
     </button>
     <div class="card">
@@ -8,10 +51,10 @@
             <!-- Ligne 1 -->
             <div class="row justify-content-center">
                 <div class="col-12 col-md-2 mb-3">
-                    <input type="nombre" class="form-control" placeholder="Code courrier">
+                    <input type="nombre" class="form-control" name="code_courrier" placeholder="Code courrier">
                 </div>
                 <div class="col-12 col-md-2 mb-3">
-                    <select class="form-control">
+                    <select class="form-control" name="type_courrier">
                         <option value="" disabled selected>-- Sélectionnez le type de courrier --</option>
                         <option>Instruction complexe</option>
                         <option>Projet</option>
@@ -23,7 +66,7 @@
                     </select>
                 </div>
                 <div class="col-12 col-md-2 mb-3">
-                    <input type="text" class="form-control" placeholder="libelle">
+                    <input type="text" class="form-control" name="libelle_courrier" placeholder="Libelle du courrier">
                 </div>
                 <div class="col-12 col-md-2 mb-3">
                     <button type="submit" class="btn btn-primary fw-bold w-100">Rechercher</button>
@@ -32,3 +75,4 @@
         </form>
     </div>
 </div>
+<a href="/editCourrier" onclick="route(event)">Édition du courrier</a>

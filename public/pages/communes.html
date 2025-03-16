@@ -8,13 +8,13 @@
             <!-- Ligne 1 -->
             <div class="row justify-content-center">
                 <div class="col-12 col-md-2 mb-3">
-                    <input type="nombre" class="form-control" placeholder="Code insee">
+                    <input type="nombre" class="form-control" name="id_commune" placeholder="Code insee">
                 </div>
                 <div class="col-12 col-md-2 mb-3">
-                    <input type="nombre" class="form-control" placeholder="Code postal">
+                    <input type="nombre" class="form-control" name="code_commune" placeholder="Code postal">
                 </div>
                 <div class="col-12 col-md-2 mb-3">
-                    <input type="text" class="form-control" placeholder="Commune">
+                    <input type="text" class="form-control" name="nom_commune" placeholder="Commune">
                 </div>
                 <div class="col-12 col-md-2 mb-3">
                     <button type="submit" class="btn btn-primary fw-bold w-100">Rechercher</button>
@@ -23,3 +23,4 @@
         </form>
     </div>
 </div>
+<a href="/editCommune" onclick="route(event)">Édition de la commune</a>

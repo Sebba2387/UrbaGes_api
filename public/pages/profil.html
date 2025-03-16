@@ -1,66 +1,39 @@
-<!-- Formulaire d'inscription -->
+<!-- Formulaire mon profil -->
 <div id="form1" class="form-container mb-5 mt-5 h-auto">
     <button class="btn btn-primary fw-bold toggle-btn" onclick="toggleForm('form1')">
-        <i class="bi bi-people-fill"></i> Inscription
-    </button>
-    <div class="card p-3">
-        <form>
-            <div class="row">
-                <div class="col-12 col-md-3 mb-3">
-                    <input type="text" class="form-control" placeholder="Nom">
-                </div>
-                <div class="col-12 col-md-3 mb-3">
-                    <input type="text" class="form-control" placeholder="Prénom">
-                </div>
-                <div class="col-12 col-md-3 mb-3">
-                    <select class="form-control">
-                        <option value="" disabled selected>Genre</option>
-                        <option>Homme</option>
-                        <option>Femme</option>
-                    </select>
-                </div>
-                <div class="col-12 col-md-3 mb-3">
-                    <input type="date" class="form-control">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 col-md-3 mb-3">
-                    <input type="text" class="form-control" placeholder="Pseudo">
-                </div>
-                <div class="col-12 col-md-3 mb-3">
-                    <input type="password" class="form-control" placeholder="Mot de passe">
-                </div>
-                <div class="col-12 col-md-3 mb-3">
-                    <input type="password" class="form-control" placeholder="Confirmez">
-                </div>
-                <div class="col-12 col-md-3 mb-3 d-flex align-items-end">
-                    <button type="submit" class="btn btn-primary fw-bold w-100">Inscrire</button>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
-
-<!-- Formulaire de recherche -->
-<div id="form2" class="form-container mb-5 mt-5 h-auto">
-    <button class="btn btn-primary toggle-btn" onclick="toggleForm('form2')">
-        <i class="bi bi-search"></i> Rechercher
+        <i class="bi bi-people-fill"></i> Mon profil
     </button>
     <div class="card">
         <form>
             <!-- Ligne 1 -->
             <div class="row">
                 <div class="col-12 col-md-3 mb-3">
-                    <input type="text" class="form-control" placeholder="Pseudo" autocomplete="new-password">
+                    <input type="text" class="form-control" name="nom" placeholder="Nom">
                 </div>
                 <div class="col-12 col-md-3 mb-3">
-                    <input type="text" class="form-control" placeholder="Nom">
+                    <input type="text" class="form-control" name="prenom" placeholder="Prénom">
                 </div>
                 <div class="col-12 col-md-3 mb-3">
-                    <input type="text" class="form-control" placeholder="Prénom">
+                    <input type="email" class="form-control" name="email" placeholder="Email">
                 </div>
                 <div class="col-12 col-md-3 mb-3">
-                    <button type="submit" class="btn btn-primary fw-bold w-100">Rechercher</button>
+                    <input type="date" class="form-control" name="date_naissance" placeholder="Date de naissance">
+                </div>
+                
+            </div>
+            <!-- Ligne 2 -->
+            <div class="row">
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" name="pseudo" placeholder="Pseudo">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" name="genre" placeholder="Genre">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" name="poste" placeholder="Poste">
+                </div>
+                <div class="col-12 col-md-3 mb-3 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary fw-bold w-100">Enregistrer</button>
                 </div>
             </div>
         </form>

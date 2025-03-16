@@ -3,13 +3,18 @@ import { loadComponent } from './loader.js';
 const routes = [
     { path: '/', component: 'home.html' },  // Page de connexion
     { path: '/profil', component: 'profil.html' },
+    { path: '/monEquipe', component: 'monEquipe.html' },
     { path: '/statistiques', component: 'statistiques.html' },
     { path: '/dossiers', component: 'dossiers.html' },
+    { path: '/editDossier', component: 'editDossier.html' },
     { path: '/attributions', component: 'attributions.html' },
     { path: '/gep', component: 'gep.html' },
     { path: '/plu', component: 'plu.html' },
+    { path: '/editPlu', component: 'editPlu.html' },
     { path: '/communes', component: 'communes.html' },
+    { path: '/editCommune', component: 'editCommune.html' },
     { path: '/courriers', component: 'courriers.html' },
+    { path: '/editCourrier', component: 'editCourrier.html' },
 ];
 
 // Flag pour savoir si le header et la sidebar sont déjà chargés
