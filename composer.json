@@ -1,0 +1,17 @@
+{
+    "name": "abbes/htdocs",
+    "autoload": {
+        "psr-4": {
+            "Abbes\\Htdocs\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "AbbesBOU",
+            "email": "bouguerra.abbes@outlook.fr"
+        }
+    ],
+    "require": {
+        "mongodb/mongodb": "^1.21"
+    }
+}

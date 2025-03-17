@@ -4,6 +4,8 @@
 - Costumisation de Bootstrap (LiveComplier Sass) 	✅
 - Configuration du Docker 	❌
 - Configuration de MongoDB 	❌
+    + composer init
+    + composer require mongodb/mongodb
 
 # Frontend
 - Index.html 	✅
