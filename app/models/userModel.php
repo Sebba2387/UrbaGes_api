@@ -31,6 +31,7 @@ class UserModel {
     }
 
     public function getUserById($id) {
+        // Ne jamais exposer de données sensibles comme les mots de passe
         $stmt = $this->pdo->prepare("SELECT nom, prenom, email, annee_naissance, pseudo, genre, poste FROM utilisateurs WHERE id_utilisateur = :id");
         $stmt->execute(['id' => $id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);

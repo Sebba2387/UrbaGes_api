@@ -4,7 +4,7 @@ require_once __DIR__ . '/../../app/controllers/userController.php';
 error_reporting(E_ALL);
 ini_set('display_errors', 1); // Affiche les erreurs directement
 
-// Vérification du jeton CSRF (facultatif, mais recommandé pour plus de sécurité)
+// Vérification du jeton d'authentification (Authorization header)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $headers = getallheaders();
     if (!isset($headers['Authorization']) || $headers['Authorization'] !== 'Bearer your_token_here') {

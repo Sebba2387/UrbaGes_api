@@ -2,16 +2,17 @@
 function loginUser(email, password) {
     fetch('http://localhost/public/api/userApi.php', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'login', email, password })
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer your_token_here'  // Ajouter le token pour l'authentification
+        },
+        body: JSON.stringify({
+            action: 'login',
+            email: email,
+            password: password
+        })
     })
-    .then(response => {
-        // Vérifier si la réponse est valide (pas d'erreur serveur)
-        if (!response.ok) {
-            throw new Error('Erreur du serveur: ' + response.statusText);
-        }
-        return response.json();  // Tenter de convertir la réponse en JSON
-    })
+    .then(response => response.json())
     .then(data => {
         if (data.success) {
             localStorage.setItem('userId', data.user.id_utilisateur);
@@ -20,30 +21,32 @@ function loginUser(email, password) {
             alert(data.message);
         }
     })
-    .catch(error => {
-        console.error('Erreur:', error);
-        alert("Une erreur s'est produite. Veuillez vérifier la console.");
-    });
+    .catch(error => console.error('Erreur:', error));
 }
 
 
 // Récupération du profil utilisateur
+
 function fetchUserProfile() {
     const userId = localStorage.getItem('userId');
-    console.log('userId:', userId);  // Vérifie que l'ID utilisateur est récupéré correctement
     if (!userId) {
         window.location.href = "http://localhost/public/testPages/testLogin.html";
         return;
     }
 
-    // Envoi de la requête fetch pour récupérer les données de l'utilisateur
-    fetch(`http://localhost/public/api/userApi.php?id=${userId}`, {
-        method: 'GET',
+    fetch('http://localhost/public/api/userApi.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer your_token_here'  // Ajouter le token pour l'authentification
+        },
+        body: JSON.stringify({
+            action: 'getProfile',
+            userId: userId
+        })
     })
     .then(response => response.json())
     .then(data => {
-        console.log('Données récupérées :', data);  // Vérifie les données renvoyées
-
         if (data.success) {
             // Utilisation de setTimeout pour s'assurer que le DOM est prêt
             setTimeout(() => {
@@ -76,3 +79,4 @@ function fetchUserProfile() {
         console.error('Erreur lors de la récupération du profil utilisateur:', error);
     });
 }
+

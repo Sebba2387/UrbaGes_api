@@ -21,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 $userModel = new UserModel($pdo, $logCollection);
 $data = json_decode(file_get_contents("php://input"), true);
 
+// Vérification de l'action
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action'])) {
     if ($data['action'] === 'login') {
         $user = $userModel->login($data['email'], $data['password']);
@@ -30,13 +31,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action'])) {
             echo json_encode(["success" => false, "message" => "Identifiants incorrects"]);
         }
     }
-} elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
-    $user = $userModel->getUserById($_GET['id']);
-    if ($user) {
-        echo json_encode(["success" => true, "user" => $user]);
-    } else {
-        echo json_encode(["success" => false, "message" => "Utilisateur non trouvé"]);
+
+    if ($data['action'] === 'getProfile' && isset($data['userId'])) {
+        // Vérifier si l'utilisateur est autorisé à accéder à ce profil
+        $user = $userModel->getUserById($data['userId']);
+        if ($user) {
+            echo json_encode(["success" => true, "user" => $user]);
+        } else {
+            echo json_encode(["success" => false, "message" => "Utilisateur non trouvé"]);
+        }
     }
+} else {
+    echo json_encode(["success" => false, "message" => "Requête invalide"]);
 }
 exit;
 ?>
