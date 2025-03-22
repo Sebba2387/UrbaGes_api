@@ -21,7 +21,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 $userModel = new UserModel($pdo, $logCollection);
 $data = json_decode(file_get_contents("php://input"), true);
 
-// Vérification de l'action
+
+// Gestion de la déconnexion
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action']) && $data['action'] === 'logout') {
+    session_unset();  // Supprimer toutes les variables de session
+    session_destroy(); // Détruire la session
+    echo json_encode(["success" => true, "message" => "Déconnexion réussie"]);
+    exit;
+}
+
+
+// VGestion de la connexion
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action'])) {
     if ($data['action'] === 'login') {
         $user = $userModel->login($data['email'], $data['password']);

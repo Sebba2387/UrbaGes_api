@@ -81,9 +81,22 @@ function fetchUserProfile() {
 }
 
 
-// Déconnexion de l'utilisateur
+// Déconnexion utilisateur via le backend
 function logoutUser() {
-    localStorage.removeItem('userId'); // Supprimer l'ID de l'utilisateur du localStorage
-    window.location.href = "http://localhost/public/testPages/testLogin.html"; // Rediriger vers la page de connexion
+    fetch('http://localhost/public/api/userApi.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'logout' })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            localStorage.removeItem('userId'); // Supprimer l'ID utilisateur du localStorage
+            window.location.href = "http://localhost/public/testPages/testLogin.html"; // Rediriger vers la page de connexion
+        } else {
+            alert(data.message);
+        }
+    })
+    .catch(error => console.error('Erreur de déconnexion :', error));
 }
 
