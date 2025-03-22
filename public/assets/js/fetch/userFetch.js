@@ -80,3 +80,10 @@ function fetchUserProfile() {
     });
 }
 
+
+// Déconnexion de l'utilisateur
+function logoutUser() {
+    localStorage.removeItem('userId'); // Supprimer l'ID de l'utilisateur du localStorage
+    window.location.href = "http://localhost/public/testPages/testLogin.html"; // Rediriger vers la page de connexion
+}
+
