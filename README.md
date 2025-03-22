@@ -1,13 +1,10 @@
 #### UrbaGes API ####
 │── app/                
 │   ├── config/               
-│   │   ├── database.php    
-│   │   ├── mongo.php
 │   ├── controllers/
-│   │   ├──userController.php
 │   ├── models/
-│   │   ├──userModel.php
 │── public/
+│   ├── api/
 │   ├── assets/
 │   │   ├── components/
 │   │   ├── scss/
@@ -37,7 +34,7 @@
 - Diagramme MCD 	✅
 - Construction de la base de donnée SQL	✅
 - Construction de la base de donnée NoSQL	✅
-- Configuration des : database, mongodb, config (PDO) 	❌
+- Configuration des : database, mongodb, config (PDO) 	✅
 - Model & Controller : connexion, déconnexion, changement de mot de passe, *inscription* (PDO-SQL-NoSQL) 	❌
 - Model & Controller : *filtreUtilisateur*, *updateUtilisater*, *deleteUtilisateur* (PDO-SQL) 	❌
 - Model & Controller : filtreDossier, updateDossier, deleteDossier, *attributeDossier*, *addDossier* (PDO-SQL-NoSQL) 	❌

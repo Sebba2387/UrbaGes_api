@@ -1,8 +1,7 @@
 <?php
-session_start(); // Démarrer la session
-
+session_start();
 require_once __DIR__ . '/../models/userModel.php';
-require_once __DIR__ . '/../config/mongo.php';  // Inclusion de la configuration MongoDB
+require_once __DIR__ . '/../config/mongo.php';
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -18,30 +17,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit;
 }
 
-$pdo = new PDO("mysql:host=localhost;dbname=urbages_db;charset=utf8", "root", "", [
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-]);
-
-$userModel = new UserModel($pdo);
+// Instanciation du modèle
+$userModel = new UserModel($pdo, $logCollection);
 $data = json_decode(file_get_contents("php://input"), true);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action'])) {
     if ($data['action'] === 'login') {
         $user = $userModel->login($data['email'], $data['password']);
         if ($user) {
-            // Connexion réussie, enregistrer l'événement dans MongoDB
-            $result = $logCollection->insertOne([
-                'email' => $data['email'],
-                'action' => 'login',
-                'date' => date("c"),  // Date actuelle au format ISO 8601 (ex : 2025-03-22T14:45:00+00:00)
-                'ip' => $_SERVER['REMOTE_ADDR'],  // Enregistre l'adresse IP
-            ]);
-
-            if ($result->getInsertedCount() > 0) {
-                echo json_encode(["success" => true, "user" => $user, "log" => "Log enregistré"]);
-            } else {
-                echo json_encode(["success" => false, "message" => "Erreur lors de l'enregistrement du log"]);
-            }
+            echo json_encode(["success" => true, "user" => $user]);
         } else {
             echo json_encode(["success" => false, "message" => "Identifiants incorrects"]);
         }
@@ -55,3 +39,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action'])) {
     }
 }
 exit;
+?>

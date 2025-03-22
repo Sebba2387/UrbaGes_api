@@ -1,11 +1,14 @@
 <?php
 require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../config/mongo.php'; // Charger MongoDB
 
 class UserModel {
     private $pdo;
+    private $logCollection;
 
-    public function __construct($pdo) {
+    public function __construct($pdo, $logCollection) {
         $this->pdo = $pdo;
+        $this->logCollection = $logCollection;
     }
 
     public function login($email, $password) {
@@ -14,6 +17,14 @@ class UserModel {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user && password_verify($password, $user['password'])) {
+            // Log l'événement de connexion dans MongoDB
+            $logData = [
+                'email' => $email,
+                'action' => 'login',
+                'date' => date("c"),
+                'ip' => $_SERVER['REMOTE_ADDR']
+            ];
+            $this->logCollection->insertOne($logData);
             return $user;
         }
         return false;
@@ -25,3 +36,4 @@ class UserModel {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }
+?>

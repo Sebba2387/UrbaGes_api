@@ -1,11 +1,17 @@
 // Connexion utilisateur
 function loginUser(email, password) {
-    fetch('http://localhost/app/controllers/UserController.php', {
+    fetch('http://localhost/public/api/userApi.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ action: 'login', email, password })
     })
-    .then(response => response.json())
+    .then(response => {
+        // Vérifier si la réponse est valide (pas d'erreur serveur)
+        if (!response.ok) {
+            throw new Error('Erreur du serveur: ' + response.statusText);
+        }
+        return response.json();  // Tenter de convertir la réponse en JSON
+    })
     .then(data => {
         if (data.success) {
             localStorage.setItem('userId', data.user.id_utilisateur);
@@ -14,8 +20,12 @@ function loginUser(email, password) {
             alert(data.message);
         }
     })
-    .catch(error => console.error('Erreur:', error));
+    .catch(error => {
+        console.error('Erreur:', error);
+        alert("Une erreur s'est produite. Veuillez vérifier la console.");
+    });
 }
+
 
 // Récupération du profil utilisateur
 function fetchUserProfile() {
@@ -27,12 +37,13 @@ function fetchUserProfile() {
     }
 
     // Envoi de la requête fetch pour récupérer les données de l'utilisateur
-    fetch(`http://localhost/app/controllers/UserController.php?id=${userId}`)
+    fetch(`http://localhost/public/api/userApi.php?id=${userId}`, {
+        method: 'GET',
+    })
     .then(response => response.json())
     .then(data => {
         console.log('Données récupérées :', data);  // Vérifie les données renvoyées
 
-        // Vérifie que les données sont valides et remplis les champs du formulaire
         if (data.success) {
             // Utilisation de setTimeout pour s'assurer que le DOM est prêt
             setTimeout(() => {
@@ -44,12 +55,11 @@ function fetchUserProfile() {
                 const pseudoInput = document.getElementById("pseudo");
                 const posteInput = document.getElementById("poste");
 
-                // Vérifie si les éléments du formulaire existent
                 if (prenomInput && nomInput && emailInput && anneeNaissanceInput && genreInput && pseudoInput && posteInput) {
                     prenomInput.value = data.user.prenom;
                     nomInput.value = data.user.nom;
                     emailInput.value = data.user.email;
-                    anneeNaissanceInput.value = data.user.annee_naissance
+                    anneeNaissanceInput.value = data.user.annee_naissance;
                     genreInput.value = data.user.genre;
                     pseudoInput.value = data.user.pseudo;
                     posteInput.value = data.user.poste;
@@ -66,5 +76,3 @@ function fetchUserProfile() {
         console.error('Erreur lors de la récupération du profil utilisateur:', error);
     });
 }
-
-console.log('Le script userFetch.js est chargé');
