@@ -4,6 +4,23 @@ function setActive(element) {
     element.classList.add('active');
 }
 
+// Fonction pour mettre à jour l'état actif des liens de navigation
+function updateActiveLink(path) {
+    // Récupérer tous les liens de navigation
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    // Retirer la classe 'active' de tous les liens
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+    });
+
+    // Ajouter la classe 'active' au lien correspondant à la route
+    const activeLink = [...navLinks].find(link => link.getAttribute('href') === path);
+    if (activeLink) {
+        activeLink.classList.add('active');
+    }
+}
+
 // Fonction pour initialiser le toggle de la sidebar
 function setupSidebarToggle() {
     const sidebar = document.getElementById('sidebar');

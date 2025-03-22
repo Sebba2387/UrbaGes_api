@@ -64,23 +64,6 @@ async function router() {
     updateActiveLink(route.path);
 }
 
-// Fonction pour mettre à jour l'état actif des liens de navigation
-function updateActiveLink(path) {
-    // Récupérer tous les liens de navigation
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    // Retirer la classe 'active' de tous les liens
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-    });
-
-    // Ajouter la classe 'active' au lien correspondant à la route
-    const activeLink = [...navLinks].find(link => link.getAttribute('href') === path);
-    if (activeLink) {
-        activeLink.classList.add('active');
-    }
-}
-
 // Fonction pour gérer les changements d'URL sans rechargement de la page
 function changePage(path) {
     window.history.pushState({}, '', path);  // Modifier l'URL sans recharger la page

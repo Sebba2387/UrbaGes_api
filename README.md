@@ -1,4 +1,23 @@
 #### UrbaGes API ####
+│── app/                
+│   ├── config/               
+│   │   ├── database.php    
+│   │   ├── mongo.php
+│   ├── controllers/
+│   │   ├──userController.php
+│   ├── models/
+│   │   ├──userModel.php
+│── public/
+│   ├── assets/
+│   │   ├── components/
+│   │   ├── scss/
+│   │   ├── js/
+│   │   │   ├── fetch/
+│   │   ├── node_modules/
+│   │   ├── images/
+│   │   ├── pages/
+│   ├── router/
+│   ├── index.html 
 # Installation de l'environnement de développement
 - Bootstrap 	✅
 - Costumisation de Bootstrap (LiveComplier Sass) 	✅

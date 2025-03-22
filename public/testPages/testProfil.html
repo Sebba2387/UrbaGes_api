@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Profil</title>
+</head>
+<body onload="fetchUserProfile()">
+    <h3>Profil Utilisateur</h3>
+    <form>
+        <label>Prénom : </label>
+        <input type="text" id="prenom" disabled>
+        <label>Nom : </label>
+        <input type="text" id="nom" disabled>
+        <label>Email : </label>
+        <input type="email" id="email" disabled>
+        <label>Date de naissance : </label>
+        <input type="text" id="anneeNaissance" disabled><br><br>
+        <label>Genre : </label>
+        <input type="text" id="genre" disabled>
+        <label>Pseudo : </label>
+        <input type="text" id="pseudo" disabled>
+        <label>Poste : </label>
+        <input type="text" id="poste" disabled>
+    </form>
+    <script src="/public/assets/js/fetch/userFetch.js"></script>
+</body>
+</html>
