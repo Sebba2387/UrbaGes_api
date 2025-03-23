@@ -36,5 +36,11 @@ class UserModel {
         $stmt->execute(['id' => $id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function getAllUsers() {
+        $stmt = $this->pdo->prepare("SELECT id_utilisateur, nom, prenom, email, annee_naissance, pseudo, genre, poste FROM utilisateurs");
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 ?>

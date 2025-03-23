@@ -3,6 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Profil</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body onload="fetchUserProfile()">
     <h3>Profil Utilisateur</h3>
@@ -23,6 +37,23 @@
         <input type="text" id="poste" disabled><br><br>
         <button type="button" onclick="logoutUser()">Déconnexion</button>
     </form>
+
+    <h2>Liste des utilisateurs</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>
+            <th>Année de Naissance</th>
+            <th>Pseudo</th>
+            <th>Genre</th>
+            <th>Poste</th>
+        </tr>
+    </thead>
+    <tbody id="usersTableBody">
+
     <script src="/public/assets/js/fetch/userFetch.js"></script>
 </body>
 </html>

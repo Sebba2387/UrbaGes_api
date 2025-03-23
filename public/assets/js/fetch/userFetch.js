@@ -100,3 +100,50 @@ function logoutUser() {
     .catch(error => console.error('Erreur de déconnexion :', error));
 }
 
+function fetchAllUsers() {
+    fetch('http://localhost/public/api/userApi.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer your_token_here'
+        },
+        body: JSON.stringify({
+            action: 'getAllUsers'
+        })
+    })
+    .then(response => response.text()) // <-- Change response.json() en response.text()
+    .then(text => {
+        return JSON.parse(text);
+    })
+    .then(data => {
+        if (data.success) {
+            displayUsersTable(data.users);
+        } else {
+            alert("Erreur lors de la récupération des utilisateurs");
+        }
+    })
+    .catch(error => console.error('Erreur:', error));
+}
+
+// Affichage des utilisateurs dans le tableau HTML
+function displayUsersTable(users) {
+    const tableBody = document.getElementById("usersTableBody");
+    tableBody.innerHTML = ""; // Vider le tableau avant de le remplir
+
+    users.forEach(user => {
+        let row = `<tr>
+            <td>${user.id_utilisateur}</td>
+            <td>${user.nom}</td>
+            <td>${user.prenom}</td>
+            <td>${user.email}</td>
+            <td>${user.annee_naissance}</td>
+            <td>${user.pseudo}</td>
+            <td>${user.genre}</td>
+            <td>${user.poste}</td>
+        </tr>`;
+        tableBody.innerHTML += row;
+    });
+}
+
+// Charger les utilisateurs au chargement de la page
+document.addEventListener("DOMContentLoaded", fetchAllUsers);

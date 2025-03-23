@@ -1,0 +1,16 @@
+2025-03-23 12:49:11 - Requête reçue : {"action":"getAllUsers"}
+2025-03-23 12:49:11 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-23 12:49:42 - Requête reçue : {
+    "action": "getAllUsers"
+}
+2025-03-23 12:53:13 - Requête reçue : {"action":"getAllUsers"}
+2025-03-23 12:53:13 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-23 12:59:17 - Requête reçue : {"action":"getAllUsers"}
+2025-03-23 12:59:17 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-23 12:59:47 - Requête reçue : {"action":"getAllUsers"}
+2025-03-23 12:59:47 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-23 13:00:27 - Requête reçue : {"action":"logout"}
+2025-03-23 13:00:28 - Requête reçue : {"action":"getAllUsers"}
+2025-03-23 13:00:33 - Requête reçue : {"action":"login","email":"hmfouad@yahoo.fr","password":"123"}
+2025-03-23 13:00:35 - Requête reçue : {"action":"getAllUsers"}
+2025-03-23 13:00:35 - Requête reçue : {"action":"getProfile","userId":"3"}

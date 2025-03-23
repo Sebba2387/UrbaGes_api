@@ -1,0 +1,7 @@
+POST http://localhost/public/api/userApi.php
+Content-Type: application/json
+Authorization: Bearer your_token_here
+
+{
+    "action": "getAllUsers"
+}
