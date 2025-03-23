@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+} // Assurez-vous que la session est démarrée
 require_once __DIR__ . '/../models/userModel.php';
 require_once __DIR__ . '/../config/mongo.php';
 
@@ -76,6 +78,23 @@ switch ($action) {
     // 📋 Récupération de tous les utilisateurs via userModel.php
     case 'getAllUsers':
         try {
+            // Vérification si l'utilisateur est connecté et a un rôle admin ou moderateur
+            if (!isset($_SESSION['user_id'])) {
+                echo json_encode(["success" => false, "message" => "Utilisateur non authentifié"]);
+                exit;
+            }
+
+            // Récupération des informations de l'utilisateur connecté
+            $stmt = $pdo->prepare("SELECT nom_role FROM utilisateurs INNER JOIN roles ON utilisateurs.id_role = roles.id_role WHERE utilisateurs.id_utilisateur = :id_utilisateur");
+            $stmt->execute(['id_utilisateur' => $_SESSION['user_id']]);
+            $userRole = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if (!$userRole || !in_array($userRole['nom_role'], ['admin', 'moderateur'])) {
+                echo json_encode(["success" => false, "message" => "Accès refusé : rôle insuffisant"]);
+                exit;
+            }
+
+            // Si l'utilisateur est un admin ou un modérateur, on continue avec la récupération des utilisateurs
             $users = $userModel->getAllUsers();
 
             if (!$users) {
@@ -83,7 +102,7 @@ switch ($action) {
                 exit;
             }
 
-            echo json_encode(["success" => true, "users" => $users]);
+            echo json_encode(["success" => true, "users" => $users, "userRole" => $userRole['nom_role']]);
         } catch (Exception $e) {
             error_log("Erreur SQL: " . $e->getMessage());
             file_put_contents(DEBUG_LOG, date("Y-m-d H:i:s") . " - Erreur SQL: " . $e->getMessage() . "\n", FILE_APPEND);

@@ -128,6 +128,7 @@ function displayUsersTable(users) {
     });
 }
 
+// Fonction pour récupérer et afficher les utilisateurs
 function fetchAllUsers() {
     const tableBody = document.getElementById("usersTableBody");
 
@@ -136,25 +137,33 @@ function fetchAllUsers() {
         console.log('Bienvenue dans UrbaGes');
         return;
     }
+
     fetch('http://localhost/public/api/userApi.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer your_token_here'
         },
         body: JSON.stringify({
             action: 'getAllUsers'
         })
     })
-    .then(response => response.text()) // <-- Change response.json() en response.text()
-    .then(text => {
-        return JSON.parse(text);
-    })
+    .then(response => response.json())  // On attend une réponse JSON
     .then(data => {
         if (data.success) {
-            displayUsersTable(data.users);
+            if (data.userRole === 'admin' || data.userRole === 'moderateur') {
+                displayUsersTable(data.users);  // Affichage des utilisateurs
+                tableBody.style.display = 'table-row-group';  // Rendre visible la table
+            } else {
+                // Si l'utilisateur n'a pas le bon rôle, masquer la table et éventuellement afficher un message
+                tableBody.style.display = 'none';  // Cacher la table des utilisateurs
+                // Optionnel : afficher un message d'erreur si tu veux
+                const message = document.createElement('p');
+                message.textContent = 'Vous n\'avez pas les permissions nécessaires pour voir cette page.';
+                document.body.appendChild(message);
+            }
         } else {
-            alert("Erreur lors de la récupération des utilisateurs");
+            alert(data.message);  // Afficher le message d'erreur
+            tableBody.style.display = 'none';  // Cacher la table en cas d'erreur
         }
     })
     .catch(error => console.error('Erreur:', error));
