@@ -34,7 +34,9 @@
         <label>Pseudo : </label>
         <input type="text" id="pseudo" disabled>
         <label>Poste : </label>
-        <input type="text" id="poste" disabled><br><br>
+        <input type="text" id="poste" disabled>
+        <label>Rôle : </label>
+        <input type="text" id="nom_role" disabled><br><br>
         <button type="button" onclick="logoutUser()">Déconnexion</button>
     </form>
 
@@ -50,10 +52,13 @@
             <th>Pseudo</th>
             <th>Genre</th>
             <th>Poste</th>
+            <th>Rôle</th>
         </tr>
     </thead>
     <tbody id="usersTableBody">
-
-    <script src="/public/assets/js/fetch/userFetch.js"></script>
+        <!-- Les utilisateurs seront insérés ici -->
+    </tbody>
+</table>
+    <script src="/public/assets/js/fetch/userFetch.js" defer></script>
 </body>
 </html>

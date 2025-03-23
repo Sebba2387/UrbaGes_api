@@ -57,8 +57,10 @@ function fetchUserProfile() {
                 const genreInput = document.getElementById("genre");
                 const pseudoInput = document.getElementById("pseudo");
                 const posteInput = document.getElementById("poste");
+                const roleInput = document.getElementById("nom_role");
 
-                if (prenomInput && nomInput && emailInput && anneeNaissanceInput && genreInput && pseudoInput && posteInput) {
+                if (prenomInput && nomInput && emailInput && anneeNaissanceInput 
+                    && genreInput && pseudoInput && posteInput && roleInput) {
                     prenomInput.value = data.user.prenom;
                     nomInput.value = data.user.nom;
                     emailInput.value = data.user.email;
@@ -66,6 +68,7 @@ function fetchUserProfile() {
                     genreInput.value = data.user.genre;
                     pseudoInput.value = data.user.pseudo;
                     posteInput.value = data.user.poste;
+                    roleInput.value = data.user.nom_role;
                     console.log('Formulaire mis à jour');
                 } else {
                     console.error('Un ou plusieurs champs du formulaire sont manquants');
@@ -99,8 +102,40 @@ function logoutUser() {
     })
     .catch(error => console.error('Erreur de déconnexion :', error));
 }
+// Affichage des utilisateurs dans le tableau HTML
+function displayUsersTable(users) {
+    const tableBody = document.getElementById("usersTableBody");
+    // Vérifie si l'élément existe avant d'essayer de manipuler son contenu
+    if (!tableBody) {
+        console.error('L\'élément avec l\'ID "usersTableBody" est introuvable.');
+        return; // Sort de la fonction si l'élément n'existe pas
+    }
+    tableBody.innerHTML = ""; // Vider le tableau avant de le remplir
+
+    users.forEach(user => {
+        let row = `<tr>
+            <td>${user.id_utilisateur}</td>
+            <td>${user.nom}</td>
+            <td>${user.prenom}</td>
+            <td>${user.email}</td>
+            <td>${user.annee_naissance}</td>
+            <td>${user.pseudo}</td>
+            <td>${user.genre}</td>
+            <td>${user.poste}</td>
+            <td>${user.nom_role}</td>
+        </tr>`;
+        tableBody.innerHTML += row;
+    });
+}
 
 function fetchAllUsers() {
+    const tableBody = document.getElementById("usersTableBody");
+
+    // Vérifie si l'élément est bien présent dans le DOM avant de faire l'appel API
+    if (!tableBody) {
+        console.log('Bienvenue dans UrbaGes');
+        return;
+    }
     fetch('http://localhost/public/api/userApi.php', {
         method: 'POST',
         headers: {
@@ -125,25 +160,8 @@ function fetchAllUsers() {
     .catch(error => console.error('Erreur:', error));
 }
 
-// Affichage des utilisateurs dans le tableau HTML
-function displayUsersTable(users) {
-    const tableBody = document.getElementById("usersTableBody");
-    tableBody.innerHTML = ""; // Vider le tableau avant de le remplir
-
-    users.forEach(user => {
-        let row = `<tr>
-            <td>${user.id_utilisateur}</td>
-            <td>${user.nom}</td>
-            <td>${user.prenom}</td>
-            <td>${user.email}</td>
-            <td>${user.annee_naissance}</td>
-            <td>${user.pseudo}</td>
-            <td>${user.genre}</td>
-            <td>${user.poste}</td>
-        </tr>`;
-        tableBody.innerHTML += row;
-    });
-}
-
-// Charger les utilisateurs au chargement de la page
-document.addEventListener("DOMContentLoaded", fetchAllUsers);
+// Attendre que le DOM soit entièrement chargé avant d'exécuter la logique
+document.addEventListener("DOMContentLoaded", function() {
+    // Appelle la fonction pour récupérer et afficher les utilisateurs après que la page soit prête
+    fetchAllUsers();
+});

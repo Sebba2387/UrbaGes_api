@@ -12,7 +12,12 @@ class UserModel {
     }
 
     public function login($email, $password) {
-        $stmt = $this->pdo->prepare("SELECT * FROM utilisateurs WHERE email = :email");
+        $stmt = $this->pdo->prepare("
+            SELECT u.*, r.nom_role 
+            FROM utilisateurs u
+            LEFT JOIN roles r ON u.id_role = r.id_role
+            WHERE u.email = :email
+        ");
         $stmt->execute(['email' => $email]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -32,13 +37,24 @@ class UserModel {
 
     public function getUserById($id) {
         // Ne jamais exposer de données sensibles comme les mots de passe
-        $stmt = $this->pdo->prepare("SELECT nom, prenom, email, annee_naissance, pseudo, genre, poste FROM utilisateurs WHERE id_utilisateur = :id");
+        $stmt = $this->pdo->prepare("
+            SELECT u.id_utilisateur, u.nom, u.prenom, u.email, u.annee_naissance, 
+                   u.pseudo, u.genre, u.poste, r.nom_role 
+            FROM utilisateurs u
+            LEFT JOIN roles r ON u.id_role = r.id_role
+            WHERE u.id_utilisateur = :id
+        ");
         $stmt->execute(['id' => $id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     public function getAllUsers() {
-        $stmt = $this->pdo->prepare("SELECT id_utilisateur, nom, prenom, email, annee_naissance, pseudo, genre, poste FROM utilisateurs");
+        $stmt = $this->pdo->prepare("
+            SELECT u.id_utilisateur, u.nom, u.prenom, u.email, u.annee_naissance, 
+                   u.pseudo, u.genre, u.poste, r.nom_role 
+            FROM utilisateurs u
+            LEFT JOIN roles r ON u.id_role = r.id_role
+        ");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
