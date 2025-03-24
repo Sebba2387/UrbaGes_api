@@ -129,11 +129,11 @@ function displayUsersTable(users) {
             <td>${user.poste}</td>
             <td>${user.nom_role}</td>
             <td><button onclick="redirectToEdit(${user.id_utilisateur})">Modifier</button></td>
+            <td><button onclick="deleteUser(${user.id_utilisateur})">Supprimer</button></td>
         </tr>`;
         tableBody.innerHTML += row;
     });
 }
-
 
 // Fonction pour récupérer et afficher les utilisateurs
 function fetchAllUsers() {
@@ -278,6 +278,77 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
+
+// Fonction pour supprimer un utilisateur
+function deleteUser(userId) {
+    const confirmation = confirm("Êtes-vous sûr de vouloir supprimer cet utilisateur ?");
+    if (confirmation) {
+        const userData = {
+            action: 'deleteUser',
+            id_utilisateur: userId
+        };
+
+        fetch('http://localhost/public/api/userApi.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(userData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message); // Affiche le message de l'API
+            if (data.success) {
+                // Si la suppression est réussie, redirige vers la page de profil
+                window.location.href = "http://localhost/public/testPages/testProfil.html";
+            }
+        })
+        .catch(error => console.error('Erreur lors de la suppression:', error));
+    }
+}
+
+// Fonction pour rechercher des utilisateurs
+function searchUsers() {
+    const query = document.getElementById("searchQuery").value.trim();
+    if (query === "") {
+        alert("Veuillez entrer un terme de recherche.");
+        return;
+    }
+
+    fetch('http://localhost/public/api/userApi.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'searchUsers', query: query })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            displaySearchResults(data.users);
+        } else {
+            alert(data.message);
+        }
+    })
+    .catch(error => console.error('Erreur lors de la recherche:', error));
+}
+
+// Fonction pour afficher les résultats dans le tableau
+function displaySearchResults(users) {
+    const resultsTable = document.getElementById("searchResults");
+    resultsTable.innerHTML = ""; // Vide le tableau avant d'afficher les nouveaux résultats
+
+    users.forEach(user => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${user.nom}</td>
+            <td>${user.prenom}</td>
+            <td>${user.email}</td>
+            <td>${user.annee_naissance}</td>
+            <td>${user.pseudo}</td>
+            <td>${user.genre}</td>
+            <td>${user.poste}</td>
+        `;
+        resultsTable.appendChild(row);
+    });
+}
+
     
 
 

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Recherche Utilisateurs</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2>Recherche d'Utilisateurs</h2>
+    
+    <input type="text" id="searchQuery" placeholder="Rechercher par nom, prénom ou poste">
+    <button onclick="searchUsers()">Rechercher</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Email</th>
+                <th>Année de Naissance</th>
+                <th>Pseudo</th>
+                <th>Genre</th>
+                <th>Poste</th>
+            </tr>
+        </thead>
+        <tbody id="searchResults">
+            <!-- Résultats affichés ici -->
+        </tbody>
+    </table>
+    <button type="button" onclick="location.href='/public/testPages/testProfil.html'">Retour</button>
+    
+    <script src="/public/assets/js/fetch/userFetch.js" defer></script>
+</body>
+</html>

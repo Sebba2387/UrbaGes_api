@@ -63,15 +63,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action'])) {
     if ($data['action'] === 'registerUser') {
         require_once __DIR__ . '/../../app/controllers/userController.php';
+    } elseif ($data['action'] === 'getUser') {
+        require_once __DIR__ . '/../../app/controllers/userController.php';
+    } elseif ($data['action'] === 'updateUser') {
+        require_once __DIR__ . '/../../app/controllers/userController.php';
+    } elseif ($data['action'] === 'deleteUser') {
+        require_once __DIR__ . '/../../app/controllers/userController.php';
     }
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action'])) {
-    if ($data['action'] === 'getUser') {
-        require_once __DIR__ . '/../../app/controllers/userController.php';
-    } elseif ($data['action'] === 'updateUser') {
+    if ($data['action'] === 'searchUsers') {
         require_once __DIR__ . '/../../app/controllers/userController.php';
     }
 }
+
 
 ?>

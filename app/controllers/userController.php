@@ -226,7 +226,71 @@ switch ($action) {
             echo json_encode(["success" => false, "message" => "Erreur lors de la mise à jour"]);
         }
         exit;
-            
+
+    // 🗑️ Supprimer un utilisateur
+    case 'deleteUser':
+        // Vérifie si l'utilisateur est authentifié et a un rôle autorisé
+        if (!isset($_SESSION['user_id'])) {
+            echo json_encode(["success" => false, "message" => "Utilisateur non authentifié"]);
+            exit;
+        }
+        // Vérifie le rôle de l'utilisateur
+        $stmt = $pdo->prepare("
+            SELECT nom_role 
+            FROM utilisateurs 
+            INNER JOIN roles ON utilisateurs.id_role = roles.id_role 
+            WHERE utilisateurs.id_utilisateur = :id_utilisateur
+        ");
+        $stmt->execute(['id_utilisateur' => $_SESSION['user_id']]);
+        $userRole = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        if (!$userRole || !in_array($userRole['nom_role'], ['admin', 'moderateur'])) {
+            echo json_encode(["success" => false, "message" => "Accès refusé"]);
+            exit;
+        }
+    
+        // Vérifie que l'ID utilisateur est passé et est valide
+        if (!isset($data['id_utilisateur'])) {
+            echo json_encode(["success" => false, "message" => "ID utilisateur manquant"]);
+            exit;
+        }
+    
+        // Supprime l'utilisateur
+        $stmt = $pdo->prepare("DELETE FROM utilisateurs WHERE id_utilisateur = :id_utilisateur");
+        $stmt->bindParam(':id_utilisateur', $data['id_utilisateur'], PDO::PARAM_INT);
+        $stmt->execute();
+    
+        // Vérifie si la suppression a été effectuée
+        if ($stmt->rowCount() > 0) {
+            echo json_encode(["success" => true, "message" => "Utilisateur supprimé avec succès"]);
+        } else {
+            echo json_encode(["success" => false, "message" => "Erreur lors de la suppression"]);
+        }
+        exit;
+
+    // 🔍 Rechercher un utilisateur
+    case 'searchUsers':
+        // Vérifie que le paramètre de recherche est fourni
+        if (!isset($data['query']) || empty($data['query'])) {
+            echo json_encode(["success" => false, "message" => "Veuillez entrer un terme de recherche"]);
+            exit;
+        }
+    
+        $query = '%' . $data['query'] . '%';
+    
+        // Recherche des utilisateurs correspondant au critère
+        $stmt = $pdo->prepare("
+            SELECT nom, prenom, email, annee_naissance, pseudo, genre, poste
+            FROM utilisateurs
+            WHERE nom LIKE :query OR prenom LIKE :query OR poste LIKE :query
+        ");
+        $stmt->bindParam(':query', $query, PDO::PARAM_STR);
+        $stmt->execute();
+        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+        echo json_encode(["success" => true, "users" => $users]);
+        exit;
+    
     // ❌ Action inconnue
     default:
         echo json_encode(["success" => false, "message" => "Action non valide"]);
