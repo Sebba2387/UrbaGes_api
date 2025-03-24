@@ -58,5 +58,44 @@ class UserModel {
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function registerUser($nom, $prenom, $email, $password, $annee_naissance, $pseudo, $genre, $poste) {
+        try {
+            $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+    
+            $stmt = $this->pdo->prepare("
+                INSERT INTO utilisateurs (nom, prenom, email, password, annee_naissance, pseudo, genre, poste) 
+                VALUES (:nom, :prenom, :email, :password, :annee_naissance, :pseudo, :genre, :poste)");
+    
+            $success = $stmt->execute([
+                'nom' => $nom,
+                'prenom' => $prenom,
+                'email' => $email,
+                'password' => $hashedPassword,
+                'annee_naissance' => $annee_naissance,
+                'pseudo' => $pseudo,
+                'genre' => $genre,
+                'poste' => $poste
+            ]);
+    
+            if ($success) {
+                // Log l'action dans MongoDB
+                $logData = [
+                    'action' => 'Nouvel utilisateur enregistré',
+                    'email' => $email,
+                    'pseudo' => $pseudo,
+                    'poste' => $poste,
+                    'date' => date("c"),
+                ];
+                $this->logCollection->insertOne($logData);
+    
+                return ['success' => true, 'message' => 'Utilisateur enregistré avec succès.'];
+            } else {
+                return ['success' => false, 'message' => 'Erreur lors de l’enregistrement.'];
+            }
+        } catch (PDOException $e) {
+            return ['success' => false, 'message' => 'Erreur SQL : ' . $e->getMessage()];
+        }
+    }    
 }
 ?>

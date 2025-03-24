@@ -1,3 +1,5 @@
+
+
 // Connexion utilisateur
 function loginUser(email, password) {
     fetch('http://localhost/public/api/userApi.php', {
@@ -102,6 +104,9 @@ function logoutUser() {
     })
     .catch(error => console.error('Erreur de déconnexion :', error));
 }
+
+
+
 // Affichage des utilisateurs dans le tableau HTML
 function displayUsersTable(users) {
     const tableBody = document.getElementById("usersTableBody");
@@ -127,6 +132,7 @@ function displayUsersTable(users) {
         tableBody.innerHTML += row;
     });
 }
+
 
 // Fonction pour récupérer et afficher les utilisateurs
 function fetchAllUsers() {
@@ -170,7 +176,50 @@ function fetchAllUsers() {
 }
 
 // Attendre que le DOM soit entièrement chargé avant d'exécuter la logique
+
 document.addEventListener("DOMContentLoaded", function() {
-    // Appelle la fonction pour récupérer et afficher les utilisateurs après que la page soit prête
     fetchAllUsers();
+    const addUserButton = document.getElementById("addUserButton");
+    if (addUserButton) {
+        addUserButton.addEventListener("click", function() {
+            window.location.href = "http://localhost/public/testPages/testRegister.html";
+        });
+    }
+
+    const registerForm = document.getElementById("registerForm");
+    if (registerForm) {
+        registerForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            fetch('http://localhost/public/api/userApi.php', {
+                method: 'POST',
+                credentials: 'include', // Permet d'envoyer les cookies de session
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    action: 'registerUser',
+                    nom: document.getElementById("nom").value,
+                    prenom: document.getElementById("prenom").value,
+                    email: document.getElementById("email").value,
+                    password: document.getElementById("password").value,
+                    annee_naissance: document.getElementById("annee_naissance").value,
+                    pseudo: document.getElementById("pseudo").value,
+                    genre: document.getElementById("genre").value,
+                    poste: document.getElementById("poste").value
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                if (data.success) window.location.href = "http://localhost/public/testPages/testProfil.html";
+            })
+            .catch(error => console.error('Erreur:', error));
+        });
+    }
 });
+    
+
+
+
+
+
+
