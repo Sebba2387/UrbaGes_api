@@ -128,6 +128,7 @@ function displayUsersTable(users) {
             <td>${user.genre}</td>
             <td>${user.poste}</td>
             <td>${user.nom_role}</td>
+            <td><button onclick="redirectToEdit(${user.id_utilisateur})">Modifier</button></td>
         </tr>`;
         tableBody.innerHTML += row;
     });
@@ -175,8 +176,7 @@ function fetchAllUsers() {
     .catch(error => console.error('Erreur:', error));
 }
 
-// Attendre que le DOM soit entièrement chargé avant d'exécuter la logique
-
+// Inscription d'un nouveau utilisateur
 document.addEventListener("DOMContentLoaded", function() {
     fetchAllUsers();
     const addUserButton = document.getElementById("addUserButton");
@@ -185,7 +185,6 @@ document.addEventListener("DOMContentLoaded", function() {
             window.location.href = "http://localhost/public/testPages/testRegister.html";
         });
     }
-
     const registerForm = document.getElementById("registerForm");
     if (registerForm) {
         registerForm.addEventListener("submit", function(event) {
@@ -213,6 +212,69 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (data.success) window.location.href = "http://localhost/public/testPages/testProfil.html";
             })
             .catch(error => console.error('Erreur:', error));
+        });
+    }
+});
+
+// Redirection vers l'édition du profil
+function redirectToEdit(userId) {
+    window.location.href = `http://localhost/public/testPages/testEditProfil.html?id=${userId}`;
+}
+// Mise à jour du profil utilisateur
+function updateUserProfile() {
+    const userId = document.getElementById("user_id").value;
+    const userData = {
+        action: 'updateUser',
+        id_utilisateur: userId,
+        nom: document.getElementById("nom").value,
+        prenom: document.getElementById("prenom").value,
+        email: document.getElementById("email").value,
+        annee_naissance: document.getElementById("annee_naissance").value,
+        pseudo: document.getElementById("pseudo").value,
+        genre: document.getElementById("genre").value,
+        poste: document.getElementById("poste").value
+    };
+
+    fetch('http://localhost/public/api/userApi.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(userData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message);
+        if (data.success) {
+            window.location.href = "http://localhost/public/testPages/testProfil.html";
+        }
+    })
+    .catch(error => console.error('Erreur lors de la mise à jour:', error));
+}
+
+// Gestion du formulaire d'édition
+document.addEventListener("DOMContentLoaded", function() {
+    const params = new URLSearchParams(window.location.search);
+    const userId = params.get("id");
+    if (userId) {
+        fetch('http://localhost/public/api/userApi.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action: 'getUser', id_utilisateur: userId })
+        })
+        .then(response => response.json())
+        .then(user => {
+            document.getElementById("user_id").value = user.id_utilisateur;
+            document.getElementById("nom").value = user.nom;
+            document.getElementById("prenom").value = user.prenom;
+            document.getElementById("email").value = user.email;
+            document.getElementById("annee_naissance").value = user.annee_naissance;
+            document.getElementById("pseudo").value = user.pseudo;
+            document.getElementById("genre").value = user.genre;
+            document.getElementById("poste").value = user.poste;
+        });
+
+        document.getElementById("editForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            updateUserProfile();
         });
     }
 });

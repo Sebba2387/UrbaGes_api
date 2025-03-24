@@ -96,6 +96,32 @@ class UserModel {
         } catch (PDOException $e) {
             return ['success' => false, 'message' => 'Erreur SQL : ' . $e->getMessage()];
         }
-    }    
+    }
+
+    public function updateUser($id_utilisateur, $nom, $prenom, $email, $annee_naissance, $pseudo, $genre, $poste) {
+        try {
+            $stmt = $this->pdo->prepare("
+                UPDATE utilisateurs SET 
+                nom = :nom, prenom = :prenom, email = :email, annee_naissance = :annee_naissance, 
+                pseudo = :pseudo, genre = :genre, poste = :poste 
+                WHERE id_utilisateur = :id_utilisateur");
+    
+            $success = $stmt->execute([
+                'id_utilisateur' => $id_utilisateur,
+                'nom' => $nom,
+                'prenom' => $prenom,
+                'email' => $email,
+                'annee_naissance' => $annee_naissance,
+                'pseudo' => $pseudo,
+                'genre' => $genre,
+                'poste' => $poste
+            ]);
+    
+            return $success;
+        } catch (PDOException $e) {
+            return ['success' => false, 'message' => 'Erreur SQL : ' . $e->getMessage()];
+        }
+    }
+        
 }
 ?>

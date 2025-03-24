@@ -125,20 +125,18 @@ switch ($action) {
         echo json_encode(["success" => true, "message" => "Déconnexion réussie"]);
         exit;
     
-
+    // 📋 inscription d'un utilisateur via userModel.php
     case 'registerUser':
         // Vérifie si l'utilisateur est authentifié
         if (!isset($_SESSION['user_id'])) {
             echo json_encode(["success" => false, "message" => "Utilisateur non authentifié"]);
             exit;
         }
-    
         // Vérifie la présence de toutes les données requises
         if (!isset($data['nom'], $data['prenom'], $data['email'], $data['password'], $data['annee_naissance'], $data['pseudo'], $data['genre'], $data['poste'])) {
             echo json_encode(["success" => false, "message" => "Données incomplètes"]);
             exit;
         }
-    
         // Appelle la fonction du modèle pour enregistrer l'utilisateur
         $result = $userModel->registerUser(
             $data['nom'], 
@@ -150,8 +148,83 @@ switch ($action) {
             $data['genre'], 
             $data['poste']
         );
-    
         echo json_encode($result);
+        exit;
+
+    // 👤 Récupération des données d'un utilisateur
+    case 'getUser':
+        // Vérifie si l'utilisateur est authentifié et a un rôle autorisé
+        if (!isset($_SESSION['user_id'])) {
+            echo json_encode(["success" => false, "message" => "Utilisateur non authentifié"]);
+            exit;
+        }
+        // Vérifie le rôle de l'utilisateur
+        $stmt = $pdo->prepare("
+            SELECT nom_role 
+            FROM utilisateurs 
+            INNER JOIN roles ON utilisateurs.id_role = roles.id_role 
+            WHERE utilisateurs.id_utilisateur = :id_utilisateur
+        ");
+        $stmt->execute(['id_utilisateur' => $_SESSION['user_id']]);
+        $userRole = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        if (!$userRole || !in_array($userRole['nom_role'], ['admin', 'moderateur'])) {
+            echo json_encode(["success" => false, "message" => "Accès refusé"]);
+            exit;
+        }
+        // Vérifie si l'ID de l'utilisateur est fourni pour récupérer les informations
+        if (!isset($data['id_utilisateur'])) {
+            echo json_encode(["success" => false, "message" => "ID utilisateur manquant"]);
+            exit;
+        }
+        // Récupère les données de l'utilisateur
+        $user = $userModel->getUserById($data['id_utilisateur']);
+        echo json_encode($user);
+        exit;
+
+    // 📋 Mise à jour des données d'un utilisateur via userModel.php
+    case 'updateUser':
+        // Vérifie si l'utilisateur est authentifié et a un rôle autorisé
+        if (!isset($_SESSION['user_id'])) {
+            echo json_encode(["success" => false, "message" => "Utilisateur non authentifié"]);
+            exit;
+        }
+        // Vérifie le rôle de l'utilisateur
+        $stmt = $pdo->prepare("
+            SELECT nom_role 
+            FROM utilisateurs 
+            INNER JOIN roles ON utilisateurs.id_role = roles.id_role 
+            WHERE utilisateurs.id_utilisateur = :id_utilisateur
+        ");
+        $stmt->execute(['id_utilisateur' => $_SESSION['user_id']]);
+        $userRole = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        if (!$userRole || !in_array($userRole['nom_role'], ['admin', 'moderateur'])) {
+            echo json_encode(["success" => false, "message" => "Accès refusé"]);
+            exit;
+        }
+        // Vérifie la présence de toutes les données requises pour la mise à jour
+        if (!isset($data['id_utilisateur'], $data['nom'], $data['prenom'], $data['email'], $data['annee_naissance'], $data['pseudo'], $data['genre'], $data['poste'])) {
+            echo json_encode(["success" => false, "message" => "Données incomplètes"]);
+            exit;
+        }
+        // Met à jour les informations de l'utilisateur
+        $result = $userModel->updateUser(
+            $data['id_utilisateur'],
+            $data['nom'],
+            $data['prenom'],
+            $data['email'],
+            $data['annee_naissance'],
+            $data['pseudo'],
+            $data['genre'],
+            $data['poste']
+        );
+        // Envoie la réponse avec succès ou erreur
+        if ($result) {
+            echo json_encode(["success" => true, "message" => "Mise à jour réussie !"]);
+        } else {
+            echo json_encode(["success" => false, "message" => "Erreur lors de la mise à jour"]);
+        }
         exit;
             
     // ❌ Action inconnue

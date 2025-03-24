@@ -9,6 +9,8 @@ require_once __DIR__ . '/../../app/controllers/userController.php';
 error_reporting(E_ALL);
 ini_set('display_errors', 1); // Affiche les erreurs directement
 
+header('Content-Type: application/json');
+
 // Vérification de l'authentification (si l'utilisateur est connecté)
 if (!isset($_SESSION['user_id'])) {
     echo json_encode(["success" => false, "message" => "Utilisateur non authentifié"]);
@@ -60,6 +62,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action'])) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action'])) {
     if ($data['action'] === 'registerUser') {
+        require_once __DIR__ . '/../../app/controllers/userController.php';
+    }
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action'])) {
+    if ($data['action'] === 'getUser') {
+        require_once __DIR__ . '/../../app/controllers/userController.php';
+    } elseif ($data['action'] === 'updateUser') {
         require_once __DIR__ . '/../../app/controllers/userController.php';
     }
 }

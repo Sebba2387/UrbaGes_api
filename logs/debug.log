@@ -393,3 +393,91 @@
 2025-03-24 15:57:50 - Requête reçue : {"action":"registerUser","nom":"CALMES","prenom":"Annabelle","email":"calmes.annabelle@free.fr","password":"123","annee_naissance":"1974","pseudo":"Anny","genre":"femme","poste":"Instructrice assainissement"}
 2025-03-24 15:57:54 - Requête reçue : {"action":"getAllUsers"}
 2025-03-24 15:57:55 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-24 16:01:30 - Requête reçue : {"action":"logout"}
+2025-03-24 16:27:47 - Requête reçue : {"action":"login","email":"bouguerra.abbes@outlook.fr","password":"123"}
+2025-03-24 16:27:49 - Requête reçue : {"action":"getAllUsers"}
+2025-03-24 16:27:49 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-24 16:30:38 - Requête reçue : {"action":"logout"}
+2025-03-24 17:00:16 - Requête reçue : {"action":"login","email":"bouguerra.abbes@outlook.fr","password":"123"}
+2025-03-24 17:00:18 - Requête reçue : {"action":"getAllUsers"}
+2025-03-24 17:00:18 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-24 17:00:26 - Requête reçue : {"action":"logout"}
+2025-03-24 17:12:44 - Requête reçue : {"action":"login","email":"sunylie@gmail.com","password":"123"}
+2025-03-24 17:12:46 - Requête reçue : {"action":"getAllUsers"}
+2025-03-24 17:12:46 - Requête reçue : {"action":"getProfile","userId":"2"}
+2025-03-24 17:12:50 - Requête reçue : {"action":"logout"}
+2025-03-24 17:43:33 - Requête reçue : {"action":"login","email":"bouguerra.abbes@outlook.fr","password":"123"}
+2025-03-24 17:43:35 - Requête reçue : {"action":"getAllUsers"}
+2025-03-24 17:43:35 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-24 17:43:53 - Requête reçue : {"action":"getUser","id_utilisateur":"6"}
+2025-03-24 17:44:33 - Requête reçue : {"action":"getAllUsers"}
+2025-03-24 17:44:33 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-24 17:44:40 - Requête reçue : {"action":"getUser","id_utilisateur":"6"}
+2025-03-24 17:44:52 - Requête reçue : {"action":"updateUser","id_utilisateur":"6","nom":"DUPONT","prenom":"Jean","email":"dupont.jean@gmail.com","annee_naissance":"1974","pseudo":"DuDu26","genre":"homme","poste":"Technicien Branchement"}
+2025-03-24 17:45:28 - Requête reçue : {"action":"updateUser","id_utilisateur":"6","nom":"DUPONT","prenom":"Jean","email":"dupont.jean@gmail.com","annee_naissance":"1974","pseudo":"DuDu26","genre":"homme","poste":"Technicien SPANC"}
+2025-03-24 17:46:56 - Requête reçue : {
+    "action": "registerUser"
+}
+2025-03-24 17:48:18 - Requête reçue : {
+    "action": "updateUser"
+}
+2025-03-24 17:49:15 - Requête reçue : {"action":"getUser","id_utilisateur":"6"}
+2025-03-24 17:49:23 - Requête reçue : {"action":"updateUser","id_utilisateur":"6","nom":"DUPONT","prenom":"Jean","email":"dupont.jean@gmail.com","annee_naissance":"1974","pseudo":"DuDu26","genre":"homme","poste":"Technicien Branchement"}
+2025-03-24 17:50:23 - Requête reçue : {"action":"updateUser","id_utilisateur":"6","nom":"DUPONT","prenom":"Jean","email":"dupont.jean@gmail.com","annee_naissance":"1974","pseudo":"DuDu26","genre":"homme","poste":"Technicien SPANC"}
+2025-03-24 17:52:38 - Requête reçue : {"action":"getUser","id_utilisateur":"6"}
+2025-03-24 17:52:49 - Requête reçue : {"action":"updateUser","id_utilisateur":"6","nom":"DUPONT","prenom":"Jean","email":"dupont.jean@gmail.com","annee_naissance":"1974","pseudo":"DuDu26","genre":"homme","poste":"Technicien GEMPAI"}
+2025-03-24 17:52:59 - Requête reçue : {"action":"getAllUsers"}
+2025-03-24 17:52:59 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-24 17:59:44 - Requête reçue : {"action":"getAllUsers"}
+2025-03-24 17:59:44 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-24 17:59:48 - Requête reçue : {"action":"getUser","id_utilisateur":"6"}
+2025-03-24 18:00:09 - Requête reçue : {"action":"updateUser","id_utilisateur":"6","nom":"DUPONT","prenom":"Jean","email":"dupont.jean@gmail.com","annee_naissance":"1974","pseudo":"DuDu26","genre":"homme","poste":"Technicien URBA"}
+2025-03-24 18:00:50 - Requête reçue : {"action":"getAllUsers"}
+2025-03-24 18:00:50 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-24 18:04:10 - Requête reçue : {"action":"getUser","id_utilisateur":"6"}
+2025-03-24 18:04:17 - Requête reçue : {"action":"updateUser","id_utilisateur":"6","nom":"DUPONT","prenom":"Jean","email":"dupont.jean@gmail.com","annee_naissance":"1974","pseudo":"DuDu26","genre":"homme","poste":"Technicien Branchement"}
+2025-03-24 18:04:27 - Requête reçue : {"action":"getAllUsers"}
+2025-03-24 18:04:27 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-24 18:04:46 - Requête reçue : {"action":"getAllUsers"}
+2025-03-24 18:04:46 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-24 18:04:53 - Requête reçue : {"action":"getUser","id_utilisateur":"6"}
+2025-03-24 18:05:00 - Requête reçue : {"action":"updateUser","id_utilisateur":"6","nom":"DUPONT","prenom":"Jean","email":"dupont.jean@gmail.com","annee_naissance":"1974","pseudo":"DuDu26","genre":"homme","poste":"Technicien SPANC"}
+2025-03-24 18:05:14 - Requête reçue : {"action":"getAllUsers"}
+2025-03-24 18:05:14 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-24 18:05:56 - Requête reçue : {"action":"getUser","id_utilisateur":"6"}
+2025-03-24 18:06:01 - Requête reçue : {"action":"updateUser","id_utilisateur":"6","nom":"DUPONT","prenom":"Jean","email":"dupont.jean@gmail.com","annee_naissance":"1974","pseudo":"DuDu26","genre":"homme","poste":"Technicien GEMAPI"}
+2025-03-24 18:06:09 - Requête reçue : {"action":"getAllUsers"}
+2025-03-24 18:06:09 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-24 18:10:02 - Requête reçue : {"action":"getAllUsers"}
+2025-03-24 18:10:03 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-24 18:10:06 - Requête reçue : {"action":"getUser","id_utilisateur":"6"}
+2025-03-24 18:10:12 - Requête reçue : {"action":"updateUser","id_utilisateur":"6","nom":"DUPONT","prenom":"Jean","email":"dupont.jean@gmail.com","annee_naissance":"1974","pseudo":"DuDu26","genre":"homme","poste":"Technicien SPANC"}
+2025-03-24 18:10:19 - Requête reçue : {"action":"getAllUsers"}
+2025-03-24 18:10:19 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-24 18:10:33 - Requête reçue : {"action":"getUser","id_utilisateur":"6"}
+2025-03-24 18:10:43 - Requête reçue : {"action":"updateUser","id_utilisateur":"6","nom":"DUPONT","prenom":"Jean","email":"dupont.jean@gmail.com","annee_naissance":"1974","pseudo":"DuDu26","genre":"homme","poste":"Technicien Branchement"}
+2025-03-24 18:10:52 - Requête reçue : {"action":"getAllUsers"}
+2025-03-24 18:10:52 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-24 18:15:34 - Requête reçue : {"action":"getUser","id_utilisateur":"3"}
+2025-03-24 18:15:42 - Requête reçue : {"action":"updateUser","id_utilisateur":"3","nom":"HOCINI","prenom":"Fouad","email":"hmfouad@yahoo.fr","annee_naissance":"1990","pseudo":"Foufou","genre":"homme","poste":"Développeur Web Backend"}
+2025-03-24 18:15:50 - Requête reçue : {"action":"getAllUsers"}
+2025-03-24 18:15:50 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-24 18:17:33 - Requête reçue : {"action":"getUser","id_utilisateur":"3"}
+2025-03-24 18:17:41 - Requête reçue : {"action":"updateUser","id_utilisateur":"3","nom":"HOCINI","prenom":"Fouad","email":"hmfouad@yahoo.fr","annee_naissance":"1990","pseudo":"Foufou","genre":"homme","poste":"Développeur Web Java"}
+2025-03-24 18:21:26 - Requête reçue : {"action":"getAllUsers"}
+2025-03-24 18:21:26 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-24 18:21:30 - Requête reçue : {"action":"getUser","id_utilisateur":"3"}
+2025-03-24 18:21:35 - Requête reçue : {"action":"updateUser","id_utilisateur":"3","nom":"HOCINI","prenom":"Fouad","email":"hmfouad@yahoo.fr","annee_naissance":"1990","pseudo":"Foufou","genre":"homme","poste":"Développeur Web Mobile"}
+2025-03-24 18:21:40 - Requête reçue : {"action":"getAllUsers"}
+2025-03-24 18:21:40 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-24 18:22:05 - Requête reçue : {"action":"getUser","id_utilisateur":"3"}
+2025-03-24 18:22:19 - Requête reçue : {"action":"updateUser","id_utilisateur":"3","nom":"HOCINI","prenom":"Fouad","email":"hmfouad@yahoo.fr","annee_naissance":"1990","pseudo":"Foufou","genre":"homme","poste":"Développeur Web"}
+2025-03-24 18:22:23 - Requête reçue : {"action":"getAllUsers"}
+2025-03-24 18:22:23 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-24 18:23:07 - Requête reçue : {"action":"registerUser","nom":"FONDRESHCI","prenom":"Virginie","email":"fond.virginie@wanadoo.fr","password":"123","annee_naissance":"1985","pseudo":"Virge","genre":"femme","poste":"Instructrice assainissement"}
+2025-03-24 18:23:10 - Requête reçue : {"action":"getAllUsers"}
+2025-03-24 18:23:10 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-24 18:23:17 - Requête reçue : {"action":"getUser","id_utilisateur":"11"}
+2025-03-24 18:23:23 - Requête reçue : {"action":"updateUser","id_utilisateur":"11","nom":"FONDRESHCI","prenom":"Virginie","email":"fond.virginie@wanadoo.fr","annee_naissance":"1981","pseudo":"Virge","genre":"femme","poste":"Instructrice assainissement"}
+2025-03-24 18:23:26 - Requête reçue : {"action":"getAllUsers"}
+2025-03-24 18:23:26 - Requête reçue : {"action":"getProfile","userId":"1"}
