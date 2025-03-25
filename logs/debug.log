@@ -508,3 +508,46 @@
 2025-03-24 22:34:22 - Requête reçue : {"action":"getAllUsers"}
 2025-03-24 22:34:22 - Requête reçue : {"action":"getProfile","userId":"1"}
 2025-03-24 22:34:24 - Requête reçue : {"action":"logout"}
+2025-03-25 21:16:53 - Requête reçue : {"action":"login","email":"bouguerra.abbes@outlook.fr","password":"123"}
+2025-03-25 21:16:55 - Requête reçue : {"action":"getAllUsers"}
+2025-03-25 21:16:55 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-25 21:17:10 - Requête reçue : {"action":"searchUsers","nom":"Bouguerra","prenom":"","poste":""}
+2025-03-25 21:18:33 - Requête reçue : {"action":"getAllUsers"}
+2025-03-25 21:18:33 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-25 21:18:43 - Requête reçue : {"action":"searchUsers","nom":"MOLINA","prenom":"","poste":""}
+2025-03-25 21:18:55 - Requête reçue : {"action":"searchUsers","nom":"BESSET","prenom":"","poste":""}
+2025-03-25 21:19:05 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"Instructrice"}
+2025-03-25 21:19:14 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"SPANC"}
+2025-03-25 21:19:22 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"GEMAPI"}
+2025-03-25 21:19:26 - Requête reçue : {"action":"getAllUsers"}
+2025-03-25 21:19:27 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-25 21:19:46 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"Fouad","poste":""}
+2025-03-25 21:19:50 - Requête reçue : {"action":"getUser","id_utilisateur":"undefined"}
+2025-03-25 21:20:12 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"Fouad","poste":""}
+2025-03-25 21:20:17 - Requête reçue : {"action":"getUser","id_utilisateur":"undefined"}
+2025-03-25 21:23:34 - Requête reçue : {"action":"getAllUsers"}
+2025-03-25 21:23:34 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-25 21:23:40 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"Fouad","poste":""}
+2025-03-25 21:24:42 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"Fouad","poste":""}
+2025-03-25 21:26:06 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"Fouad","poste":""}
+2025-03-25 21:26:10 - Requête reçue : {"action":"getUser","id_utilisateur":"3"}
+2025-03-25 21:26:44 - Requête reçue : {"action":"updateUser","id_utilisateur":"3","nom":"HOCINI","prenom":"Fouad","email":"hmfouad@yahoo.fr","annee_naissance":"1990","pseudo":"Foufou","genre":"homme","poste":"Développeur Web Backend"}
+2025-03-25 21:26:48 - Requête reçue : {"action":"getAllUsers"}
+2025-03-25 21:26:48 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-25 21:27:59 - Requête reçue : {"action":"registerUser","nom":"ARGENTI","prenom":"Serge","email":"argenti.serge@live.com","password":"123","annee_naissance":"1965","pseudo":"Sergio","genre":"homme","poste":"Technicien SPANC"}
+2025-03-25 21:28:03 - Requête reçue : {"action":"getAllUsers"}
+2025-03-25 21:28:03 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-25 21:28:18 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"Spanc"}
+2025-03-25 21:28:23 - Requête reçue : {"action":"deleteUser","id":12}
+2025-03-25 21:30:51 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"Spanc"}
+2025-03-25 21:30:55 - Requête reçue : {"action":"deleteUser","id_utilisateur":12}
+2025-03-25 21:30:59 - Requête reçue : {"action":"getAllUsers"}
+2025-03-25 21:30:59 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-25 21:31:05 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"Spanc"}
+2025-03-25 21:31:13 - Requête reçue : {"action":"getAllUsers"}
+2025-03-25 21:31:13 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-25 21:32:25 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"Fanny","poste":""}
+2025-03-25 21:32:29 - Requête reçue : {"action":"getUser","id_utilisateur":"9"}
+2025-03-25 21:32:41 - Requête reçue : {"action":"updateUser","id_utilisateur":"9","nom":"BEUCHER","prenom":"Fanny","email":"beucher.fanny@free.fr","annee_naissance":"1981","pseudo":"FonFon","genre":"femme","poste":"Instructrice assainissement"}
+2025-03-25 21:32:45 - Requête reçue : {"action":"getAllUsers"}
+2025-03-25 21:32:45 - Requête reçue : {"action":"getProfile","userId":"1"}

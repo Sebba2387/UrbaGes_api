@@ -270,26 +270,26 @@ switch ($action) {
 
     // 🔍 Rechercher un utilisateur
     case 'searchUsers':
-        // Vérifie que le paramètre de recherche est fourni
-        if (!isset($data['query']) || empty($data['query'])) {
-            echo json_encode(["success" => false, "message" => "Veuillez entrer un terme de recherche"]);
-            exit;
-        }
+        $queryNom = isset($data['nom']) ? '%' . $data['nom'] . '%' : '%';
+        $queryPrenom = isset($data['prenom']) ? '%' . $data['prenom'] . '%' : '%';
+        $queryPoste = isset($data['poste']) ? '%' . $data['poste'] . '%' : '%';
     
-        $query = '%' . $data['query'] . '%';
-    
-        // Recherche des utilisateurs correspondant au critère
         $stmt = $pdo->prepare("
-            SELECT nom, prenom, email, annee_naissance, pseudo, genre, poste
+            SELECT id_utilisateur, nom, prenom, email, annee_naissance, pseudo, genre, poste
             FROM utilisateurs
-            WHERE nom LIKE :query OR prenom LIKE :query OR poste LIKE :query
+            WHERE nom LIKE :nom
+            AND prenom LIKE :prenom
+            AND poste LIKE :poste
         ");
-        $stmt->bindParam(':query', $query, PDO::PARAM_STR);
+        $stmt->bindParam(':nom', $queryNom, PDO::PARAM_STR);
+        $stmt->bindParam(':prenom', $queryPrenom, PDO::PARAM_STR);
+        $stmt->bindParam(':poste', $queryPoste, PDO::PARAM_STR);
         $stmt->execute();
         $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
         echo json_encode(["success" => true, "users" => $users]);
         exit;
+
     
     // ❌ Action inconnue
     default:

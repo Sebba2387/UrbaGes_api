@@ -1,5 +1,3 @@
-
-
 // Connexion utilisateur
 function loginUser(email, password) {
     fetch('http://localhost/public/api/userApi.php', {
@@ -307,16 +305,14 @@ function deleteUser(userId) {
 
 // Fonction pour rechercher des utilisateurs
 function searchUsers() {
-    const query = document.getElementById("searchQuery").value.trim();
-    if (query === "") {
-        alert("Veuillez entrer un terme de recherche.");
-        return;
-    }
+    const nom = document.getElementById("searchNom").value.trim();
+    const prenom = document.getElementById("searchPrenom").value.trim();
+    const poste = document.getElementById("searchPoste").value.trim();
 
     fetch('http://localhost/public/api/userApi.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'searchUsers', query: query })
+        body: JSON.stringify({ action: 'searchUsers', nom, prenom, poste })
     })
     .then(response => response.json())
     .then(data => {
@@ -329,7 +325,7 @@ function searchUsers() {
     .catch(error => console.error('Erreur lors de la recherche:', error));
 }
 
-// Fonction pour afficher les résultats dans le tableau
+// Fonction pour afficher les résultats et ajouter les boutons Modifier/Supprimer
 function displaySearchResults(users) {
     const resultsTable = document.getElementById("searchResults");
     resultsTable.innerHTML = ""; // Vide le tableau avant d'afficher les nouveaux résultats
@@ -344,10 +340,17 @@ function displaySearchResults(users) {
             <td>${user.pseudo}</td>
             <td>${user.genre}</td>
             <td>${user.poste}</td>
+            <td>
+            <button onclick="redirectToEdit(${user.id_utilisateur})">Modifier</button>
+            <button onclick="deleteUser(${user.id_utilisateur})">Supprimer</button>
+            </td>
         `;
         resultsTable.appendChild(row);
     });
 }
+
+
+
 
     
 

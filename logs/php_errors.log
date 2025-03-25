@@ -9,3 +9,9 @@ Stack trace:
 [24-Mar-2025 15:34:23 Europe/Berlin] PHP Warning:  Undefined array key "annee_naissance" in C:\xampp\htdocs\app\controllers\userController.php on line 151
 [24-Mar-2025 15:34:23 Europe/Berlin] PHP Warning:  Undefined array key "pseudo" in C:\xampp\htdocs\app\controllers\userController.php on line 151
 [24-Mar-2025 15:34:23 Europe/Berlin] PHP Warning:  Undefined array key "genre" in C:\xampp\htdocs\app\controllers\userController.php on line 151
+[25-Mar-2025 21:17:11 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'field list' in C:\xampp\htdocs\app\controllers\userController.php:287
+Stack trace:
+#0 C:\xampp\htdocs\app\controllers\userController.php(287): PDOStatement->execute()
+#1 C:\xampp\htdocs\public\api\userApi.php(7): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\app\controllers\userController.php on line 287

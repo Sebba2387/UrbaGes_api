@@ -21,7 +21,15 @@
 <body>
     <h2>Recherche d'Utilisateurs</h2>
     
-    <input type="text" id="searchQuery" placeholder="Rechercher par nom, prénom ou poste">
+    <label for="searchNom">Nom :</label>
+    <input type="text" id="searchNom" placeholder="Nom">
+
+    <label for="searchPrenom">Prénom :</label>
+    <input type="text" id="searchPrenom" placeholder="Prénom">
+
+    <label for="searchPoste">Poste :</label>
+    <input type="text" id="searchPoste" placeholder="Poste">
+
     <button onclick="searchUsers()">Rechercher</button>
 
     <table>
@@ -34,14 +42,16 @@
                 <th>Pseudo</th>
                 <th>Genre</th>
                 <th>Poste</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody id="searchResults">
             <!-- Résultats affichés ici -->
         </tbody>
     </table>
-    <button type="button" onclick="location.href='/public/testPages/testProfil.html'">Retour</button>
-    
+
+    <button onclick="location.href='/public/testPages/testProfil.html'">Retour</button>
+
     <script src="/public/assets/js/fetch/userFetch.js" defer></script>
 </body>
 </html>
