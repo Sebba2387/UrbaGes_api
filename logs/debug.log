@@ -551,3 +551,94 @@
 2025-03-25 21:32:41 - Requête reçue : {"action":"updateUser","id_utilisateur":"9","nom":"BEUCHER","prenom":"Fanny","email":"beucher.fanny@free.fr","annee_naissance":"1981","pseudo":"FonFon","genre":"femme","poste":"Instructrice assainissement"}
 2025-03-25 21:32:45 - Requête reçue : {"action":"getAllUsers"}
 2025-03-25 21:32:45 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-26 18:16:05 - Requête reçue : {"action":"login","email":"sunylie@gmail.com","password":"123"}
+2025-03-26 18:16:05 - Requête reçue : {"action":"getAllUsers"}
+2025-03-26 18:16:05 - Requête reçue : {"action":"getProfile","userId":"2"}
+2025-03-26 18:16:11 - Requête reçue : {"action":"searchUsers","nom":"MOLINA","prenom":"","poste":""}
+2025-03-26 18:16:12 - Requête reçue : {"action":"getAllUsers"}
+2025-03-26 18:16:12 - Requête reçue : {"action":"getProfile","userId":"2"}
+2025-03-26 18:16:15 - Requête reçue : {"action":"logout"}
+2025-03-26 18:16:24 - Requête reçue : {"action":"login","email":"bouguerra.abbes@outlook.fr","password":"123"}
+2025-03-26 18:16:24 - Requête reçue : {"action":"getAllUsers"}
+2025-03-26 18:16:24 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-26 18:20:25 - Requête reçue : {"action":"logout"}
+2025-03-26 22:34:13 - Requête reçue : {"action":"searchCommune","code_commune":"26004","nom_commune":"","cp_commune":""}
+2025-03-26 22:34:23 - Requête reçue : {
+    "action": "searchCommune"
+}
+2025-03-26 22:36:24 - Requête reçue : {"action":"searchCommune","code_commune":"26004","nom_commune":"","cp_commune":""}
+2025-03-26 22:36:38 - Requête reçue : {
+    "action": "searchCommune"
+}
+2025-03-26 22:40:39 - Requête reçue : {"action":"searchCommune","code_commune":"","nom_commune":"Alixan","cp_commune":""}
+2025-03-26 22:44:06 - Requête reçue : {"action":"searchCommune","code_commune":"26004","nom_commune":"","cp_commune":""}
+2025-03-26 22:44:37 - Requête reçue : {"action":"searchCommune","code_commune":"26004","nom_commune":"","cp_commune":""}
+2025-03-26 22:45:08 - Requête reçue : {
+    "action": "searchCommune"
+}
+2025-03-26 22:45:54 - Requête reçue : {"action":"searchCommune","code_commune":"26004","nom_commune":"","cp_commune":""}
+2025-03-26 22:45:59 - Requête reçue : {"action":"searchCommune","code_commune":"26039","nom_commune":"","cp_commune":""}
+2025-03-26 22:46:11 - Requête reçue : {"action":"searchCommune","code_commune":"26263","nom_commune":"","cp_commune":""}
+2025-03-26 22:46:17 - Requête reçue : {"action":"searchCommune","code_commune":"26058","nom_commune":"","cp_commune":""}
+2025-03-26 22:46:27 - Requête reçue : {"action":"searchCommune","code_commune":"","nom_commune":"Hostun","cp_commune":""}
+2025-03-26 22:47:38 - Requête reçue : {"action":"searchCommune","code_commune":"","nom_commune":"Malissar","cp_commune":""}
+2025-03-26 22:48:03 - Requête reçue : {"action":"searchCommune","code_commune":"","nom_commune":"Malissar","cp_commune":""}
+2025-03-26 22:52:58 - Requête reçue : {"action":"login","email":"bouguerra.abbes@outlook.fr","password":"123"}
+2025-03-26 22:53:00 - Requête reçue : {"action":"getAllUsers"}
+2025-03-26 22:53:00 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-26 22:55:50 - Requête reçue : {"action":"searchUsers","nom":"MOLINA","prenom":"","poste":""}
+2025-03-26 22:58:01 - Requête reçue : {"action":"getAllUsers"}
+2025-03-26 22:58:01 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-26 22:58:09 - Requête reçue : {"action":"searchCommune","code_commune":"26004","nom_commune":"","cp_commune":""}
+2025-03-26 22:58:20 - Requête reçue : {"action":"searchCommune","code_commune":"26004","nom_commune":"Alixan","cp_commune":""}
+2025-03-26 22:58:45 - Requête reçue : {
+    "action": "searchCommune"
+}
+2025-03-26 23:00:48 - Requête reçue : {"action":"searchCommune","code_commune":"26004","nom_commune":"","cp_commune":""}
+2025-03-26 23:01:37 - Requête reçue : {
+    "action": "searchCommune"
+}
+2025-03-26 23:03:16 - Requête reçue : {"action":"searchCommune","code_commune":"26004","nom_commune":"","cp_commune":""}
+2025-03-26 23:04:56 - Requête reçue : {"action":"searchCommune","code_commune":"26004","nom_commune":"","cp_commune":""}
+2025-03-26 23:06:23 - Requête reçue : {"action":"searchCommune","code_commune":"26004","nom_commune":"","cp_commune":""}
+2025-03-26 23:07:16 - Requête reçue : {"action":"searchCommune","code_commune":"26004","nom_commune":"","cp_commune":""}
+2025-03-26 23:07:30 - Requête reçue : {"action":"searchCommune","code_commune":"","nom_commune":"Malissar","cp_commune":""}
+2025-03-26 23:07:36 - Requête reçue : {"action":"searchCommune","code_commune":"26004","nom_commune":"Malissar","cp_commune":""}
+2025-03-26 23:07:46 - Requête reçue : {"action":"searchCommune","code_commune":"26088","nom_commune":"","cp_commune":""}
+2025-03-26 23:08:14 - Requête reçue : {"action":"searchCommune","code_commune":"26004","nom_commune":"","cp_commune":""}
+2025-03-26 23:09:53 - Requête reçue : {"action":"getAllUsers"}
+2025-03-26 23:09:53 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-26 23:10:07 - Requête reçue : {"action":"getUser","id_utilisateur":"3"}
+2025-03-26 23:10:13 - Requête reçue : {"action":"updateUser","id_utilisateur":"3","nom":"HOCINI","prenom":"Fouad","email":"hmfouad@yahoo.fr","annee_naissance":"1990","pseudo":"Foufou","genre":"homme","poste":"Développeur Web"}
+2025-03-26 23:10:16 - Requête reçue : {"action":"getAllUsers"}
+2025-03-26 23:10:16 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-26 23:10:34 - Requête reçue : {"action":"searchCommune","code_commune":"","nom_commune":"","cp_commune":"26281"}
+2025-03-26 23:10:40 - Requête reçue : {"action":"searchCommune","code_commune":"26281","nom_commune":"","cp_commune":""}
+2025-03-26 23:10:46 - Requête reçue : {"action":"getAllUsers"}
+2025-03-26 23:10:46 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-26 23:11:25 - Requête reçue : {"action":"getAllUsers"}
+2025-03-26 23:11:25 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-26 23:11:30 - Requête reçue : {"action":"searchCommune","code_commune":"26004","nom_commune":"","cp_commune":""}
+2025-03-26 23:11:38 - Requête reçue : {"action":"searchCommune","code_commune":"","nom_commune":"","cp_commune":"26300"}
+2025-03-26 23:11:57 - Requête reçue : {"action":"searchCommune","code_commune":"","nom_commune":"","cp_commune":"26760"}
+2025-03-26 23:12:05 - Requête reçue : {"action":"getAllUsers"}
+2025-03-26 23:12:05 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-26 23:12:31 - Requête reçue : {"action":"searchCommune","code_commune":"26064","nom_commune":"","cp_commune":""}
+2025-03-26 23:14:51 - Requête reçue : {"action":"getAllUsers"}
+2025-03-26 23:14:51 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-26 23:14:57 - Requête reçue : {"action":"searchCommune","code_commune":"26004","nom_commune":"","cp_commune":""}
+2025-03-26 23:15:08 - Requête reçue : {"action":"getAllUsers"}
+2025-03-26 23:15:08 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-26 23:15:17 - Requête reçue : {"action":"searchCommune","code_commune":"26088","nom_commune":"","cp_commune":""}
+2025-03-26 23:20:41 - Requête reçue : {"action":"getAllUsers"}
+2025-03-26 23:20:41 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-26 23:20:54 - Requête reçue : {"action":"searchCommune","code_commune":"26064","nom_commune":"","cp_commune":""}
+2025-03-26 23:20:59 - Requête reçue : {"action":"getAllUsers"}
+2025-03-26 23:20:59 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-26 23:21:00 - Requête reçue : {"action":"logout"}
+2025-03-26 23:21:06 - Requête reçue : {"action":"login","email":"sunylie@gmail.com","password":"123"}
+2025-03-26 23:21:08 - Requête reçue : {"action":"getAllUsers"}
+2025-03-26 23:21:08 - Requête reçue : {"action":"getProfile","userId":"2"}
+2025-03-26 23:21:15 - Requête reçue : {"action":"searchCommune","code_commune":"26088","nom_commune":"","cp_commune":""}
+2025-03-26 23:21:19 - Requête reçue : {"action":"getAllUsers"}
+2025-03-26 23:21:19 - Requête reçue : {"action":"getProfile","userId":"2"}

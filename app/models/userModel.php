@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../config/database.php';
-require_once __DIR__ . '/../config/mongo.php'; // Charger MongoDB
+require_once __DIR__ . '/../config/mongo.php';
 
 class UserModel {
     private $pdo;

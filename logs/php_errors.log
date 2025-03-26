@@ -15,3 +15,18 @@ Stack trace:
 #1 C:\xampp\htdocs\public\api\userApi.php(7): require_once('C:\\xampp\\htdocs...')
 #2 {main}
   thrown in C:\xampp\htdocs\app\controllers\userController.php on line 287
+[26-Mar-2025 22:58:09 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "CommuneModel" not found in C:\xampp\htdocs\app\controllers\communeController.php:38
+Stack trace:
+#0 C:\xampp\htdocs\public\api\communeApi.php(4): require_once()
+#1 {main}
+  thrown in C:\xampp\htdocs\app\controllers\communeController.php on line 38
+[26-Mar-2025 22:58:20 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "CommuneModel" not found in C:\xampp\htdocs\app\controllers\communeController.php:38
+Stack trace:
+#0 C:\xampp\htdocs\public\api\communeApi.php(4): require_once()
+#1 {main}
+  thrown in C:\xampp\htdocs\app\controllers\communeController.php on line 38
+[26-Mar-2025 22:58:45 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "CommuneModel" not found in C:\xampp\htdocs\app\controllers\communeController.php:38
+Stack trace:
+#0 C:\xampp\htdocs\public\api\communeApi.php(4): require_once()
+#1 {main}
+  thrown in C:\xampp\htdocs\app\controllers\communeController.php on line 38

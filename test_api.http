@@ -1,7 +1,7 @@
-POST http://localhost/public/api/userApi.php
+POST http://localhost/public/api/communeApi.php
 Content-Type: application/json
 Authorization: Bearer your_token_here
 
 {
-    "action": "updateUser"
+    "action": "searchCommune"
 }
