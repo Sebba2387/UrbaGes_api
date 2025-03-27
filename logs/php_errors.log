@@ -30,3 +30,74 @@ Stack trace:
 #0 C:\xampp\htdocs\public\api\communeApi.php(4): require_once()
 #1 {main}
   thrown in C:\xampp\htdocs\app\controllers\communeController.php on line 38
+[27-Mar-2025 00:01:22 Europe/Berlin] PHP Fatal error:  Uncaught Error: Using $this when not in object context in C:\xampp\htdocs\app\controllers\communeController.php:93
+Stack trace:
+#0 C:\xampp\htdocs\public\api\communeApi.php(7): require_once()
+#1 {main}
+  thrown in C:\xampp\htdocs\app\controllers\communeController.php on line 93
+[27-Mar-2025 00:04:27 Europe/Berlin] PHP Fatal error:  Uncaught Error: Using $this when not in object context in C:\xampp\htdocs\app\controllers\communeController.php:93
+Stack trace:
+#0 C:\xampp\htdocs\public\api\communeApi.php(7): require_once()
+#1 {main}
+  thrown in C:\xampp\htdocs\app\controllers\communeController.php on line 93
+[27-Mar-2025 00:10:49 Europe/Berlin] PHP Warning:  Undefined property: MongoDB\Collection::$logDB in C:\xampp\htdocs\app\models\communeModel.php on line 15
+[27-Mar-2025 00:10:49 Europe/Berlin] PHP Warning:  Attempt to read property "modificationCollection" on null in C:\xampp\htdocs\app\models\communeModel.php on line 15
+[27-Mar-2025 00:10:49 Europe/Berlin] PHP Fatal error:  Uncaught Error: Using $this when not in object context in C:\xampp\htdocs\app\controllers\communeController.php:93
+Stack trace:
+#0 C:\xampp\htdocs\public\api\communeApi.php(7): require_once()
+#1 {main}
+  thrown in C:\xampp\htdocs\app\controllers\communeController.php on line 93
+[27-Mar-2025 00:13:56 Europe/Berlin] PHP Warning:  Undefined property: MongoDB\Collection::$logDB in C:\xampp\htdocs\app\models\communeModel.php on line 15
+[27-Mar-2025 00:13:56 Europe/Berlin] PHP Warning:  Attempt to read property "modificationCollection" on null in C:\xampp\htdocs\app\models\communeModel.php on line 15
+[27-Mar-2025 00:13:56 Europe/Berlin] PHP Fatal error:  Uncaught Error: Using $this when not in object context in C:\xampp\htdocs\app\controllers\communeController.php:93
+Stack trace:
+#0 C:\xampp\htdocs\public\api\communeApi.php(7): require_once()
+#1 {main}
+  thrown in C:\xampp\htdocs\app\controllers\communeController.php on line 93
+[27-Mar-2025 00:18:42 Europe/Berlin] PHP Fatal error:  Uncaught Error: Cannot use object of type MongoDB\Collection as array in C:\xampp\htdocs\app\models\communeModel.php:13
+Stack trace:
+#0 C:\xampp\htdocs\app\controllers\communeController.php(38): CommuneModel->__construct(Object(PDO), Object(MongoDB\Collection))
+#1 C:\xampp\htdocs\public\api\communeApi.php(7): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\app\models\communeModel.php on line 13
+[27-Mar-2025 00:18:55 Europe/Berlin] PHP Fatal error:  Uncaught Error: Cannot use object of type MongoDB\Collection as array in C:\xampp\htdocs\app\models\communeModel.php:13
+Stack trace:
+#0 C:\xampp\htdocs\app\controllers\communeController.php(38): CommuneModel->__construct(Object(PDO), Object(MongoDB\Collection))
+#1 C:\xampp\htdocs\public\api\communeApi.php(7): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\app\models\communeModel.php on line 13
+[27-Mar-2025 00:21:58 Europe/Berlin] PHP Fatal error:  Uncaught Error: Cannot use object of type MongoDB\Collection as array in C:\xampp\htdocs\app\models\communeModel.php:13
+Stack trace:
+#0 C:\xampp\htdocs\app\controllers\communeController.php(39): CommuneModel->__construct(Object(PDO), Object(MongoDB\Collection))
+#1 C:\xampp\htdocs\public\api\communeApi.php(7): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\app\models\communeModel.php on line 13
+[27-Mar-2025 00:22:12 Europe/Berlin] PHP Fatal error:  Uncaught Error: Cannot use object of type MongoDB\Collection as array in C:\xampp\htdocs\app\models\communeModel.php:13
+Stack trace:
+#0 C:\xampp\htdocs\app\controllers\communeController.php(39): CommuneModel->__construct(Object(PDO), Object(MongoDB\Collection))
+#1 C:\xampp\htdocs\public\api\communeApi.php(7): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\app\models\communeModel.php on line 13
+[27-Mar-2025 21:50:18 Europe/Berlin] PHP Fatal error:  Uncaught Error: Cannot use object of type MongoDB\Collection as array in C:\xampp\htdocs\app\models\communeModel.php:13
+Stack trace:
+#0 C:\xampp\htdocs\app\controllers\communeController.php(39): CommuneModel->__construct(Object(PDO), Object(MongoDB\Collection))
+#1 C:\xampp\htdocs\public\api\communeApi.php(7): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\app\models\communeModel.php on line 13
+[27-Mar-2025 21:50:22 Europe/Berlin] PHP Fatal error:  Uncaught Error: Cannot use object of type MongoDB\Collection as array in C:\xampp\htdocs\app\models\communeModel.php:13
+Stack trace:
+#0 C:\xampp\htdocs\app\controllers\communeController.php(39): CommuneModel->__construct(Object(PDO), Object(MongoDB\Collection))
+#1 C:\xampp\htdocs\public\api\communeApi.php(7): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\app\models\communeModel.php on line 13
+[27-Mar-2025 21:55:07 Europe/Berlin] PHP Fatal error:  Uncaught Error: Cannot use object of type MongoDB\Collection as array in C:\xampp\htdocs\app\models\communeModel.php:12
+Stack trace:
+#0 C:\xampp\htdocs\app\controllers\communeController.php(39): CommuneModel->__construct(Object(PDO), Object(MongoDB\Collection))
+#1 C:\xampp\htdocs\public\api\communeApi.php(7): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\app\models\communeModel.php on line 12
+[27-Mar-2025 21:58:33 Europe/Berlin] PHP Fatal error:  Uncaught Error: Using $this when not in object context in C:\xampp\htdocs\app\controllers\communeController.php:94
+Stack trace:
+#0 C:\xampp\htdocs\public\api\communeApi.php(7): require_once()
+#1 {main}
+  thrown in C:\xampp\htdocs\app\controllers\communeController.php on line 94

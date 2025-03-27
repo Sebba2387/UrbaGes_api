@@ -5,6 +5,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 require_once __DIR__ . '/../models/communeModel.php';
+require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../config/mongo.php';
 
 // CORS (pour éviter les blocages cross-origin)
@@ -75,6 +76,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action'])) {
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
             echo json_encode($results);
+            exit;
+        case 'addCommune':
+            // Vérifie si l'utilisateur est authentifié
+            if (!isset($_SESSION['user_id'])) {
+                echo json_encode(["success" => false, "message" => "Utilisateur non authentifié"]);
+                exit;
+            }
+
+            // Vérifie la présence de toutes les données requises
+            if (!isset($data['code_commune'], $data['nom_commune'], $data['cp_commune'], $data['email_commune'], $data['tel_commune'], $data['adresse_commune'], $data['contact'], $data['reseau_instruction'], $data['urbaniste_vra'])) {
+                echo json_encode(["success" => false, "message" => "Données incomplètes"]);
+                exit;
+            }
+
+            // Appelle la fonction du modèle pour ajouter la commune
+            $communeModel->addCommune($data);
+            echo json_encode(["success" => true, "message" => "Commune ajoutée avec succès"]);
+            exit;
+
+        default:
+            echo json_encode(["success" => false, "message" => "Action non définie"]);
             exit;
     }
 }

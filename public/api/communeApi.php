@@ -34,6 +34,8 @@ file_put_contents(DEBUG_LOG, date("Y-m-d H:i:s") . " - Requête reçue : " . fil
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action'])) {
     if ($data['action'] === 'searchCommune') {
         require_once __DIR__ . '/../../app/controllers/communeController.php';
+    } elseif ($data['action'] === 'addCommune') {
+        require_once __DIR__ . '/../../app/controllers/userController.php';
     }
 }
 

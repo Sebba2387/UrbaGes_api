@@ -5,9 +5,11 @@ class CommuneModel {
     private $pdo;
     private $modificationCollection;
 
-    public function __construct($pdo, $modificationCollection) {
+    // Constructeur qui prend en charge la connexion PDO et la collection MongoDB
+    public function __construct($pdo, $mongoConfig) {
         $this->pdo = $pdo;
-        $this->modificationCollection = $modificationCollection;
+        // Initialisation de la collection MongoDB pour les logs de modification
+        $this->modificationCollection = $mongoConfig; 
     }
 
     public function searchCommunes($code_commune, $nom_commune, $cp_commune) {
@@ -34,6 +36,35 @@ class CommuneModel {
         $stmt->execute($params);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    
+
+    // Fonction pour ajouter une commune
+    public function addCommune($data) {
+        // Préparer et exécuter l'insertion dans la base SQL
+        $sql = "INSERT INTO communes (code_commune, nom_commune, cp_commune, email_commune, tel_commune, adresse_commune, contact, reseau_instruction, urbaniste_vra) 
+                VALUES (:code_commune, :nom_commune, :cp_commune, :email_commune, :tel_commune, :adresse_commune, :contact, :reseau_instruction, :urbaniste_vra)";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([
+            ':code_commune' => $data['code_commune'],
+            ':nom_commune' => $data['nom_commune'],
+            ':cp_commune' => $data['cp_commune'],
+            ':email_commune' => $data['email_commune'],
+            ':tel_commune' => $data['tel_commune'],
+            ':adresse_commune' => $data['adresse_commune'],
+            ':contact' => $data['contact'],
+            ':reseau_instruction' => $data['reseau_instruction'],
+            ':urbaniste_vra' => $data['urbaniste_vra']
+        ]);
+
+        // Enregistrement dans MongoDB
+        $logData = [
+            'action' => 'Ajout',
+            'type' => 'commune',
+            'commune' => $data['nom_commune'], // Détails sur la commune ajoutée
+            'date' => date("c")
+        ];
+
+        // Insérer un log dans la collection MongoDB pour les modifications
+        $this->modificationCollection->insertOne($logData);
+    }
 }
 ?>

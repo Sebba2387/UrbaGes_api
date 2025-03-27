@@ -63,3 +63,58 @@ function deleteCommune(communeId) {
         .catch(error => console.error('Erreur lors de la suppression:', error));
     }
 }
+
+// Fonction pour ajouter une nouvelle commune via l'API
+function addCommune() {
+    // Récupérer les données du formulaire
+    const codeCommune = document.getElementById("code_commune").value;
+    const nomCommune = document.getElementById("nom_commune").value;
+    const cpCommune = document.getElementById("cp_commune").value;
+    const emailCommune = document.getElementById("email_commune").value;
+    const telCommune = document.getElementById("tel_commune").value;
+    const adresseCommune = document.getElementById("adresse_commune").value;
+    const contact = document.getElementById("contact").value;
+    const reseauInstruction = document.getElementById("reseau_instruction").value;
+    const urbanisteVra = document.getElementById("urbaniste_vra").value;
+
+    // Vérification des champs requis
+    if (!codeCommune || !nomCommune || !cpCommune || !emailCommune || !telCommune || !adresseCommune || !contact || !reseauInstruction || !urbanisteVra) {
+        alert("Tous les champs doivent être remplis.");
+        return;
+    }
+
+    // Créer l'objet de données à envoyer
+    const communeData = {
+        action: "addCommune",
+        code_commune: codeCommune,
+        nom_commune: nomCommune,
+        cp_commune: cpCommune,
+        email_commune: emailCommune,
+        tel_commune: telCommune,
+        adresse_commune: adresseCommune,
+        contact: contact,
+        reseau_instruction: reseauInstruction,
+        urbaniste_vra: urbanisteVra
+    };
+
+    // Envoyer la requête POST à l'API
+    fetch('http://localhost/public/api/communeApi.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(communeData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert("Commune ajoutée avec succès !");
+            window.location.href = 'http://localhost/public/testPages/testCommune.html';  // Rediriger vers la liste des communes
+        } else {
+            alert("Erreur lors de l'ajout de la commune : " + data.message);
+        }
+    })
+    .catch(error => {
+        console.error("Erreur lors de l'ajout de la commune :", error);
+    });
+}

@@ -83,7 +83,6 @@ function fetchUserProfile() {
     });
 }
 
-
 // Déconnexion utilisateur via le backend
 function logoutUser() {
     fetch('http://localhost/public/api/userApi.php', {
@@ -126,8 +125,10 @@ function displayUsersTable(users) {
             <td>${user.genre}</td>
             <td>${user.poste}</td>
             <td>${user.nom_role}</td>
-            <td><button onclick="redirectToEdit(${user.id_utilisateur})">Modifier</button></td>
-            <td><button onclick="deleteUser(${user.id_utilisateur})">Supprimer</button></td>
+            <td>
+                <button onclick="redirectToEdit(${user.id_utilisateur})">Modifier</button>
+                <button onclick="deleteUser(${user.id_utilisateur})">Supprimer</button>
+            </td>
         </tr>`;
         tableBody.innerHTML += row;
     });
@@ -341,8 +342,8 @@ function displaySearchResults(users) {
             <td>${user.genre}</td>
             <td>${user.poste}</td>
             <td>
-            <button onclick="redirectToEdit(${user.id_utilisateur})">Modifier</button>
-            <button onclick="deleteUser(${user.id_utilisateur})">Supprimer</button>
+                <button onclick="redirectToEdit(${user.id_utilisateur})">Modifier</button>
+                <button onclick="deleteUser(${user.id_utilisateur})">Supprimer</button>
             </td>
         `;
         resultsTable.appendChild(row);
