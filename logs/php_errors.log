@@ -101,3 +101,24 @@ Stack trace:
 #0 C:\xampp\htdocs\public\api\communeApi.php(7): require_once()
 #1 {main}
   thrown in C:\xampp\htdocs\app\controllers\communeController.php on line 94
+[27-Mar-2025 22:21:02 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\xampp\htdocs\app\models\communeModel.php:92
+Stack trace:
+#0 C:\xampp\htdocs\app\models\communeModel.php(92): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\app\controllers\communeController.php(111): CommuneModel->updateCommune(Array)
+#2 C:\xampp\htdocs\public\api\communeApi.php(7): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\app\models\communeModel.php on line 92
+[27-Mar-2025 22:29:42 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\xampp\htdocs\app\models\communeModel.php:92
+Stack trace:
+#0 C:\xampp\htdocs\app\models\communeModel.php(92): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\app\controllers\communeController.php(111): CommuneModel->updateCommune(Array)
+#2 C:\xampp\htdocs\public\api\communeApi.php(7): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\app\models\communeModel.php on line 92
+[27-Mar-2025 22:31:04 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\xampp\htdocs\app\models\communeModel.php:95
+Stack trace:
+#0 C:\xampp\htdocs\app\models\communeModel.php(95): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\app\controllers\communeController.php(111): CommuneModel->updateCommune(Array)
+#2 C:\xampp\htdocs\public\api\communeApi.php(7): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\app\models\communeModel.php on line 95

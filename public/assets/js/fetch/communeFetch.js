@@ -47,23 +47,6 @@ function redirectToEdit(communeId) {
     window.location.href = `http://localhost/public/testPages/testEditCommune.html?id=${communeId}`;
 }
 
-// Suppression d'une commune
-function deleteCommune(communeId) {
-    if (confirm("Voulez-vous vraiment supprimer cette commune ?")) {
-        fetch('http://localhost/public/api/communeApi.php', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ action: 'deleteCommune', id_commune: communeId })
-        })
-        .then(response => response.json())
-        .then(data => {
-            alert(data.message);
-            searchCommunes();
-        })
-        .catch(error => console.error('Erreur lors de la suppression:', error));
-    }
-}
-
 // Fonction pour ajouter une nouvelle commune via l'API
 function addCommune() {
     // Récupérer les données du formulaire
@@ -118,3 +101,82 @@ function addCommune() {
         console.error("Erreur lors de l'ajout de la commune :", error);
     });
 }
+
+// Charger les détails d'une commune pour modification
+function loadCommuneDetails() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const id_commune = urlParams.get('id');
+
+    if (id_commune) {
+        fetch('http://localhost/public/api/communeApi.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action: 'getCommune', id_commune })
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("id_commune").value = data.id_commune;
+            document.getElementById("nom_commune").value = data.nom_commune;
+            document.getElementById("code_commune").value = data.code_commune;
+            document.getElementById("cp_commune").value = data.cp_commune;
+            document.getElementById("email_commune").value = data.email_commune;
+            document.getElementById("tel_commune").value = data.tel_commune;
+            document.getElementById("adresse_commune").value = data.adresse_commune;
+            document.getElementById("contact").value = data.contact;
+            document.getElementById("reseau_instruction").value = data.reseau_instruction;
+            document.getElementById("urbaniste_vra").value = data.urbaniste_vra;
+            
+        })
+        .catch(error => console.error('Erreur lors du chargement des données:', error));
+    }
+}
+
+// Mettre à jour une commune
+function updateCommune() {
+    const updateData = {
+        action: 'updateCommune',
+        id_commune: document.getElementById("id_commune").value,
+        code_commune: document.getElementById("code_commune").value,
+        nom_commune: document.getElementById("nom_commune").value,
+        cp_commune: document.getElementById("cp_commune").value,
+        email_commune: document.getElementById("email_commune").value,
+        tel_commune : document.getElementById("tel_commune").value,
+        adresse_commune : document.getElementById("adresse_commune").value,
+        contact : document.getElementById("contact").value,
+        reseau_instruction : document.getElementById("reseau_instruction").value,
+        urbaniste_vra : document.getElementById("urbaniste_vra").value,
+    };
+
+    fetch('http://localhost/public/api/communeApi.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updateData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message);
+        if (data.success) {
+            window.location.href = "http://localhost/public/testPages/testCommune.html";
+        }
+    })
+    .catch(error => console.error('Erreur lors de la mise à jour:', error));
+}
+
+// Suppression d'une commune
+function deleteCommune(communeId) {
+    if (confirm("Voulez-vous vraiment supprimer cette commune ?")) {
+        fetch('http://localhost/public/api/communeApi.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action: 'deleteCommune', id_commune: communeId })
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);
+            searchCommunes();
+        })
+        .catch(error => console.error('Erreur lors de la suppression:', error));
+    }
+}
+
+

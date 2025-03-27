@@ -94,7 +94,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action'])) {
             $communeModel->addCommune($data);
             echo json_encode(["success" => true, "message" => "Commune ajoutée avec succès"]);
             exit;
-
+            case 'getCommune':
+                if (!isset($data['id_commune'])) {
+                    echo json_encode(["success" => false, "message" => "ID de la commune manquant"]);
+                    exit;
+                }
+                $result = $communeModel->getCommuneById($data['id_commune']);
+                echo json_encode($result);
+                exit;
+    
+            case 'updateCommune':
+                if (!isset($data['id_commune'])) {
+                    echo json_encode(["success" => false, "message" => "ID de la commune manquant"]);
+                    exit;
+                }
+                $success = $communeModel->updateCommune($data);
+                echo json_encode(["success" => $success, "message" => $success ? "Mise à jour réussie" : "Erreur de mise à jour"]);
+                exit;
+            
+            case 'deleteCommune':
+                if (!isset($data['id_commune'])) {
+                    echo json_encode(["success" => false, "message" => "ID de la commune manquant"]);
+                    exit;
+                }
+                $success = $communeModel->deleteCommune($data['id_commune']);
+                echo json_encode(["success" => $success, "message" => $success ? "Suppression réussie" : "Erreur de suppression"]);
+                exit;
+                
         default:
             echo json_encode(["success" => false, "message" => "Action non définie"]);
             exit;

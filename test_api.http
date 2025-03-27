@@ -3,5 +3,5 @@ Content-Type: application/json
 Authorization: Bearer your_token_here
 
 {
-    "action": "addCommune"
+    "action": "updateCommune"
 }

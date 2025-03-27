@@ -779,3 +779,95 @@
 2025-03-27 21:58:33 - Requête reçue : {"action":"addCommune","code_commune":"33063","nom_commune":"Bordeaux","cp_commune":"33000","email_commune":"bordeaux@gmail.com","tel_commune":"0666059785","adresse_commune":"Pey Berland","contact":"Abbes B","reseau_instruction":"ADS","urbaniste_vra":"Amadine"}
 2025-03-27 22:04:45 - Requête reçue : {"action":"addCommune","code_commune":"33063","nom_commune":"Bordeaux","cp_commune":"33000","email_commune":"test@bordeaux.com","tel_commune":"0145632578","adresse_commune":"Pey Berland","contact":"Abbes B","reseau_instruction":"ADS","urbaniste_vra":"Amadine"}
 2025-03-27 22:04:57 - Requête reçue : {"action":"searchCommune","code_commune":"33063","nom_commune":"","cp_commune":""}
+2025-03-27 22:19:14 - Requête reçue : {"action":"getAllUsers"}
+2025-03-27 22:19:14 - Requête reçue : {"action":"getProfile","userId":"2"}
+2025-03-27 22:19:16 - Requête reçue : {"action":"logout"}
+2025-03-27 22:19:22 - Requête reçue : {"action":"login","email":"bouguerra.abbes@outlook.fr","password":"123"}
+2025-03-27 22:19:24 - Requête reçue : {"action":"getAllUsers"}
+2025-03-27 22:19:24 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-27 22:19:38 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"Instructrice"}
+2025-03-27 22:19:57 - Requête reçue : {"action":"getAllUsers"}
+2025-03-27 22:19:57 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-27 22:20:06 - Requête reçue : {"action":"searchCommune","code_commune":"","nom_commune":"Malissar","cp_commune":""}
+2025-03-27 22:20:11 - Requête reçue : {"action":"searchCommune","code_commune":"","nom_commune":"Bordeaux","cp_commune":""}
+2025-03-27 22:20:51 - Requête reçue : {"action":"getCommune","id_commune":"55"}
+2025-03-27 22:21:02 - Requête reçue : {"action":"updateCommune","id_commune":"55","code_commune":"33063","nom_commune":"Bordeaux","cp_commune":"33100"}
+2025-03-27 22:22:24 - Requête reçue : {"action":"getCommune","id_commune":"55"}
+2025-03-27 22:29:25 - Requête reçue : {"action":"getCommune","id_commune":"55"}
+2025-03-27 22:29:42 - Requête reçue : {"action":"updateCommune","id_commune":"55","code_commune":"33063","nom_commune":"Bordeaux","cp_commune":"33000","email_commune":"test@bordeaux.com","tel_commune":"0145632578","adresse_commune":"Pey Berland","contact":"Benjamin Sandré","reseau_instruction":"ADS","urbaniste_vra":"Amadine"}
+2025-03-27 22:30:54 - Requête reçue : {"action":"getCommune","id_commune":"55"}
+2025-03-27 22:31:04 - Requête reçue : {"action":"updateCommune","id_commune":"55","code_commune":"33063","nom_commune":"Bordeaux","cp_commune":"33000","email_commune":"test@bordeaux.com","tel_commune":"0145632578","adresse_commune":"Pey Berland","contact":"Benjamin Sandré","reseau_instruction":"ADS","urbaniste_vra":"Amadine"}
+2025-03-27 22:32:50 - Requête reçue : {"action":"getCommune","id_commune":"55"}
+2025-03-27 22:32:55 - Requête reçue : {"action":"updateCommune","code_commune":"33063","nom_commune":"Bordeaux","cp_commune":"33000","email_commune":"test@bordeaux.com","tel_commune":"0145632578","adresse_commune":"Pey Berland","contact":"Benjamin Sandré","reseau_instruction":"ADS","urbaniste_vra":"Amadine"}
+2025-03-27 22:34:50 - Requête reçue : {
+    "action": "addCommune"
+}
+2025-03-27 22:35:01 - Requête reçue : {
+    "action": "updateCommune"
+}
+2025-03-27 22:35:05 - Requête reçue : {
+    "action": "updateCommune"
+}
+2025-03-27 22:35:18 - Requête reçue : {
+    "action": "updateCommune"
+}
+2025-03-27 22:39:03 - Requête reçue : {"action":"getCommune","id_commune":"55"}
+2025-03-27 22:39:09 - Requête reçue : {"action":"updateCommune","id_commune":"55","code_commune":"33063","nom_commune":"Bordeaux","cp_commune":"33000","email_commune":"test@bordeaux.com","tel_commune":"0145632578","adresse_commune":"Pey Berland","contact":"Benjamin Sandré","reseau_instruction":"ADS","urbaniste_vra":"Amadine"}
+2025-03-27 22:39:17 - Requête reçue : {"action":"searchCommune","code_commune":"","nom_commune":"Bordeaux","cp_commune":""}
+2025-03-27 22:39:28 - Requête reçue : {"action":"searchCommune","code_commune":"","nom_commune":"Beau","cp_commune":""}
+2025-03-27 22:44:43 - Requête reçue : {"action":"getAllUsers"}
+2025-03-27 22:44:43 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-27 22:44:55 - Requête reçue : {"action":"getUser","id_utilisateur":"3"}
+2025-03-27 22:45:00 - Requête reçue : {"action":"updateUser","id_utilisateur":"3","nom":"HOCINI","prenom":"Fouad","email":"hmfouad@yahoo.fr","annee_naissance":"1990","pseudo":"Foufou","genre":"homme","poste":"Développeur Web Backend"}
+2025-03-27 22:45:03 - Requête reçue : {"action":"getAllUsers"}
+2025-03-27 22:45:03 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-27 22:45:23 - Requête reçue : {"action":"searchCommune","code_commune":"","nom_commune":"Bordeaux","cp_commune":""}
+2025-03-27 22:45:32 - Requête reçue : {"action":"deleteCommune","id_commune":55}
+2025-03-27 22:45:34 - Requête reçue : {"action":"searchCommune","code_commune":"","nom_commune":"Bordeaux","cp_commune":""}
+2025-03-27 22:46:46 - Requête reçue : {"action":"searchCommune","code_commune":"","nom_commune":"Chatu","cp_commune":""}
+2025-03-27 22:46:59 - Requête reçue : {"action":"searchCommune","code_commune":"26362","nom_commune":"Chatu","cp_commune":""}
+2025-03-27 22:47:06 - Requête reçue : {"action":"searchCommune","code_commune":"26149","nom_commune":"Chatu","cp_commune":""}
+2025-03-27 22:47:13 - Requête reçue : {"action":"searchCommune","code_commune":"26084","nom_commune":"Chatu","cp_commune":""}
+2025-03-27 22:47:15 - Requête reçue : {"action":"searchCommune","code_commune":"26084","nom_commune":"Chatu","cp_commune":""}
+2025-03-27 22:47:19 - Requête reçue : {"action":"searchCommune","code_commune":"26088","nom_commune":"Chatu","cp_commune":""}
+2025-03-27 22:47:24 - Requête reçue : {"action":"searchCommune","code_commune":"26170","nom_commune":"Chatu","cp_commune":""}
+2025-03-27 22:47:26 - Requête reçue : {"action":"searchCommune","code_commune":"26170","nom_commune":"Chatu","cp_commune":""}
+2025-03-27 22:47:37 - Requête reçue : {"action":"searchCommune","code_commune":"26362","nom_commune":"Chatu","cp_commune":""}
+2025-03-27 22:47:44 - Requête reçue : {"action":"searchCommune","code_commune":"26362","nom_commune":"","cp_commune":""}
+2025-03-27 22:47:49 - Requête reçue : {"action":"searchCommune","code_commune":"26170","nom_commune":"","cp_commune":""}
+2025-03-27 22:48:00 - Requête reçue : {"action":"searchCommune","code_commune":"26149","nom_commune":"","cp_commune":""}
+2025-03-27 22:48:17 - Requête reçue : {"action":"searchCommune","code_commune":"26124","nom_commune":"","cp_commune":""}
+2025-03-27 22:51:27 - Requête reçue : {"action":"addCommune","code_commune":"33281","nom_commune":"Mérignac","cp_commune":"33700","email_commune":"test@merignac.com","tel_commune":"0145632578","adresse_commune":"Mérignac Soleil","contact":"Estelle Jamoneau","reseau_instruction":"ADS","urbaniste_vra":"Isabelle"}
+2025-03-27 22:51:36 - Requête reçue : {"action":"searchCommune","code_commune":"33281","nom_commune":"","cp_commune":""}
+2025-03-27 22:51:40 - Requête reçue : {"action":"getCommune","id_commune":"56"}
+2025-03-27 22:51:46 - Requête reçue : {"action":"updateCommune","id_commune":"56","code_commune":"33281","nom_commune":"Mérignac","cp_commune":"33700","email_commune":"test@merignac.com","tel_commune":"0145632578","adresse_commune":"Mérignac Soleil","contact":"Estelle Jamoneau","reseau_instruction":"hors ADS","urbaniste_vra":"Isabelle"}
+2025-03-27 22:51:53 - Requête reçue : {"action":"searchCommune","code_commune":"33281","nom_commune":"","cp_commune":""}
+2025-03-27 22:52:01 - Requête reçue : {"action":"deleteCommune","id_commune":56}
+2025-03-27 22:52:03 - Requête reçue : {"action":"searchCommune","code_commune":"33281","nom_commune":"","cp_commune":""}
+2025-03-27 22:52:09 - Requête reçue : {"action":"searchCommune","code_commune":"26004","nom_commune":"","cp_commune":""}
+2025-03-27 22:52:13 - Requête reçue : {"action":"getAllUsers"}
+2025-03-27 22:52:13 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-27 22:56:52 - Requête reçue : {"action":"addCommune","code_commune":"33318","nom_commune":"Pessac","cp_commune":"33600","email_commune":"test@pessac.com","tel_commune":"0145632578","adresse_commune":"Unitec","contact":"Julien Perrot","reseau_instruction":"ADS","urbaniste_vra":"Morgane"}
+2025-03-27 22:57:00 - Requête reçue : {"action":"searchCommune","code_commune":"33318","nom_commune":"","cp_commune":""}
+2025-03-27 22:57:05 - Requête reçue : {"action":"getCommune","id_commune":"57"}
+2025-03-27 22:57:10 - Requête reçue : {"action":"updateCommune","id_commune":"57","code_commune":"33318","nom_commune":"Pessac","cp_commune":"33600","email_commune":"test@pessac.com","tel_commune":"0145632578","adresse_commune":"Unitec","contact":"Julien Perrot","reseau_instruction":"ADS","urbaniste_vra":"Morgane W"}
+2025-03-27 22:57:21 - Requête reçue : {"action":"searchCommune","code_commune":"33318","nom_commune":"","cp_commune":""}
+2025-03-27 22:57:25 - Requête reçue : {"action":"deleteCommune","id_commune":57}
+2025-03-27 22:57:27 - Requête reçue : {"action":"searchCommune","code_commune":"33318","nom_commune":"","cp_commune":""}
+2025-03-27 23:00:14 - Requête reçue : {"action":"searchCommune","code_commune":"26362","nom_commune":"","cp_commune":""}
+2025-03-27 23:00:17 - Requête reçue : {"action":"getAllUsers"}
+2025-03-27 23:00:17 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-27 23:01:30 - Requête reçue : {"action":"addCommune","code_commune":"33522","nom_commune":"Talence","cp_commune":"33400","email_commune":"test@talence.com","tel_commune":"0145632578","adresse_commune":"Piexoto","contact":"Maxime Alonzo","reseau_instruction":"ADS","urbaniste_vra":"Franck B"}
+2025-03-27 23:01:39 - Requête reçue : {"action":"searchCommune","code_commune":"","nom_commune":"","cp_commune":"33400"}
+2025-03-27 23:01:43 - Requête reçue : {"action":"getCommune","id_commune":"58"}
+2025-03-27 23:01:48 - Requête reçue : {"action":"updateCommune","id_commune":"58","code_commune":"33522","nom_commune":"Talence","cp_commune":"33400","email_commune":"test@talence.com","tel_commune":"0145632578","adresse_commune":"Piexoto","contact":"Maxime Alonzo","reseau_instruction":"ADS","urbaniste_vra":"Morgane W"}
+2025-03-27 23:01:55 - Requête reçue : {"action":"searchCommune","code_commune":"","nom_commune":"","cp_commune":"33400"}
+2025-03-27 23:01:59 - Requête reçue : {"action":"deleteCommune","id_commune":58}
+2025-03-27 23:02:01 - Requête reçue : {"action":"searchCommune","code_commune":"","nom_commune":"","cp_commune":"33400"}
+2025-03-27 23:04:25 - Requête reçue : {"action":"addCommune","code_commune":"33192","nom_commune":"Gradignan","cp_commune":"33170","email_commune":"test@gradignan.com","tel_commune":"0145632578","adresse_commune":"Place de la victoire","contact":"Medhi Mouillé","reseau_instruction":"hors ADS","urbaniste_vra":"Isabelle"}
+2025-03-27 23:04:33 - Requête reçue : {"action":"searchCommune","code_commune":"","nom_commune":"","cp_commune":"33170"}
+2025-03-27 23:04:36 - Requête reçue : {"action":"getCommune","id_commune":"59"}
+2025-03-27 23:04:39 - Requête reçue : {"action":"updateCommune","id_commune":"59","code_commune":"33192","nom_commune":"Gradignan","cp_commune":"33170","email_commune":"test@gradignan.com","tel_commune":"0145632578","adresse_commune":"Place de la victoire","contact":"Medhi Mouillé","reseau_instruction":"hors ADS","urbaniste_vra":"Isabelle S"}
+2025-03-27 23:04:45 - Requête reçue : {"action":"searchCommune","code_commune":"","nom_commune":"","cp_commune":"33170"}
+2025-03-27 23:04:48 - Requête reçue : {"action":"deleteCommune","id_commune":59}
+2025-03-27 23:04:50 - Requête reçue : {"action":"searchCommune","code_commune":"","nom_commune":"","cp_commune":"33170"}
