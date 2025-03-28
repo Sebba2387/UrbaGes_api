@@ -148,6 +148,24 @@ class UserModel {
         }
         return ["success" => true, "message" => "Mot de passe mis à jour avec succès"];
     }
+
+    public function logoutUser($email) {
+        // Détruire la session
+        session_unset();
+        session_destroy();
+    
+        // Enregistrer l'événement dans MongoDB
+        $logData = [
+            'email' => $email,
+            'action' => 'logout',
+            'date' => date("c"),
+            'ip' => $_SERVER['REMOTE_ADDR']
+        ];
+        $this->logCollection->insertOne($logData);
+    
+        return ["success" => true, "message" => "Déconnexion réussie"];
+    }
+    
     
         
 }

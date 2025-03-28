@@ -907,3 +907,7 @@
 2025-03-28 17:25:01 - Requête reçue : {"action":"getAllUsers"}
 2025-03-28 17:25:01 - Requête reçue : {"action":"getProfile","userId":"2"}
 2025-03-28 17:25:52 - Requête reçue : {"action":"logout"}
+2025-03-28 17:32:50 - Requête reçue : {"action":"login","email":"bouguerra.abbes@outlook.fr","password":"123"}
+2025-03-28 17:32:52 - Requête reçue : {"action":"getAllUsers"}
+2025-03-28 17:32:52 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-28 17:32:56 - Requête reçue : {"action":"logout"}

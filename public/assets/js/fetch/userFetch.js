@@ -83,27 +83,6 @@ function fetchUserProfile() {
     });
 }
 
-// Déconnexion utilisateur via le backend
-function logoutUser() {
-    fetch('http://localhost/public/api/userApi.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'logout' })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            localStorage.removeItem('userId'); // Supprimer l'ID utilisateur du localStorage
-            window.location.href = "http://localhost/public/testPages/testLogin.html"; // Rediriger vers la page de connexion
-        } else {
-            alert(data.message);
-        }
-    })
-    .catch(error => console.error('Erreur de déconnexion :', error));
-}
-
-
-
 // Affichage des utilisateurs dans le tableau HTML
 function displayUsersTable(users) {
     const tableBody = document.getElementById("usersTableBody");
@@ -375,6 +354,25 @@ function updatePassword() {
         }
     })
     .catch(error => console.error('Erreur lors du changement de mot de passe:', error));
+}
+
+// Déconnexion utilisateur via le backend
+function logoutUser() {
+    fetch('http://localhost/public/api/userApi.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'logout' })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            localStorage.removeItem('userId'); // Supprimer l'ID utilisateur du localStorage
+            window.location.href = "http://localhost/public/testPages/testLogin.html"; // Rediriger vers la page de connexion
+        } else {
+            alert(data.message);
+        }
+    })
+    .catch(error => console.error('Erreur de déconnexion :', error));
 }
 
 

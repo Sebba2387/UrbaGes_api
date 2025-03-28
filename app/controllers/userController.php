@@ -117,13 +117,6 @@ switch ($action) {
             echo json_encode(["success" => false, "message" => "Erreur lors de la récupération des utilisateurs"]);
         }
         exit;
-
-    // 🔴 Déconnexion
-    case 'logout':
-        session_unset();
-        session_destroy();
-        echo json_encode(["success" => true, "message" => "Déconnexion réussie"]);
-        exit;
     
     // 📋 inscription d'un utilisateur via userModel.php
     case 'registerUser':
@@ -314,6 +307,29 @@ switch ($action) {
         $result = $userModel->updatePassword($_SESSION['user_id'], $data['nouveau_mot_de_passe']);
         echo json_encode($result);
         exit;
+
+    // 🔴 Déconnexion
+    case 'logout':
+        if (!isset($_SESSION['user_id'])) {
+            echo json_encode(["success" => false, "message" => "Utilisateur non authentifié"]);
+            exit;
+        }
+    
+        // Récupérer l'email de l'utilisateur pour les logs
+        $stmt = $pdo->prepare("SELECT email FROM utilisateurs WHERE id_utilisateur = :id_utilisateur");
+        $stmt->execute(['id_utilisateur' => $_SESSION['user_id']]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        if (!$user) {
+            echo json_encode(["success" => false, "message" => "Utilisateur introuvable"]);
+            exit;
+        }
+    
+        // Appel du modèle pour gérer la déconnexion et enregistrer le log
+        $result = $userModel->logoutUser($user['email']);
+        echo json_encode($result);
+        exit;
+        
         
     
     // ❌ Action inconnue
