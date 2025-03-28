@@ -78,5 +78,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action'])) {
     }
 }
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action'])) {
+    if ($data['action'] === 'updatePassword') {
+        require_once __DIR__ . '/../../app/controllers/userController.php';
+    }
+}
+
 
 ?>

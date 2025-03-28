@@ -350,6 +350,32 @@ function displaySearchResults(users) {
     });
 }
 
+// Fonction pour changer le mot de passe
+function updatePassword() {
+    const ancienMotDePasse = document.getElementById("ancien_mot_de_passe").value;
+    const nouveauMotDePasse = document.getElementById("nouveau_mot_de_passe").value;
+
+    fetch('http://localhost/public/api/userApi.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            action: 'updatePassword',
+            ancien_mot_de_passe: ancienMotDePasse,
+            nouveau_mot_de_passe: nouveauMotDePasse
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message);
+        if (data.success) {
+            document.getElementById("passwordForm").reset();
+            setTimeout(() => {
+                window.location.href = "http://localhost/public/testPages/testLogin.html";
+            }, 1000);
+        }
+    })
+    .catch(error => console.error('Erreur lors du changement de mot de passe:', error));
+}
 
 
 

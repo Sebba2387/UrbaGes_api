@@ -289,7 +289,32 @@ switch ($action) {
     
         echo json_encode(["success" => true, "users" => $users]);
         exit;
-
+    
+    // Changement de mot de passe
+    case 'updatePassword':
+        if (!isset($_SESSION['user_id'])) {
+            echo json_encode(["success" => false, "message" => "Utilisateur non authentifié"]);
+            exit;
+        }
+    
+        if (!isset($data['ancien_mot_de_passe'], $data['nouveau_mot_de_passe'])) {
+            echo json_encode(["success" => false, "message" => "Données incomplètes"]);
+            exit;
+        }
+    
+        $stmt = $pdo->prepare("SELECT password FROM utilisateurs WHERE id_utilisateur = :id_utilisateur");
+        $stmt->execute(['id_utilisateur' => $_SESSION['user_id']]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        if (!$user || !password_verify($data['ancien_mot_de_passe'], $user['password'])) {
+            echo json_encode(["success" => false, "message" => "Ancien mot de passe incorrect"]);
+            exit;
+        }
+    
+        $result = $userModel->updatePassword($_SESSION['user_id'], $data['nouveau_mot_de_passe']);
+        echo json_encode($result);
+        exit;
+        
     
     // ❌ Action inconnue
     default:
