@@ -35,8 +35,10 @@ function displayCommunes(communes) {
             <td>${commune.contact}</td>
             <td>${commune.reseau_instruction}</td>
             <td>${commune.urbaniste_vra}</td>
-            <td><button onclick="redirectToEdit(${commune.id_commune})">Modifier</button></td>
-            <td><button onclick="deleteCommune(${commune.id_commune})">Supprimer</button></td>
+            <td>
+            <button onclick="redirectToEdit(${commune.id_commune})">Modifier</button>
+            <button onclick="deleteCommune(${commune.id_commune})">Supprimer</button>
+            </td>
         `;
         tableBody.appendChild(row);
     });
