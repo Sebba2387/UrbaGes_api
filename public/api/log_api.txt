@@ -1,0 +1,10 @@
+Array
+(
+    [action] => getPluById
+    [id_plu] => 1
+)
+Array
+(
+    [action] => getPluById
+    [id_plu] => 1
+)

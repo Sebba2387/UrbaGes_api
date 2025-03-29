@@ -11,7 +11,7 @@ CREATE TABLE communes (
     urbaniste_vra VARCHAR(100)
 );
 
-LOAD DATA INFILE '/path/communes.csv'
+LOAD DATA INFILE 'D:/communes.csv'
 INTO TABLE communes
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'

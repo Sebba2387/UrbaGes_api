@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier le PLU</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Modifier un PLU</h1>
+    <form id="updatePluForm">
+        <input type="hidden" id="id_plu">
+
+        <label for="code_commune">Code Commune:</label>
+        <input type="text" id="code_commune" required><br><br>
+
+        <label for="nom_commune">Nom Commune:</label>
+        <input type="text" id="nom_commune" required><br><br>
+
+        <label for="cp_commune">Code Postal Commune:</label>
+        <input type="text" id="cp_commune" required><br><br>
+
+        <label for="etat_plu">État du PLU:</label>
+        <input type="text" id="etat_plu" required><br><br>
+
+        <label for="type_plu">Type de PLU:</label>
+        <input type="text" id="type_plu" required><br><br>
+
+        <label for="date_plu">Date du PLU:</label>
+        <input type="date" id="date_plu" required><br><br>
+
+        <label for="systeme_ass">Système Assainissement:</label>
+        <input type="text" id="systeme_ass"><br><br>
+
+        <label for="statut_zonage">Statut Zonage:</label>
+        <input type="text" id="statut_zonage"><br><br>
+
+        <label for="statut_pres">Statut Présence:</label>
+        <input type="text" id="statut_pres"><br><br>
+
+        <label for="date_annexion">Date Annexion:</label>
+        <input type="date" id="date_annexion"><br><br>
+
+        <label for="lien_zonage">Lien Zonage:</label>
+        <input type="url" id="lien_zonage"><br><br>
+
+        <label for="lien_dhua">Lien DHUA:</label>
+        <input type="url" id="lien_dhua"><br><br>
+
+        <label for="observation_plu">Observation:</label>
+        <textarea id="observation_plu"></textarea><br><br>
+
+        <button type="submit">Modifier</button>
+    </form>
+
+    <script src="/public/assets/js/fetch/pluFetch.js"></script>
+</body>
+</html>

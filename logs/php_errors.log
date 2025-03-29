@@ -130,3 +130,10 @@ Stack trace:
   thrown in C:\xampp\htdocs\app\controllers\userController.php on line 306
 [28-Mar-2025 17:15:31 Europe/Berlin] PHP Warning:  Undefined array key "mot_de_passe" in C:\xampp\htdocs\app\controllers\userController.php on line 309
 [28-Mar-2025 17:15:31 Europe/Berlin] PHP Deprecated:  password_verify(): Passing null to parameter #2 ($hash) of type string is deprecated in C:\xampp\htdocs\app\controllers\userController.php on line 309
+[29-Mar-2025 18:39:19 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "PluModel" not found in C:\xampp\htdocs\app\controllers\pluController.php:37
+Stack trace:
+#0 C:\xampp\htdocs\public\api\pluApi.php(8): require_once()
+#1 {main}
+  thrown in C:\xampp\htdocs\app\controllers\pluController.php on line 37
+[29-Mar-2025 23:48:25 Europe/Berlin] PHP Warning:  Constant DEBUG_LOG already defined in C:\xampp\htdocs\public\api\pluApi.php on line 16
+[29-Mar-2025 23:49:01 Europe/Berlin] PHP Warning:  Constant DEBUG_LOG already defined in C:\xampp\htdocs\public\api\pluApi.php on line 16

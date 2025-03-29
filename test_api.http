@@ -1,7 +1,7 @@
-POST http://localhost/public/api/communeApi.php
+POST http://localhost/public/api/pluApi.php
 Content-Type: application/json
 Authorization: Bearer your_token_here
 
 {
-    "action": "updateCommune"
+    "action": "updatePlu"
 }
