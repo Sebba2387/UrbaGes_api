@@ -19,8 +19,11 @@ header("Content-Type: application/json");
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 ini_set('error_log', __DIR__ . '/../../logs/php_errors.log');
-// Fichier de log pour debug
-define('DEBUG_LOG', __DIR__ . '/../../logs/debug.log');
+
+// Définition du fichier de log
+if (!defined('DEBUG_LOG')) {
+    define('DEBUG_LOG', __DIR__ . '/../../logs/debug.log');
+}
 file_put_contents(DEBUG_LOG, date("Y-m-d H:i:s") . " - Requête reçue : " . file_get_contents("php://input") . "\n", FILE_APPEND);
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -92,27 +95,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action'])) {
             echo json_encode($results);
             exit;
         
-        // Mise à jour des information d'un PLU
-        case 'updatePlu':
-            if (!isset($data['id_plu'])) {
-                echo json_encode(["success" => false, "message" => "ID du PLU manquant"]);
-                exit;
-            }
-        
-            $id_plu = $data['id_plu'];
-            $updated = $pluModel->updatePlu($id_plu, $data);
-        
-            if ($updated) {
-                echo json_encode(["success" => true, "message" => "PLU mis à jour avec succès"]);
+        case 'getPluById':
+            if (isset($data['id_plu'])) {
+                $plu = $pluModel->getPluById($data['id_plu']);
+                if ($plu) {
+                    echo json_encode(["success" => true, "plu" => $plu]);
+                } else {
+                    echo json_encode(["success" => false, "message" => "PLU non trouvé"]);
+                }
             } else {
-                echo json_encode(["success" => false, "message" => "Aucune modification effectuée"]);
+                echo json_encode(["success" => false, "message" => "ID PLU manquant"]);
             }
-            exit;
-                
-        }
+            break;
+            
+        case 'updatePlu':
+            if (
+                isset($data['id_commune'], $data['type_plu'], $data['etat_plu'], 
+                        $data['date_plu'], $data['systeme_ass'], $data['statut_zonage'], 
+                        $data['statut_pres'], $data['date_annexion'], $data['lien_zonage'], 
+                        $data['lien_dhua'], $data['observation_plu'])
+            ) {
+                $updated = $pluModel->updatePlu($data);
+                if ($updated) {
+                    echo json_encode(["success" => true, "message" => "PLU mis à jour avec succès"]);
+                } else {
+                    echo json_encode(["success" => false, "message" => "Erreur lors de la mise à jour"]);
+                }
+            } else {
+                echo json_encode(["success" => false, "message" => "Données manquantes"]);
+            }
+            break;
 
-        
+        default:
+        echo json_encode(["success" => false, "message" => "Action inconnue"]);
+        break;
+    }
 }
-
 
 ?>

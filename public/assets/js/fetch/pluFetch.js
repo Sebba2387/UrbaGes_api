@@ -60,3 +60,40 @@ function displayPlu(pluList) {
 function redirectToEdit(id_plu) {
     window.location.href = `http://localhost/public/testPages/testEditPlu.html?id=${id_plu}`;
 }
+
+//Fonction pour récupérer ID du PLU concerné
+function getPluById(id_plu) {
+    const requestData = {
+        action: 'getPluById',
+        id_plu: id_plu
+    };
+    fetch('http://localhost/public/api/pluApi.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(requestData)
+    })
+    .then(response => {
+        return response.json();
+    })
+    .then(data => {
+        if (data.success) {
+            populateEditForm(data.plu); // Fonction pour remplir le formulaire de modification
+        } else {
+            console.error("Erreur lors de la récupération du PLU:", data.message);
+        }
+    })
+    .catch(error => console.error("Erreur de connexion à l'API:", error));
+}
+
+// Fonction pour peupler le formulaire de modification avec les données du PLU
+function populateEditForm(plu) {
+    document.getElementById("id_plu").value = plu.id_plu;
+    document.getElementById("etat_plu").value = plu.etat_plu;
+    document.getElementById("type_plu").value = plu.type_plu;
+    document.getElementById("date_plu").value = plu.date_plu;
+    document.getElementById("systeme_ass").value = plu.systeme_ass;
+    document.getElementById("statut_zonage").value = plu.statut_zonage;
+    document.getElementById("statut_pres").value = plu.statut_pres;
+    document.getElementById("date_annexion").value = plu.date_annexion;
+    document.getElementById("observation_plu").value = plu.observation_plu;
+}

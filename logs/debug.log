@@ -1027,3 +1027,46 @@
 2025-03-29 23:57:26 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Alixan","cp_commune":"","etat_plu":""}
 2025-03-29 23:57:30 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Alixan","cp_commune":"","etat_plu":""}
 2025-03-29 23:58:54 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Alixan","cp_commune":"","etat_plu":""}
+2025-03-30 17:08:42 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Malissar","cp_commune":"","etat_plu":""}
+2025-03-30 17:19:44 - Requête reçue : {"action":"getAllUsers"}
+2025-03-30 17:19:44 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-30 17:19:49 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Alixan","cp_commune":"","etat_plu":""}
+2025-03-30 17:20:18 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Malissar","cp_commune":"","etat_plu":""}
+2025-03-30 17:20:35 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Valence","cp_commune":"","etat_plu":""}
+2025-03-30 17:27:58 - Requête reçue : {"action":"getPluById","id_plu":"53"}
+2025-03-30 17:28:09 - Requête reçue : {"action":"getPluById","id_plu":"53"}
+2025-03-30 17:28:17 - Requête reçue : {"action":"getPluById","id_plu":"53"}
+2025-03-30 17:28:37 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Alixan","cp_commune":"","etat_plu":""}
+2025-03-30 17:28:41 - Requête reçue : {"action":"getPluById","id_plu":"1"}
+2025-03-30 17:29:07 - Requête reçue : {"action":"getPluById","id_plu":"1"}
+2025-03-30 17:29:46 - Requête reçue : {"action":"updatePlu","data":{"id_plu":"1","data":{"etat_plu":"En vigueur","type_plu":"PLU","date_plu":"12/07/2023","systeme_ass":"VALENCE","statut_zonage":"en attente","statut_pres":"","date_annexion":"","observation_plu":"Abbes"}}}
+2025-03-30 17:31:02 - Requête reçue : {"action":"getAllUsers"}
+2025-03-30 17:31:03 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-30 20:36:59 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Alixan","cp_commune":"","etat_plu":""}
+2025-03-30 20:37:02 - Requête reçue : {"action":"getPluById","id_plu":"1"}
+2025-03-30 20:37:13 - Requête reçue : {"action":"getAllUsers"}
+2025-03-30 20:37:13 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-30 20:37:13 - Requête reçue : {"action":"logout"}
+2025-03-30 22:19:54 - Requête reçue : {"action":"login","email":"bouguerra.abbes@outlook.fr","password":"123"}
+2025-03-30 22:19:55 - Requête reçue : {"action":"getAllUsers"}
+2025-03-30 22:19:55 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-30 22:20:03 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Upie","cp_commune":"","etat_plu":""}
+2025-03-30 22:20:05 - Requête reçue : {"action":"getPluById","id_plu":"52"}
+2025-03-30 22:20:34 - Requête reçue : {"action":"getPluById","id_plu":"52"}
+2025-03-30 22:28:47 - Requête reçue : {"action":"getAllUsers"}
+2025-03-30 22:28:47 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-30 22:28:57 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Malissar","cp_commune":"","etat_plu":""}
+2025-03-30 22:29:28 - Requête reçue : {
+    "action": "updatePlu"
+}
+2025-03-30 22:31:00 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Alixan","cp_commune":"","etat_plu":""}
+2025-03-30 22:31:40 - Requête reçue : {"action":"getAllUsers"}
+2025-03-30 22:31:40 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-03-30 22:31:46 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Alixan","cp_commune":"","etat_plu":""}
+2025-03-30 22:33:27 - Requête reçue : {"action":"getPluById","id_plu":"1"}
+2025-03-30 22:34:20 - Requête reçue : {"action":"getPluById","id_plu":"1"}
+2025-03-30 22:34:44 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Upie","cp_commune":"","etat_plu":""}
+2025-03-30 22:34:48 - Requête reçue : {"action":"getPluById","id_plu":"52"}
+2025-03-30 22:36:22 - Requête reçue : {"action":"getPluById","id_plu":"52"}
+2025-03-30 22:36:34 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Romans","cp_commune":"","etat_plu":""}
+2025-03-30 22:36:43 - Requête reçue : {"action":"getPluById","id_plu":"43"}

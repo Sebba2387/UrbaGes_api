@@ -44,40 +44,48 @@ class PluModel {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function updatePlu($id_plu, $data) {
-        $query = "UPDATE plu SET 
-                    etat_plu = :etat_plu, 
-                    type_plu = :type_plu, 
-                    date_plu = :date_plu, 
-                    systeme_ass = :systeme_ass, 
-                    statut_zonage = :statut_zonage, 
-                    statut_pres = :statut_pres, 
-                    date_annexion = :date_annexion, 
-                    lien_zonage = :lien_zonage, 
-                    lien_dhua = :lien_dhua, 
-                    observation_plu = :observation_plu 
-                  WHERE id_plu = :id_plu";
-    
+    // Récupérer un PLU par son ID
+    public function getPluById($id_plu) {
+        $query = "SELECT * FROM plu WHERE id_plu = :id_plu";
         $stmt = $this->pdo->prepare($query);
-        $stmt->execute([
-            'id_plu' => $id_plu,
-            'etat_plu' => $data['etat_plu'],
-            'type_plu' => $data['type_plu'],
-            'date_plu' => $data['date_plu'],
-            'systeme_ass' => $data['systeme_ass'],
-            'statut_zonage' => $data['statut_zonage'],
-            'statut_pres' => $data['statut_pres'],
-            'date_annexion' => $data['date_annexion'],
-            'lien_zonage' => $data['lien_zonage'],
-            'lien_dhua' => $data['lien_dhua'],
-            'observation_plu' => $data['observation_plu']
-        ]);
-    
-        return $stmt->rowCount() > 0; // Retourne true si une mise à jour a été effectuée
+        $stmt->bindParam(":id_plu", $id_plu, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+    // Modifier un PLU
+    public function updatePlu($data) {
+        $sql = "UPDATE plu SET 
+                    id_commune = :id_commune,
+                    type_plu = :type_plu,
+                    etat_plu = :etat_plu,
+                    date_plu = :date_plu,
+                    systeme_ass = :systeme_ass,
+                    statut_zonage = :statut_zonage,
+                    statut_pres = :statut_pres,
+                    date_annexion = :date_annexion,
+                    lien_zonage = :lien_zonage,
+                    lien_dhua = :lien_dhua,
+                    observation_plu = :observation_plu
+                WHERE id_plu = :id_plu";
     
-    
-    
+        $stmt = $this->pdo->prepare($sql);
+        
+        return $stmt->execute([
+            ':id_commune' => $data['id_commune'],
+            ':type_plu' => $data['type_plu'],
+            ':etat_plu' => $data['etat_plu'],
+            ':date_plu' => $data['date_plu'],
+            ':systeme_ass' => $data['systeme_ass'],
+            ':statut_zonage' => $data['statut_zonage'],
+            ':statut_pres' => $data['statut_pres'],
+            ':date_annexion' => $data['date_annexion'],
+            ':lien_zonage' => $data['lien_zonage'],
+            ':lien_dhua' => $data['lien_dhua'],
+            ':observation_plu' => $data['observation_plu'],
+            ':id_plu' => $data['id_plu']
+        ]);
+    }
 
 }
 ?>

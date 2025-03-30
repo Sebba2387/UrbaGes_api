@@ -12,10 +12,6 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 ini_set('error_log', __DIR__ . '/../../logs/php_errors.log');
 
-// Définition du fichier de log
-define('DEBUG_LOG', __DIR__ . '/../../logs/debug.log');
-file_put_contents(DEBUG_LOG, date("Y-m-d H:i:s") . " - Requête reçue : " . file_get_contents("php://input") . "\n", FILE_APPEND);
-
 // Vérification de l'authentification (si l'utilisateur est connecté)
 if (!isset($_SESSION['user_id'])) {
     echo json_encode(["success" => false, "message" => "Utilisateur non authentifié"]);
@@ -32,8 +28,6 @@ header("Content-Type: application/json");
 // 🔍 Récupération des données JSON envoyées par Fetch
 $data = json_decode(file_get_contents("php://input"), true);
 
-// Debugging : Affiche les données reçues
-file_put_contents("log_api.txt", print_r($data, true), FILE_APPEND);
 
 // Vérification de l'action
 if (!isset($data['action'])) {
@@ -41,13 +35,13 @@ if (!isset($data['action'])) {
     exit;
 }
 
-// Exécution en fonction de l'action
-switch ($data['action']) {
-    case 'searchPlu':
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action'])) {
+    if ($data['action'] === 'getPluById' || $data['action'] === 'updatePlu') {
         require_once __DIR__ . '/../../app/controllers/pluController.php';
-        break;
-
-    default:
-        echo json_encode(["success" => false, "message" => "Action inconnue : " . $data['action']]);
+    } else {
+        echo json_encode(["success" => false, "message" => "Action inconnue"]);
         exit;
+    }
 }
+
+
