@@ -24,22 +24,14 @@
         <input type="text" id="statut_pres" name="statut_pres"><br><br>
         <label for="date_annexion">Date d'annexion:</label>
         <input type="text" id="date_annexion" name="date_annexion"><br><br>
+        <label for="lien_zonage">Lien zonage:</label>
+        <input type="text" id="lien_zonage" name="lien_zonage"><br><br>
+        <label for="lien_dhua">Lien DHUA:</label>
+        <input type="text" id="lien_dhua" name="lien_dhua"><br><br>
         <label for="observation_plu">Observations:</label>
         <textarea id="observation_plu" name="observation_plu"></textarea><br><br>
         <button type="button" onclick="updatePlu()">Mettre à jour</button>
     </form>
-    <script src="/public/assets/js/fetch/pluFetch.js"></script>
-    <script>
-        window.onload = function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const id_plu = urlParams.get('id');
-            
-            if (id_plu) {
-                getPluById(id_plu);
-            } else {
-                console.error("ID du PLU manquant dans l'URL");
-            }
-        };
-    </script>
+    <script src="/public/assets/js/fetch/pluFetch.js" defer></script>
 </body>
 </html>

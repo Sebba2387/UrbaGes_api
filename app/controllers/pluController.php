@@ -109,27 +109,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action'])) {
             break;
             
         case 'updatePlu':
-            if (
-                isset($data['id_commune'], $data['type_plu'], $data['etat_plu'], 
-                        $data['date_plu'], $data['systeme_ass'], $data['statut_zonage'], 
-                        $data['statut_pres'], $data['date_annexion'], $data['lien_zonage'], 
-                        $data['lien_dhua'], $data['observation_plu'])
-            ) {
-                $updated = $pluModel->updatePlu($data);
-                if ($updated) {
-                    echo json_encode(["success" => true, "message" => "PLU mis à jour avec succès"]);
-                } else {
-                    echo json_encode(["success" => false, "message" => "Erreur lors de la mise à jour"]);
+            error_log("Données reçues : " . json_encode($data));
+        
+            $requiredFields = ['id_plu', 'type_plu', 'etat_plu', 'date_plu', 'systeme_ass', 'statut_zonage', 
+            'statut_pres', 'date_annexion', 'lien_zonage', 'lien_dhua', 'observation_plu'];
+            foreach ($requiredFields as $field) {
+                if (!array_key_exists($field, $data) || $data[$field] === null) {
+                    echo json_encode(["success" => false, "message" => "Données manquantes : " . $field]);
+                    exit;
                 }
+            }
+        
+            $updated = $pluModel->updatePlu($data);
+            if ($updated) {
+                echo json_encode(["success" => true, "message" => "PLU mis à jour avec succès"]);
             } else {
-                echo json_encode(["success" => false, "message" => "Données manquantes"]);
+                echo json_encode(["success" => false, "message" => "Erreur lors de la mise à jour"]);
             }
             break;
+
 
         default:
         echo json_encode(["success" => false, "message" => "Action inconnue"]);
         break;
     }
 }
+
+
 
 ?>

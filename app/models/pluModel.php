@@ -56,7 +56,6 @@ class PluModel {
     // Modifier un PLU
     public function updatePlu($data) {
         $sql = "UPDATE plu SET 
-                    id_commune = :id_commune,
                     type_plu = :type_plu,
                     etat_plu = :etat_plu,
                     date_plu = :date_plu,
@@ -71,8 +70,7 @@ class PluModel {
     
         $stmt = $this->pdo->prepare($sql);
         
-        return $stmt->execute([
-            ':id_commune' => $data['id_commune'],
+        $stmt->execute([
             ':type_plu' => $data['type_plu'],
             ':etat_plu' => $data['etat_plu'],
             ':date_plu' => $data['date_plu'],
@@ -85,6 +83,19 @@ class PluModel {
             ':observation_plu' => $data['observation_plu'],
             ':id_plu' => $data['id_plu']
         ]);
+
+        // Enregistrement dans MongoDB
+        $logData = [
+            'action' => 'Mise à jour des données',
+            'type' => 'PLU',
+            'commune' => $data['id_plu'], // Détails sur la commune mise à jour
+            'date' => date("c")
+        ];
+    
+        // Insérer un log dans la collection MongoDB pour les modifications
+        $this->modificationCollection->insertOne($logData);
+    
+        return true;  // Retourner true si la mise à jour réussit
     }
 
 }
