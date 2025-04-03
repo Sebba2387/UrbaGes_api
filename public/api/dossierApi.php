@@ -10,7 +10,7 @@ require_once __DIR__ . '/../../app/controllers/dossierController.php';
 // Activer le mode debug
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-ini_set('error_log', __DIR__ . '/../../logs/php_errors.log');
+error_log(print_r($input, true));  // Affiche les données dans le fichier de log PHP
 
 // Vérification de l'authentification (si l'utilisateur est connecté)
 if (!isset($_SESSION['user_id'])) {
@@ -34,18 +34,25 @@ if (!isset($data['action'])) {
     exit;
 }
 
-// Vérification de la méthode HTTP et de l'action
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action'])) {
-    switch ($data['action']) {
-        case 'searchDossier':
-            require_once __DIR__ . '/../../app/controllers/dossierController.php';
-            break;
+// 🔍 Récupération des données JSON envoyées par Fetch
+$data = json_decode(file_get_contents("php://input"), true);
 
-        default:
-            echo json_encode(["success" => false, "message" => "Action inconnue"]);
-            exit;
-    }
-} else {
-    echo json_encode(["success" => false, "message" => "Méthode non supportée ou action manquante"]);
+// Log des données reçues pour vérifier leur contenu
+error_log(print_r($input, true));
+
+// Vérification de l'action
+if (!isset($data['action'])) {
+    echo json_encode(["success" => false, "message" => "Aucune action reçue"]);
+    exit;
 }
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action'])) {
+    if ($data['action'] === 'searchDossier' || $data['action'] === 'getDossierById') {
+        require_once __DIR__ . '/../../app/controllers/dossierController.php';
+    } else {
+        echo json_encode(["success" => false, "message" => "Action inconnue"]);
+        exit;
+    }
+}
+
 ?>

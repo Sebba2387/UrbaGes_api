@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recherche Dossier</title>
-    <script src="/public/assets/js/fetch/dossierFetch.js" defer></script>
+    
     <style>
         table {
             width: 100%;
@@ -34,7 +34,7 @@
         <input type="text" id="id_cadastre">
 
         <label>Type Dossier:</label>
-        <select id="type_dossier">
+        <select id="type_dossier" name="type_dossier">
             <option value="">-- Choisir --</option>
             <option value="Instruction complexe">Instruction complexe</option>
             <option value="Projet">Projet</option>
@@ -44,7 +44,7 @@
         </select>
 
         <label>Sous-Type Dossier:</label>
-        <select id="sous_type_dossier">
+        <select id="sous_type_dossier" name="sous_type_dossier">
             <option value="">-- Choisir --</option>
             <option value="Demande de validation">Demande de validation</option>
             <option value="Extension">Extension</option>
@@ -75,10 +75,12 @@
                 <th>Date Limite</th>
                 <th>Statut</th>
                 <th>Lien Calypso</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody id="dossierTableBody"></tbody>
     </table>
     <button type="button" onclick="location.href='/public/testPages/testProfil.html'">Retour au profil</button>
+    <script src="/public/assets/js/fetch/dossierFetch.js" defer></script>
 </body>
 </html>

@@ -42,5 +42,19 @@ class DossierModel {
         $stmt->execute($params);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    // 📄 Récupérer un dossier par son ID
+    public function getDossierById($id_dossier) {
+        $sql = "SELECT d.id_dossier, u.pseudo, c.nom_commune, d.numero_dossier, d.type_dossier, d.sous_type_dossier, d.id_cadastre, d.libelle, d.date_demande, d.date_limite, d.statut, d.lien_calypso 
+                FROM dossiers d
+                JOIN utilisateurs u ON d.id_utilisateur = u.id_utilisateur
+                JOIN communes c ON d.id_commune = c.id_commune 
+                WHERE d.id_dossier = :id_dossier";
+        
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(':id_dossier', $id_dossier, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }
 ?>

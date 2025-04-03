@@ -1254,3 +1254,61 @@
 2025-04-02 19:03:52 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Alixan","cp_commune":"","etat_plu":""}
 2025-04-02 19:04:01 - Requête reçue : {"action":"getAllUsers"}
 2025-04-02 19:04:01 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-03 00:40:39 - Requête reçue : {"action":"searchDossier","nom_commune":"","numero_dossier":"","id_cadastre":"","type_dossier":"","sous_type_dossier":"Extension"}
+2025-04-03 00:40:48 - Requête reçue : {"action":"searchDossier","nom_commune":"","numero_dossier":"","id_cadastre":"","type_dossier":"","sous_type_dossier":"Extension"}
+2025-04-03 00:42:24 - Requête reçue : {"action":"getAllUsers"}
+2025-04-03 00:42:24 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-03 00:42:28 - Requête reçue : {"action":"searchDossier","nom_commune":"","numero_dossier":"","id_cadastre":"","type_dossier":"","sous_type_dossier":"Extension"}
+2025-04-03 00:44:57 - Requête reçue : {"action":"searchDossier","nom_commune":"","numero_dossier":"","id_cadastre":"","type_dossier":"","sous_type_dossier":"Extension"}
+2025-04-03 00:46:56 - Requête reçue : {"action":"searchDossier","nom_commune":"","numero_dossier":"","id_cadastre":"","type_dossier":"","sous_type_dossier":"Direction"}
+2025-04-03 00:47:43 - Requête reçue : {"action":"searchDossier","nom_commune":"","numero_dossier":"","id_cadastre":"","type_dossier":"","sous_type_dossier":"Extension"}
+2025-04-03 00:47:43 - Requête reçue : {"action":"searchDossier","nom_commune":"","numero_dossier":"","id_cadastre":"","type_dossier":"","sous_type_dossier":"Extension"}
+2025-04-03 00:50:08 - Requête reçue : {"action":"searchDossier","nom_commune":"","numero_dossier":"","id_cadastre":"","type_dossier":"","sous_type_dossier":"SPANC"}
+2025-04-03 00:52:29 - Requête reçue : {"action":"searchDossier","nom_commune":"","numero_dossier":"","id_cadastre":"","type_dossier":"","sous_type_dossier":"SPANC"}
+2025-04-03 00:53:18 - Requête reçue : {"action":"searchDossier","nom_commune":"","numero_dossier":"","id_cadastre":"","type_dossier":"","sous_type_dossier":"Extension"}
+2025-04-03 00:53:20 - Requête reçue : {"action":"getDossierDetails","id_dossier":"3"}
+2025-04-03 00:53:43 - Requête reçue : {"action":"logout"}
+2025-04-03 18:33:24 - Requête reçue : {"action":"login","email":"bouguerra.abbes@outlook.fr","password":"123"}
+2025-04-03 18:33:26 - Requête reçue : {"action":"getAllUsers"}
+2025-04-03 18:33:27 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-03 18:33:43 - Requête reçue : {"action":"searchDossier","nom_commune":"","numero_dossier":"","id_cadastre":"","type_dossier":"","sous_type_dossier":"Extension"}
+2025-04-03 18:34:07 - Requête reçue : {"action":"searchDossier","nom_commune":"","numero_dossier":"","id_cadastre":"","type_dossier":"","sous_type_dossier":"Extension"}
+2025-04-03 20:31:56 - Requête reçue : {"action":"getAllUsers"}
+2025-04-03 20:31:56 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-03 20:32:01 - Requête reçue : {"action":"searchDossier","nom_commune":"","numero_dossier":"","id_cadastre":"","type_dossier":"","sous_type_dossier":"Extension"}
+2025-04-03 20:32:39 - Requête reçue : {
+    "action": "getDossierById"
+}
+2025-04-03 20:34:35 - Requête reçue : {"action":"searchDossier","nom_commune":"","numero_dossier":"","id_cadastre":"","type_dossier":"","sous_type_dossier":"Extension"}
+2025-04-03 20:36:54 - Requête reçue : {"action":"searchDossier","nom_commune":"","numero_dossier":"","id_cadastre":"","type_dossier":"","sous_type_dossier":"Extension"}
+2025-04-03 20:37:50 - Requête reçue : {"action":"searchDossier","nom_commune":"","numero_dossier":"","id_cadastre":"","type_dossier":"","sous_type_dossier":"Extension"}
+2025-04-03 20:40:07 - Requête reçue : {"action":"searchDossier","nom_commune":"","numero_dossier":"","id_cadastre":"","type_dossier":"","sous_type_dossier":"Extension"}
+2025-04-03 20:40:37 - Requête reçue : {
+    "action": "getDossierById"
+}
+2025-04-03 20:42:08 - Requête reçue : {"action":"searchDossier","nom_commune":"","numero_dossier":"","id_cadastre":"","type_dossier":"","sous_type_dossier":"Extension"}
+2025-04-03 20:44:33 - Requête reçue : {"action":"searchDossier"}
+2025-04-03 20:44:38 - Requête reçue : {"action":"searchDossier"}
+2025-04-03 20:46:42 - Requête reçue : {"action":"searchDossier","nom_commune":"","numero_dossier":"","id_cadastre":"","type_dossier":"","sous_type_dossier":"Extension"}
+2025-04-03 22:30:06 - Requête reçue : {"action":"searchDossier","nom_commune":"","numero_dossier":"","id_cadastre":"","type_dossier":"","sous_type_dossier":"Extension"}
+2025-04-03 22:38:19 - Requête reçue : {
+    "action": "getDossierById"
+}
+2025-04-03 22:38:31 - Requête reçue : {
+    "action": "getDossierById"
+}
+2025-04-03 22:38:34 - Requête reçue : {
+    "action": "getDossierById"
+}
+2025-04-03 22:38:35 - Requête reçue : {
+    "action": "getDossierById"
+}
+2025-04-04 00:32:48 - Requête reçue : {"action":"getAllUsers"}
+2025-04-04 00:32:48 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-04 00:33:30 - Requête reçue : {"action":"getAllUsers"}
+2025-04-04 00:33:30 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-04 00:33:35 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Malissar","cp_commune":"","etat_plu":""}
+2025-04-04 00:33:39 - Requête reçue : {"action":"getPluById","id_plu":"29"}
+2025-04-04 00:33:50 - Requête reçue : {"action":"updatePlu","id_plu":"29","type_plu":"PLU","etat_plu":"En vigueur","date_plu":"07/11/2023","systeme_ass":"AUCUN","statut_zonage":"en attente","statut_pres":"en attente","date_annexion":"31/03/2025","lien_zonage":"L:\u00003 DT-DD\u00002 Assainissement\u00006_SUIVI_PATRIMONIAL8_ZONAGES_ASS_EPLMONTELEGER","lien_dhua":"\\sysinfo.localsrc-dataDirectionAgglo\u00006 Inter-dep\u00003 DT-DD\u00008 Ressources suivi PLU26196_MONTELEGER","observation_plu":"Abbes\n"}
+2025-04-04 00:33:56 - Requête reçue : {"action":"getAllUsers"}
+2025-04-04 00:33:56 - Requête reçue : {"action":"getProfile","userId":"1"}
