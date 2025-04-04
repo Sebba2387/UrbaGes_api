@@ -86,9 +86,10 @@ class PluModel {
 
         // Enregistrement dans MongoDB
         $logData = [
-            'action' => 'Mise à jour des données',
-            'type' => 'PLU',
-            'commune' => $data['id_plu'], // Détails sur la commune mise à jour
+            'action' => 'Mise à jour des données de PLU',
+            'Dossier' => $data['id_plu'],
+            'type' => $data['type_plu'],
+            'mission' => $data['statut_zonage'],
             'date' => date("c")
         ];
     

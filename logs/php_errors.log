@@ -706,3 +706,695 @@ Stack trace:
 )
 
 [04-Apr-2025 00:33:50 Europe/Berlin] Données reçues : {"action":"updatePlu","id_plu":"29","type_plu":"PLU","etat_plu":"En vigueur","date_plu":"07\/11\/2023","systeme_ass":"AUCUN","statut_zonage":"en attente","statut_pres":"en attente","date_annexion":"31\/03\/2025","lien_zonage":"L:\u00003 DT-DD\u00002 Assainissement\u00006_SUIVI_PATRIMONIAL8_ZONAGES_ASS_EPLMONTELEGER","lien_dhua":"\\sysinfo.localsrc-dataDirectionAgglo\u00006 Inter-dep\u00003 DT-DD\u00008 Ressources suivi PLU26196_MONTELEGER","observation_plu":"Abbes\n"}
+[04-Apr-2025 12:11:24 Europe/Berlin] Données reçues : Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 12:11:24 Europe/Berlin] Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 12:11:24 Europe/Berlin] Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 12:11:27 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossierById
+    [id_dossier] => 3
+)
+
+[04-Apr-2025 12:11:27 Europe/Berlin] Array
+(
+    [action] => getDossierById
+    [id_dossier] => 3
+)
+
+[04-Apr-2025 12:11:27 Europe/Berlin] Array
+(
+    [action] => getDossierById
+    [id_dossier] => 3
+)
+
+[04-Apr-2025 12:17:13 Europe/Berlin] Données reçues : Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 12:17:13 Europe/Berlin] Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 12:17:13 Europe/Berlin] Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 12:18:12 Europe/Berlin] Données reçues : Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 12:18:12 Europe/Berlin] Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 12:18:12 Europe/Berlin] Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 12:18:16 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossierById
+    [id_dossier] => 3
+)
+
+[04-Apr-2025 12:18:16 Europe/Berlin] Array
+(
+    [action] => getDossierById
+    [id_dossier] => 3
+)
+
+[04-Apr-2025 12:18:16 Europe/Berlin] Array
+(
+    [action] => getDossierById
+    [id_dossier] => 3
+)
+
+[04-Apr-2025 12:18:29 Europe/Berlin] Données reçues : Array
+(
+    [action] => updateDossier
+    [id_dossier] => 3
+    [numero_dossier] => DP02613924R0002
+    [id_cadastre] => AB0004
+    [pseudo] => FonFon
+    [libelle] => Division en vue de construire
+    [date_demande] => 09/01/2024
+    [date_limite] => 08/02/2024
+    [statut] => en cours
+    [lien_calypso] => https://calypso.valenceromansagglo.fr/calypso/Intervention/GestionIntervention?id=64372
+    [type_dossier] => Instruction complexe
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 12:18:29 Europe/Berlin] PHP Warning:  Undefined variable $model in C:\xampp\htdocs\app\controllers\dossierController.php on line 100
+[04-Apr-2025 12:18:29 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function updateDossier() on null in C:\xampp\htdocs\app\controllers\dossierController.php:100
+Stack trace:
+#0 C:\xampp\htdocs\public\api\dossierApi.php(8): require_once()
+#1 {main}
+  thrown in C:\xampp\htdocs\app\controllers\dossierController.php on line 100
+[04-Apr-2025 12:19:18 Europe/Berlin] Données reçues : Array
+
+[04-Apr-2025 12:22:05 Europe/Berlin] Array
+(
+    [action] => updateDossier
+    [id_dossier] => 3
+    [numero_dossier] => DP02613924R0002
+    [id_cadastre] => AB0004
+    [pseudo] => FonFon
+    [libelle] => Division en vue de construire
+    [date_demande] => 09/01/2024
+    [date_limite] => 08/02/2024
+    [statut] => en cours
+    [lien_calypso] => https://calypso.valenceromansagglo.fr/calypso/Intervention/GestionIntervention?id=64372
+    [type_dossier] => Instruction complexe
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 12:22:12 Europe/Berlin] Données reçues : Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 12:22:12 Europe/Berlin] Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 12:22:12 Europe/Berlin] Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 12:22:16 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossierById
+    [id_dossier] => 3
+)
+
+[04-Apr-2025 12:22:16 Europe/Berlin] Array
+(
+    [action] => getDossierById
+    [id_dossier] => 3
+)
+
+[04-Apr-2025 12:22:16 Europe/Berlin] Array
+(
+    [action] => getDossierById
+    [id_dossier] => 3
+)
+
+[04-Apr-2025 14:39:05 Europe/Berlin] Données reçues : Array
+(
+    [action] => updateDossier
+    [id_dossier] => 3
+    [numero_dossier] => DP02613924R0002
+    [id_cadastre] => AB0004
+    [pseudo] => FonFon
+    [libelle] => Division en vue de construire
+    [date_demande] => 09/01/2024
+    [date_limite] => 08/02/2024
+    [statut] => traité
+    [lien_calypso] => https://calypso.valenceromansagglo.fr/calypso/Intervention/GestionIntervention?id=64372
+    [type_dossier] => Instruction complexe
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 14:39:05 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function DossierModel::__construct(), 1 passed in C:\xampp\htdocs\app\controllers\dossierController.php on line 61 and exactly 2 expected in C:\xampp\htdocs\app\models\dossierModel.php:8
+Stack trace:
+#0 C:\xampp\htdocs\app\controllers\dossierController.php(61): DossierModel->__construct(Object(PDO))
+#1 C:\xampp\htdocs\public\api\dossierApi.php(8): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\app\models\dossierModel.php on line 8
+[04-Apr-2025 14:39:16 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossierById
+    [id_dossier] => 3
+)
+
+[04-Apr-2025 14:39:16 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function DossierModel::__construct(), 1 passed in C:\xampp\htdocs\app\controllers\dossierController.php on line 61 and exactly 2 expected in C:\xampp\htdocs\app\models\dossierModel.php:8
+Stack trace:
+#0 C:\xampp\htdocs\app\controllers\dossierController.php(61): DossierModel->__construct(Object(PDO))
+#1 C:\xampp\htdocs\public\api\dossierApi.php(8): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\app\models\dossierModel.php on line 8
+[04-Apr-2025 14:44:49 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossierById
+    [id_dossier] => 3
+)
+
+[04-Apr-2025 14:44:49 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function DossierModel::__construct(), 1 passed in C:\xampp\htdocs\app\controllers\dossierController.php on line 61 and exactly 2 expected in C:\xampp\htdocs\app\models\dossierModel.php:8
+Stack trace:
+#0 C:\xampp\htdocs\app\controllers\dossierController.php(61): DossierModel->__construct(Object(PDO))
+#1 C:\xampp\htdocs\public\api\dossierApi.php(8): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\app\models\dossierModel.php on line 8
+[04-Apr-2025 14:44:54 Europe/Berlin] Données reçues : Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 14:44:54 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function DossierModel::__construct(), 1 passed in C:\xampp\htdocs\app\controllers\dossierController.php on line 61 and exactly 2 expected in C:\xampp\htdocs\app\models\dossierModel.php:8
+Stack trace:
+#0 C:\xampp\htdocs\app\controllers\dossierController.php(61): DossierModel->__construct(Object(PDO))
+#1 C:\xampp\htdocs\public\api\dossierApi.php(8): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\app\models\dossierModel.php on line 8
+[04-Apr-2025 14:46:19 Europe/Berlin] Données reçues : Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 14:46:19 Europe/Berlin] PHP Warning:  Undefined variable $mongoConfig in C:\xampp\htdocs\app\controllers\dossierController.php on line 61
+[04-Apr-2025 14:46:19 Europe/Berlin] Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 14:46:19 Europe/Berlin] Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 14:48:12 Europe/Berlin] Données reçues : Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 14:48:12 Europe/Berlin] Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 14:48:12 Europe/Berlin] Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 14:48:17 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossierById
+    [id_dossier] => 3
+)
+
+[04-Apr-2025 14:48:17 Europe/Berlin] Array
+(
+    [action] => getDossierById
+    [id_dossier] => 3
+)
+
+[04-Apr-2025 14:48:17 Europe/Berlin] Array
+(
+    [action] => getDossierById
+    [id_dossier] => 3
+)
+
+[04-Apr-2025 14:48:23 Europe/Berlin] Données reçues : Array
+(
+    [action] => updateDossier
+    [id_dossier] => 3
+    [numero_dossier] => DP02613924R0002
+    [id_cadastre] => AB0004
+    [pseudo] => FonFon
+    [libelle] => Division en vue de construire
+    [date_demande] => 09/01/2024
+    [date_limite] => 08/02/2024
+    [statut] => traité
+    [lien_calypso] => https://calypso.valenceromansagglo.fr/calypso/Intervention/GestionIntervention?id=64372
+    [type_dossier] => Instruction complexe
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 14:48:24 Europe/Berlin] Array
+(
+    [action] => updateDossier
+    [id_dossier] => 3
+    [numero_dossier] => DP02613924R0002
+    [id_cadastre] => AB0004
+    [pseudo] => FonFon
+    [libelle] => Division en vue de construire
+    [date_demande] => 09/01/2024
+    [date_limite] => 08/02/2024
+    [statut] => traité
+    [lien_calypso] => https://calypso.valenceromansagglo.fr/calypso/Intervention/GestionIntervention?id=64372
+    [type_dossier] => Instruction complexe
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 14:48:24 Europe/Berlin] Array
+(
+    [action] => updateDossier
+    [id_dossier] => 3
+    [numero_dossier] => DP02613924R0002
+    [id_cadastre] => AB0004
+    [pseudo] => FonFon
+    [libelle] => Division en vue de construire
+    [date_demande] => 09/01/2024
+    [date_limite] => 08/02/2024
+    [statut] => traité
+    [lien_calypso] => https://calypso.valenceromansagglo.fr/calypso/Intervention/GestionIntervention?id=64372
+    [type_dossier] => Instruction complexe
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 14:48:31 Europe/Berlin] Données reçues : Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => SPANC
+)
+
+[04-Apr-2025 14:48:31 Europe/Berlin] Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => SPANC
+)
+
+[04-Apr-2025 14:48:31 Europe/Berlin] Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => SPANC
+)
+
+[04-Apr-2025 14:48:36 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossierById
+    [id_dossier] => 1
+)
+
+[04-Apr-2025 14:48:36 Europe/Berlin] Array
+(
+    [action] => getDossierById
+    [id_dossier] => 1
+)
+
+[04-Apr-2025 14:48:36 Europe/Berlin] Array
+(
+    [action] => getDossierById
+    [id_dossier] => 1
+)
+
+[04-Apr-2025 14:48:51 Europe/Berlin] Données reçues : Array
+(
+    [action] => updateDossier
+    [id_dossier] => 1
+    [numero_dossier] => PC0262182400013
+    [id_cadastre] => AC0096
+    [pseudo] => Virge
+    [libelle] => Transformation de l'habitation individuelle existante en deux logements distincts, démolition de l'abri existant
+    [date_demande] => 17/10/2024
+    [date_limite] => 01/11/2024
+    [statut] => en attente
+    [lien_calypso] => https://calypso.valenceromansagglo.fr/calypso/Intervention/GestionIntervention?id=66790
+    [type_dossier] => Instruction complexe
+    [sous_type_dossier] => SPANC
+)
+
+[04-Apr-2025 14:48:51 Europe/Berlin] Array
+(
+    [action] => updateDossier
+    [id_dossier] => 1
+    [numero_dossier] => PC0262182400013
+    [id_cadastre] => AC0096
+    [pseudo] => Virge
+    [libelle] => Transformation de l'habitation individuelle existante en deux logements distincts, démolition de l'abri existant
+    [date_demande] => 17/10/2024
+    [date_limite] => 01/11/2024
+    [statut] => en attente
+    [lien_calypso] => https://calypso.valenceromansagglo.fr/calypso/Intervention/GestionIntervention?id=66790
+    [type_dossier] => Instruction complexe
+    [sous_type_dossier] => SPANC
+)
+
+[04-Apr-2025 14:48:51 Europe/Berlin] Array
+(
+    [action] => updateDossier
+    [id_dossier] => 1
+    [numero_dossier] => PC0262182400013
+    [id_cadastre] => AC0096
+    [pseudo] => Virge
+    [libelle] => Transformation de l'habitation individuelle existante en deux logements distincts, démolition de l'abri existant
+    [date_demande] => 17/10/2024
+    [date_limite] => 01/11/2024
+    [statut] => en attente
+    [lien_calypso] => https://calypso.valenceromansagglo.fr/calypso/Intervention/GestionIntervention?id=66790
+    [type_dossier] => Instruction complexe
+    [sous_type_dossier] => SPANC
+)
+
+[04-Apr-2025 14:50:34 Europe/Berlin] Données reçues : Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 14:50:34 Europe/Berlin] Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 14:50:34 Europe/Berlin] Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 14:50:38 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossierById
+    [id_dossier] => 3
+)
+
+[04-Apr-2025 14:50:38 Europe/Berlin] Array
+(
+    [action] => getDossierById
+    [id_dossier] => 3
+)
+
+[04-Apr-2025 14:50:38 Europe/Berlin] Array
+(
+    [action] => getDossierById
+    [id_dossier] => 3
+)
+
+[04-Apr-2025 14:50:45 Europe/Berlin] Données reçues : Array
+(
+    [action] => updateDossier
+    [id_dossier] => 3
+    [numero_dossier] => DP02613924R0002
+    [id_cadastre] => AB0004
+    [pseudo] => FonFon
+    [libelle] => Division en vue de construire
+    [date_demande] => 09/01/2024
+    [date_limite] => 08/03/2024
+    [statut] => traité
+    [lien_calypso] => https://calypso.valenceromansagglo.fr/calypso/Intervention/GestionIntervention?id=64372
+    [type_dossier] => Instruction complexe
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 14:50:46 Europe/Berlin] Array
+(
+    [action] => updateDossier
+    [id_dossier] => 3
+    [numero_dossier] => DP02613924R0002
+    [id_cadastre] => AB0004
+    [pseudo] => FonFon
+    [libelle] => Division en vue de construire
+    [date_demande] => 09/01/2024
+    [date_limite] => 08/03/2024
+    [statut] => traité
+    [lien_calypso] => https://calypso.valenceromansagglo.fr/calypso/Intervention/GestionIntervention?id=64372
+    [type_dossier] => Instruction complexe
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 14:50:46 Europe/Berlin] Array
+(
+    [action] => updateDossier
+    [id_dossier] => 3
+    [numero_dossier] => DP02613924R0002
+    [id_cadastre] => AB0004
+    [pseudo] => FonFon
+    [libelle] => Division en vue de construire
+    [date_demande] => 09/01/2024
+    [date_limite] => 08/03/2024
+    [statut] => traité
+    [lien_calypso] => https://calypso.valenceromansagglo.fr/calypso/Intervention/GestionIntervention?id=64372
+    [type_dossier] => Instruction complexe
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 14:52:22 Europe/Berlin] Données reçues : Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 14:52:22 Europe/Berlin] Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 14:52:22 Europe/Berlin] Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 14:52:25 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossierById
+    [id_dossier] => 3
+)
+
+[04-Apr-2025 14:52:25 Europe/Berlin] Array
+(
+    [action] => getDossierById
+    [id_dossier] => 3
+)
+
+[04-Apr-2025 14:52:25 Europe/Berlin] Array
+(
+    [action] => getDossierById
+    [id_dossier] => 3
+)
+
+[04-Apr-2025 14:52:31 Europe/Berlin] Données reçues : Array
+(
+    [action] => updateDossier
+    [id_dossier] => 3
+    [numero_dossier] => DP02613924R0002
+    [id_cadastre] => AB0004
+    [pseudo] => FonFon
+    [libelle] => Division en vue de construire
+    [date_demande] => 09/01/2024
+    [date_limite] => 08/04/2024
+    [statut] => traité
+    [lien_calypso] => https://calypso.valenceromansagglo.fr/calypso/Intervention/GestionIntervention?id=64372
+    [type_dossier] => Instruction complexe
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 14:52:31 Europe/Berlin] Array
+(
+    [action] => updateDossier
+    [id_dossier] => 3
+    [numero_dossier] => DP02613924R0002
+    [id_cadastre] => AB0004
+    [pseudo] => FonFon
+    [libelle] => Division en vue de construire
+    [date_demande] => 09/01/2024
+    [date_limite] => 08/04/2024
+    [statut] => traité
+    [lien_calypso] => https://calypso.valenceromansagglo.fr/calypso/Intervention/GestionIntervention?id=64372
+    [type_dossier] => Instruction complexe
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 14:52:31 Europe/Berlin] Array
+(
+    [action] => updateDossier
+    [id_dossier] => 3
+    [numero_dossier] => DP02613924R0002
+    [id_cadastre] => AB0004
+    [pseudo] => FonFon
+    [libelle] => Division en vue de construire
+    [date_demande] => 09/01/2024
+    [date_limite] => 08/04/2024
+    [statut] => traité
+    [lien_calypso] => https://calypso.valenceromansagglo.fr/calypso/Intervention/GestionIntervention?id=64372
+    [type_dossier] => Instruction complexe
+    [sous_type_dossier] => Extension
+)
+
+[04-Apr-2025 14:55:45 Europe/Berlin] Données reçues : {"action":"updatePlu","id_plu":"29","type_plu":"PLU","etat_plu":"En vigueur","date_plu":"07\/11\/2023","systeme_ass":"AUCUN","statut_zonage":"en attente","statut_pres":"en attente","date_annexion":"31\/03\/2025","lien_zonage":"L:\u00003 DT-DD\u00002 Assainissement\u00006_SUIVI_PATRIMONIAL8_ZONAGES_ASS_EPLMONTELEGER","lien_dhua":"\\sysinfo.localsrc-dataDirectionAgglo\u00006 Inter-dep\u00003 DT-DD\u00008 Ressources suivi PLU26196_MONTELEGER","observation_plu":"\n"}

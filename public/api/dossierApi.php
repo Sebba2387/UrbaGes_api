@@ -47,7 +47,7 @@ if (!isset($data['action'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action'])) {
-    if ($data['action'] === 'searchDossier' || $data['action'] === 'getDossierById') {
+    if ($data['action'] === 'searchDossier' || $data['action'] === 'getDossierById' || $data['action'] === 'updateDossier') {
         require_once __DIR__ . '/../../app/controllers/dossierController.php';
     } else {
         echo json_encode(["success" => false, "message" => "Action inconnue"]);

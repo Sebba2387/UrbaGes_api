@@ -58,7 +58,7 @@ if (!$action) {
     exit;
 }
 
-$dossierModel = new DossierModel($pdo);
+$dossierModel = new DossierModel($pdo, $modificationCollection);
 
 // Traiter l'action en fonction du type demandé
 switch ($action) {
@@ -95,6 +95,23 @@ switch ($action) {
             echo json_encode(["success" => false, "message" => "Dossier non trouvé"]);
         }
         break;
+
+    case 'updateDossier':
+        $success = $dossierModel->updateDossier([
+            'id_dossier' => $input['id_dossier'],
+            'numero_dossier' => $input['numero_dossier'],
+            'id_cadastre' => $input['id_cadastre'],
+            'libelle' => $input['libelle'],
+            'date_demande' => $input['date_demande'],
+            'date_limite' => $input['date_limite'],
+            'statut' => $input['statut'],
+            'lien_calypso' => $input['lien_calypso'],
+            'type_dossier' => $input['type_dossier'],
+            'sous_type_dossier' => $input['sous_type_dossier']
+        ]);
+        echo json_encode(['success' => $success]);
+        break;
+    
 
     default:
         echo json_encode(["success" => false, "message" => "Action non valide"]);

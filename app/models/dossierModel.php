@@ -3,9 +3,11 @@ require_once __DIR__ . '/../config/database.php';
 
 class DossierModel {
     private $pdo;
+    private $modificationCollection;
 
-    public function __construct($pdo) {
+    public function __construct($pdo, $mongoConfig) {
         $this->pdo = $pdo;
+        $this->modificationCollection = $mongoConfig;
     }
 
     public function searchDossier($filters) {
@@ -55,6 +57,49 @@ class DossierModel {
         $stmt->bindParam(':id_dossier', $id_dossier, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function updateDossier($data) {
+        $sql = "UPDATE dossiers SET 
+                    numero_dossier = :numero_dossier,
+                    id_cadastre = :id_cadastre,
+                    libelle = :libelle,
+                    date_demande = :date_demande,
+                    date_limite = :date_limite,
+                    statut = :statut,
+                    lien_calypso = :lien_calypso,
+                    type_dossier = :type_dossier,
+                    sous_type_dossier = :sous_type_dossier
+                WHERE id_dossier = :id_dossier";
+    
+        $stmt = $this->pdo->prepare($sql);
+    
+        $success = $stmt->execute([
+            ':numero_dossier' => $data['numero_dossier'],
+            ':id_cadastre' => $data['id_cadastre'],
+            ':libelle' => $data['libelle'],
+            ':date_demande' => $data['date_demande'],
+            ':date_limite' => $data['date_limite'],
+            ':statut' => $data['statut'],
+            ':lien_calypso' => $data['lien_calypso'],
+            ':type_dossier' => $data['type_dossier'],
+            ':sous_type_dossier' => $data['sous_type_dossier'],
+            ':id_dossier' => $data['id_dossier']
+        ]);
+    
+        if ($success) {
+            // Enregistrement du log dans MongoDB
+            $logData = [
+                'action' => 'Mise à jour des données de dossier',
+                'dossier' => $data['id_dossier'],
+                'type' => $data['type_dossier'],
+                'mission' => $data['sous_type_dossier'],
+                'date' => date("c")
+            ];
+            $this->modificationCollection->insertOne($logData);
+        }
+    
+        return $success;
     }
 }
 ?>
