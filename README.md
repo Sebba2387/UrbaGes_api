@@ -39,6 +39,6 @@
 - Model & Controller : *filtreUtilisateur*, *updateUtilisater*, *deleteUtilisateur* (PDO-SQL) 	✅
 - Model & Controller : filtreCommune, *updateCommune*, *deleteCommune*, *addCommune*  (PDO-SQL) 	✅
 - Model & Controller : filtrePlu, *updatePlu* (PDO-SQL) 	✅
-- Model & Controller : filtreDossier, updateDossier, deleteDossier, *attributeDossier*, *addDossier* (PDO-SQL-NoSQL) 	❌
+- Model & Controller : filtreDossier, updateDossier, deleteDossier, *attributeDossier*, *addDossier* (PDO-SQL-NoSQL) 	✅
 - Model & Controller : filtreCourrier, updateCourrier, deleteCourrier, *addCourrier*  (PDO-SQL) 	❌
 

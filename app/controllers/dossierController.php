@@ -92,6 +92,7 @@ switch ($action) {
             ]);
         } else {
             echo json_encode(["success" => false, "message" => "Dossier non trouvé"]);
+            exit;
         }
         break;
 
@@ -146,7 +147,6 @@ switch ($action) {
     
         // Appelle la méthode pour ajouter le dossier
         $success = $dossierModel->addDossier($data);
-    
         // Retourne une réponse JSON
         echo json_encode(['success' => $success]);
         break;
@@ -157,12 +157,9 @@ switch ($action) {
             echo json_encode(["success" => false, "message" => "ID du dossier manquant"]);
             exit;
         }
-    
         $id_dossier = $input['id_dossier'];
-    
         // Appelle la méthode pour supprimer le dossier
         $success = $dossierModel->deleteDossier($id_dossier);
-    
         // Retourne la réponse
         echo json_encode(["success" => $success, "message" => $success ? "Dossier supprimé avec succès" : "Erreur lors de la suppression du dossier"]);
         break;

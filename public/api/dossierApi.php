@@ -4,8 +4,12 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Inclure le modèle et le contrôleur pour gérer les dossiers
-require_once __DIR__ . '/../../app/controllers/dossierController.php';
+// CORS (évite les blocages cross-origin)
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Credentials: true");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+header("Content-Type: application/json");
 
 // Vérification de l'authentification (si l'utilisateur est connecté)
 if (!isset($_SESSION['user_id'])) {
@@ -13,12 +17,8 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-// CORS (évite les blocages cross-origin)
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Credentials: true");
-header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
-header("Access-Control-Allow-Headers: Content-Type, Authorization");
-header("Content-Type: application/json");
+// Inclure le modèle et le contrôleur pour gérer les dossiers
+require_once __DIR__ . '/../../app/controllers/dossierController.php';
 
 // 🔍 Récupération des données JSON envoyées par Fetch
 $data = json_decode(file_get_contents("php://input"), true);
