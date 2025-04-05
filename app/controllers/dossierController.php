@@ -112,6 +112,34 @@ switch ($action) {
         echo json_encode(['success' => $success]);
         break;
 
+    case 'addDossier':
+        // Vérifie que les données nécessaires sont présentes
+        if (!isset($input['numero_dossier']) || !isset($input['id_cadastre']) || !isset($input['libelle']) || !isset($input['date_demande']) || !isset($input['date_limite']) || !isset($input['statut']) || !isset($input['lien_calypso']) || !isset($input['type_dossier']) || !isset($input['sous_type_dossier']) || !isset($input['id_commune'])) {
+            echo json_encode(["success" => false, "message" => "Données manquantes pour l'ajout du dossier"]);
+            exit;
+        }
+    
+        // Récupère les données de l'input
+        $data = [
+            'numero_dossier' => $input['numero_dossier'],
+            'id_cadastre' => $input['id_cadastre'],
+            'libelle' => $input['libelle'],
+            'date_demande' => $input['date_demande'],
+            'date_limite' => $input['date_limite'],
+            'statut' => $input['statut'],
+            'lien_calypso' => $input['lien_calypso'],
+            'type_dossier' => $input['type_dossier'],
+            'sous_type_dossier' => $input['sous_type_dossier'],
+            'id_commune' => $input['id_commune']
+        ];
+    
+        // Appelle la méthode pour ajouter le dossier
+        $success = $dossierModel->addDossier($data);
+    
+        // Retourne une réponse JSON
+        echo json_encode(['success' => $success]);
+        break;
+
     default:
         echo json_encode(["success" => false, "message" => "Action non valide"]);
         break;

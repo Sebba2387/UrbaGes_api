@@ -1340,3 +1340,17 @@
 2025-04-05 17:10:48 - Requête reçue : {"action":"getProfile","userId":"1"}
 2025-04-05 17:11:51 - Requête reçue : {"action":"getAllUsers"}
 2025-04-05 17:11:51 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-05 17:21:19 - Requête reçue : {"action":"getAllUsers"}
+2025-04-05 17:21:19 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-05 17:36:54 - Requête reçue : {"action":"getAllUsers"}
+2025-04-05 17:36:54 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-05 17:36:57 - Requête reçue : {"action":"logout"}
+2025-04-05 22:35:09 - Requête reçue : {"action":"login","email":"bouguerra.abbes@outlook.fr","password":"123"}
+2025-04-05 22:35:11 - Requête reçue : {"action":"getAllUsers"}
+2025-04-05 22:35:11 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-05 22:42:54 - Requête reçue : {"action":"getAllUsers"}
+2025-04-05 22:42:54 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-05 22:50:09 - Requête reçue : {"action":"getAllUsers"}
+2025-04-05 22:50:09 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-05 23:22:00 - Requête reçue : {"action":"getAllUsers"}
+2025-04-05 23:22:00 - Requête reçue : {"action":"getProfile","userId":"1"}

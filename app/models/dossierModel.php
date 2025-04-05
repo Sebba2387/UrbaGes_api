@@ -135,5 +135,60 @@ class DossierModel {
     
         return $success;
     }
+
+    public function addDossier($data) {
+        // Prépare la requête SQL pour insérer un nouveau dossier
+        $sql = "INSERT INTO dossiers 
+                (numero_dossier, id_cadastre, libelle, date_demande, date_limite, statut, lien_calypso, type_dossier, sous_type_dossier, id_utilisateur, id_commune) 
+                VALUES 
+                (:numero_dossier, :id_cadastre, :libelle, :date_demande, :date_limite, :statut, :lien_calypso, :type_dossier, :sous_type_dossier, :id_utilisateur, :id_commune)";
+    
+        $stmt = $this->pdo->prepare($sql);
+    
+        // Récupère l'email de l'utilisateur connecté dans la session
+        $email = isset($_SESSION['email']) ? $_SESSION['email'] : null;
+        if (!$email) {
+            throw new Exception("Utilisateur non connecté");
+        }
+    
+        // Récupère l'ID de l'utilisateur à partir de son email
+        $stmtUser = $this->pdo->prepare("SELECT id_utilisateur FROM utilisateurs WHERE email = :email");
+        $stmtUser->execute(['email' => $email]);
+        $user = $stmtUser->fetch(PDO::FETCH_ASSOC);
+    
+        if (!$user) {
+            throw new Exception("Utilisateur non trouvé");
+        }
+    
+        // Exécute l'insertion du dossier
+        $success = $stmt->execute([
+            ':numero_dossier' => $data['numero_dossier'],
+            ':id_cadastre' => $data['id_cadastre'],
+            ':libelle' => $data['libelle'],
+            ':date_demande' => $data['date_demande'],
+            ':date_limite' => $data['date_limite'],
+            ':statut' => $data['statut'],
+            ':lien_calypso' => $data['lien_calypso'],
+            ':type_dossier' => $data['type_dossier'],
+            ':sous_type_dossier' => $data['sous_type_dossier'],
+            ':id_utilisateur' => $user['id_utilisateur'],  // Utilisateur connecté
+            ':id_commune' => $data['id_commune']
+        ]);
+    
+        // Si l'ajout du dossier est réussi, on log l'événement dans MongoDB
+        if ($success) {
+            $logData = [
+                'action' => 'Ajout d\'un dossier',
+                'dossier' => $data['numero_dossier'],
+                'type' => $data['type_dossier'],
+                'mission' => $data['sous_type_dossier'],
+                'email' => $email,  // Email de l'utilisateur connecté
+                'date' => date("c")
+            ];
+            $this->modificationCollection->insertOne($logData);
+        }
+    
+        return $success;
+    }
 }
 ?>

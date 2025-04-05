@@ -180,3 +180,51 @@ function updateDossier() {
         alert("Erreur lors de la mise à jour.");
     });
 }
+
+// Fonction pour ajouter un dossier
+document.addEventListener("DOMContentLoaded", () => {
+    const addForm = document.getElementById("addDossierForm");
+
+    if (addForm) {
+        addForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            addDossier();
+        });
+    }
+});
+function addDossier() {
+    // Récupère les données du formulaire
+    const data = {
+        action: "addDossier",
+        numero_dossier: document.getElementById("numero_dossier").value.trim(),
+        id_cadastre: document.getElementById("id_cadastre").value.trim(),
+        libelle: document.getElementById("libelle").value.trim(),
+        date_demande: document.getElementById("date_demande").value.trim(),
+        date_limite: document.getElementById("date_limite").value.trim(),
+        statut: document.getElementById("statut").value.trim(),
+        lien_calypso: document.getElementById("lien_calypso").value.trim(),
+        type_dossier: document.getElementById("type_dossier").value,
+        sous_type_dossier: document.getElementById("sous_type_dossier").value,
+        id_commune: document.getElementById("id_commune").value
+    };
+
+    // Envoie les données pour l'ajout du dossier
+    fetch("http://localhost/public/api/dossierApi.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(result => {
+        if (result.success) {
+            alert("Dossier ajouté avec succès !");
+            window.location.href = "/public/testPages/testDossier.html";  // Redirige vers la page des dossiers
+        } else {
+            alert("Erreur lors de l'ajout du dossier.");
+        }
+    })
+    .catch(err => {
+        console.error("Erreur lors de l'ajout du dossier :", err);
+        alert("Erreur lors de l'ajout du dossier.");
+    });
+}
