@@ -1360,3 +1360,9 @@
 2025-04-06 00:50:52 - Requête reçue : {"action":"getProfile","userId":"1"}
 2025-04-06 00:54:37 - Requête reçue : {"action":"getAllUsers"}
 2025-04-06 00:54:37 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-06 01:17:44 - Requête reçue : {"action":"getAllUsers"}
+2025-04-06 01:17:44 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-06 01:17:52 - Requête reçue : {"action":"getUser","id_utilisateur":"1"}
+2025-04-06 01:18:03 - Requête reçue : {"action":"updateUser","id_utilisateur":"1","nom":"BOUGUERRA","prenom":"Abbes","email":"bouguerra.abbes@outlook.fr","annee_naissance":"1987","pseudo":"Sebba","genre":"homme","poste":"Respondable Unité Urbanisme"}
+2025-04-06 01:18:07 - Requête reçue : {"action":"getAllUsers"}
+2025-04-06 01:18:07 - Requête reçue : {"action":"getProfile","userId":"1"}

@@ -438,4 +438,10 @@ Stack trace:
 [06-Apr-2025 01:09:47 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:75) in C:\xampp\htdocs\public\api\dossierApi.php on line 19
 [06-Apr-2025 01:09:47 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:75) in C:\xampp\htdocs\public\api\dossierApi.php on line 20
 [06-Apr-2025 01:09:47 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:75) in C:\xampp\htdocs\public\api\dossierApi.php on line 21
+[06-Apr-2025 01:23:01 Europe/Berlin] PHP Warning:  Undefined variable $email in C:\xampp\htdocs\app\controllers\dossierController.php on line 162
+[06-Apr-2025 01:25:17 Europe/Berlin] PHP Warning:  Undefined variable $email in C:\xampp\htdocs\app\controllers\dossierController.php on line 162
+[06-Apr-2025 01:25:17 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\app\models\dossierModel.php on line 205
+[06-Apr-2025 01:28:21 Europe/Berlin] PHP Warning:  Undefined variable $email in C:\xampp\htdocs\app\controllers\dossierController.php on line 162
+[06-Apr-2025 01:31:55 Europe/Berlin] PHP Warning:  Undefined variable $email in C:\xampp\htdocs\app\controllers\dossierController.php on line 162
+[06-Apr-2025 01:35:00 Europe/Berlin] PHP Warning:  Undefined variable $email in C:\xampp\htdocs\app\controllers\dossierController.php on line 162
 

@@ -201,13 +201,46 @@ class DossierModel {
     }
 
     public function deleteDossier($id_dossier) {
-        // Prépare la requête SQL pour supprimer le dossier
+        // Trouver l'email de l'utilisateur connecté depuis la session
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+        $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'inconnu'; // Récupère l'email de l'utilisateur connecté
+        // Récupérer les détails du dossier avant suppression
+        $stmt = $this->pdo->prepare("SELECT type_dossier, sous_type_dossier FROM dossiers WHERE id_dossier = :id_dossier");
+        $stmt->bindParam(':id_dossier', $id_dossier, PDO::PARAM_INT);
+        $stmt->execute();
+        $dossier = $stmt->fetch(PDO::FETCH_ASSOC);
+        if (!$dossier) {
+            return false; 
+        }
+        // Suppression du dossier
         $sql = "DELETE FROM dossiers WHERE id_dossier = :id_dossier";
-    
-        // Exécute la requête
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':id_dossier', $id_dossier, PDO::PARAM_INT);
-        return $stmt->execute();
+        $success = $stmt->execute();
+        if ($success) {
+            // Loggez l'action dans MongoDB après la suppression
+            $logData = [
+                'action' => 'Suppression d\'un dossier',
+                'dossier' => $id_dossier,
+                'type' => $dossier['type_dossier'],  // type_dossier du dossier
+                'mission' => $dossier['sous_type_dossier'],  // sous_type_dossier du dossier
+                'email' => $email,  // Email de l'utilisateur connecté
+                'date' => date("c")
+            ];
+    
+            // Enregistrement du log dans MongoDB
+            $this->modificationCollection->insertOne($logData);
+        }
+    
+        return $success;
     }
+    
+    
+    
+    
+    
+    
 }
 ?>
