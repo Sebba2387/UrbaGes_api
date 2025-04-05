@@ -35,7 +35,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action'])) {
         $data['action'] === 'getDossierById' ||
         $data['action'] === 'updateDossier' ||
         $data['action'] === 'addDossier' ||
-        $data['action'] === 'getCommunes'
+        $data['action'] === 'getCommunes' ||
+        $data['action'] === 'deleteDossier'
     ) {
         require_once __DIR__ . '/../../app/controllers/dossierController.php';
     } else {

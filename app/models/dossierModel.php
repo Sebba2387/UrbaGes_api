@@ -199,5 +199,15 @@ class DossierModel {
     
         return $success;
     }
+
+    public function deleteDossier($id_dossier) {
+        // Prépare la requête SQL pour supprimer le dossier
+        $sql = "DELETE FROM dossiers WHERE id_dossier = :id_dossier";
+    
+        // Exécute la requête
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(':id_dossier', $id_dossier, PDO::PARAM_INT);
+        return $stmt->execute();
+    }
 }
 ?>

@@ -48,6 +48,7 @@ function displayDossiers(dossiers) {
 
     dossiers.forEach(dossier => {
         const row = document.createElement("tr");
+        row.id = `dossier-${dossier.id_dossier}`;  // Ajout de l'ID unique
         row.innerHTML = `
             <td>${dossier.nom_commune}</td>
             <td>${dossier.numero_dossier}</td>
@@ -62,7 +63,7 @@ function displayDossiers(dossiers) {
             <td>${dossier.lien_calypso ? `<a href="${dossier.lien_calypso}" target="_blank">Lien</a>` : 'N/A'}</td>
             <td>
                 <button onclick="redirectToEdit(${dossier.id_dossier})">Modifier</button>
-                <button onclick="deletePlu(${dossier.id_dossier})">Supprimer</button>
+                <button onclick="deleteDossier(${dossier.id_dossier})">Supprimer</button>
             </td>
             
         `;
@@ -263,4 +264,41 @@ function addDossier() {
         console.error("Erreur lors de l'ajout du dossier :", err);
         alert("Erreur lors de l'ajout du dossier.");
     });
+}
+
+// Fonction pour supprimer un dossier
+function deleteDossier(id_dossier) {
+    if (confirm("Êtes-vous sûr de vouloir supprimer ce dossier ?")) {
+        const data = {
+            action: 'deleteDossier',
+            id_dossier: id_dossier
+        };
+
+        // Envoi de la requête de suppression
+        fetch("http://localhost/public/api/dossierApi.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(result => {
+            if (result.success) {
+                alert(result.message);
+
+                // Supprimer la ligne du tableau (DOM)
+                const row = document.getElementById(`dossier-${id_dossier}`);
+                if (row) {
+                    row.remove(); // Supprime la ligne
+                }
+            } else {
+                alert(result.message);
+            }
+        })
+        .catch(err => {
+            console.error("Erreur lors de la suppression du dossier :", err);
+            alert("Erreur lors de la suppression du dossier.");
+        });
+    }
 }

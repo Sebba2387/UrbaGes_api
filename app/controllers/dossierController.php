@@ -150,6 +150,22 @@ switch ($action) {
         // Retourne une réponse JSON
         echo json_encode(['success' => $success]);
         break;
+    
+    case 'deleteDossier':
+        // Vérifie que l'ID du dossier est présent
+        if (!isset($input['id_dossier'])) {
+            echo json_encode(["success" => false, "message" => "ID du dossier manquant"]);
+            exit;
+        }
+    
+        $id_dossier = $input['id_dossier'];
+    
+        // Appelle la méthode pour supprimer le dossier
+        $success = $dossierModel->deleteDossier($id_dossier);
+    
+        // Retourne la réponse
+        echo json_encode(["success" => $success, "message" => $success ? "Dossier supprimé avec succès" : "Erreur lors de la suppression du dossier"]);
+        break;
 
     default:
         echo json_encode(["success" => false, "message" => "Action non valide"]);
