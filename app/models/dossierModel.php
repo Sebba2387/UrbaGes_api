@@ -1,5 +1,9 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../config/mongo.php';
 
 class DossierModel {
     private $pdo;
@@ -47,7 +51,8 @@ class DossierModel {
 
     // 📄 Récupérer un dossier par son ID
     public function getDossierById($id_dossier) {
-        $sql = "SELECT d.id_dossier, u.pseudo, c.nom_commune, d.numero_dossier, d.type_dossier, d.sous_type_dossier, d.id_cadastre, d.libelle, d.date_demande, d.date_limite, d.statut, d.lien_calypso 
+        // Récupération du dossier avec le pseudo lié
+        $sql = "SELECT d.id_dossier, u.pseudo, c.nom_commune, d.numero_dossier, d.type_dossier, d.sous_type_dossier, d.id_cadastre, d.libelle, d.date_demande, d.date_limite, d.statut, d.lien_calypso, d.id_utilisateur
                 FROM dossiers d
                 JOIN utilisateurs u ON d.id_utilisateur = u.id_utilisateur
                 JOIN communes c ON d.id_commune = c.id_commune 
@@ -56,10 +61,34 @@ class DossierModel {
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':id_dossier', $id_dossier, PDO::PARAM_INT);
         $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        $dossier = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        // Récupération de tous les pseudos pour la liste
+        $sqlUsers = "SELECT id_utilisateur, pseudo FROM utilisateurs";
+        $stmtUsers = $this->pdo->prepare($sqlUsers);
+        $stmtUsers->execute();
+        $utilisateurs = $stmtUsers->fetchAll(PDO::FETCH_ASSOC);
+    
+        return [
+            "dossier" => $dossier,
+            "utilisateurs" => $utilisateurs
+        ];
     }
 
     public function updateDossier($data) {
+        // Trouver l'id_utilisateur à partir du pseudo reçu
+        $stmt = $this->pdo->prepare("SELECT id_utilisateur FROM utilisateurs WHERE pseudo = :pseudo");
+        $stmt->bindParam(":pseudo", $data['pseudo']);
+        $stmt->execute();
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        if (!$user) {
+            return false; // utilisateur introuvable
+        }
+    
+        $id_utilisateur = $user['id_utilisateur'];
+    
+        // Mise à jour du dossier avec id_utilisateur
         $sql = "UPDATE dossiers SET 
                     numero_dossier = :numero_dossier,
                     id_cadastre = :id_cadastre,
@@ -69,7 +98,8 @@ class DossierModel {
                     statut = :statut,
                     lien_calypso = :lien_calypso,
                     type_dossier = :type_dossier,
-                    sous_type_dossier = :sous_type_dossier
+                    sous_type_dossier = :sous_type_dossier,
+                    id_utilisateur = :id_utilisateur
                 WHERE id_dossier = :id_dossier";
     
         $stmt = $this->pdo->prepare($sql);
@@ -84,18 +114,22 @@ class DossierModel {
             ':lien_calypso' => $data['lien_calypso'],
             ':type_dossier' => $data['type_dossier'],
             ':sous_type_dossier' => $data['sous_type_dossier'],
+            ':id_utilisateur' => $id_utilisateur,
             ':id_dossier' => $data['id_dossier']
         ]);
     
         if ($success) {
-            // Enregistrement du log dans MongoDB
+            $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'inconnu'; 
+
             $logData = [
                 'action' => 'Mise à jour des données de dossier',
                 'dossier' => $data['id_dossier'],
                 'type' => $data['type_dossier'],
                 'mission' => $data['sous_type_dossier'],
+                'email' => $email,
                 'date' => date("c")
             ];
+
             $this->modificationCollection->insertOne($logData);
         }
     

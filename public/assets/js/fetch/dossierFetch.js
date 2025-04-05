@@ -15,7 +15,7 @@ window.onload = function () {
         getDossierById(id_dossier);
     }
 };
-
+// Fonction pour rechercher des dossiers
 function searchDossier() {
     const requestData = {
         action: "searchDossier",
@@ -41,7 +41,7 @@ function searchDossier() {
     })
     .catch(error => console.error("Erreur de connexion à l'API :", error));
 }
-
+//Fonction pour afficher des résultats de recherche
 function displayDossiers(dossiers) {
     const tableBody = document.getElementById("dossierTableBody");
     tableBody.innerHTML = "";
@@ -69,7 +69,6 @@ function displayDossiers(dossiers) {
         tableBody.appendChild(row);
     });
 }
-
 // Fonction pour rediriger vers la page de modification d'un PLU
 function redirectToEdit(id_dossier) {
     window.location.href = `http://localhost/public/testPages/testEditDossier.html?id_dossier=${id_dossier}`;
@@ -82,12 +81,26 @@ function getDossierById(id_dossier) {
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({ action: "getDossierById", id_dossier }),
+        body: JSON.stringify({ action: "getDossierById", id_dossier })
     })
     .then(response => response.json())
     .then(data => {
         if (data.success) {
             const dossier = data.dossier;
+            const utilisateurs = data.utilisateurs; // liste de tous les pseudos
+
+            // Remplir le <select id="pseudo"> avec les pseudos disponibles
+            const pseudoSelect = document.getElementById("pseudo");
+            pseudoSelect.innerHTML = "";
+
+            utilisateurs.forEach(user => {
+                const option = document.createElement("option");
+                option.value = user.pseudo;
+                option.textContent = user.pseudo;
+                pseudoSelect.appendChild(option);
+            });
+
+            // Appliquer les valeurs récupérées dans le formulaire
             const elements = {
                 "nom_commune": dossier.nom_commune,
                 "numero_dossier": dossier.numero_dossier,
@@ -100,7 +113,6 @@ function getDossierById(id_dossier) {
                 "lien_calypso": dossier.lien_calypso
             };
 
-            // Affecte les valeurs pour les champs de texte
             Object.keys(elements).forEach(function(id) {
                 const element = document.getElementById(id);
                 if (element) {
@@ -110,7 +122,7 @@ function getDossierById(id_dossier) {
                 }
             });
 
-            // Affecte les valeurs pour les <select>
+            // Select pour les types
             const selectValues = {
                 "type_dossier": dossier.type_dossier,
                 "sous_type_dossier": dossier.sous_type_dossier
@@ -119,11 +131,10 @@ function getDossierById(id_dossier) {
             Object.keys(selectValues).forEach(function(id) {
                 const select = document.getElementById(id);
                 if (select) {
-                    select.value = selectValues[id];  // Définit la valeur sélectionnée du <select>
-                } else {
-                    console.warn(`Le <select> avec l'ID ${id} est manquant.`);
+                    select.value = selectValues[id];
                 }
             });
+
         } else {
             console.error("Erreur lors de la récupération du dossier :", data.message);
         }
@@ -131,6 +142,7 @@ function getDossierById(id_dossier) {
     .catch(error => console.error("Erreur de connexion à l'API :", error));
 }
 
+// Fonction pour mettre à jour les informations d'un dossier choisi
 function updateDossier() {
     const id_dossier = new URLSearchParams(window.location.search).get("id_dossier");
 
@@ -139,7 +151,7 @@ function updateDossier() {
         id_dossier,
         numero_dossier: document.getElementById("numero_dossier").value.trim(),
         id_cadastre: document.getElementById("id_cadastre").value.trim(),
-        pseudo: document.getElementById("pseudo").value.trim(),
+        pseudo: document.getElementById("pseudo").value, // Récupéré depuis le <select>
         libelle: document.getElementById("libelle").value.trim(),
         date_demande: document.getElementById("date_demande").value.trim(),
         date_limite: document.getElementById("date_limite").value.trim(),

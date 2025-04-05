@@ -1325,3 +1325,18 @@
 2025-04-04 14:55:37 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Malissar","cp_commune":"","etat_plu":""}
 2025-04-04 14:55:41 - Requête reçue : {"action":"getPluById","id_plu":"29"}
 2025-04-04 14:55:45 - Requête reçue : {"action":"updatePlu","id_plu":"29","type_plu":"PLU","etat_plu":"En vigueur","date_plu":"07/11/2023","systeme_ass":"AUCUN","statut_zonage":"en attente","statut_pres":"en attente","date_annexion":"31/03/2025","lien_zonage":"L:\u00003 DT-DD\u00002 Assainissement\u00006_SUIVI_PATRIMONIAL8_ZONAGES_ASS_EPLMONTELEGER","lien_dhua":"\\sysinfo.localsrc-dataDirectionAgglo\u00006 Inter-dep\u00003 DT-DD\u00008 Ressources suivi PLU26196_MONTELEGER","observation_plu":"\n"}
+2025-04-05 17:09:22 - Requête reçue : {"action":"getAllUsers"}
+2025-04-05 17:09:22 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-05 17:09:22 - Requête reçue : {"action":"logout"}
+2025-04-05 17:09:27 - Requête reçue : {"action":"login","email":"bouguerra.abbes@outlook.fr","password":"123"}
+2025-04-05 17:09:29 - Requête reçue : {"action":"getAllUsers"}
+2025-04-05 17:09:29 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-05 17:10:04 - Requête reçue : {"action":"getAllUsers"}
+2025-04-05 17:10:04 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-05 17:10:11 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"Instructrice"}
+2025-04-05 17:10:15 - Requête reçue : {"action":"getAllUsers"}
+2025-04-05 17:10:15 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-05 17:10:48 - Requête reçue : {"action":"getAllUsers"}
+2025-04-05 17:10:48 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-05 17:11:51 - Requête reçue : {"action":"getAllUsers"}
+2025-04-05 17:11:51 - Requête reçue : {"action":"getProfile","userId":"1"}

@@ -22,6 +22,12 @@ class UserModel {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user && password_verify($password, $user['password'])) {
+            if (session_status() == PHP_SESSION_NONE) {
+                session_start();  // Démarre la session
+            }
+    
+            // Stocke l'email dans la session
+            $_SESSION['email'] = $email;  // Email de l'utilisateur stocké dans la session
             // Log l'événement de connexion dans MongoDB
             $logData = [
                 'email' => $email,

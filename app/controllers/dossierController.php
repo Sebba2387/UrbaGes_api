@@ -76,21 +76,20 @@ switch ($action) {
         break;
 
     case 'getDossierById':
-        // Vérifier que 'id_dossier' est bien fourni dans l'input
         if (!isset($input['id_dossier'])) {
             echo json_encode(["success" => false, "message" => "ID dossier manquant"]);
             exit;
         }
-
-        // Récupérer l'ID du dossier et le traiter
+    
         $id_dossier = $input['id_dossier'];
-
-        // Appeler la méthode pour obtenir le dossier par ID
         $result = $dossierModel->getDossierById($id_dossier);
-        
-        // Vérifier si un dossier est trouvé ou non
-        if ($result) {
-            echo json_encode(["success" => true, "dossier" => $result]);
+    
+        if ($result && isset($result['dossier'])) {
+            echo json_encode([
+                "success" => true,
+                "dossier" => $result['dossier'],
+                "utilisateurs" => $result['utilisateurs']
+            ]);
         } else {
             echo json_encode(["success" => false, "message" => "Dossier non trouvé"]);
         }
@@ -107,11 +106,11 @@ switch ($action) {
             'statut' => $input['statut'],
             'lien_calypso' => $input['lien_calypso'],
             'type_dossier' => $input['type_dossier'],
-            'sous_type_dossier' => $input['sous_type_dossier']
+            'sous_type_dossier' => $input['sous_type_dossier'],
+            'pseudo' => $input['pseudo'] // ajouté ici
         ]);
         echo json_encode(['success' => $success]);
         break;
-    
 
     default:
         echo json_encode(["success" => false, "message" => "Action non valide"]);
