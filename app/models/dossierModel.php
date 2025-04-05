@@ -136,6 +136,15 @@ class DossierModel {
         return $success;
     }
 
+    public function getAllCommunes() {
+        // Prépare la requête pour récupérer toutes les communes
+        $sql = "SELECT id_commune, nom_commune FROM communes";
+        $stmt = $this->pdo->query($sql);
+        $communes = $stmt->fetchAll(PDO::FETCH_ASSOC);        
+        return $communes;
+    }
+    
+
     public function addDossier($data) {
         // Prépare la requête SQL pour insérer un nouveau dossier
         $sql = "INSERT INTO dossiers 

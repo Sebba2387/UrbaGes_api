@@ -112,6 +112,17 @@ switch ($action) {
         echo json_encode(['success' => $success]);
         break;
 
+        case 'getCommunes':
+            // Vérifie que la connexion à la base de données fonctionne
+            $communes = $dossierModel->getAllCommunes();  // Appel à la méthode pour récupérer toutes les communes
+            
+            if ($communes) {
+                echo json_encode(['success' => true, 'communes' => $communes]);
+            } else {
+                echo json_encode(['success' => false, 'message' => 'Aucune commune trouvée']);
+            }
+            break;
+
     case 'addDossier':
         // Vérifie que les données nécessaires sont présentes
         if (!isset($input['numero_dossier']) || !isset($input['id_cadastre']) || !isset($input['libelle']) || !isset($input['date_demande']) || !isset($input['date_limite']) || !isset($input['statut']) || !isset($input['lien_calypso']) || !isset($input['type_dossier']) || !isset($input['sous_type_dossier']) || !isset($input['id_commune'])) {

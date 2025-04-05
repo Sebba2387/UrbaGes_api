@@ -181,6 +181,42 @@ function updateDossier() {
     });
 }
 
+
+// Fonction pour charger la liste des communes dans le <select>
+function loadCommunes() {
+    // Vérifie si l'élément <select id="id_commune"> existe sur la page
+    const communeSelect = document.getElementById("id_commune");
+    if (!communeSelect) {
+        return;
+    }
+    fetch('http://localhost/public/api/dossierApi.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'getCommunes' })  // Assure-toi d'envoyer l'action dans le body
+    })
+    .then(response => response.json())
+    .then(data => {
+        const communeSelect = document.getElementById("id_commune");
+        if (data.success && data.communes) {
+            data.communes.forEach(commune => {
+                const option = document.createElement("option");
+                option.value = commune.id_commune;
+                option.textContent = commune.nom_commune;
+                communeSelect.appendChild(option);
+            });
+        } else {
+            console.error("Aucune commune trouvée.");
+        }
+    })
+    .catch(error => console.error("Erreur lors du chargement des communes :", error));
+}
+
+
+// Appeler la fonction au chargement de la page
+document.addEventListener("DOMContentLoaded", function() {
+    loadCommunes();
+});
+
 // Fonction pour ajouter un dossier
 document.addEventListener("DOMContentLoaded", () => {
     const addForm = document.getElementById("addDossierForm");

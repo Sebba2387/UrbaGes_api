@@ -1354,3 +1354,5 @@
 2025-04-05 22:50:09 - Requête reçue : {"action":"getProfile","userId":"1"}
 2025-04-05 23:22:00 - Requête reçue : {"action":"getAllUsers"}
 2025-04-05 23:22:00 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-06 00:40:42 - Requête reçue : {"action":"getAllUsers"}
+2025-04-06 00:40:42 - Requête reçue : {"action":"getProfile","userId":"1"}
