@@ -69,7 +69,55 @@ function displayDossiers(dossiers) {
         `;
         tableBody.appendChild(row);
     });
+    paginateDossiers();
 }
+
+// Fonction pour la pagination du résultat de la recherche
+let itemsPerPage = 10;  // Nombre de lignes à afficher par page
+let currentPage = 1;   // Page active
+
+function paginateDossiers() {
+    const tableBody = document.getElementById("dossierTableBody");
+    const rows = Array.from(tableBody.getElementsByTagName("tr"));
+
+    // Masque toutes les lignes
+    rows.forEach(row => row.style.display = "none");
+
+    // Calculer l'index de début et de fin en fonction de la page actuelle
+    const start = (currentPage - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+
+    // Affiche uniquement les lignes de la page courante
+    rows.slice(start, end).forEach(row => row.style.display = "");
+
+    // Met à jour les contrôles de pagination
+    updatePagination(rows.length);
+}
+
+function updatePagination(totalItems) {
+    const totalPages = Math.ceil(totalItems / itemsPerPage);
+    const paginationContainer = document.getElementById("pagination");
+
+    // S'il n'existe pas de conteneur de pagination dans le HTML, on arrête ici
+    if (!paginationContainer) return;
+
+    paginationContainer.innerHTML = ""; // Réinitialiser le conteneur
+
+    for (let i = 1; i <= totalPages; i++) {
+        const pageButton = document.createElement("button");
+        pageButton.textContent = i;
+        pageButton.classList.add("page-button");
+
+        // Ajoute un écouteur pour mettre à jour la page active lors du clic
+        pageButton.addEventListener("click", () => {
+            currentPage = i;
+            paginateDossiers();
+        });
+
+        paginationContainer.appendChild(pageButton);
+    }
+}
+
 // Fonction pour rediriger vers la page de modification d'un PLU
 function redirectToEdit(id_dossier) {
     window.location.href = `http://localhost/public/testPages/testEditDossier.html?id_dossier=${id_dossier}`;
@@ -302,3 +350,4 @@ function deleteDossier(id_dossier) {
         });
     }
 }
+

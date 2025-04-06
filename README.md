@@ -27,6 +27,8 @@
 - Index.html 	✅
 - Configuration des routes 	✅
 - Construction des pages 	✅
+- Pagination 	✅
+- Customisation des codes    ❌
 - Validation des champs 	❌
 - Contrôle des rôles 	❌
 
@@ -40,5 +42,6 @@
 - Model & Controller : filtreCommune, *updateCommune*, *deleteCommune*, *addCommune*  (PDO-SQL) 	✅
 - Model & Controller : filtrePlu, *updatePlu* (PDO-SQL) 	✅
 - Model & Controller : filtreDossier, updateDossier, deleteDossier, *attributeDossier*, *addDossier* (PDO-SQL-NoSQL) 	✅
+- Model & Controller : filtreGep 	❌
 - Model & Controller : filtreCourrier, updateCourrier, deleteCourrier, *addCourrier*  (PDO-SQL) 	❌
 
