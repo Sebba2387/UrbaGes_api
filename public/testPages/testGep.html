@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche Parcelles GEP</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Recherche de parcelles</h1>
+    <form onsubmit="event.preventDefault(); searchGep();">
+        <label for="nom_commune">Commune :</label>
+        <select id="nom_commune" name="nom_commune" required>
+            <option value="">Chargement...</option>
+        </select>
+        <input type="text" id="section" placeholder="Section">
+        <input type="text" id="numero" placeholder="Numéro">
+        <button type="submit">Rechercher</button><br><br>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Commune</th>
+                <th>Section</th>
+                <th>Numéro</th>
+                <th>Surface</th>
+                <th>Captage</th>
+                <th>Règles de Captage</th>
+                <th>Dysfonctionnement</th>
+                <th>Sage (indice)</th>
+                <th>Zone de Montana</th>
+                <th>Sous-zone PLU</th>
+                <th>Règle PLU</th>
+            </tr>
+        </thead>
+        <tbody id="gepResults">
+            <!-- Résultats injectés ici -->
+        </tbody>
+    </table><br>
+    <button type="button" onclick="location.href='/public/testPages/testProfil.html'">Retour au profil</button>
+    <script src="/public/assets/js/fetch/gepFetch.js"></script>
+</body>
+</html>

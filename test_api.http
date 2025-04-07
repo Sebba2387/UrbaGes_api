@@ -1,7 +1,7 @@
-POST http://localhost/public/api/dossierApi.php
+POST http://localhost/public/api/gepApi.php
 Content-Type: application/json
 Authorization: Bearer your_token_here
 
 {
-    "action": "searchDossier"
+    "action": "getNomCommunes"
 }

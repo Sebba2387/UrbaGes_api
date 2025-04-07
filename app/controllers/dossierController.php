@@ -113,16 +113,16 @@ switch ($action) {
         echo json_encode(['success' => $success]);
         break;
 
-        case 'getCommunes':
-            // Vérifie que la connexion à la base de données fonctionne
-            $communes = $dossierModel->getAllCommunes();  // Appel à la méthode pour récupérer toutes les communes
-            
-            if ($communes) {
-                echo json_encode(['success' => true, 'communes' => $communes]);
-            } else {
-                echo json_encode(['success' => false, 'message' => 'Aucune commune trouvée']);
-            }
-            break;
+    case 'getCommunes':
+        // Vérifie que la connexion à la base de données fonctionne
+        $communes = $dossierModel->getAllCommunes();  // Appel à la méthode pour récupérer toutes les communes
+        
+        if ($communes) {
+            echo json_encode(['success' => true, 'communes' => $communes]);
+        } else {
+            echo json_encode(['success' => false, 'message' => 'Aucune commune trouvée']);
+        }
+        break;
 
     case 'addDossier':
         // Vérifie que les données nécessaires sont présentes

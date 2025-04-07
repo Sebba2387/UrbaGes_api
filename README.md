@@ -43,5 +43,6 @@
 - Model & Controller : filtrePlu, *updatePlu* (PDO-SQL) 	✅
 - Model & Controller : filtreDossier, updateDossier, deleteDossier, *attributeDossier*, *addDossier* (PDO-SQL-NoSQL) 	✅
 - Model & Controller : filtreGep 	❌
+- Model & Controller : filtreAttribution 	❌
 - Model & Controller : filtreCourrier, updateCourrier, deleteCourrier, *addCourrier*  (PDO-SQL) 	❌
 
