@@ -4,20 +4,19 @@
             <img src="/public/assets/images/img_logo.png" class="img-fluid" style="height: 40px; width: auto;" alt="image du Logo">
             <h2 class="fw-bold ms-2 mb-1">UrbaGes</h2>
         </div>
-        <form method="POST" action="/Urbages/app/controllers/userController.php" class="w-100">
+        <form class="w-100" onsubmit="event.preventDefault(); loginUser(email.value, password.value);">
             <div class="mb-3 input-group">
                 <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
-                <input type="email" class="form-control" name="email" placeholder="Entrez votre email" required>
+                <input type="email" class="form-control" name="email" id="email" autocomplete placeholder="Entrez votre email" required>
             </div>
             <div class="mb-3 input-group">
                 <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
-                <input type="password" class="form-control" name="password" placeholder="Entrez votre mot de passe" required>
+                <input type="password" class="form-control" name="password" id="password" autocomplete placeholder="Entrez votre mot de passe" required>
             </div>
-            <button class="btn btn-dark fw-bold fs-5 w-100 mt-4 btn-login" type="submit" name="login">
+            <button class="btn btn-dark fw-bold fs-5 w-100 mt-4 btn-login" type="submit">
                 <i class="bi bi-box-arrow-right fs-5"></i> Se connecter
             </button>
         </form>
     </div>
 </div>
-
-<a href="/profil" onclick="route(event)">Profil</a>
+<script src="/public/assets/js/fetch/userFetch.js" defer></script>

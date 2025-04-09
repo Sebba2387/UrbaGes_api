@@ -42,7 +42,14 @@
 - Model & Controller : filtreCommune, *updateCommune*, *deleteCommune*, *addCommune*  (PDO-SQL) 	✅
 - Model & Controller : filtrePlu, *updatePlu* (PDO-SQL) 	✅
 - Model & Controller : filtreDossier, updateDossier, deleteDossier, *attributeDossier*, *addDossier* (PDO-SQL-NoSQL) 	✅
-- Model & Controller : filtreGep 	❌
+- Model & Controller : filtreGep 	✅
 - Model & Controller : filtreAttribution 	❌
 - Model & Controller : filtreCourrier, updateCourrier, deleteCourrier, *addCourrier*  (PDO-SQL) 	❌
 
+# Full
+- Connexion 	✅
+- Déconnexion 	✅
+- Inscription 	❌
+- Changement de mot de passe 	❌
+- Profil 	✅
+- Mon Équipe 	❌

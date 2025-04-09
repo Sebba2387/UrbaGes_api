@@ -1,5 +1,19 @@
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
 <!-- Formulaire mon profil -->
-<div id="form1" class="form-container mb-5 mt-5 h-auto">
+<div id="form1" class="form-container expanded mb-5 mt-5 h-auto" data-callback="fetchUserProfile">
     <button class="btn btn-primary fw-bold toggle-btn" onclick="toggleForm('form1')">
         <i class="bi bi-people-fill"></i> Mon profil
     </button>
@@ -8,29 +22,32 @@
             <!-- Ligne 1 -->
             <div class="row">
                 <div class="col-12 col-md-3 mb-3">
-                    <input type="text" class="form-control" name="nom" placeholder="Nom">
+                    <input type="text" class="form-control" name="nom" id="nom" placeholder="Nom">
                 </div>
                 <div class="col-12 col-md-3 mb-3">
-                    <input type="text" class="form-control" name="prenom" placeholder="Prénom">
+                    <input type="text" class="form-control" name="prenom" id="prenom" placeholder="Prénom">
                 </div>
                 <div class="col-12 col-md-3 mb-3">
-                    <input type="email" class="form-control" name="email" placeholder="Email">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Email">
                 </div>
                 <div class="col-12 col-md-3 mb-3">
-                    <input type="date" class="form-control" name="date_naissance" placeholder="Date de naissance">
+                    <input type="text" class="form-control" name="anneeNaissance" id="anneeNaissance" placeholder="Année de naissance">
                 </div>
                 
             </div>
             <!-- Ligne 2 -->
             <div class="row">
                 <div class="col-12 col-md-3 mb-3">
-                    <input type="text" class="form-control" name="pseudo" placeholder="Pseudo">
+                    <input type="text" class="form-control" name="pseudo" id="pseudo" placeholder="Pseudo">
                 </div>
                 <div class="col-12 col-md-3 mb-3">
-                    <input type="text" class="form-control" name="genre" placeholder="Genre">
+                    <input type="text" class="form-control" name="genre" id="genre" placeholder="Genre">
                 </div>
                 <div class="col-12 col-md-3 mb-3">
-                    <input type="text" class="form-control" name="poste" placeholder="Poste">
+                    <input type="text" class="form-control" name="poste" id="poste" placeholder="Poste">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" name="nom_role" id="nom_role" placeholder="Rôle">
                 </div>
                 <div class="col-12 col-md-3 mb-3 d-flex align-items-end">
                     <button type="submit" class="btn btn-primary fw-bold w-100">Enregistrer</button>
@@ -39,3 +56,28 @@
         </form>
     </div>
 </div>
+<h2>Liste des utilisateurs</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>
+            <th>Année de Naissance</th>
+            <th>Pseudo</th>
+            <th>Genre</th>
+            <th>Poste</th>
+            <th>Rôle</th>
+            <th colspan="2">Actions</th>
+        </tr>
+    </thead>
+    <tbody id="usersTableBody">
+        <!-- Les utilisateurs seront insérés ici -->
+    </tbody>
+</table>
+
+<script src="/public/assets/js/fetch/userFetch.js" defer></script>
+
+
+

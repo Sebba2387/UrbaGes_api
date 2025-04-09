@@ -4,7 +4,7 @@ function loginUser(email, password) {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer your_token_here'  // Ajouter le token pour l'authentification
+            // 'Authorization': 'Bearer your_token_here' 
         },
         body: JSON.stringify({
             action: 'login',
@@ -16,7 +16,7 @@ function loginUser(email, password) {
     .then(data => {
         if (data.success) {
             localStorage.setItem('userId', data.user.id_utilisateur);
-            window.location.href = "http://localhost/public/testPages/testProfil.html";
+            window.location.href = "/profil";
         } else {
             alert(data.message);
         }
@@ -30,7 +30,7 @@ function loginUser(email, password) {
 function fetchUserProfile() {
     const userId = localStorage.getItem('userId');
     if (!userId) {
-        window.location.href = "http://localhost/public/testPages/testLogin.html";
+        window.location.href = "/";
         return;
     }
 
@@ -38,7 +38,7 @@ function fetchUserProfile() {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer your_token_here'  // Ajouter le token pour l'authentification
+            // 'Authorization': 'Bearer your_token_here'
         },
         body: JSON.stringify({
             action: 'getProfile',
@@ -86,11 +86,12 @@ function fetchUserProfile() {
 // Affichage des utilisateurs dans le tableau HTML
 function displayUsersTable(users) {
     const tableBody = document.getElementById("usersTableBody");
-    // Vérifie si l'élément existe avant d'essayer de manipuler son contenu
+
     if (!tableBody) {
         console.error('L\'élément avec l\'ID "usersTableBody" est introuvable.');
         return; // Sort de la fonction si l'élément n'existe pas
     }
+
     tableBody.innerHTML = ""; // Vider le tableau avant de le remplir
 
     users.forEach(user => {
@@ -117,10 +118,9 @@ function displayUsersTable(users) {
 function fetchAllUsers() {
     const tableBody = document.getElementById("usersTableBody");
 
-    // Vérifie si l'élément est bien présent dans le DOM avant de faire l'appel API
+    // Vérifie que l'élément existe
     if (!tableBody) {
-        console.log('Bienvenue dans UrbaGes');
-        return;
+        return; // Sort de la fonction si l'élément n'existe pas
     }
 
     fetch('http://localhost/public/api/userApi.php', {
@@ -132,16 +132,15 @@ function fetchAllUsers() {
             action: 'getAllUsers'
         })
     })
-    .then(response => response.json())  // On attend une réponse JSON
+    .then(response => response.json())
     .then(data => {
         if (data.success) {
+            // Vérification du rôle de l'utilisateur
             if (data.userRole === 'admin' || data.userRole === 'moderateur') {
                 displayUsersTable(data.users);  // Affichage des utilisateurs
                 tableBody.style.display = 'table-row-group';  // Rendre visible la table
             } else {
-                // Si l'utilisateur n'a pas le bon rôle, masquer la table et éventuellement afficher un message
                 tableBody.style.display = 'none';  // Cacher la table des utilisateurs
-                // Optionnel : afficher un message d'erreur si tu veux
                 const message = document.createElement('p');
                 message.textContent = 'Vous n\'avez pas les permissions nécessaires pour voir cette page.';
                 document.body.appendChild(message);
@@ -151,12 +150,17 @@ function fetchAllUsers() {
             tableBody.style.display = 'none';  // Cacher la table en cas d'erreur
         }
     })
-    .catch(error => console.error('Erreur:', error));
+    .catch(error => {
+        console.error('Erreur lors de la récupération des utilisateurs :', error);
+    });
 }
 
 // Inscription d'un nouveau utilisateur
 document.addEventListener("DOMContentLoaded", function() {
-    fetchAllUsers();
+    // Vérification si la page est celle de la liste des utilisateurs avant de charger fetchAllUsers
+    if (document.getElementById("usersTableBody")) {
+        fetchAllUsers(); // Appel pour afficher les utilisateurs
+    }
     const addUserButton = document.getElementById("addUserButton");
     if (addUserButton) {
         addUserButton.addEventListener("click", function() {
@@ -367,7 +371,7 @@ function logoutUser() {
     .then(data => {
         if (data.success) {
             localStorage.removeItem('userId'); // Supprimer l'ID utilisateur du localStorage
-            window.location.href = "http://localhost/public/testPages/testLogin.html"; // Rediriger vers la page de connexion
+            window.location.href = "/"; // Rediriger vers la page de connexion
         } else {
             alert(data.message);
         }

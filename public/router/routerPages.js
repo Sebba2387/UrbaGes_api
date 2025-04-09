@@ -60,6 +60,14 @@ async function router() {
     // Charger le composant de la page en fonction de la route
     await loadComponent(route.component);
 
+    // Si la route nécessite des utilisateurs (par exemple '/monEquipe')
+    if (route.path === '/monEquipe') {
+        // Assurer que les utilisateurs sont chargés après l'injection du composant
+        if (typeof window.fetchAllUsers === 'function') {
+            window.fetchAllUsers();
+        }
+    }
+
     // Ajouter la classe 'active' au lien correspondant
     updateActiveLink(route.path);
 }
