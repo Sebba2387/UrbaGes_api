@@ -1,0 +1,42 @@
+<div id="form1" class="form-container expanded mb-5 mt-5 h-auto" data-callback="initEditForm">
+    <button class="btn btn-primary fw-bold toggle-btn" onclick="toggleForm('form1')">
+        <i class="bi bi-people-fill"></i> Profil
+    </button>
+    <div class="card">
+        <form id="editForm">
+            <!-- Ligne 1 -->
+            <div class="row">
+                <input type="hidden" class="form-control" name="user_id" id="user_id" placeholder="Nom">
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" name="nom" id="nom" placeholder="Nom">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" name="prenom" id="prenom" placeholder="Prénom">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" name="annee_naissance" id="annee_naissance" placeholder="Année de naissance">
+                </div>
+                
+            </div>
+            <!-- Ligne 2 -->
+            <div class="row">
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" name="pseudo" id="pseudo" placeholder="Pseudo">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" name="genre" id="genre" placeholder="Genre">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" name="poste" id="poste" placeholder="Poste">
+                </div>
+                <div class="col-12 col-md-3 mb-3 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary fw-bold w-100">Enregistrer</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="/public/assets/js/fetch/userFetch.js" defer></script>

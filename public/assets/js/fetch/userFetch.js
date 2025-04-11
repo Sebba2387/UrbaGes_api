@@ -106,8 +106,8 @@ function displayUsersTable(users) {
             <td>${user.poste}</td>
             <td>${user.nom_role}</td>
             <td>
-                <button onclick="redirectToEdit(${user.id_utilisateur})">Modifier</button>
-                <button onclick="deleteUser(${user.id_utilisateur})">Supprimer</button>
+                <button class="rounded" onclick="redirectToEdit(${user.id_utilisateur})"><i class="bi bi-pencil-fill fs-5"></i></button>
+                <button class="rounded" onclick="deleteUser(${user.id_utilisateur})"><i class="bi bi-trash-fill fs-5"></i></button>
             </td>
         </tr>`;
         tableBody.innerHTML += row;
@@ -295,18 +295,18 @@ function redirectToEdit(userId) {
 }
 
 // Mise à jour du profil utilisateur
-function updateUserProfile() {
-    const userId = document.getElementById("user_id").value;
+function updateUserProfile(userId) {
+
     const userData = {
         action: 'updateUser',
         id_utilisateur: userId,
-        nom: document.getElementById("nom").value,
-        prenom: document.getElementById("prenom").value,
-        email: document.getElementById("email").value,
-        annee_naissance: document.getElementById("annee_naissance").value,
-        pseudo: document.getElementById("pseudo").value,
-        genre: document.getElementById("genre").value,
-        poste: document.getElementById("poste").value
+        nom: document.getElementById("nom").value.trim(),
+        prenom: document.getElementById("prenom").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        annee_naissance: document.getElementById("annee_naissance").value.trim(),
+        pseudo: document.getElementById("pseudo").value.trim(),
+        genre: document.getElementById("genre").value.trim(),
+        poste: document.getElementById("poste").value.trim()
     };
 
     fetch('http://localhost/public/api/userApi.php', {
@@ -318,40 +318,61 @@ function updateUserProfile() {
     .then(data => {
         alert(data.message);
         if (data.success) {
-            window.location.href = "http://localhost/public/testPages/testProfil.html";
+            window.location.href = "/profil";
         }
     })
-    .catch(error => console.error('Erreur lors de la mise à jour:', error));
+    .catch(error => console.error('❌ Erreur lors de la mise à jour :', error));
 }
 
-// Gestion du formulaire d'édition
-document.addEventListener("DOMContentLoaded", function() {
+function initEditForm() {
+
+    const form = document.getElementById("editForm");
+    if (!form) {
+        console.warn("⚠️ Formulaire de profil non trouvé.");
+        return;
+    }
+
     const params = new URLSearchParams(window.location.search);
     const userId = params.get("id");
-    if (userId) {
-        fetch('http://localhost/public/api/userApi.php', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ action: 'getUser', id_utilisateur: userId })
-        })
-        .then(response => response.json())
-        .then(user => {
-            document.getElementById("user_id").value = user.id_utilisateur;
-            document.getElementById("nom").value = user.nom;
-            document.getElementById("prenom").value = user.prenom;
-            document.getElementById("email").value = user.email;
-            document.getElementById("annee_naissance").value = user.annee_naissance;
-            document.getElementById("pseudo").value = user.pseudo;
-            document.getElementById("genre").value = user.genre;
-            document.getElementById("poste").value = user.poste;
-        });
 
-        document.getElementById("editForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            updateUserProfile();
-        });
+    if (!userId) {
+        console.warn("⚠️ Aucun ID utilisateur trouvé dans l'URL.");
+        return;
     }
-});
+
+    // Pré-remplissage des champs avec les données utilisateur
+    fetch('http://localhost/public/api/userApi.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'getUser', id_utilisateur: userId })
+    })
+    .then(response => response.json())
+    .then(user => {
+        if (!user || !user.id_utilisateur) {
+            console.warn("⚠️ Utilisateur non trouvé.");
+            return;
+        }
+
+        document.getElementById("user_id").value = user.id_utilisateur;
+        document.getElementById("nom").value = user.nom;
+        document.getElementById("prenom").value = user.prenom;
+        document.getElementById("email").value = user.email;
+        document.getElementById("annee_naissance").value = user.annee_naissance;
+        document.getElementById("pseudo").value = user.pseudo;
+        document.getElementById("genre").value = user.genre;
+        document.getElementById("poste").value = user.poste;
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+            updateUserProfile(user.id_utilisateur);
+        });
+    })
+    .catch(error => console.error('❌ Erreur lors de la récupération du profil :', error));
+}
+
+// Appel au chargement du DOM
+document.addEventListener("DOMContentLoaded", initEditForm);
+
 
 // Fonction pour supprimer un utilisateur
 function deleteUser(userId) {
@@ -372,7 +393,7 @@ function deleteUser(userId) {
             alert(data.message); // Affiche le message de l'API
             if (data.success) {
                 // Si la suppression est réussie, redirige vers la page de profil
-                window.location.href = "http://localhost/public/testPages/testProfil.html";
+                window.location.href = "/profil";
             }
         })
         .catch(error => console.error('Erreur lors de la suppression:', error));
