@@ -1684,3 +1684,18 @@
 2025-04-11 23:51:15 - Requête reçue : {"action":"searchCommune","code_commune":"26004","nom_commune":"","cp_commune":""}
 2025-04-11 23:51:58 - Requête reçue : {"action":"searchCommune","code_commune":"26088","nom_commune":"","cp_commune":""}
 2025-04-11 23:52:10 - Requête reçue : {"action":"searchCommune","code_commune":"","nom_commune":"romans","cp_commune":""}
+2025-04-12 00:14:51 - Requête reçue : {"action":"searchCommune","code_commune":"","nom_commune":"","cp_commune":"26281"}
+2025-04-12 00:14:57 - Requête reçue : {"action":"searchCommune","code_commune":"26281","nom_commune":"","cp_commune":""}
+2025-04-12 00:28:22 - Requête reçue : {"action":"addCommune","code_commune":"33063","nom_commune":"Bordeaux","cp_commune":"33000","email_commune":"test@bordeaux.com","tel_commune":"0145632578","adresse_commune":"Pey Berland","contact":"Benjamin Sandré","reseau_instruction":"ADS","urbaniste_vra":"Amadine"}
+2025-04-12 00:29:54 - Requête reçue : {"action":"addCommune","code_commune":"33281","nom_commune":"Mérignac","cp_commune":"33170","email_commune":"test@merignac.com","tel_commune":"0145632578","adresse_commune":"Mérignac Soleil","contact":"Estelle Jamoneau","reseau_instruction":"hors ADS","urbaniste_vra":"Isabelle"}
+2025-04-12 00:30:13 - Requête reçue : {"action":"searchCommune","code_commune":"","nom_commune":"Mérignac","cp_commune":""}
+2025-04-12 00:30:22 - Requête reçue : {"action":"searchCommune","code_commune":"","nom_commune":"Bordeaux","cp_commune":""}
+2025-04-12 00:30:29 - Requête reçue : {"action":"searchCommune","code_commune":"","nom_commune":"","cp_commune":""}
+2025-04-12 00:33:36 - Requête reçue : {"action":"searchCommune","code_commune":"","nom_commune":"","cp_commune":""}
+2025-04-12 00:33:50 - Requête reçue : {"action":"searchCommune"}
+2025-04-12 00:33:57 - Requête reçue : {"action":"searchCommune","nom_commune":"Malissar"}
+2025-04-12 00:35:11 - Requête reçue : {"action":"searchCommune"}
+2025-04-12 00:37:22 - Requête reçue : {"action":"searchCommune"}
+2025-04-12 00:37:29 - Requête reçue : {"action":"searchCommune","nom_commune":"GENISSIEUX"}
+2025-04-12 00:38:22 - Requête reçue : {"action":"addCommune","code_commune":"33318","nom_commune":"Talence","cp_commune":"33400","email_commune":"test@talence.com","tel_commune":"0145632578","adresse_commune":"Piexoto","contact":"Medhi Mouillé","reseau_instruction":"hors ADS","urbaniste_vra":"Morgane W"}
+2025-04-12 00:38:35 - Requête reçue : {"action":"searchCommune","nom_commune":"Talence"}

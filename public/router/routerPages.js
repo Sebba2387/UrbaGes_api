@@ -15,6 +15,7 @@ const routes = [
     { path: '/editPlu', component: 'editPlu.html' },
     { path: '/communes', component: 'communes.html' },
     { path: '/editCommune', component: 'editCommune.html' },
+    { path: '/addCommune', component: 'addCommune.html' },
     { path: '/courriers', component: 'courriers.html' },
     { path: '/editCourrier', component: 'editCourrier.html' },
 ];

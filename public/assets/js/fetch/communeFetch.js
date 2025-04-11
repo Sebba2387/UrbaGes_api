@@ -1,11 +1,19 @@
 // Fonction pour rechercher les communes
 function searchCommunes() {
+    // Récupérer les valeurs des champs
+    const codeCommune = document.getElementById("code_commune").value;
+    const nomCommune = document.getElementById("nom_commune").value;
+    const cpCommune = document.getElementById("cp_commune").value;
+
+    // Si tous les champs sont vides, on envoie une requête pour toutes les communes
     const searchData = {
         action: 'searchCommune',
-        code_commune: document.getElementById("code_commune").value,
-        nom_commune: document.getElementById("nom_commune").value,
-        cp_commune: document.getElementById("cp_commune").value
+        ...(codeCommune ? { code_commune: codeCommune } : {}),
+        ...(nomCommune ? { nom_commune: nomCommune } : {}),
+        ...(cpCommune ? { cp_commune: cpCommune } : {})
     };
+
+    // Envoyer la requête
     fetch('http://localhost/public/api/communeApi.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -17,6 +25,7 @@ function searchCommunes() {
     })
     .catch(error => console.error('Erreur lors de la recherche:', error));
 }
+
 // Fonction pour initialiser le formulaire de recherche
 function initCommuneSearchForm() {
     const form = document.getElementById("communeSearchForm");
@@ -29,36 +38,41 @@ function initCommuneSearchForm() {
 }
 window.initCommuneSearchForm = initCommuneSearchForm;
 
-
 // Fonction pour afficher les résultats dans un tableau
 function displayCommunes(communes) {
     const tableBody = document.getElementById("communeResults");
     tableBody.innerHTML = "";
 
-    communes.forEach(commune => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-            <td>${commune.nom_commune}</td>
-            <td>${commune.code_commune}</td>
-            <td>${commune.cp_commune}</td>
-            <td>${commune.email_commune}</td>
-            <td>${commune.tel_commune}</td>
-            <td>${commune.adresse_commune}</td>
-            <td>${commune.contact}</td>
-            <td>${commune.reseau_instruction}</td>
-            <td>${commune.urbaniste_vra}</td>
-            <td>
-            <button onclick="redirectToEdit(${commune.id_commune})"><i class="bi bi-pencil-fill fs-5"></i></button>
-            <button onclick="deleteCommune(${commune.id_commune})"><i class="bi bi-trash-fill fs-5"></i></button>
-            </td>
-        `;
-        tableBody.appendChild(row);
-    });
+    // Vérification que la réponse est bien un tableau
+    if (Array.isArray(communes)) {
+        communes.forEach(commune => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${commune.nom_commune}</td>
+                <td>${commune.code_commune}</td>
+                <td>${commune.cp_commune}</td>
+                <td>${commune.email_commune}</td>
+                <td>${commune.tel_commune}</td>
+                <td>${commune.adresse_commune}</td>
+                <td>${commune.contact}</td>
+                <td>${commune.reseau_instruction}</td>
+                <td>${commune.urbaniste_vra}</td>
+                <td>
+                    <button onclick="redirectToEdit(${commune.id_commune})"><i class="bi bi-pencil-fill fs-5"></i></button>
+                    <button onclick="deleteCommune(${commune.id_commune})"><i class="bi bi-trash-fill fs-5"></i></button>
+                </td>
+            `;
+            tableBody.appendChild(row);
+        });
+    } else {
+        // Affichage d'un message d'erreur à l'utilisateur
+        tableBody.innerHTML = "<tr><td colspan='10'>Veuillez entrer au moins un critère de recherche pour effectuer la recherche.</td></tr>";
+    }
 }
 
 // Redirection vers l'édition d'une commune
 function redirectToEdit(communeId) {
-    window.location.href = `http://localhost/public/testPages/testEditCommune.html?id=${communeId}`;
+    window.location.href = `/editCommune?id=${communeId}`;
 }
 
 // Fonction pour ajouter une nouvelle commune via l'API
@@ -73,13 +87,11 @@ function addCommune() {
     const contact = document.getElementById("contact").value;
     const reseauInstruction = document.getElementById("reseau_instruction").value;
     const urbanisteVra = document.getElementById("urbaniste_vra").value;
-
     // Vérification des champs requis
     if (!codeCommune || !nomCommune || !cpCommune || !emailCommune || !telCommune || !adresseCommune || !contact || !reseauInstruction || !urbanisteVra) {
         alert("Tous les champs doivent être remplis.");
         return;
     }
-
     // Créer l'objet de données à envoyer
     const communeData = {
         action: "addCommune",
@@ -93,7 +105,6 @@ function addCommune() {
         reseau_instruction: reseauInstruction,
         urbaniste_vra: urbanisteVra
     };
-
     // Envoyer la requête POST à l'API
     fetch('http://localhost/public/api/communeApi.php', {
         method: 'POST',
@@ -106,7 +117,7 @@ function addCommune() {
     .then(data => {
         if (data.success) {
             alert("Commune ajoutée avec succès !");
-            window.location.href = 'http://localhost/public/testPages/testCommune.html';  // Rediriger vers la liste des communes
+            window.location.href = '/communes';  // Rediriger vers la liste des communes
         } else {
             alert("Erreur lors de l'ajout de la commune : " + data.message);
         }
@@ -115,6 +126,19 @@ function addCommune() {
         console.error("Erreur lors de l'ajout de la commune :", error);
     });
 }
+//Fonction pour initialiser le formulaire d'ajout d'une commune
+function initAddCommuneForm() {
+    const form = document.getElementById("addCommuneForm");
+    if (form) {
+        form.addEventListener("submit", function(event) {
+            event.preventDefault(); // Empêche le rechargement
+            addCommune();           // Appelle ta fonction d'ajout
+        });
+    } else {
+        console.warn("⚠️ Formulaire d'ajout de commune introuvable !");
+    }
+}
+window.initAddCommuneForm = initAddCommuneForm;
 
 // Charger les détails d'une commune pour modification
 function loadCommuneDetails() {
