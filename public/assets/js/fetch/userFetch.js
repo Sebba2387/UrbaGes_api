@@ -263,8 +263,8 @@ function displaySearchResults(users) {
                 <td>${user.genre || 'N/A'}</td>
                 <td>${user.poste || 'N/A'}</td>
                 <td>
-                    <button onclick="redirectToEdit(${user.id_utilisateur})">Modifier</button>
-                    <button onclick="deleteUser(${user.id_utilisateur})">Supprimer</button>
+                    <button onclick="redirectToEdit(${user.id_utilisateur})"><i class="bi bi-pencil-fill fs-5"></button>
+                    <button onclick="deleteUser(${user.id_utilisateur})"><i class="bi bi-trash-fill fs-5"></i></button>
                 </td>
             `;
             resultsTable.appendChild(row);

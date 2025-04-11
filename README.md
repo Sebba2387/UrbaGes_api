@@ -60,4 +60,5 @@
 - GEP Search 	❌
 - Dossier CRUD 	❌
 
+- Changement dynamique de la photo de profil 	❌ 
 - Liste des communes 	❌

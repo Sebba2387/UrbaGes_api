@@ -1680,3 +1680,7 @@
 2025-04-11 23:31:27 - Requête reçue : {"action":"login","email":"bouguerra.abbes@outlook.fr","password":"123"}
 2025-04-11 23:31:36 - Requête reçue : {"action":"getProfile","userId":"1"}
 2025-04-11 23:31:36 - Requête reçue : {"action":"getAllUsers"}
+2025-04-11 23:49:02 - Requête reçue : {"action":"searchCommune","code_commune":"26004","nom_commune":"","cp_commune":""}
+2025-04-11 23:51:15 - Requête reçue : {"action":"searchCommune","code_commune":"26004","nom_commune":"","cp_commune":""}
+2025-04-11 23:51:58 - Requête reçue : {"action":"searchCommune","code_commune":"26088","nom_commune":"","cp_commune":""}
+2025-04-11 23:52:10 - Requête reçue : {"action":"searchCommune","code_commune":"","nom_commune":"romans","cp_commune":""}

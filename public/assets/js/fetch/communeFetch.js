@@ -17,6 +17,18 @@ function searchCommunes() {
     })
     .catch(error => console.error('Erreur lors de la recherche:', error));
 }
+// Fonction pour initialiser le formulaire de recherche
+function initCommuneSearchForm() {
+    const form = document.getElementById("communeSearchForm");
+    if (form) {
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+            searchCommunes();
+        });
+    }
+}
+window.initCommuneSearchForm = initCommuneSearchForm;
+
 
 // Fonction pour afficher les résultats dans un tableau
 function displayCommunes(communes) {
@@ -36,8 +48,8 @@ function displayCommunes(communes) {
             <td>${commune.reseau_instruction}</td>
             <td>${commune.urbaniste_vra}</td>
             <td>
-            <button onclick="redirectToEdit(${commune.id_commune})">Modifier</button>
-            <button onclick="deleteCommune(${commune.id_commune})">Supprimer</button>
+            <button onclick="redirectToEdit(${commune.id_commune})"><i class="bi bi-pencil-fill fs-5"></i></button>
+            <button onclick="deleteCommune(${commune.id_commune})"><i class="bi bi-trash-fill fs-5"></i></button>
             </td>
         `;
         tableBody.appendChild(row);
