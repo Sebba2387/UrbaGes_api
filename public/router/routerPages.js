@@ -5,6 +5,7 @@ const routes = [
     { path: '/profil', component: 'profil.html' },
     { path: '/monEquipe', component: 'monEquipe.html' },
     { path: '/editProfil', component: 'editProfil.html' },
+    { path: '/editPassword', component: 'editPassword.html' },
     { path: '/statistiques', component: 'statistiques.html' },
     { path: '/dossiers', component: 'dossiers.html' },
     { path: '/editDossier', component: 'editDossier.html' },

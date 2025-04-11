@@ -1,4 +1,4 @@
-// Connexion utilisateur
+// Fonction pour connecter l'utilisateur
 function loginUser(email, password) {
     fetch('http://localhost/public/api/userApi.php', {
         method: 'POST',
@@ -25,15 +25,13 @@ function loginUser(email, password) {
 }
 
 
-// Récupération du profil utilisateur
-
+// Fonction pour récupérer le profil utilisateur
 function fetchUserProfile() {
     const userId = localStorage.getItem('userId');
     if (!userId) {
         window.location.href = "/";
         return;
     }
-
     fetch('http://localhost/public/api/userApi.php', {
         method: 'POST',
         headers: {
@@ -83,7 +81,7 @@ function fetchUserProfile() {
     });
 }
 
-// Affichage des utilisateurs dans le tableau HTML
+// Fonction pour afficher les utilisateurs dans le tableau HTML
 function displayUsersTable(users) {
     const tableBody = document.getElementById("usersTableBody");
 
@@ -117,12 +115,9 @@ function displayUsersTable(users) {
 // Fonction pour récupérer et afficher les utilisateurs
 function fetchAllUsers() {
     const tableBody = document.getElementById("usersTableBody");
-
-    // Vérifie que l'élément existe
     if (!tableBody) {
-        return; // Sort de la fonction si l'élément n'existe pas
+        return;
     }
-
     fetch('http://localhost/public/api/userApi.php', {
         method: 'POST',
         headers: {
@@ -135,19 +130,18 @@ function fetchAllUsers() {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            // Vérification du rôle de l'utilisateur
             if (data.userRole === 'admin' || data.userRole === 'moderateur') {
-                displayUsersTable(data.users);  // Affichage des utilisateurs
-                tableBody.style.display = 'table-row-group';  // Rendre visible la table
+                displayUsersTable(data.users);
+                tableBody.style.display = 'table-row-group';
             } else {
-                tableBody.style.display = 'none';  // Cacher la table des utilisateurs
+                tableBody.style.display = 'none';
                 const message = document.createElement('p');
                 message.textContent = 'Vous n\'avez pas les permissions nécessaires pour voir cette page.';
                 document.body.appendChild(message);
             }
         } else {
-            alert(data.message);  // Afficher le message d'erreur
-            tableBody.style.display = 'none';  // Cacher la table en cas d'erreur
+            alert(data.message);
+            tableBody.style.display = 'none';
         }
     })
     .catch(error => {
@@ -155,14 +149,13 @@ function fetchAllUsers() {
     });
 }
 
-// Inscription d'un nouveau utilisateur
+// Fonction pour ajouter un nouveau utilisateur
 function initRegisterForm() {
     const registerForm = document.getElementById("registerForm");
 
     if (registerForm) {
         registerForm.addEventListener("submit", (event) => {
             event.preventDefault();
-
             const formData = {
                 action: 'registerUser',
                 nom: document.getElementById("nom").value,
@@ -174,7 +167,6 @@ function initRegisterForm() {
                 genre: document.getElementById("genre").value,
                 poste: document.getElementById("poste").value
             };
-
             fetch('http://localhost/public/api/userApi.php', {
                 method: 'POST',
                 credentials: 'include',
@@ -194,26 +186,21 @@ function initRegisterForm() {
         console.warn("⚠️ Formulaire introuvable !");
     }
 }
-
 document.addEventListener("DOMContentLoaded", initRegisterForm);
 
 // Fonction pour initialiser le formulaire de recherche
 function searchUsers() {
     const searchForm = document.getElementById("searchForm");
-
     if (searchForm) {
         searchForm.addEventListener("submit", (event) => {
             event.preventDefault();
-
             const searchNomElement = document.getElementById("searchNom");
             const searchPrenomElement = document.getElementById("searchPrenom");
             const searchPosteElement = document.getElementById("searchPoste");
-
             if (!searchNomElement || !searchPrenomElement || !searchPosteElement) {
                 console.error('❌ Un ou plusieurs champs de recherche sont introuvables !');
                 return;
             }
-
             const nom = searchNomElement.value.trim();
             const prenom = searchPrenomElement.value.trim();
             const poste = searchPosteElement.value.trim();
@@ -224,7 +211,6 @@ function searchUsers() {
                 prenom: prenom,
                 poste: poste
             };
-
             fetch('http://localhost/public/api/userApi.php', {
                 method: 'POST',
                 credentials: 'include',
@@ -245,11 +231,11 @@ function searchUsers() {
         console.warn("⚠️ Formulaire de recherche introuvable !");
     }
 }
+
 // Fonction pour afficher le résultat de la recherche
 function displaySearchResults(users) {
     const resultsTable = document.getElementById("searchResults");
     resultsTable.innerHTML = ""; // Vide le tableau avant d'afficher les nouveaux résultats
-
     if (users.length === 0) {
         resultsTable.innerHTML = "<tr><td colspan='8'>Aucun utilisateur trouvé.</td></tr>";
     } else {
@@ -266,7 +252,6 @@ function displaySearchResults(users) {
                 <th>Actions</th>
             </tr>
         `;
-
         users.forEach(user => {
             const row = document.createElement("tr");
             row.innerHTML = `
@@ -286,17 +271,15 @@ function displaySearchResults(users) {
         });
     }
 }
-
 document.addEventListener("DOMContentLoaded", searchUsers);
 
-// Redirection vers l'édition du profil
+// Fonction pour rediriger vers l'édition du profil
 function redirectToEdit(userId) {
     window.location.href = `/editProfil?id=${userId}`;
 }
 
-// Mise à jour du profil utilisateur
+// Fonction pour mettre à jour du profil utilisateur
 function updateUserProfile(userId) {
-
     const userData = {
         action: 'updateUser',
         id_utilisateur: userId,
@@ -308,7 +291,6 @@ function updateUserProfile(userId) {
         genre: document.getElementById("genre").value.trim(),
         poste: document.getElementById("poste").value.trim()
     };
-
     fetch('http://localhost/public/api/userApi.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -324,22 +306,19 @@ function updateUserProfile(userId) {
     .catch(error => console.error('❌ Erreur lors de la mise à jour :', error));
 }
 
+//Fonction pour initialiser le formulaire d'édition
 function initEditForm() {
-
     const form = document.getElementById("editForm");
     if (!form) {
         console.warn("⚠️ Formulaire de profil non trouvé.");
         return;
     }
-
     const params = new URLSearchParams(window.location.search);
     const userId = params.get("id");
-
     if (!userId) {
         console.warn("⚠️ Aucun ID utilisateur trouvé dans l'URL.");
         return;
     }
-
     // Pré-remplissage des champs avec les données utilisateur
     fetch('http://localhost/public/api/userApi.php', {
         method: 'POST',
@@ -352,7 +331,6 @@ function initEditForm() {
             console.warn("⚠️ Utilisateur non trouvé.");
             return;
         }
-
         document.getElementById("user_id").value = user.id_utilisateur;
         document.getElementById("nom").value = user.nom;
         document.getElementById("prenom").value = user.prenom;
@@ -361,7 +339,6 @@ function initEditForm() {
         document.getElementById("pseudo").value = user.pseudo;
         document.getElementById("genre").value = user.genre;
         document.getElementById("poste").value = user.poste;
-
         form.addEventListener("submit", function(event) {
             event.preventDefault();
             updateUserProfile(user.id_utilisateur);
@@ -369,7 +346,6 @@ function initEditForm() {
     })
     .catch(error => console.error('❌ Erreur lors de la récupération du profil :', error));
 }
-
 // Appel au chargement du DOM
 document.addEventListener("DOMContentLoaded", initEditForm);
 
@@ -382,7 +358,6 @@ function deleteUser(userId) {
             action: 'deleteUser',
             id_utilisateur: userId
         };
-
         fetch('http://localhost/public/api/userApi.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -400,36 +375,52 @@ function deleteUser(userId) {
     }
 }
 
-
-
 // Fonction pour changer le mot de passe
-function updatePassword() {
-    const ancienMotDePasse = document.getElementById("ancien_mot_de_passe").value;
-    const nouveauMotDePasse = document.getElementById("nouveau_mot_de_passe").value;
-
-    fetch('http://localhost/public/api/userApi.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            action: 'updatePassword',
-            ancien_mot_de_passe: ancienMotDePasse,
-            nouveau_mot_de_passe: nouveauMotDePasse
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        alert(data.message);
-        if (data.success) {
-            document.getElementById("passwordForm").reset();
-            setTimeout(() => {
-                window.location.href = "http://localhost/public/testPages/testLogin.html";
-            }, 1000);
+function initPasswordForm() {
+    const passwordForm = document.getElementById("passwordForm");
+    if (!passwordForm) {
+        console.warn("⚠️ Formulaire de changement de mot de passe introuvable !");
+        return;
+    }
+    passwordForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const ancienInput = document.getElementById("ancien_mot_de_passe");
+        const nouveauInput = document.getElementById("nouveau_mot_de_passe");
+        if (!ancienInput || !nouveauInput) {
+            console.error("❌ Champs de mot de passe non trouvés dans le DOM !");
+            return;
         }
-    })
-    .catch(error => console.error('Erreur lors du changement de mot de passe:', error));
+        const ancienMotDePasse = ancienInput.value.trim();
+        const nouveauMotDePasse = nouveauInput.value.trim();
+        if (!ancienMotDePasse || !nouveauMotDePasse) {
+            alert("Veuillez remplir les deux champs de mot de passe.");
+            return;
+        }
+        fetch('http://localhost/public/api/userApi.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                action: 'updatePassword',
+                ancien_mot_de_passe: ancienMotDePasse,
+                nouveau_mot_de_passe: nouveauMotDePasse
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);
+            if (data.success) {
+                passwordForm.reset();
+                window.location.href = "/";
+            }
+        })
+        .catch(error => console.error('❌ Erreur lors du changement de mot de passe :', error));
+    });
 }
+// Activer au chargement de la page
+document.addEventListener("DOMContentLoaded", initPasswordForm);
 
-// Déconnexion utilisateur via le backend
+
+// Fonction pour déconnecter l'utilisateur
 function logoutUser() {
     fetch('http://localhost/public/api/userApi.php', {
         method: 'POST',
@@ -439,40 +430,14 @@ function logoutUser() {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            localStorage.removeItem('userId'); // Supprimer l'ID utilisateur du localStorage
-            window.location.href = "/"; // Rediriger vers la page de connexion
+            localStorage.removeItem('userId');
+            window.location.href = "/";
         } else {
             alert(data.message);
         }
     })
     .catch(error => console.error('Erreur de déconnexion :', error));
 }
-
-// Fonction générique initFormCallbacks()
-// function initFormCallbacks() {
-//     const forms = document.querySelectorAll("form[data-callback]");
-
-//     forms.forEach(form => {
-//         const callbackName = form.getAttribute("data-callback");
-//         const callbackFn = window[callbackName];
-
-//         if (typeof callbackFn === "function") {
-//             form.addEventListener("submit", function (event) {
-//                 event.preventDefault();
-//                 console.log(`📨 Formulaire intercepté → Callback : ${callbackName}`);
-//                 callbackFn(); // Appelle ta fonction
-//             });
-//         } else {
-//             console.warn(`⚠️ Callback '${callbackName}' non trouvé pour le formulaire`, form);
-//         }
-//     });
-// }
-
-// document.addEventListener("DOMContentLoaded", () => {
-//     console.log("✅ JS chargé !");
-//     initFormCallbacks();
-//     searchUsersInit()
-// });
 
 
 

@@ -52,8 +52,12 @@
 - Inscription 	✅
 - Profil 	✅
 - Recherche d'utilisateur 	✅
-- Mise à jour information utilisateur 	❌
-- Suppression d'un utilisateur 	❌
-- Changement de mot de passe 	❌
+- Mise à jour information utilisateur 	✅
+- Suppression d'un utilisateur 	✅
+- Changement de mot de passe  	✅
+- Commune CRUD 	❌
+- PLU CRUD 	❌
+- GEP Search 	❌
+- Dossier CRUD 	❌
 
 - Liste des communes 	❌
