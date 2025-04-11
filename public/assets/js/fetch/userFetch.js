@@ -156,52 +156,144 @@ function fetchAllUsers() {
 }
 
 // Inscription d'un nouveau utilisateur
-document.addEventListener("DOMContentLoaded", function() {
-    // Vérification si la page est celle de la liste des utilisateurs avant de charger fetchAllUsers
-    if (document.getElementById("usersTableBody")) {
-        fetchAllUsers(); // Appel pour afficher les utilisateurs
-    }
-    const addUserButton = document.getElementById("addUserButton");
-    if (addUserButton) {
-        addUserButton.addEventListener("click", function() {
-            window.location.href = "http://localhost/public/testPages/testRegister.html";
-        });
-    }
+function initRegisterForm() {
     const registerForm = document.getElementById("registerForm");
+
     if (registerForm) {
-        registerForm.addEventListener("submit", function(event) {
+        registerForm.addEventListener("submit", (event) => {
             event.preventDefault();
+
+            const formData = {
+                action: 'registerUser',
+                nom: document.getElementById("nom").value,
+                prenom: document.getElementById("prenom").value,
+                email: document.getElementById("email").value,
+                password: document.getElementById("password").value,
+                annee_naissance: document.getElementById("annee_naissance").value,
+                pseudo: document.getElementById("pseudo").value,
+                genre: document.getElementById("genre").value,
+                poste: document.getElementById("poste").value
+            };
 
             fetch('http://localhost/public/api/userApi.php', {
                 method: 'POST',
-                credentials: 'include', // Permet d'envoyer les cookies de session
+                credentials: 'include',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    action: 'registerUser',
-                    nom: document.getElementById("nom").value,
-                    prenom: document.getElementById("prenom").value,
-                    email: document.getElementById("email").value,
-                    password: document.getElementById("password").value,
-                    annee_naissance: document.getElementById("annee_naissance").value,
-                    pseudo: document.getElementById("pseudo").value,
-                    genre: document.getElementById("genre").value,
-                    poste: document.getElementById("poste").value
-                })
+                body: JSON.stringify(formData)
             })
             .then(response => response.json())
             .then(data => {
                 alert(data.message);
-                if (data.success) window.location.href = "http://localhost/public/testPages/testProfil.html";
+                if (data.success) {
+                    window.location.href = "/monEquipe";
+                }
             })
-            .catch(error => console.error('Erreur:', error));
+            .catch(error => console.error('❌ Erreur lors de la requête :', error));
+        });
+    } else {
+        console.warn("⚠️ Formulaire introuvable !");
+    }
+}
+
+document.addEventListener("DOMContentLoaded", initRegisterForm);
+
+// Fonction pour initialiser le formulaire de recherche
+function searchUsers() {
+    const searchForm = document.getElementById("searchForm");
+
+    if (searchForm) {
+        searchForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const searchNomElement = document.getElementById("searchNom");
+            const searchPrenomElement = document.getElementById("searchPrenom");
+            const searchPosteElement = document.getElementById("searchPoste");
+
+            if (!searchNomElement || !searchPrenomElement || !searchPosteElement) {
+                console.error('❌ Un ou plusieurs champs de recherche sont introuvables !');
+                return;
+            }
+
+            const nom = searchNomElement.value.trim();
+            const prenom = searchPrenomElement.value.trim();
+            const poste = searchPosteElement.value.trim();
+
+            const formData = {
+                action: 'searchUsers',
+                nom: nom,
+                prenom: prenom,
+                poste: poste
+            };
+
+            fetch('http://localhost/public/api/userApi.php', {
+                method: 'POST',
+                credentials: 'include',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    displaySearchResults(data.users); // Fonction pour afficher les utilisateurs
+                } else {
+                    alert(data.message || 'Aucun utilisateur trouvé');
+                }
+            })
+            .catch(error => console.error('❌ Erreur lors de la requête :', error));
+        });
+    } else {
+        console.warn("⚠️ Formulaire de recherche introuvable !");
+    }
+}
+// Fonction pour afficher le résultat de la recherche
+function displaySearchResults(users) {
+    const resultsTable = document.getElementById("searchResults");
+    resultsTable.innerHTML = ""; // Vide le tableau avant d'afficher les nouveaux résultats
+
+    if (users.length === 0) {
+        resultsTable.innerHTML = "<tr><td colspan='8'>Aucun utilisateur trouvé.</td></tr>";
+    } else {
+        // Affichage des en-têtes du tableau si des utilisateurs sont trouvés
+        resultsTable.innerHTML = `
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Email</th>
+                <th>Année de Naissance</th>
+                <th>Pseudo</th>
+                <th>Genre</th>
+                <th>Poste</th>
+                <th>Actions</th>
+            </tr>
+        `;
+
+        users.forEach(user => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${user.nom || 'N/A'}</td>
+                <td>${user.prenom || 'N/A'}</td>
+                <td>${user.email || 'N/A'}</td>
+                <td>${user.annee_naissance || 'N/A'}</td>
+                <td>${user.pseudo || 'N/A'}</td>
+                <td>${user.genre || 'N/A'}</td>
+                <td>${user.poste || 'N/A'}</td>
+                <td>
+                    <button onclick="redirectToEdit(${user.id_utilisateur})">Modifier</button>
+                    <button onclick="deleteUser(${user.id_utilisateur})">Supprimer</button>
+                </td>
+            `;
+            resultsTable.appendChild(row);
         });
     }
-});
+}
+
+document.addEventListener("DOMContentLoaded", searchUsers);
 
 // Redirection vers l'édition du profil
 function redirectToEdit(userId) {
-    window.location.href = `http://localhost/public/testPages/testEditProfil.html?id=${userId}`;
+    window.location.href = `/editProfil?id=${userId}`;
 }
+
 // Mise à jour du profil utilisateur
 function updateUserProfile() {
     const userId = document.getElementById("user_id").value;
@@ -287,51 +379,7 @@ function deleteUser(userId) {
     }
 }
 
-// Fonction pour rechercher des utilisateurs
-function searchUsers() {
-    const nom = document.getElementById("searchNom").value.trim();
-    const prenom = document.getElementById("searchPrenom").value.trim();
-    const poste = document.getElementById("searchPoste").value.trim();
 
-    fetch('http://localhost/public/api/userApi.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'searchUsers', nom, prenom, poste })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            displaySearchResults(data.users);
-        } else {
-            alert(data.message);
-        }
-    })
-    .catch(error => console.error('Erreur lors de la recherche:', error));
-}
-
-// Fonction pour afficher les résultats et ajouter les boutons Modifier/Supprimer
-function displaySearchResults(users) {
-    const resultsTable = document.getElementById("searchResults");
-    resultsTable.innerHTML = ""; // Vide le tableau avant d'afficher les nouveaux résultats
-
-    users.forEach(user => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-            <td>${user.nom}</td>
-            <td>${user.prenom}</td>
-            <td>${user.email}</td>
-            <td>${user.annee_naissance}</td>
-            <td>${user.pseudo}</td>
-            <td>${user.genre}</td>
-            <td>${user.poste}</td>
-            <td>
-                <button onclick="redirectToEdit(${user.id_utilisateur})">Modifier</button>
-                <button onclick="deleteUser(${user.id_utilisateur})">Supprimer</button>
-            </td>
-        `;
-        resultsTable.appendChild(row);
-    });
-}
 
 // Fonction pour changer le mot de passe
 function updatePassword() {
@@ -379,10 +427,31 @@ function logoutUser() {
     .catch(error => console.error('Erreur de déconnexion :', error));
 }
 
+// Fonction générique initFormCallbacks()
+// function initFormCallbacks() {
+//     const forms = document.querySelectorAll("form[data-callback]");
 
+//     forms.forEach(form => {
+//         const callbackName = form.getAttribute("data-callback");
+//         const callbackFn = window[callbackName];
 
-    
+//         if (typeof callbackFn === "function") {
+//             form.addEventListener("submit", function (event) {
+//                 event.preventDefault();
+//                 console.log(`📨 Formulaire intercepté → Callback : ${callbackName}`);
+//                 callbackFn(); // Appelle ta fonction
+//             });
+//         } else {
+//             console.warn(`⚠️ Callback '${callbackName}' non trouvé pour le formulaire`, form);
+//         }
+//     });
+// }
 
+// document.addEventListener("DOMContentLoaded", () => {
+//     console.log("✅ JS chargé !");
+//     initFormCallbacks();
+//     searchUsersInit()
+// });
 
 
 

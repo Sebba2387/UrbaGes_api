@@ -1,37 +1,54 @@
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
 <!-- Formulaire d'inscription -->
-<div id="form2" class="form-container mb-5 mt-5 h-auto">
+<div id="form2" class="form-container expanded mb-5 mt-5 h-auto">
     <button class="btn btn-primary fw-bold toggle-btn" onclick="toggleForm('form2')">
         <i class="bi bi-people-fill"></i> Inscription
     </button>
     <div class="card p-3">
-        <form>
+        <form id="registerForm" data-callback="initRegisterForm">
             <div class="row">
                 <div class="col-12 col-md-3 mb-3">
-                    <input type="text" class="form-control" name="nom" placeholder="Nom">
+                    <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" required>
                 </div>
                 <div class="col-12 col-md-3 mb-3">
-                    <input type="text" class="form-control" name="prenom" placeholder="Prénom">
+                    <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prénom" required>
                 </div>
                 <div class="col-12 col-md-3 mb-3">
-                    <select class="form-control" name="genre">
-                        <option value="" disabled selected>Genre</option>
+                    <select class="form-control" id="genre" name="genre" required>
+                        <option value="" disabled selected>--- Choisissez un genre ---</option>
                         <option>Homme</option>
                         <option>Femme</option>
                     </select>
                 </div>
                 <div class="col-12 col-md-3 mb-3">
-                    <input type="date" class="form-control" name="date_naissance" placeholder="Date de naissance">
+                    <input type="text" class="form-control" id="annee_naissance" name="annee_naissance" placeholder="Année de naissance" required>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12 col-md-3 mb-3">
-                    <input type="text" class="form-control" name="poste" placeholder="Poste">
+                    <input type="text" class="form-control" id="poste" name="poste" placeholder="Poste" required>
                 </div>
                 <div class="col-12 col-md-3 mb-3">
-                    <input type="password" class="form-control" name="password" placeholder="Mot de passe">
+                    <input type="email" class="form-control" id="email" name="email" autocomplete placeholder="Adresse Email" required>
                 </div>
                 <div class="col-12 col-md-3 mb-3">
-                    <input type="password" class="form-control" placeholder="Confirmez">
+                    <input type="password" class="form-control" id="password" name="password" autocomplete placeholder="Mot de passe" required>
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" id="pseudo" name="pseudo" autocomplete placeholder="Pseudo" required>
                 </div>
                 <div class="col-12 col-md-3 mb-3 d-flex align-items-end">
                     <button type="submit" class="btn btn-primary fw-bold w-100">Inscrire</button>
@@ -42,22 +59,22 @@
 </div>
 
 <!-- Formulaire de recherche -->
-<div id="form3" class="form-container mb-5 mt-5 h-auto">
+<div id="form3" class="form-container expanded mb-5 mt-5 h-auto">
     <button class="btn btn-primary toggle-btn" onclick="toggleForm('form3')">
         <i class="bi bi-search"></i> Rechercher
     </button>
     <div class="card">
-        <form>
+        <form id="searchForm" data-callback="searchUsers">
             <!-- Ligne 1 -->
             <div class="row">
                 <div class="col-12 col-md-3 mb-3">
-                    <input type="text" class="form-control" name="poste" placeholder="Poste">
+                    <input type="text" class="form-control" id="searchPoste" name="poste" placeholder="Poste">
                 </div>
                 <div class="col-12 col-md-3 mb-3">
-                    <input type="text" class="form-control" name="nom" placeholder="Nom">
+                    <input type="text" class="form-control" id="searchNom" name="nom" placeholder="Nom">
                 </div>
                 <div class="col-12 col-md-3 mb-3">
-                    <input type="text" class="form-control" name="prenom" placeholder="Prénom">
+                    <input type="text" class="form-control" id="searchPrenom" name="prenom" placeholder="Prénom">
                 </div>
                 <div class="col-12 col-md-3 mb-3">
                     <button type="submit" class="btn btn-primary fw-bold w-100">Rechercher</button>
@@ -66,3 +83,9 @@
         </form>
     </div>
 </div>
+<table>
+    <tbody id="searchResults">
+        <!-- Résultats affichés ici -->
+    </tbody>
+</table>
+<script src="/public/assets/js/fetch/userFetch.js" defer></script>

@@ -49,7 +49,11 @@
 # Full
 - Connexion 	✅
 - Déconnexion 	✅
-- Inscription 	❌
-- Changement de mot de passe 	❌
+- Inscription 	✅
 - Profil 	✅
-- Mon Équipe 	❌
+- Recherche d'utilisateur 	✅
+- Mise à jour information utilisateur 	❌
+- Suppression d'un utilisateur 	❌
+- Changement de mot de passe 	❌
+
+- Liste des communes 	❌
