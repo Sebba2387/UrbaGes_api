@@ -1699,3 +1699,43 @@
 2025-04-12 00:37:29 - Requête reçue : {"action":"searchCommune","nom_commune":"GENISSIEUX"}
 2025-04-12 00:38:22 - Requête reçue : {"action":"addCommune","code_commune":"33318","nom_commune":"Talence","cp_commune":"33400","email_commune":"test@talence.com","tel_commune":"0145632578","adresse_commune":"Piexoto","contact":"Medhi Mouillé","reseau_instruction":"hors ADS","urbaniste_vra":"Morgane W"}
 2025-04-12 00:38:35 - Requête reçue : {"action":"searchCommune","nom_commune":"Talence"}
+2025-04-12 00:44:45 - Requête reçue : {"action":"searchCommune","nom_commune":"Alixan"}
+2025-04-12 00:56:41 - Requête reçue : {"action":"addCommune","code_commune":"33522","nom_commune":"Gradignan","cp_commune":"33700","email_commune":"test@gradignan.com","tel_commune":"0145632578","adresse_commune":"Unitec","contact":"Julien Perrot","reseau_instruction":"Hors C@rteADS","urbaniste_vra":"Amadine"}
+2025-04-12 00:56:55 - Requête reçue : {"action":"searchCommune","nom_commune":"Gradignan"}
+2025-04-12 01:04:11 - Requête reçue : {"action":"getCommune","id_commune":"63"}
+2025-04-12 01:08:42 - Requête reçue : {"action":"getCommune","id_commune":"63"}
+2025-04-12 01:08:51 - Requête reçue : {"action":"updateCommune","id_commune":"63","code_commune":"33522","nom_commune":"Gradignan","cp_commune":"33700","email_commune":"test@gradignan.com","tel_commune":"0145632578","adresse_commune":"Place de la victoire","contact":"Julien Perrot","reseau_instruction":"Hors C@rteADS","urbaniste_vra":"Amadine"}
+2025-04-12 01:09:41 - Requête reçue : {"action":"updateCommune","id_commune":"63","code_commune":"33522","nom_commune":"Gradignan","cp_commune":"33700","email_commune":"test@gradignan.com","tel_commune":"0145632578","adresse_commune":"Mairie de Gradignan","contact":"Julien Perrot","reseau_instruction":"Hors C@rteADS","urbaniste_vra":"Amadine"}
+2025-04-12 01:11:00 - Requête reçue : {"action":"getCommune","id_commune":"63"}
+2025-04-12 01:11:07 - Requête reçue : {"action":"updateCommune","id_commune":"63","code_commune":"33522","nom_commune":"Gradignan","cp_commune":"33700","email_commune":"test@gradignan.com","tel_commune":"0145632578","adresse_commune":"Place de la victoire","contact":"Julien Perrot","reseau_instruction":"Hors C@rteADS","urbaniste_vra":"Amadine"}
+2025-04-12 01:11:20 - Requête reçue : {"action":"searchCommune","nom_commune":"Gradignan"}
+2025-04-12 01:12:15 - Requête reçue : {"action":"searchCommune","nom_commune":"Gradignan"}
+2025-04-12 01:12:24 - Requête reçue : {"action":"getCommune","id_commune":"63"}
+2025-04-12 01:13:17 - Requête reçue : {"action":"searchCommune","nom_commune":"Gradignan"}
+2025-04-12 01:13:28 - Requête reçue : {"action":"getCommune","id_commune":"63"}
+2025-04-12 01:13:33 - Requête reçue : {"action":"updateCommune","id_commune":"63","code_commune":"33522","nom_commune":"Gradignan","cp_commune":"33700","email_commune":"test@gradignan.com","tel_commune":"0145632578","adresse_commune":"Mairie de Gradignan","contact":"Julien Perrot","reseau_instruction":"Hors C@rteADS","urbaniste_vra":"Amadine"}
+2025-04-12 01:13:50 - Requête reçue : {"action":"searchCommune","nom_commune":"Gradignan"}
+2025-04-12 01:14:02 - Requête reçue : {"action":"getCommune","id_commune":"63"}
+2025-04-12 01:16:53 - Requête reçue : {"action":"searchCommune","nom_commune":"Gradignan"}
+2025-04-12 01:16:59 - Requête reçue : {"action":"deleteCommune","id_commune":63}
+2025-04-12 01:17:01 - Requête reçue : {"action":"searchCommune","nom_commune":"Gradignan"}
+2025-04-12 01:17:05 - Requête reçue : {"action":"searchCommune","nom_commune":"Gradignan"}
+2025-04-12 01:17:11 - Requête reçue : {"action":"searchCommune","nom_commune":"Gradignan"}
+2025-04-12 01:17:15 - Requête reçue : {"action":"searchCommune","nom_commune":"Talence"}
+2025-04-12 01:22:05 - Requête reçue : {"action":"searchCommune","nom_commune":"Talence"}
+2025-04-12 01:22:14 - Requête reçue : {"action":"getCommune","id_commune":"62"}
+2025-04-12 01:23:03 - Requête reçue : {"action":"updateCommune","id_commune":"62","code_commune":"33318","nom_commune":"Talence","cp_commune":"33400","email_commune":"test@talence.com","tel_commune":"0145632578","adresse_commune":"Piexoto","contact":"Medhi Mouillé","reseau_instruction":"C@rteADS","urbaniste_vra":"Morgane W"}
+2025-04-12 01:23:17 - Requête reçue : {"action":"searchCommune","nom_commune":"Talence"}
+2025-04-12 01:23:24 - Requête reçue : {"action":"searchCommune","nom_commune":"Alixan"}
+2025-04-12 01:23:34 - Requête reçue : {"action":"getCommune","id_commune":"1"}
+2025-04-12 01:23:46 - Requête reçue : {"action":"updateCommune","id_commune":"1","code_commune":"26004","nom_commune":"ALIXAN","cp_commune":"26300","email_commune":"urbanisme@mairiealixan.fr","tel_commune":"04 75 47 02 62","adresse_commune":"1 place de l'esplanade, 26300 ALIXAN","contact":"Mairie","reseau_instruction":"C@rteADS","urbaniste_vra":"Morgane WEBER"}
+2025-04-12 01:24:01 - Requête reçue : {"action":"searchCommune","nom_commune":"Alixan"}
+2025-04-12 01:24:11 - Requête reçue : {"action":"getCommune","id_commune":"1"}
+2025-04-12 01:24:28 - Requête reçue : {"action":"updateCommune","id_commune":"1","code_commune":"26004","nom_commune":"ALIXAN","cp_commune":"26300","email_commune":"urbanisme@mairiealixan.fr","tel_commune":"04 75 47 02 62","adresse_commune":"1 place de l'esplanade, 26300 ALIXAN","contact":"Mairie","reseau_instruction":"C@rteADS","urbaniste_vra":"Morgane WEBER"}
+2025-04-12 01:24:47 - Requête reçue : {"action":"searchCommune","nom_commune":"Talence"}
+2025-04-12 01:24:49 - Requête reçue : {"action":"deleteCommune","id_commune":62}
+2025-04-12 01:26:11 - Requête reçue : {"action":"searchCommune","nom_commune":"Mérignac"}
+2025-04-12 01:26:15 - Requête reçue : {"action":"deleteCommune","id_commune":61}
+2025-04-12 01:28:05 - Requête reçue : {"action":"searchCommune","nom_commune":"Mérignac"}
+2025-04-12 01:28:11 - Requête reçue : {"action":"searchCommune","nom_commune":"Bordeaux"}
+2025-04-12 01:28:15 - Requête reçue : {"action":"deleteCommune","id_commune":60}

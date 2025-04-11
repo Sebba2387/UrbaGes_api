@@ -1,46 +1,51 @@
-<!-- Formulaire d'édition des communes -->
-<div id="form1" class="form-container mb-5 mt-5 h-auto">
+<!-- Formulaire mon profil -->
+<div id="form1" class="form-container expanded mb-5 mt-5 h-auto" data-callback="initLoadCommuneDetails">
     <button class="btn btn-primary fw-bold toggle-btn" onclick="toggleForm('form1')">
-        <i class="bi bi-layers-fill"></i> Mise à jour
+        <i class="bi bi-people-fill"></i> Commune
     </button>
     <div class="card">
-        <form>
+        <form id="editCommuneForm" data-callback="initUpdateCommuneForm">
             <!-- Ligne 1 -->
             <div class="row">
+                <input type="hidden" id="id_commune">
                 <div class="col-12 col-md-3 mb-3">
-                    <input type="number" class="form-control" name="id_commune" placeholder="Code insee">
+                    <input type="text" class="form-control" name="code_commune" id="code_commune" placeholder="Code insee">
                 </div>
                 <div class="col-12 col-md-3 mb-3">
-                    <input type="text" class="form-control" name="code_commune" placeholder="Code postal">
+                    <input type="text" class="form-control" name="cp_commune" id="cp_commune" placeholder="Code postal">
                 </div>
                 <div class="col-12 col-md-3 mb-3">
-                    <input type="text" class="form-control" name="nom_commune" placeholder="Commune">
+                    <input type="text" class="form-control" name="nom_commune" id="nom_commune" placeholder="Commune">
                 </div>
                 <div class="col-12 col-md-3 mb-3">
-                    <input type="mail" class="form-control" name="adresse_commune" placeholder="Adresse">
+                    <input type="text" class="form-control" name="adresse_commune" id="adresse_commune" placeholder="Adresse">
                 </div>
             </div>
             <!-- Ligne 2 -->
             <div class="row">
                 <div class="col-12 col-md-3 mb-3">
-                    <input type="text" class="form-control" name="contact" placeholder="Contact">
+                    <input type="text" class="form-control" name="urbaniste_vra" id="urbaniste_vra" placeholder="Urbaniste VRA en charge">
                 </div>
                 <div class="col-12 col-md-3 mb-3">
-                    <input type="mail" class="form-control" name="mail_commune" placeholder="Email contact">
+                    <input type="text" class="form-control" name="contact" id="contact" placeholder="Contact">
                 </div>
                 <div class="col-12 col-md-3 mb-3">
-                    <input type="tel" class="form-control" name="tel_commune" placeholder="Tel contact">
+                    <input type="email" class="form-control" name="email_commune" id="email_commune" placeholder="Email contact">
                 </div>
                 <div class="col-12 col-md-3 mb-3">
-                    <select class="form-control" name="reseau_instruction" placeholder="Réseau">
+                    <input type="text" class="form-control" name="tel_commune" id="tel_commune" placeholder="Téléphone">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <select class="form-control" name="reseau_instruction" id="reseau_instruction" placeholder="Réseau d'instruction">
                         <option>C@rteADS</option>
                         <option>Hors C@rteADS</option>
                     </select>
                 </div>
-                <div class="col-12 col-md-2 mb-3 d-flex align-items-end offset-md-10">
-                    <button type="submit" class="btn btn-primary fw-bold w-100">Mise à jour</button>
+                <div class="col-12 col-md-3 mb-3">
+                    <button type="submit" class="btn btn-primary fw-bold w-100">Mettre à jour</button>
                 </div>
             </div>
         </form>
     </div>
 </div>
+<script src="/public/assets/js/fetch/communeFetch.js" defer></script>

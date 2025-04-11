@@ -117,7 +117,7 @@ function addCommune() {
     .then(data => {
         if (data.success) {
             alert("Commune ajoutée avec succès !");
-            window.location.href = '/communes';  // Rediriger vers la liste des communes
+            window.location.href = '/communes'; 
         } else {
             alert("Erreur lors de l'ajout de la commune : " + data.message);
         }
@@ -131,8 +131,8 @@ function initAddCommuneForm() {
     const form = document.getElementById("addCommuneForm");
     if (form) {
         form.addEventListener("submit", function(event) {
-            event.preventDefault(); // Empêche le rechargement
-            addCommune();           // Appelle ta fonction d'ajout
+            event.preventDefault();
+            addCommune(); 
         });
     } else {
         console.warn("⚠️ Formulaire d'ajout de commune introuvable !");
@@ -140,7 +140,7 @@ function initAddCommuneForm() {
 }
 window.initAddCommuneForm = initAddCommuneForm;
 
-// Charger les détails d'une commune pour modification
+// Fonction pour charger les détails d'une commune pour modification
 function loadCommuneDetails() {
     const urlParams = new URLSearchParams(window.location.search);
     const id_commune = urlParams.get('id');
@@ -153,23 +153,33 @@ function loadCommuneDetails() {
         })
         .then(response => response.json())
         .then(data => {
-            document.getElementById("id_commune").value = data.id_commune;
-            document.getElementById("nom_commune").value = data.nom_commune;
-            document.getElementById("code_commune").value = data.code_commune;
-            document.getElementById("cp_commune").value = data.cp_commune;
-            document.getElementById("email_commune").value = data.email_commune;
-            document.getElementById("tel_commune").value = data.tel_commune;
-            document.getElementById("adresse_commune").value = data.adresse_commune;
-            document.getElementById("contact").value = data.contact;
-            document.getElementById("reseau_instruction").value = data.reseau_instruction;
-            document.getElementById("urbaniste_vra").value = data.urbaniste_vra;
-            
+            if (data) {
+                document.getElementById("id_commune").value = data.id_commune;
+                document.getElementById("nom_commune").value = data.nom_commune;
+                document.getElementById("code_commune").value = data.code_commune;
+                document.getElementById("cp_commune").value = data.cp_commune;
+                document.getElementById("email_commune").value = data.email_commune;
+                document.getElementById("tel_commune").value = data.tel_commune;
+                document.getElementById("adresse_commune").value = data.adresse_commune;
+                document.getElementById("contact").value = data.contact;
+                document.getElementById("reseau_instruction").value = data.reseau_instruction;
+                document.getElementById("urbaniste_vra").value = data.urbaniste_vra;
+            } else {
+                alert("Données de commune introuvables.");
+            }
         })
         .catch(error => console.error('Erreur lors du chargement des données:', error));
     }
 }
 
-// Mettre à jour une commune
+// Fonction pour initialiser le formulaire de modification de commune
+function initLoadCommuneDetails() {
+    loadCommuneDetails();  // Appel à la fonction de chargement des données
+}
+// Appeler initLoadCommuneDetails lors du chargement de la page
+window.onload = initLoadCommuneDetails;
+
+// Fonction pour Mettre à jour une commune
 function updateCommune() {
     const updateData = {
         action: 'updateCommune',
@@ -194,14 +204,25 @@ function updateCommune() {
     .then(data => {
         alert(data.message);
         if (data.success) {
-            window.location.href = "http://localhost/public/testPages/testCommune.html";
+            window.location.href = "/communes";
         }
     })
     .catch(error => console.error('Erreur lors de la mise à jour:', error));
 }
 
-// Suppression d'une commune
-function deleteCommune(communeId) {
+// Fonction pour initialiser le formulaire de modification de commune
+function initUpdateCommuneForm() {
+    const form = document.getElementById("editCommuneForm");
+    if (form) {
+        form.addEventListener("submit", updateCommune);
+    }
+}
+// Appeler initUpdateCommuneForm lors du chargement de la page
+window.onload = initUpdateCommuneForm;
+
+
+// Fonction pour supprimer une commune avec callback
+function deleteCommune(communeId, callback) {
     if (confirm("Voulez-vous vraiment supprimer cette commune ?")) {
         fetch('http://localhost/public/api/communeApi.php', {
             method: 'POST',
@@ -211,10 +232,15 @@ function deleteCommune(communeId) {
         .then(response => response.json())
         .then(data => {
             alert(data.message);
-            searchCommunes();
+            if (typeof callback === 'function') {
+                callback();
+            } else {
+                window.location.href = '/communes';
+            }
         })
         .catch(error => console.error('Erreur lors de la suppression:', error));
     }
 }
+
 
 
