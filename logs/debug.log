@@ -1739,3 +1739,5 @@
 2025-04-12 01:28:05 - Requête reçue : {"action":"searchCommune","nom_commune":"Mérignac"}
 2025-04-12 01:28:11 - Requête reçue : {"action":"searchCommune","nom_commune":"Bordeaux"}
 2025-04-12 01:28:15 - Requête reçue : {"action":"deleteCommune","id_commune":60}
+2025-04-12 01:49:58 - Requête reçue : {"action":"searchPlu","code_commune":"26004","nom_commune":"","cp_commune":"","etat_plu":""}
+2025-04-12 01:50:16 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Romans","cp_commune":"","etat_plu":""}

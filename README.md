@@ -55,10 +55,11 @@
 - Mise à jour information utilisateur 	✅
 - Suppression d'un utilisateur 	✅
 - Changement de mot de passe  	✅
-- Commune CRUD 	❌
+- Commune CRUD  	✅
 - PLU CRUD 	❌
 - GEP Search 	❌
 - Dossier CRUD 	❌
 
+- Changement de critère de recherche cp_commune => statut_zonage
 - Changement dynamique de la photo de profil 	❌ 
 - Liste des communes 	❌
