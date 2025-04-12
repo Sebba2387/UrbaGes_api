@@ -28,7 +28,7 @@
 - Configuration des routes 	✅
 - Construction des pages 	✅
 - Pagination 	✅
-- Labels
+- Labels    ❌
 - Customisation des codes    ❌
 - Validation des champs 	❌
 - Contrôle des rôles 	❌
@@ -57,10 +57,10 @@
 - Suppression d'un utilisateur 	✅
 - Changement de mot de passe  	✅
 - Commune CRUD  	✅
-- PLU CRUD 	❌
-- GEP Search 	❌
+- PLU CRUD  	✅
+- GEP Search  	✅
 - Dossier CRUD 	❌
-
-- Changement de critère de recherche cp_commune => statut_zonage
+- Eviter le rechargement de la page complet (header, sidebar) 	❌
+- Changement de critère de recherche PLU cp_commune => statut_zonage 	❌
 - Changement dynamique de la photo de profil 	❌ 
 - Liste des communes 	❌

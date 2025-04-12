@@ -1,22 +1,63 @@
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
 <!-- Formulaire de recherche de parcelle -->
-<div id="form3" class="form-container mb-5 mt-5">
+<div id="form3" class="form-container expanded mb-5 mt-5" data-callback="initGepSearchForm">
     <button class="btn btn-primary toggle-btn" onclick="toggleForm('form3')">
         <i class="bi bi-search"></i> Rechercher
     </button>
     <div class="card">
-        <form>
+        <form id="gepSearchForm">
             <!-- Ligne 1 -->
             <div class="row justify-content-center">
-                <div class="col-12 col-md-2 mb-3">
-                    <input type="text" class="form-control" name="nom_commune" placeholder="Commune">
+                <div class="col-12 col-md-3 mb-3">
+                    <select class="form-control text-center" id="nom_commune" name="nom_commune" >
+                        <option value="">--- Commune ---</option>
+                    </select>
                 </div>
-                <div class="col-12 col-md-2 mb-3">
-                    <input type="text" class="form-control" name="id_cadastre" placeholder="Cadastre">
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" name="section" id="section" placeholder="Section">
                 </div>
-                <div class="col-12 col-md-2 mb-3">
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" name="numero" id="numero" placeholder="Numéro">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
                     <button type="submit" class="btn btn-primary fw-bold w-100">Rechercher</button>
                 </div>
             </div>
         </form>
     </div>
 </div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Commune</th>
+            <th>Section</th>
+            <th>Numéro</th>
+            <th>Surface</th>
+            <th>Captage</th>
+            <th>Règles de Captage</th>
+            <th>Dysfonctionnement</th>
+            <th>Sage (indice)</th>
+            <th>Zone de Montana</th>
+            <th>Sous-zone PLU</th>
+            <th>Règle PLU</th>
+        </tr>
+    </thead>
+    <tbody id="gepResults">
+        <!-- Résultats injectés ici -->
+    </tbody>
+</table>
+<script src="/public/assets/js/fetch/gepFetch.js"></script>

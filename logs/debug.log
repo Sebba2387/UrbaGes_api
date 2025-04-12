@@ -1798,3 +1798,35 @@
 2025-04-13 00:19:41 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Alixan","cp_commune":"","etat_plu":""}
 2025-04-13 00:19:56 - Requête reçue : {"action":"getPluById","id_plu":"1"}
 2025-04-13 00:20:00 - Requête reçue : {"action":"updatePlu","id_plu":"1","type_plu":"PLU","etat_plu":"En vigueur","date_plu":"12/07/2023","systeme_ass":"VALENCE","statut_zonage":"en attente","statut_pres":"en attente","date_annexion":"31/03/2025","lien_zonage":"L:\\03 DT-DD\\02 Assainissement\\06_SUIVI_PATRIMONIAL\\8_ZONAGES_ASS_EPL\\ALIXAN","lien_dhua":"\\\\sysinfo.local\\src-data\\DirectionAgglo\\06 Inter-dep\\03 DT-DD\\08 Ressources suivi PLU\\26004_ALIXAN","observation_plu":""}
+Params de recherche: Array
+(
+    [nom_commune] => ROMANS-SUR-ISERE
+    [section] => %CO%
+    [numero] => 178
+)
+
+Résultats: Array
+(
+    [0] => Array
+        (
+            [id_gep] => 5
+            [code_commune] => 26281
+            [nom_commune] => ROMANS-SUR-ISERE
+            [cadastre] => 26281000CO0178
+            [section] => CO
+            [numero] => 178
+            [surface] => 987
+            [captage] => ETOURNELLES - Périmètre rapproché
+            [captage_regles] => Tous les 5 ans
+            [captage_pct] => 1
+            [dys_pct] => 0
+            [sage_indice] => 4
+            [sage_pct] => 1
+            [montana_zone] => 1
+            [plu_sous_zone] => UC1
+            [plu_regle] => Pas de règles
+        )
+
+)
+
+2025-04-13 01:18:25 - Requête reçue : {"action":"searchCommune"}
