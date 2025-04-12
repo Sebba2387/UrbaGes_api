@@ -1,57 +1,57 @@
 <!-- Formulaire d'édition de PLU -->
-<div id="form3" class="form-container mb-5 mt-5">
+<div id="form3" class="form-container expanded mb-5 mt-5" data-callback="initEditPluForm">
     <button class="btn btn-primary toggle-btn" onclick="toggleForm('form3')">
         <i class="bi bi-map-fill"></i> Mise à jour
     </button>
     <div class="card">
-        <form>
+        <form onsubmit="updatePlu(); return false;">
             <!-- Ligne 1 -->
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-12 col-md-2 mb-3">
-                    <input type="text" class="form-control" name="nom_commune" placeholder="Commune">
+                    <input type="text" class="form-control" name="id_plu" id="id_plu" placeholder="ID du PLU" readonly>
                 </div>
                 <div class="col-12 col-md-2 mb-3">
-                    <input type="text" class="form-control" name="type_plu" placeholder="Type du PLU">
+                    <input type="text" class="form-control" name="type_plu" id="type_plu" placeholder="Type du PLU">
                 </div>
                 <div class="col-12 col-md-2 mb-3">
-                    <input type="text" class="form-control" name="etat_plu" placeholder="État du PLU">
+                    <input type="text" class="form-control" name="etat_plu" id="etat_plu" placeholder="État du PLU">
                 </div>
                 <div class="col-12 col-md-2 mb-3">
-                    <input type="date" class="form-control" name="date_plu" placeholder="Date du PLU">
+                    <input type="text" class="form-control" name="date_plu" id="date_plu" placeholder="Date du PLU">
                 </div>
                 <div class="col-12 col-md-3 mb-3">
                     <div class="input-group d-flex">
                         <button type="button" class="input-group-text" onclick="copierTexte(event, 'lien_dhua')">
                             <i class="bi bi-copy"></i>
                         </button>
-                        <input type="text" class="form-control" name="lien_dhua" placeholder="Lien du dossier">
+                        <input type="text" class="form-control" name="lien_dhua" id="lien_dhua" placeholder="Lien du dossier">
                     </div>
                 </div>
             </div>
             <!-- Ligne 2 -->
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-12 col-md-2 mb-3">
-                    <input type="text" class="form-control" name="systeme_ass" placeholder="Système d'assainissement">
+                    <input type="text" class="form-control" name="systeme_ass" id="systeme_ass" placeholder="Système d'assainissement">
                 </div>
                 <div class="col-12 col-md-2 mb-3">
-                    <input type="text" class="form-control" name="statut_zonage" placeholder="Statut du zonage">
+                    <input type="text" class="form-control" name="statut_zonage" id="statut_zonage" placeholder="Statut du zonage">
                 </div>
                 <div class="col-12 col-md-2 mb-3">
-                    <input type="text" class="form-control" name="statut_pres" placeholder="Statut des prescriptions">
+                    <input type="text" class="form-control" name="statut_pres" id="statut_pres" placeholder="Statut des prescriptions">
                 </div>
                 <div class="col-12 col-md-2 mb-3">
-                    <input type="date" class="form-control" name="date_annexion" placeholder="Date d'annexion">
+                    <input type="text" class="form-control" name="date_annexion" id="date_annexion" placeholder="Date d'annexion">
                 </div>
                 <div class="col-12 col-md-3 mb-3">
                     <div class="input-group d-flex">
                         <button type="button" class="input-group-text" onclick="copierTexte(event, 'lien_zonage')">
                             <i class="bi bi-copy"></i>
                         </button>
-                        <input type="text" class="form-control" name="lien_zonage" placeholder="Lien du zonage">
+                        <input type="text" class="form-control" name="lien_zonage" id="lien_zonage" placeholder="Lien du zonage">
                     </div>
                 </div>  
-                <div class="col-12 col-md-4 mb-3">
-                    <textarea type="textaria" class="form-control" name="observation_plu" placeholder="Observation"></textarea>
+                <div class="col-12 col-md-6 mb-3">
+                    <textarea type="textaria" class="form-control" name="observation_plu" id="observation_plu" placeholder="Observation" rows="6"></textarea>
                 </div>
                 <div class="col-12 col-md-2 mb-3 d-flex align-items-end offset-md-10">
                     <button type="submit" class="btn btn-primary fw-bold w-100">Mise à jour</button>
@@ -60,3 +60,4 @@
         </form>
     </div>
 </div>
+<script src="/public/assets/js/fetch/pluFetch.js" defer></script>

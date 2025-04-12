@@ -1741,3 +1741,60 @@
 2025-04-12 01:28:15 - Requête reçue : {"action":"deleteCommune","id_commune":60}
 2025-04-12 01:49:58 - Requête reçue : {"action":"searchPlu","code_commune":"26004","nom_commune":"","cp_commune":"","etat_plu":""}
 2025-04-12 01:50:16 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Romans","cp_commune":"","etat_plu":""}
+2025-04-12 01:57:19 - Requête reçue : {"action":"login","email":"bouguerra.abbes@outlook.fr","password":"123"}
+2025-04-12 01:57:20 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-12 01:57:20 - Requête reçue : {"action":"getAllUsers"}
+2025-04-12 01:57:27 - Requête reçue : {"action":"logout"}
+2025-04-12 23:15:48 - Requête reçue : {"action":"login","email":"bouguerra.abbes@outlook.fr","password":"123"}
+2025-04-12 23:15:56 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-12 23:15:56 - Requête reçue : {"action":"getAllUsers"}
+2025-04-12 23:16:42 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Alixan","cp_commune":"","etat_plu":""}
+2025-04-12 23:20:02 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"","cp_commune":"","etat_plu":"traité"}
+2025-04-12 23:20:11 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"","cp_commune":"","etat_plu":"traité"}
+2025-04-12 23:20:15 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Alixan","cp_commune":"","etat_plu":"traité"}
+2025-04-12 23:20:23 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Alixan","cp_commune":"","etat_plu":"traité"}
+2025-04-12 23:20:49 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Alixan","cp_commune":"","etat_plu":""}
+2025-04-12 23:21:04 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"","cp_commune":"","etat_plu":"En vigueur"}
+2025-04-12 23:21:24 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"","cp_commune":"","etat_plu":""}
+2025-04-12 23:21:30 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"","cp_commune":"","etat_plu":""}
+2025-04-12 23:21:48 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"","cp_commune":"","etat_plu":""}
+2025-04-12 23:22:04 - Requête reçue : {"action":"searchCommune"}
+2025-04-12 23:24:26 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"","cp_commune":"","etat_plu":""}
+2025-04-12 23:24:38 - Requête reçue : {"action":"searchCommune"}
+2025-04-12 23:26:07 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"","cp_commune":"","etat_plu":""}
+2025-04-12 23:28:58 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"","cp_commune":"","etat_plu":""}
+2025-04-12 23:31:05 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Malissar","cp_commune":"","etat_plu":""}
+2025-04-12 23:31:12 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Malissard","cp_commune":"","etat_plu":""}
+2025-04-12 23:31:17 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Alixan","cp_commune":"","etat_plu":""}
+2025-04-12 23:31:19 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Alixan","cp_commune":"","etat_plu":""}
+2025-04-12 23:32:29 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"","cp_commune":"","etat_plu":""}
+2025-04-12 23:32:33 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Alixan","cp_commune":"","etat_plu":""}
+2025-04-12 23:35:23 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"","cp_commune":"","etat_plu":""}
+2025-04-12 23:35:27 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Alixan","cp_commune":"","etat_plu":""}
+2025-04-12 23:35:48 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"","cp_commune":"","etat_plu":""}
+2025-04-12 23:35:49 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"","cp_commune":"","etat_plu":""}
+2025-04-12 23:37:01 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Alixan","cp_commune":"","etat_plu":""}
+2025-04-12 23:37:05 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Malissar","cp_commune":"","etat_plu":""}
+2025-04-12 23:38:17 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Alixan","cp_commune":"","etat_plu":""}
+2025-04-12 23:40:03 - Requête reçue : {"action":"searchCommune"}
+2025-04-12 23:40:09 - Requête reçue : {"action":"searchCommune","code_commune":"26004"}
+2025-04-12 23:45:21 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Alixan","cp_commune":"","etat_plu":""}
+2025-04-12 23:54:10 - Requête reçue : {"action":"getPluById"}
+2025-04-12 23:55:50 - Requête reçue : {"action":"getPluById"}
+2025-04-12 23:56:27 - Requête reçue : {"action":"getPluById"}
+2025-04-12 23:59:24 - Requête reçue : {"action":"getPluById"}
+2025-04-13 00:00:36 - Requête reçue : {"action":"getPluById"}
+2025-04-13 00:03:55 - Requête reçue : {"action":"getPluById","id_plu":"1"}
+2025-04-13 00:05:20 - Requête reçue : {"action":"getPluById","id_plu":"1"}
+2025-04-13 00:08:49 - Requête reçue : {"action":"getPluById","id_plu":"1"}
+2025-04-13 00:10:02 - Requête reçue : {"action":"getPluById","id_plu":"1"}
+2025-04-13 00:10:08 - Requête reçue : {"action":"updatePlu","id_plu":"1","type_plu":"PLU","etat_plu":"En vigueur","date_plu":"12/07/2023","systeme_ass":"VALENCE","statut_zonage":"en attente","statut_pres":"en attente","date_annexion":"31/03/2025","lien_zonage":"L:\\03 DT-DD\\02 Assainissement\\06_SUIVI_PATRIMONIAL\\8_ZONAGES_ASS_EPL\\ALIXAN","lien_dhua":"\\\\sysinfo.local\\src-data\\DirectionAgglo\\06 Inter-dep\\03 DT-DD\\08 Ressources suivi PLU\\26004_ALIXAN","observation_plu":"Abbes"}
+2025-04-13 00:11:23 - Requête reçue : {"action":"updatePlu","id_plu":"1","type_plu":"PLU","etat_plu":"En vigueur","date_plu":"12/07/2023","systeme_ass":"VALENCE","statut_zonage":"en attente","statut_pres":"en attente","date_annexion":"31/03/2025","lien_zonage":"L:\\03 DT-DD\\02 Assainissement\\06_SUIVI_PATRIMONIAL\\8_ZONAGES_ASS_EPL\\ALIXAN","lien_dhua":"\\\\sysinfo.local\\src-data\\DirectionAgglo\\06 Inter-dep\\03 DT-DD\\08 Ressources suivi PLU\\26004_ALIXAN","observation_plu":"Abbes test"}
+2025-04-13 00:11:58 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-13 00:11:58 - Requête reçue : {"action":"getAllUsers"}
+2025-04-13 00:12:14 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Alixan","cp_commune":"","etat_plu":""}
+2025-04-13 00:12:26 - Requête reçue : {"action":"getPluById","id_plu":"1"}
+2025-04-13 00:12:33 - Requête reçue : {"action":"updatePlu","id_plu":"1","type_plu":"PLU","etat_plu":"En vigueur","date_plu":"12/07/2023","systeme_ass":"VALENCE","statut_zonage":"en attente","statut_pres":"en attente","date_annexion":"31/03/2025","lien_zonage":"L:\\03 DT-DD\\02 Assainissement\\06_SUIVI_PATRIMONIAL\\8_ZONAGES_ASS_EPL\\ALIXAN","lien_dhua":"\\\\sysinfo.local\\src-data\\DirectionAgglo\\06 Inter-dep\\03 DT-DD\\08 Ressources suivi PLU\\26004_ALIXAN","observation_plu":"Abbes"}
+2025-04-13 00:19:41 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Alixan","cp_commune":"","etat_plu":""}
+2025-04-13 00:19:56 - Requête reçue : {"action":"getPluById","id_plu":"1"}
+2025-04-13 00:20:00 - Requête reçue : {"action":"updatePlu","id_plu":"1","type_plu":"PLU","etat_plu":"En vigueur","date_plu":"12/07/2023","systeme_ass":"VALENCE","statut_zonage":"en attente","statut_pres":"en attente","date_annexion":"31/03/2025","lien_zonage":"L:\\03 DT-DD\\02 Assainissement\\06_SUIVI_PATRIMONIAL\\8_ZONAGES_ASS_EPL\\ALIXAN","lien_dhua":"\\\\sysinfo.local\\src-data\\DirectionAgglo\\06 Inter-dep\\03 DT-DD\\08 Ressources suivi PLU\\26004_ALIXAN","observation_plu":""}

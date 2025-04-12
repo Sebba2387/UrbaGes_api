@@ -28,6 +28,7 @@
 - Configuration des routes 	✅
 - Construction des pages 	✅
 - Pagination 	✅
+- Labels
 - Customisation des codes    ❌
 - Validation des champs 	❌
 - Contrôle des rôles 	❌

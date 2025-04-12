@@ -66,7 +66,13 @@ function displayCommunes(communes) {
         });
     } else {
         // Affichage d'un message d'erreur à l'utilisateur
-        tableBody.innerHTML = "<tr><td colspan='10'>Veuillez entrer au moins un critère de recherche pour effectuer la recherche.</td></tr>";
+        tableBody.innerHTML = `
+                <tr>
+                    <td colspan="10" class="text-center text-danger">
+                        Veuillez entrer au moins un critère de recherche pour effectuer la recherche.
+                    </td>
+                </tr>
+            `;
     }
 }
 

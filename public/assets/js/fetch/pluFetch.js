@@ -1,11 +1,27 @@
 // Fonction pour rechercher les PLU avec callback
 function searchPlu(callback) {
+    const code_commune = document.getElementById("code_commune").value.trim();
+    const nom_commune = document.getElementById("nom_commune").value.trim();
+    const cp_commune = document.getElementById("cp_commune").value.trim();
+    const etat_plu = document.getElementById("etat_plu").value.trim();
+    // Vérifie si tous les champs sont vides
+    if (!code_commune && !nom_commune && !cp_commune && !etat_plu) {
+        const tableBody = document.getElementById("pluResults");
+        tableBody.innerHTML = `
+            <tr>
+                <td colspan="14" class="text-center text-danger">
+                    Veuillez entrer au moins un critère de recherche pour effectuer la recherche.
+                </td>
+            </tr>
+        `;
+        return; // Ne lance pas l'appel à l'API
+    }
     const searchData = {
         action: 'searchPlu',
-        code_commune: document.getElementById("code_commune").value,
-        nom_commune: document.getElementById("nom_commune").value,
-        cp_commune: document.getElementById("cp_commune").value,
-        etat_plu: document.getElementById("etat_plu").value
+        code_commune,
+        nom_commune,
+        cp_commune,
+        etat_plu
     };
     fetch('http://localhost/public/api/pluApi.php', {
         method: 'POST',
@@ -19,7 +35,7 @@ function searchPlu(callback) {
             return;
         }
         const pluList = data || [];
-        displayPlu(pluList, callback); // Passe le callback à displayPlu
+        displayPlu(pluList, callback);
     })
     .catch(error => console.error("Erreur lors de la récupération des PLUs :", error));
 }
@@ -46,7 +62,6 @@ function displayPlu(pluList, callback) {
             <td>${plu.observation_plu}</td>
             <td>
                 <button onclick="redirectToEdit(${plu.id_plu})"><i class="bi bi-pencil-fill fs-5"></i></button>
-                <button onclick="deletePlu(${plu.id_plu})"><i class="bi bi-trash-fill fs-5"></i></button>
             </td>
         `;
         tableBody.appendChild(row);
@@ -69,28 +84,27 @@ function initSearchPluForm() {
         console.warn("⚠️ Formulaire de recherche de PLU introuvable !");
     }
 }
-// Fonction pour initialiser les actions de formulaire sur la page
 window.initSearchPluForm = initSearchPluForm;
 
 // Fonction pour rediriger vers la page de modification d'un PLU
 function redirectToEdit(id_plu) {
     window.location.href = `/editPlu?id=${id_plu}`;
 }
-// Vérifier si on est bien sur testEditPlu.html avant d'appeler getPluById()
-document.addEventListener("DOMContentLoaded", function () {
-    if (window.location.pathname.includes("testEditPlu.html")) {
-        const urlParams = new URLSearchParams(window.location.search);
-        const id_plu = urlParams.get('id');
-        if (id_plu) {
-            getPluById(id_plu);
-        } else {
-            console.warn("ID du PLU manquant dans l'URL");
-        }
-    }
-});
 
-//Fonction pour récupérer ID du PLU concerné
-function getPluById(id_plu) {
+// Fonction pour initialiser le formulaire d'édition de PLU
+function initEditPluForm() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const id_plu = urlParams.get('id');
+    if (id_plu) {
+        getPluById(id_plu, populateEditForm);
+    } else {
+        console.warn("ID du PLU manquant dans l'URL");
+    }
+}
+window.initEditPluForm = initEditPluForm;
+
+// Fonction pour récupérer les données du PLU en call-back
+function getPluById(id_plu, callback) {
     const requestData = {
         action: 'getPluById',
         id_plu: id_plu
@@ -100,20 +114,20 @@ function getPluById(id_plu) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(requestData)
     })
-    .then(response => {
-        return response.json();
-    })
+    .then(response => response.json())
     .then(data => {
-        if (data.success) {
-            populateEditForm(data.plu); // Fonction pour remplir le formulaire de modification
+        if (data.success && data.plu) {
+            if (typeof callback === 'function') {
+                callback(data.plu);
+            }
         } else {
-            console.error("Erreur lors de la récupération du PLU:", data.message);
+            console.error("Erreur lors de la récupération du PLU :", data.message);
         }
     })
-    .catch(error => console.error("Erreur de connexion à l'API:", error));
+    .catch(error => console.error("Erreur de connexion à l'API :", error));
 }
 
-// Fonction pour remplir le formulaire de modification avec les données du PLU
+// Fonction pour pré-remplir le formulaire d'édition avec les données d'un PLU
 function populateEditForm(plu) {
     document.getElementById("id_plu").value = plu.id_plu;
     document.getElementById("etat_plu").value = plu.etat_plu;
@@ -127,10 +141,13 @@ function populateEditForm(plu) {
     document.getElementById("lien_dhua").value = plu.lien_dhua;
     document.getElementById("observation_plu").value = plu.observation_plu;
 }
+// Appel de la fonction pour initialiser le formulaire d'édition de PLU
+document.addEventListener("DOMContentLoaded", function () {
+    initEditPluForm();
+});
 
 // Fonction pour mettre à jour les données d'un PLU concerné
 function updatePlu() {
-    // Vérifie que l'objet data est bien défini
     let data = {
         action: "updatePlu",
         id_plu: document.getElementById("id_plu").value,
@@ -145,7 +162,7 @@ function updatePlu() {
         lien_dhua: document.getElementById("lien_dhua").value,
         observation_plu: document.getElementById("observation_plu").value
     };
-    fetch("../../app/controllers/pluController.php", {
+    fetch("http://localhost/public/api/pluApi.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
@@ -154,7 +171,7 @@ function updatePlu() {
     .then(data => {
         if (data.success) {
             alert("PLU mis à jour avec succès !");
-            window.location.href = "testPlu.html";
+            window.location.href = "/plu";
         } else {
             alert("Erreur : " + data.message);
         }
