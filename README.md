@@ -62,5 +62,6 @@
 - Dossier CRUD 	❌
 - Eviter le rechargement de la page complet (header, sidebar) 	❌
 - Changement de critère de recherche PLU cp_commune => statut_zonage 	❌
+- Ajouter un critère de recherche dossier : statut_zonage 	❌
 - Changement dynamique de la photo de profil 	❌ 
 - Liste des communes 	❌

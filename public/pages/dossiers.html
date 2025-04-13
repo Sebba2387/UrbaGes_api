@@ -1,5 +1,19 @@
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
 <!-- Formulaire d'ajout de dossier -->
-<div id="form2" class="form-container mb-5 mt-5 h-auto">
+<div id="form2" class="form-container expanded mb-5 mt-5 h-auto">
     <button class="btn btn-primary fw-bold toggle-btn" onclick="toggleForm('form2')">
         <i class="bi bi-folder-fill"></i> Ajouter
     </button>
@@ -8,41 +22,67 @@
             <!-- Ligne 1 -->
             <div class="row">
                 <div class="col-12 col-md-2 mb-3">
-                    <input type="text" class="form-control" name="id_cadastre" placeholder="Cadastre">
+                    <input type="text" class="form-control" name="numero_dossier" id="numero_dossier" placeholder="Numéro du dossier">
                 </div>
                 <div class="col-12 col-md-2 mb-3">
-                    <input type="text" class="form-control" name="nom_rue" placeholder="Nom de rue">
+                    <input type="text" class="form-control" name="id_cadastre" id="id_cadastre" placeholder="Cadastre">
                 </div>
                 <div class="col-12 col-md-2 mb-3">
-                    <input type="text" class="form-control" name="libelle" placeholder="Libelle">
+                    <input type="text" class="form-control" name="libelle" id="libelle" placeholder="Libelle">
                 </div>
                 <div class="col-12 col-md-2 mb-3">
-                    <select class="form-control">
-                        <option value="" disabled selected>-- Sélectionnez le type de dossier --</option>
-                        <option>Instruction complexe</option>
-                        <option>Projet</option>
-                        <option>Accompagnement</option>
-                        <option>Servitude</option>
-                        <option>Réctrocession</option>
+                    <input type="date" class="form-control" name="date_demande" id="date_demande" placeholder="Date de la demande">
+                </div>
+                <div class="col-12 col-md-2 mb-3">
+                    <input type="date" class="form-control" name="date_limite" id="date_limite" placeholder="Date limite">
+                </div>
+                <div class="col-12 col-md-2 mb-3">
+                    <select class="form-control" name="statut" id="statut">
+                        <option value="" disabled selected>-- Statut --</option>
+                        <option value="Instruction complexe">traité</option>
+                        <option value="Projet">en cours</option>
+                        <option value="Accompagnement">en attente</option>
                     </select>
-                </div>
-                <div class="col-12 col-md-2 mb-3">
-                    <input type="text" class="form-control" name="prenom" placeholder="Prénom">
                 </div>
             </div>
             <!-- Ligne 2 -->
-            <div class="row">
-                <div class="col-12 col-md-2 mb-3">
-                    <input type="text" class="form-control" name="nom_proprietaire" placeholder="Nom du propriétaire">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-3 mb-3">
+                    <div class="input-group d-flex">
+                        <button type="button" class="input-group-text" onclick="copierTexte(event, 'lien_calypso')">
+                            <i class="bi bi-copy"></i>
+                        </button>
+                        <input type="text" class="form-control" name="lien_calypso" id="lien_calypso" placeholder="Lien vers Calypso">
+                    </div>
                 </div>
-                <div class="col-12 col-md-2 mb-3">
-                    <input type="email" class="form-control" name="mail_proprietaire" placeholder="Mail du propriétaire">
+                <div class="col-12 col-md-3 mb-3">
+                    <select class="form-control" name="type_dossier" id="type_dossier">
+                        <option value="" disabled selected>-- Type de dossier --</option>
+                        <option value="Instruction complexe">Instruction complexe</option>
+                        <option value="Projet">Projet</option>
+                        <option value="Accompagnement">Accompagnement</option>
+                        <option value="Servitude">Servitude</option>
+                        <option value="Rétrocession">Rétrocession</option>
+                    </select>
                 </div>
-                <div class="col-12 col-md-2 mb-3">
-                    <input type="tel" class="form-control" name="tel_proprietaire" placeholder="Tel du propriétaire">
+                <div class="col-12 col-md-3 mb-3">
+                    <select class="form-control" id="sous_type_dossier" name="sous_type_dossier">
+                        <option value="">-- Sous-type de dossier --</option>
+                        <option value="Demande de validation">Demande de validation</option>
+                        <option value="Extension">Extension</option>
+                        <option value="Branchement">Branchement</option>
+                        <option value="Opération">Opération</option>
+                        <option value="Direction">Direction</option>
+                        <option value="SPANC">SPANC</option>
+                        <option value="EUND">EUND</option>
+                        <option value="SPGEP">SPGEP</option>
+                        <option value="Autre">Autre</option>
+                    </select>
                 </div>
-                <div class="col-12 col-md-2 mb-3">
-                    <input type="text" class="form-control" name="adresse_proprietaire" placeholder="Adresse du propriétaire">
+                <div class="col-12 col-md-3 mb-3">
+                    <select class="form-control" id="id_commune" name="id_commune">
+                        <!-- Les options seront ajoutées ici par JavaScript -->
+                    </select>
                 </div>
                 <div class="col-12 col-md-2 mb-3 d-flex align-items-end offset-md-10">
                     <button type="submit" class="btn btn-primary fw-bold w-100">Ajouter</button>
@@ -53,42 +93,73 @@
 </div>
 
 <!-- Formulaire de recherche de dossier -->
-<div id="form3" class="form-container mb-5 mt-5">
-    <button class="btn btn-primary toggle-btn" onclick="toggleForm('form3')">
+<div id="form3" class="form-container expanded mb-5 mt-5 h-auto" data-callback="initDossierSearchForm">
+    <button class="btn btn-primary fw-bold toggle-btn" onclick="toggleForm('form3')">
         <i class="bi bi-search"></i> Rechercher
     </button>
     <div class="card">
-        <form>
+        <form id="searchDossierForm">
             <!-- Ligne 1 -->
             <div class="row">
                 <div class="col-12 col-md-2 mb-3">
-                    <input type="text" class="form-control" name="nom_commune" placeholder="Commune">
+                    <input type="text" class="form-control" name="nom_commune" id="nom_commune" placeholder="Commune">
                 </div>
                 <div class="col-12 col-md-2 mb-3">
-                    <input type="text" class="form-control" name="id_cadastre" placeholder="Cadastre">
+                    <input type="text" class="form-control" name="numero_dossier" id="numero_dossier_search" placeholder="Numéro du dossier">
                 </div>
                 <div class="col-12 col-md-2 mb-3">
-                    <input type="text" class="form-control" name="nom_rue" placeholder="Nom de rue">
+                    <input type="text" class="form-control" name="id_cadastre" id="id_cadastre_search" placeholder="Cadastre">
                 </div>
-                <div class="col-12 col-md-2 mb-3">
-                    <input type="text" class="form-control" name="libelle" placeholder="Libelle">
-                </div>
-                <div class="col-12 col-md-2 mb-3">
-                    <select class="form-control" name="type_dossier">
-                        <option value="" disabled selected>-- Sélectionnez le type de dossier --</option>
-                        <option>Instruction complexe</option>
-                        <option>Projet</option>
-                        <option>Accompagnement</option>
-                        <option>Note de calcul</option>
-                        <option>Servitude</option>
-                        <option>Réctrocession</option>
+                <div class="col-12 col-md-3 mb-3">
+                    <select class="form-control" id="type_dossier_search" name="type_dossier_search">
+                        <option value="">-- Type de dossier --</option>
+                        <option value="Instruction complexe">Instruction complexe</option>
+                        <option value="Projet">Projet</option>
+                        <option value="Accompagnement">Accompagnement</option>
+                        <option value="Servitude">Servitude</option>
+                        <option value="Rétrocession">Rétrocession</option>
                     </select>
                 </div>
-                <div class="col-12 col-md-2 mb-3">
+                <div class="col-12 col-md-3 mb-3">
+                    <select class="form-control" id="sous_type_dossier_search" name="sous_type_dossier_search">
+                        <option value="">-- Sous-type de dossier --</option>
+                        <option value="Demande de validation">Demande de validation</option>
+                        <option value="Extension">Extension</option>
+                        <option value="Branchement">Branchement</option>
+                        <option value="Opération">Opération</option>
+                        <option value="Direction">Direction</option>
+                        <option value="SPANC">SPANC</option>
+                        <option value="EUND">EUND</option>
+                        <option value="SPGEP">SPGEP</option>
+                        <option value="Autre">Autre</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-2 mb-3 d-flex align-items-end offset-md-10">
                     <button type="submit" class="btn btn-primary fw-bold w-100">Rechercher</button>
                 </div>
             </div>
         </form>
     </div>
 </div>
-<a href="/editDossier" onclick="route(event)">Édition du dossier</a>
+<h3>Résultats</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Commune</th>
+                <th>Numéro Dossier</th>
+                <th>ID Cadastre</th>
+                <th>Type</th>
+                <th>Sous-Type</th>
+                <th>Pseudo</th>
+                <th>Libellé</th>
+                <th>Date Demande</th>
+                <th>Date Limite</th>
+                <th>Statut</th>
+                <th>Lien Calypso</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="dossierTableBody"></tbody>
+    </table>
+<div id="pagination"></div>
+<script src="/public/assets/js/fetch/dossierFetch.js" defer></script>

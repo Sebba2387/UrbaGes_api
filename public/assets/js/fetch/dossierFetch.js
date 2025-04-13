@@ -1,31 +1,29 @@
+// Préparation des fonction
 window.onload = function () {
-    document.getElementById("searchDossierForm")?.addEventListener("submit", function (event) {
-        event.preventDefault();
-        searchDossier();
+    initDossierSearchForm(() => {
+        console.log("Formulaire et recherche de dossier prêts !");
     });
-
     document.getElementById("editDossierForm")?.addEventListener("submit", function (e) {
         e.preventDefault();
         updateDossier();
     });
-
     const urlParams = new URLSearchParams(window.location.search);
     const id_dossier = urlParams.get("id_dossier");
     if (id_dossier) {
         getDossierById(id_dossier);
     }
 };
+
 // Fonction pour rechercher des dossiers
-function searchDossier() {
+function searchDossier(callback) {
     const requestData = {
         action: "searchDossier",
         nom_commune: document.getElementById("nom_commune").value.trim(),
-        numero_dossier: document.getElementById("numero_dossier").value.trim(),
-        id_cadastre: document.getElementById("id_cadastre").value.trim(),
-        type_dossier: document.getElementById("type_dossier").value.trim(),
-        sous_type_dossier: document.getElementById("sous_type_dossier").value.trim(),
+        numero_dossier: document.getElementById("numero_dossier_search").value.trim(),
+        id_cadastre: document.getElementById("id_cadastre_search").value.trim(),
+        type_dossier: document.getElementById("type_dossier_search").value.trim(),
+        sous_type_dossier: document.getElementById("sous_type_dossier_search").value.trim(),
     };
-
     fetch("http://localhost/public/api/dossierApi.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -34,21 +32,41 @@ function searchDossier() {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            displayDossiers(data.dossiers);
+            displayDossiers(data.dossiers, callback);
         } else {
             console.error("Erreur :", data.message);
         }
     })
     .catch(error => console.error("Erreur de connexion à l'API :", error));
 }
-//Fonction pour afficher des résultats de recherche
-function displayDossiers(dossiers) {
+
+// Fonction pour initialiser le formulaire de recherche
+function initDossierSearchForm(callback) {
+    const form = document.getElementById("searchDossierForm");
+    if (!form) {
+        console.error("Formulaire de recherche non trouvé");
+        return;
+    }
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        searchDossier(() => {
+            if (callback) callback();
+        });
+    });
+    if (callback) callback();
+}
+// Appel de la fonction d'initialisation du formulaire de recherche
+document.addEventListener('DOMContentLoaded', function() {
+    initDossierSearchForm();
+});
+
+// Fonction pour afficher des résultats de recherche
+function displayDossiers(dossiers, callback) {
     const tableBody = document.getElementById("dossierTableBody");
     tableBody.innerHTML = "";
-
     dossiers.forEach(dossier => {
         const row = document.createElement("tr");
-        row.id = `dossier-${dossier.id_dossier}`;  // Ajout de l'ID unique
+        row.id = `dossier-${dossier.id_dossier}`;
         row.innerHTML = `
             <td>${dossier.nom_commune}</td>
             <td>${dossier.numero_dossier}</td>
@@ -62,42 +80,39 @@ function displayDossiers(dossiers) {
             <td>${dossier.statut}</td>
             <td>${dossier.lien_calypso ? `<a href="${dossier.lien_calypso}" target="_blank">Lien</a>` : 'N/A'}</td>
             <td>
-                <button onclick="redirectToEdit(${dossier.id_dossier})">Modifier</button>
-                <button onclick="deleteDossier(${dossier.id_dossier})">Supprimer</button>
+                <button onclick="redirectToEdit(${dossier.id_dossier})"><i class="bi bi-pencil-fill fs-5"></i></button>
+                <button onclick="deleteDossier(${dossier.id_dossier})"><i class="bi bi-trash-fill fs-5"></i></button>
             </td>
-            
         `;
         tableBody.appendChild(row);
     });
-    paginateDossiers();
+    paginateDossiers(callback);
 }
 
 // Fonction pour la pagination du résultat de la recherche
 let itemsPerPage = 10;  // Nombre de lignes à afficher par page
 let currentPage = 1;   // Page active
 
-function paginateDossiers() {
+function paginateDossiers(callback) {
     const tableBody = document.getElementById("dossierTableBody");
     const rows = Array.from(tableBody.getElementsByTagName("tr"));
 
-    // Masque toutes les lignes
     rows.forEach(row => row.style.display = "none");
 
-    // Calculer l'index de début et de fin en fonction de la page actuelle
     const start = (currentPage - 1) * itemsPerPage;
     const end = start + itemsPerPage;
 
-    // Affiche uniquement les lignes de la page courante
     rows.slice(start, end).forEach(row => row.style.display = "");
 
-    // Met à jour les contrôles de pagination
     updatePagination(rows.length);
+
+    if (callback) callback(); // callback une fois que la pagination est faite
 }
 
+// Fonction pour mettre à jour la pagination
 function updatePagination(totalItems) {
     const totalPages = Math.ceil(totalItems / itemsPerPage);
     const paginationContainer = document.getElementById("pagination");
-
     // S'il n'existe pas de conteneur de pagination dans le HTML, on arrête ici
     if (!paginationContainer) return;
 
@@ -107,20 +122,18 @@ function updatePagination(totalItems) {
         const pageButton = document.createElement("button");
         pageButton.textContent = i;
         pageButton.classList.add("page-button");
-
         // Ajoute un écouteur pour mettre à jour la page active lors du clic
         pageButton.addEventListener("click", () => {
             currentPage = i;
             paginateDossiers();
         });
-
         paginationContainer.appendChild(pageButton);
     }
 }
 
 // Fonction pour rediriger vers la page de modification d'un PLU
 function redirectToEdit(id_dossier) {
-    window.location.href = `http://localhost/public/testPages/testEditDossier.html?id_dossier=${id_dossier}`;
+    window.location.href = `/editDossier?id_dossier=${id_dossier}`;
 }
 
 // Fonction pour récupérer les infos d'un dossier et préremplir testEditDossier.html
