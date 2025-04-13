@@ -88,7 +88,7 @@ window.initSearchPluForm = initSearchPluForm;
 
 // Fonction pour rediriger vers la page de modification d'un PLU
 function redirectToEdit(id_plu) {
-    window.location.href = `/editPlu?id=${id_plu}`;
+    changePage(`/editPlu?id=${id_plu}`);
 }
 
 // Fonction pour initialiser le formulaire d'édition de PLU
@@ -171,7 +171,7 @@ function updatePlu() {
     .then(data => {
         if (data.success) {
             alert("PLU mis à jour avec succès !");
-            window.location.href = "/plu";
+            changePage('/plu');
         } else {
             alert("Erreur : " + data.message);
         }

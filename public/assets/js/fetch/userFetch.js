@@ -16,7 +16,7 @@ function loginUser(email, password) {
     .then(data => {
         if (data.success) {
             localStorage.setItem('userId', data.user.id_utilisateur);
-            window.location.href = "/profil";
+            changePage('/profil');
         } else {
             alert(data.message);
         }
@@ -29,7 +29,7 @@ function loginUser(email, password) {
 function fetchUserProfile() {
     const userId = localStorage.getItem('userId');
     if (!userId) {
-        window.location.href = "/";
+        changePage('/');
         return;
     }
     fetch('http://localhost/public/api/userApi.php', {
@@ -177,7 +177,7 @@ function initRegisterForm() {
             .then(data => {
                 alert(data.message);
                 if (data.success) {
-                    window.location.href = "/monEquipe";
+                    changePage('/monEquipe');
                 }
             })
             .catch(error => console.error('❌ Erreur lors de la requête :', error));
@@ -275,7 +275,7 @@ document.addEventListener("DOMContentLoaded", searchUsers);
 
 // Fonction pour rediriger vers l'édition du profil
 function redirectToEdit(userId) {
-    window.location.href = `/editProfil?id=${userId}`;
+    changePage(`/editProfil?id=${userId}`);
 }
 
 // Fonction pour mettre à jour du profil utilisateur
@@ -300,7 +300,7 @@ function updateUserProfile(userId) {
     .then(data => {
         alert(data.message);
         if (data.success) {
-            window.location.href = "/profil";
+            changePage('/profil');
         }
     })
     .catch(error => console.error('❌ Erreur lors de la mise à jour :', error));
@@ -368,7 +368,7 @@ function deleteUser(userId) {
             alert(data.message); // Affiche le message de l'API
             if (data.success) {
                 // Si la suppression est réussie, redirige vers la page de profil
-                window.location.href = "/profil";
+                changePage('/profil');
             }
         })
         .catch(error => console.error('Erreur lors de la suppression:', error));
@@ -410,7 +410,7 @@ function initPasswordForm() {
             alert(data.message);
             if (data.success) {
                 passwordForm.reset();
-                window.location.href = "/";
+                changePage('/');
             }
         })
         .catch(error => console.error('❌ Erreur lors du changement de mot de passe :', error));
@@ -431,7 +431,7 @@ function logoutUser() {
     .then(data => {
         if (data.success) {
             localStorage.removeItem('userId');
-            window.location.href = "/";
+            changePage('/');
         } else {
             alert(data.message);
         }

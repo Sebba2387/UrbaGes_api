@@ -29,7 +29,7 @@ async function loadHeaderAndSidebar() {
 
     const header = document.getElementById('header');
     const sidebar = document.getElementById('sidebar-container');
-    
+
     try {
         // Charger dynamiquement le header
         const headerResponse = await fetch('/public/components/header.html');
@@ -40,11 +40,21 @@ async function loadHeaderAndSidebar() {
         const sidebarResponse = await fetch('/public/components/sidebar.html');
         const sidebarHtml = await sidebarResponse.text();
         sidebar.innerHTML = sidebarHtml;
-        
+
         // Initialiser le toggle de la sidebar après son chargement
-        setupSidebarToggle();  
-        
+        setupSidebarToggle();
+
         componentsLoaded = true;  // Marquer que les composants sont chargés
+
+        // Ajouter les écouteurs de clics après injection du HTML
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const path = link.getAttribute('href');
+                changePage(path);
+            });
+        });
+
     } catch (error) {
         console.error('Erreur de chargement du header ou de la sidebar:', error);
     }
@@ -97,3 +107,5 @@ document.querySelectorAll('.nav-link').forEach(link => {
         changePage(path);  // Changer de page sans recharger
     });
 });
+
+window.changePage = changePage;

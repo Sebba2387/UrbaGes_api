@@ -177,7 +177,7 @@ function addDossier() {
     .then(result => {
         if (result.success) {
             alert("Dossier ajouté avec succès !");
-            window.location.href = "/dossiers";
+            changePage('/dossiers');
         } else {
             alert("Erreur lors de l'ajout du dossier.");
         }
@@ -245,7 +245,7 @@ function deleteDossier(id_dossier) {
 
 // Fonction pour rediriger vers la page de modification d'un PLU
 function redirectToEdit(id_dossier) {
-    window.location.href = `/editDossier?id_dossier=${id_dossier}`;
+    changePage(`/editDossier?id_dossier=${id_dossier}`);
 }
 
 // Fonction pour récupérer les infos d'un dossier et préremplir testEditDossier.html
@@ -339,7 +339,7 @@ function updateDossier() {
     .then(result => {
         if (result.success) {
             alert("Dossier mis à jour avec succès !");
-            window.location.href = "/dossiers";
+            changePage('/dossiers');
         } else {
             alert("Erreur lors de la mise à jour du dossier.");
         }

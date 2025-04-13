@@ -12,6 +12,10 @@ export async function loadComponent(componentPath) {
         const scriptPromises = [];
 
         scripts.forEach(oldScript => {
+
+            // ✅ Ne pas réinjecter si déjà présent
+            if (document.querySelector(`script[src="${oldScript.src}"]`)) return;
+            
             const newScript = document.createElement('script');
             newScript.type = oldScript.type || 'text/javascript';
 
@@ -38,7 +42,7 @@ export async function loadComponent(componentPath) {
             const callbackName = el.getAttribute('data-callback');
             if (callbackName && typeof window[callbackName] === 'function') {
                 console.log(`🚀 Appel de la fonction : ${callbackName}()`);
-                window[callbackName]();
+                window[callbackName]();  // Appeler la fonction du callback
             } else {
                 console.warn(`⚠️ Fonction callback "${callbackName}" introuvable`);
             }
