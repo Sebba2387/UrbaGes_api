@@ -1,157 +1,87 @@
-<!-- Formulaire d'information des communes -->
-<div id="form1" class="form-container mb-5 mt-5 h-auto">
+<!-- Formulaire d'édition de dossier -->
+<div id="form1" class="form-container expanded mb-5 mt-5 h-auto" data-callback="initEditDossierForm">
     <button class="btn btn-primary fw-bold toggle-btn" onclick="toggleForm('form1')">
-        <i class="bi bi-layers-fill"></i> Communes
+        <i class="bi bi-layers-fill"></i> Dossier
     </button>
     <div class="card">
-        <form>
+        <form id="editDossierForm">
             <!-- Ligne 1 -->
             <div class="row">
                 <div class="col-12 col-md-3 mb-3">
-                    <input type="number" class="form-control" name="id_commune" placeholder="Code insee">
+                    <input type="text" class="form-control" name="nom_commune" id="nom_commune" placeholder="Commune">
                 </div>
                 <div class="col-12 col-md-3 mb-3">
-                    <input type="text" class="form-control" name="code_commune" placeholder="Code postal">
+                    <input type="text" class="form-control" name="numero_dossier" id="numero_dossier" placeholder="Numéro de dossier">
                 </div>
                 <div class="col-12 col-md-3 mb-3">
-                    <input type="text" class="form-control" name="nom_commune" placeholder="Commune">
+                    <input type="text" class="form-control" name="id_cadastre" id="id_cadastre" placeholder="Cadastre">
                 </div>
                 <div class="col-12 col-md-3 mb-3">
-                    <select class="form-control" name="reseau_instruction" placeholder="Réseau">
-                        <option>C@rteADS</option>
-                        <option>Hors C@rteADS</option>
+                    <select class="form-control" name="pseudo" id="pseudo">
+                        <!-- Les options seront ajoutées ici par JavaScript -->
                     </select>
                 </div>
             </div>
             <!-- Ligne 2 -->
             <div class="row">
-                <div class="col-12 col-md-4 mb-3">
-                    <input type="text" class="form-control" name="contact" placeholder="Contact">
-                </div>
-                <div class="col-12 col-md-4 mb-3">
-                    <input type="mail" class="form-control" name="mail_commune" placeholder="Email contact">
-                </div>
-                <div class="col-12 col-md-4 mb-3">
-                    <input type="tel" class="form-control" name="tel_commune" placeholder="Tel contact">
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
-<!-- Formulaire dédition de dossier -->
-<div id="form2" class="form-container mb-5 mt-5 h-auto">
-    <button class="btn btn-primary fw-bold toggle-btn" onclick="toggleForm('form2')">
-        <i class="bi bi-folder-fill"></i> Mise à jour
-    </button>
-    <div class="card">
-        <form>
-            <!-- Ligne 1 -->
-            <div class="row">
-                <div class="col-12 col-md-2 mb-3">
-                    <input type="text" class="form-control" name="prenom" placeholder="Prénom">
-                </div>
-                <div class="col-12 col-md-2 mb-3">
-                    <input type="text" class="form-control" name="id_cadastre" placeholder="Cadastre">
-                </div>
-                <div class="col-12 col-md-2 mb-3">
-                    <input type="text" class="form-control" name="libelle" placeholder="libelle">
-                </div>
-                <div class="col-12 col-md-2 mb-3">
-                    <input type="text" class="form-control" name="nom_rue" placeholder="Nom de rue">
-                </div>
-                <div class="col-12 col-md-2 mb-3">
-                    <input type="text" class="form-control" name="type_dossier" placeholder="Type de dossier">
-                </div>
-                <div class="col-12 col-md-2 mb-3">
-                    <select class="form-control" name="sous_type_dossier">
-                        <option value="" disabled selected>-- Sélectionnez le sous-type de dossier --</option>
-                        <option>Demande de validation</option>
-                        <option>SPANC</option>
-                        <option>EUND</option>
-                        <option>SEGEP</option>
-                        <option>Extension</option>
-                        <option>Branchement</option>
-                        <option>Opération</option>
-                        <option>Direction</option>
-                        <option>Autre</option>
+                <div class="col-12 col-md-3 mb-3">
+                    <select class="form-control" id="type_dossier" name="type_dossier">
+                        <option value="">-- Type de dossier --</option>
+                        <option value="Instruction complexe">Instruction complexe</option>
+                        <option value="Projet">Projet</option>
+                        <option value="Accompagnement">Accompagnement</option>
+                        <option value="Servitude">Servitude</option>
+                        <option value="Rétrocession">Rétrocession</option>
                     </select>
                 </div>
-            </div>
-            <!-- Ligne 2 -->
-            <div class="row">
-                <div class="col-12 col-md-2 mb-3">
-                    <input type="text" class="form-control" name="nom_proprietaire" placeholder="Nom du propriétaire">
-                </div>
-                <div class="col-12 col-md-2 mb-3">
-                    <input type="email" class="form-control" name="mail_proprietaire" placeholder="Mail du propriétaire">
-                </div>
-                <div class="col-12 col-md-2 mb-3">
-                    <input type="tel" class="form-control" name="tel_proprietaire" placeholder="Tel du propriétaire">
-                </div>
-                <div class="col-12 col-md-2 mb-3">
-                    <input type="text" class="form-control" name="adresse_proprietaire" placeholder="Adresse du propriétaire">
-                </div>
-                <div class="col-12 col-md-2 mb-3">
-                    <select class="form-control" name="vente_en_cours">
-                        <option value="" disabled selected>-- Vente en cours --</option>
-                        <option>Oui</option>
-                        <option>Non</option>
+                <div class="col-12 col-md-3 mb-3">
+                    <select class="form-control" id="sous_type_dossier" name="sous_type_dossier">
+                        <option value="">-- Sous-type de dossier --</option>
+                        <option value="Demande de validation">Demande de validation</option>
+                        <option value="Extension">Extension</option>
+                        <option value="Branchement">Branchement</option>
+                        <option value="Opération">Opération</option>
+                        <option value="Direction">Direction</option>
+                        <option value="SPANC">SPANC</option>
+                        <option value="EUND">EUND</option>
+                        <option value="SPGEP">SPGEP</option>
+                        <option value="Autre">Autre</option>
                     </select>
                 </div>
-                <div class="col-12 col-md-2 mb-3">
-                    <select class="form-control" name="poste_relevage">
-                        <option value="" disabled selected>-- Poste de relevage --</option>
-                        <option>Oui</option>
-                        <option>Non</option>
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" id="libelle" name="libelle" placeholder="Libelle">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <select class="form-control" name="statut" id="statut">
+                        <option value="" disabled selected>-- Statut --</option>
+                        <option value="traité">traité</option>
+                        <option value="en cours">en cours</option>
+                        <option value="en attente">en attente</option>
+                        <option value="annulé">annulé</option>
                     </select>
                 </div>
             </div>
             <!-- Ligne 3 -->
             <div class="row">
-                <div class="col-12 col-md-2 mb-3">
-                    <input type="number" class="form-control" name="cout_travaux_eu" placeholder="Coût des travaux EU">
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" id="date_demande" name="date_demande" placeholder="Date de la demande">
                 </div>
-                <div class="col-12 col-md-2 mb-3">
-                    <input type="number" class="form-control" name="cout_travaux_ep" placeholder="Coût des travaux EP">
-                </div>
-                <div class="col-12 col-md-2 mb-3">
-                    <input type="number" class="form-control" name="indemnites" placeholder="Indemnités">
-                </div>
-                <div class="col-12 col-md-2 mb-3">
-                    <input type="number" class="form-control" name="frais_notaire" placeholder="Frais notaires">
-                </div>
-                <div class="col-12 col-md-2 mb-3">
-                    <input type="date" class="form-control" name="date_demande" placeholder="Date de la demande">
-                </div>
-                <div class="col-12 col-md-2 mb-3">
-                    <input type="date" class="form-control" name="date_limite" placeholder="Date limite">
-                </div>
-            </div>
-            <!-- Ligne 4 -->
-            <div class="row">
-                <div class="col-12 col-md-2 mb-3">
-                    <select class="form-control" name="statut">
-                        <option value="" disabled selected>-- Statut --</option>
-                        <option>En cours</option>
-                        <option>En attente</option>
-                        <option>traité</option>
-                    </select>
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" id="date_limite" name="date_limite" placeholder="Date limite">
                 </div>
                 <div class="col-12 col-md-3 mb-3">
                     <div class="input-group d-flex">
-                        <button type="button" class="input-group-text" onclick="copierTexte(event, 'lien_dossier')">
+                        <button type="button" class="input-group-text" onclick="copierTexte(event, 'lien_calypso')">
                             <i class="bi bi-copy"></i>
                         </button>
-                        <input type="text" class="form-control" name="lien_dossier" placeholder="Lien du dossier">
+                        <input type="text" class="form-control" name="lien_calypso" id="lien_calypso" placeholder="Lien vers Calypso">
                     </div>
-                </div>                
-                <div class="col-12 col-md-5 mb-3">
-                    <textarea type="textaria" class="form-control" name="observation" placeholder="Observation"></textarea>
-                </div>
-                <div class="col-12 col-md-2 mb-3 d-flex align-items-end offset-md-10">
+                </div>               
+                <div class="col-12 col-md-3 mb-3">
                     <button type="submit" class="btn btn-primary fw-bold w-100">Enregistrer</button>
                 </div>
             </div>
         </form>
     </div>
 </div>
+<script src="/public/assets/js/fetch/dossierFetch.js" defer></script>

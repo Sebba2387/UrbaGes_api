@@ -96,16 +96,11 @@ let currentPage = 1;   // Page active
 function paginateDossiers(callback) {
     const tableBody = document.getElementById("dossierTableBody");
     const rows = Array.from(tableBody.getElementsByTagName("tr"));
-
     rows.forEach(row => row.style.display = "none");
-
     const start = (currentPage - 1) * itemsPerPage;
     const end = start + itemsPerPage;
-
     rows.slice(start, end).forEach(row => row.style.display = "");
-
     updatePagination(rows.length);
-
     if (callback) callback(); // callback une fois que la pagination est faite
 }
 
@@ -320,7 +315,6 @@ function getDossierById(id_dossier) {
 // Fonction pour mettre à jour les informations d'un dossier choisi
 function updateDossier() {
     const id_dossier = new URLSearchParams(window.location.search).get("id_dossier");
-
     const data = {
         action: "updateDossier",
         id_dossier,
@@ -345,7 +339,7 @@ function updateDossier() {
     .then(result => {
         if (result.success) {
             alert("Dossier mis à jour avec succès !");
-            window.location.href = "/public/testPages/testDossier.html";
+            window.location.href = "/dossiers";
         } else {
             alert("Erreur lors de la mise à jour du dossier.");
         }
@@ -354,6 +348,25 @@ function updateDossier() {
         console.error("Erreur lors de la mise à jour :", err);
         alert("Erreur lors de la mise à jour.");
     });
+}
+
+// Fonction pour initialisation du formulaire d'édition du dossier
+function initEditDossierForm() {
+    const id_dossier = new URLSearchParams(window.location.search).get("id_dossier");
+    if (!id_dossier) {
+        console.error("Aucun ID de dossier trouvé dans l'URL.");
+        return;
+    }
+    getDossierById(id_dossier);
+    const form = document.getElementById("editDossierForm");
+    if (form) {
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            updateDossier();
+        });
+    } else {
+        console.warn("Formulaire 'editDossierForm' introuvable.");
+    }
 }
 
 
