@@ -131,6 +131,123 @@ function updatePagination(totalItems) {
     }
 }
 
+// Fonction pour charger la liste des communes dans le <select>
+function loadCommunes() {
+    const communeSelect = document.getElementById("id_commune");
+    if (!communeSelect) return;
+
+    fetch('http://localhost/public/api/dossierApi.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'getCommunes' })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success && data.communes) {
+            communeSelect.innerHTML = '<option value="" disabled selected>-- Choisir une commune --</option>';
+            data.communes.forEach(commune => {
+                const option = document.createElement("option");
+                option.value = commune.id_commune;
+                option.textContent = commune.nom_commune;
+                communeSelect.appendChild(option);
+            });
+        } else {
+            console.error("Aucune commune trouvée.");
+        }
+    })
+    .catch(error => console.error("Erreur lors du chargement des communes :", error));
+}
+
+// Fonction pour ajouter un dossier
+function addDossier() {
+    const data = {
+        action: "addDossier",
+        numero_dossier: document.getElementById("numero_dossier").value.trim(),
+        id_cadastre: document.getElementById("id_cadastre").value.trim(),
+        libelle: document.getElementById("libelle").value.trim(),
+        date_demande: document.getElementById("date_demande").value.trim(),
+        date_limite: document.getElementById("date_limite").value.trim(),
+        statut: document.getElementById("statut").value.trim(),
+        lien_calypso: document.getElementById("lien_calypso").value.trim(),
+        type_dossier: document.getElementById("type_dossier").value,
+        sous_type_dossier: document.getElementById("sous_type_dossier").value,
+        id_commune: document.getElementById("id_commune").value
+    };
+    fetch("http://localhost/public/api/dossierApi.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(result => {
+        if (result.success) {
+            alert("Dossier ajouté avec succès !");
+            window.location.href = "/dossiers";
+        } else {
+            alert("Erreur lors de l'ajout du dossier.");
+        }
+    })
+    .catch(err => {
+        console.error("Erreur lors de l'ajout du dossier :", err);
+        alert("Erreur lors de l'ajout du dossier.");
+    });
+}
+
+// Initialisation du formulaire d’ajout de dossier avec callback
+function initAddDossierForm(callback) {
+    const form = document.getElementById("addDossierForm");
+    if (!form) {
+        console.error("Formulaire d'ajout non trouvé");
+        return;
+    }
+
+    // Charger les communes dès l'init
+    loadCommunes();
+
+    // Ajouter l'écouteur de soumission
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        addDossier();
+        if (callback) callback();
+    });
+
+    // Callback après init
+    if (callback) callback();
+}
+
+// Fonction pour supprimer un dossier
+function deleteDossier(id_dossier) {
+    if (confirm("Êtes-vous sûr de vouloir supprimer ce dossier ?")) {
+        const data = {
+            action: 'deleteDossier',
+            id_dossier: id_dossier
+        };
+        fetch("http://localhost/public/api/dossierApi.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(result => {
+            if (result.success) {
+                alert(result.message);
+                const row = document.getElementById(`dossier-${id_dossier}`);
+                if (row) {
+                    row.remove();
+                }
+            } else {
+                alert(result.message);
+            }
+        })
+        .catch(err => {
+            console.error("Erreur lors de la suppression du dossier :", err);
+            alert("Erreur lors de la suppression du dossier.");
+        });
+    }
+}
+
 // Fonction pour rediriger vers la page de modification d'un PLU
 function redirectToEdit(id_dossier) {
     window.location.href = `/editDossier?id_dossier=${id_dossier}`;
@@ -161,7 +278,6 @@ function getDossierById(id_dossier) {
                 option.textContent = user.pseudo;
                 pseudoSelect.appendChild(option);
             });
-
             // Appliquer les valeurs récupérées dans le formulaire
             const elements = {
                 "nom_commune": dossier.nom_commune,
@@ -174,7 +290,6 @@ function getDossierById(id_dossier) {
                 "statut": dossier.statut,
                 "lien_calypso": dossier.lien_calypso
             };
-
             Object.keys(elements).forEach(function(id) {
                 const element = document.getElementById(id);
                 if (element) {
@@ -183,13 +298,11 @@ function getDossierById(id_dossier) {
                     console.warn(`L'élément avec l'ID ${id} est manquant.`);
                 }
             });
-
             // Select pour les types
             const selectValues = {
                 "type_dossier": dossier.type_dossier,
                 "sous_type_dossier": dossier.sous_type_dossier
             };
-
             Object.keys(selectValues).forEach(function(id) {
                 const select = document.getElementById(id);
                 if (select) {
@@ -244,123 +357,6 @@ function updateDossier() {
 }
 
 
-// Fonction pour charger la liste des communes dans le <select>
-function loadCommunes() {
-    // Vérifie si l'élément <select id="id_commune"> existe sur la page
-    const communeSelect = document.getElementById("id_commune");
-    if (!communeSelect) {
-        return;
-    }
-    fetch('http://localhost/public/api/dossierApi.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'getCommunes' })  // Assure-toi d'envoyer l'action dans le body
-    })
-    .then(response => response.json())
-    .then(data => {
-        const communeSelect = document.getElementById("id_commune");
-        if (data.success && data.communes) {
-            data.communes.forEach(commune => {
-                const option = document.createElement("option");
-                option.value = commune.id_commune;
-                option.textContent = commune.nom_commune;
-                communeSelect.appendChild(option);
-            });
-        } else {
-            console.error("Aucune commune trouvée.");
-        }
-    })
-    .catch(error => console.error("Erreur lors du chargement des communes :", error));
-}
 
 
-// Appeler la fonction au chargement de la page
-document.addEventListener("DOMContentLoaded", function() {
-    loadCommunes();
-});
-
-// Fonction pour ajouter un dossier
-document.addEventListener("DOMContentLoaded", () => {
-    const addForm = document.getElementById("addDossierForm");
-
-    if (addForm) {
-        addForm.addEventListener("submit", function(event) {
-            event.preventDefault();
-            addDossier();
-        });
-    }
-});
-function addDossier() {
-    // Récupère les données du formulaire
-    const data = {
-        action: "addDossier",
-        numero_dossier: document.getElementById("numero_dossier").value.trim(),
-        id_cadastre: document.getElementById("id_cadastre").value.trim(),
-        libelle: document.getElementById("libelle").value.trim(),
-        date_demande: document.getElementById("date_demande").value.trim(),
-        date_limite: document.getElementById("date_limite").value.trim(),
-        statut: document.getElementById("statut").value.trim(),
-        lien_calypso: document.getElementById("lien_calypso").value.trim(),
-        type_dossier: document.getElementById("type_dossier").value,
-        sous_type_dossier: document.getElementById("sous_type_dossier").value,
-        id_commune: document.getElementById("id_commune").value
-    };
-
-    // Envoie les données pour l'ajout du dossier
-    fetch("http://localhost/public/api/dossierApi.php", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-    })
-    .then(res => res.json())
-    .then(result => {
-        if (result.success) {
-            alert("Dossier ajouté avec succès !");
-            window.location.href = "/public/testPages/testDossier.html";  // Redirige vers la page des dossiers
-        } else {
-            alert("Erreur lors de l'ajout du dossier.");
-        }
-    })
-    .catch(err => {
-        console.error("Erreur lors de l'ajout du dossier :", err);
-        alert("Erreur lors de l'ajout du dossier.");
-    });
-}
-
-// Fonction pour supprimer un dossier
-function deleteDossier(id_dossier) {
-    if (confirm("Êtes-vous sûr de vouloir supprimer ce dossier ?")) {
-        const data = {
-            action: 'deleteDossier',
-            id_dossier: id_dossier
-        };
-
-        // Envoi de la requête de suppression
-        fetch("http://localhost/public/api/dossierApi.php", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        })
-        .then(response => response.json())
-        .then(result => {
-            if (result.success) {
-                alert(result.message);
-
-                // Supprimer la ligne du tableau (DOM)
-                const row = document.getElementById(`dossier-${id_dossier}`);
-                if (row) {
-                    row.remove(); // Supprime la ligne
-                }
-            } else {
-                alert(result.message);
-            }
-        })
-        .catch(err => {
-            console.error("Erreur lors de la suppression du dossier :", err);
-            alert("Erreur lors de la suppression du dossier.");
-        });
-    }
-}
 

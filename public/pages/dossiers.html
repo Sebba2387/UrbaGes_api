@@ -13,12 +13,12 @@
     }
 </style>
 <!-- Formulaire d'ajout de dossier -->
-<div id="form2" class="form-container expanded mb-5 mt-5 h-auto">
+<div id="form2" class="form-container mb-5 mt-5 h-auto" data-callback="initAddDossierForm">
     <button class="btn btn-primary fw-bold toggle-btn" onclick="toggleForm('form2')">
         <i class="bi bi-folder-fill"></i> Ajouter
     </button>
     <div class="card">
-        <form>
+        <form id="addDossierForm">
             <!-- Ligne 1 -->
             <div class="row">
                 <div class="col-12 col-md-2 mb-3">
@@ -39,9 +39,10 @@
                 <div class="col-12 col-md-2 mb-3">
                     <select class="form-control" name="statut" id="statut">
                         <option value="" disabled selected>-- Statut --</option>
-                        <option value="Instruction complexe">traité</option>
-                        <option value="Projet">en cours</option>
-                        <option value="Accompagnement">en attente</option>
+                        <option value="traité">traité</option>
+                        <option value="en cours">en cours</option>
+                        <option value="en attente">en attente</option>
+                        <option value="annulé">annulé</option>
                     </select>
                 </div>
             </div>
