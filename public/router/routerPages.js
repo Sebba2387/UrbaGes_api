@@ -43,20 +43,43 @@ async function loadHeaderAndSidebar() {
 
         // Initialiser le toggle de la sidebar après son chargement
         setupSidebarToggle();
-
         componentsLoaded = true;  // Marquer que les composants sont chargés
-
-        // Ajouter les écouteurs de clics après injection du HTML
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const path = link.getAttribute('href');
-                changePage(path);
-            });
-        });
 
     } catch (error) {
         console.error('Erreur de chargement du header ou de la sidebar:', error);
+    }
+
+    // Ajoute le comportement des liens de navigation
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const path = link.getAttribute('href');
+            changePage(path);
+        });
+    });
+
+    // Appeler ici pour changer l'image / pseudo de profil
+    const userId = localStorage.getItem('userId');
+    if (userId) {
+        fetch('http://localhost/public/api/userApi.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action: 'getProfile', userId })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                // Mettre à jour l'image de profil en fonction du genre
+                updateProfileImage(data.user.genre);
+    
+                // Mettre à jour le pseudo dans la sidebar
+                const pseudoElement = document.getElementById('sidebar-pseudo');
+                if (pseudoElement && data.user.pseudo) {
+                    pseudoElement.textContent = data.user.pseudo;
+                }
+            }
+        })
+        .catch(err => console.error("Erreur lors du chargement du genre utilisateur :", err));
     }
 }
 

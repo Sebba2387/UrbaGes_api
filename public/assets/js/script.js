@@ -28,14 +28,25 @@ function setupSidebarToggle() {
     const toggleIcon = document.getElementById('toggle-icon');
 
     if (sidebar && toggleBtn && toggleIcon) {
+        // Fermer la sidebar au début
+        sidebar.classList.add('collapsed');
+        toggleIcon.classList.add('bi-chevron-right');
+
         // Ajouter l'événement de clic sur le bouton de toggle
         toggleBtn.addEventListener('click', function () {
-            sidebar.classList.toggle('collapsed');  // Toggle la classe qui réduit/agrandit la sidebar
-            toggleIcon.classList.toggle('bi-chevron-left');  // Changer de direction du chevron
-            toggleIcon.classList.toggle('bi-chevron-right');
+            sidebar.classList.toggle('collapsed');  
+            
+            if (sidebar.classList.contains('collapsed')) {
+                toggleIcon.classList.remove('bi-chevron-left');
+                toggleIcon.classList.add('bi-chevron-right');
+            } else {
+                toggleIcon.classList.remove('bi-chevron-right');
+                toggleIcon.classList.add('bi-chevron-left');
+            }
         });
     }
 }
+
 
 // Fonction pour afficher les formulaires
 function toggleForm(formId) {
@@ -66,5 +77,26 @@ function copierTexte(event, inputName) {
         input.setSelectionRange(0, 99999);
         navigator.clipboard.writeText(input.value) // Copie le texte
             .catch(err => console.error("Erreur de copie :", err));
+    }
+}
+
+// Fonction pour afficher dynamiquement la photo de profil selon le genre
+function updateProfileImage(genre) {
+    const photoProfil = document.querySelector(".photo-profil img");
+    if (photoProfil) {
+        const genreLower = genre.toLowerCase();
+        const imageUrl = genreLower === "femme"
+            ? "/public/assets/images/img_profil_femme.jpg"
+            : "/public/assets/images/img_profil_homme.jpg";
+        if (photoProfil.src.endsWith(imageUrl)) {
+            photoProfil.style.display = "block"; // L’image est déjà bonne, juste l’afficher
+            return;
+        }
+        const tempImg = new Image();
+        tempImg.onload = () => {
+            photoProfil.src = imageUrl;
+            photoProfil.style.display = "block";
+        };
+        tempImg.src = imageUrl;
     }
 }
