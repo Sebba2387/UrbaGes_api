@@ -212,10 +212,8 @@ function initAddDossierForm(callback) {
         console.error("Formulaire d'ajout non trouvé");
         return;
     }
-
     // Charger les communes dès l'init
     loadCommunes();
-
     // Ajouter l'écouteur de soumission
     form.addEventListener("submit", function(event) {
         event.preventDefault();
@@ -386,6 +384,90 @@ function initEditDossierForm() {
     }
 }
 
+
+// Fonction pour récupérer l'id_utilisateur et afficher les dossiers associés
+function fetchUserDossiers() {
+    // Vérifie si l'utilisateur est connecté
+    const userId = localStorage.getItem('userId');
+    if (!userId) {
+        alert("Utilisateur non connecté !");
+        return;
+    }
+    // Envoi de la requête pour récupérer les dossiers de l'utilisateur
+    fetch('http://localhost/public/api/dossierApi.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            action: 'getDossiersByUser',
+            userId: userId
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Insertion des dossiers dans le tableau
+            const tbody = document.getElementById('mesDossiersTBody');
+            tbody.innerHTML = ''; // Vider le tableau avant d'ajouter les nouveaux dossiers
+            if (data.dossiers.length > 0) {
+                data.dossiers.forEach(dossier => {
+                    tbody.innerHTML += `
+                        <tr>
+                            <td>${dossier.numero_dossier}</td>
+                            <td>${dossier.nom_commune}</td>
+                            <td>${dossier.type_dossier}</td>
+                            <td>${dossier.sous_type_dossier}</td>
+                            <td>${dossier.libelle}</td>
+                            <td>${dossier.date_demande}</td>
+                            <td>${dossier.statut}</td>
+                            <td>
+                                <button class="btn btn-sm btn-warning" onclick="redirectToEdit(${dossier.id_dossier})"><i class="bi bi-pencil-fill fs-5"></i></button>
+                                <button class="btn btn-sm btn-danger" onclick="deleteDossier(${dossier.id_dossier})"><i class="bi bi-trash-fill fs-5"></i></button>
+                            </td>
+                        </tr>
+                    `;
+                });
+            } else {
+                tbody.innerHTML = '<tr><td colspan="6">Aucun dossier trouvé.</td></tr>';
+            }
+        } else {
+            alert(data.message || 'Erreur lors de la récupération des dossiers.');
+        }
+    })
+    .catch(error => {
+        console.error('Erreur réseau:', error);
+        alert('Impossible de charger les dossiers.');
+    });
+}
+
+// Fonction pour initialiser le fetch dès que le DOM est chargé
+function initFetchUserDossiers() {
+    const tbody = document.getElementById('mesDossiersTBody');
+    if (tbody) {
+        const callback = tbody.getAttribute('data-callback');
+        if (callback && typeof window[callback] === 'function') {
+            console.log("Appel de la fonction : " + callback);
+            window[callback](); // Appel de la fonction fetchUserDossiers
+        } else {
+            console.error('Aucun callback valide trouvé dans data-callback.');
+        }
+    }
+}
+
+// Initialisation lorsque le DOM est complètement chargé
+document.addEventListener('DOMContentLoaded', initFetchUserDossiers);
+
+
+
+
+
+
+
+  
+  
+
+  
 
 
 

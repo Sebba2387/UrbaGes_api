@@ -164,6 +164,24 @@ switch ($action) {
         echo json_encode(["success" => $success, "message" => $success ? "Dossier supprimé avec succès" : "Erreur lors de la suppression du dossier"]);
         break;
 
+    case 'getDossiersByUser':
+        // Récupérer les données envoyées via POST
+        $inputData = json_decode(file_get_contents('php://input'), true);
+        // Vérifier si le userId est bien envoyé dans le corps de la requête
+        if (isset($inputData['userId'])) {
+            $userId = $inputData['userId'];  // Récupérer l'ID utilisateur à partir des données POST
+            $success = $dossierModel->getDossiersByUser($userId);
+            
+            if ($success) {
+                echo json_encode(['success' => true, 'dossiers' => $success]);
+            } else {
+                echo json_encode(['success' => false, 'message' => 'Aucun dossier trouvé pour cet utilisateur.']);
+            }
+        } else {
+            echo json_encode(['success' => false, 'message' => 'ID utilisateur manquant']);
+        }
+        break;
+
     default:
         echo json_encode(["success" => false, "message" => "Action non valide"]);
         break;

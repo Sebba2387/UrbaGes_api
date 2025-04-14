@@ -236,11 +236,18 @@ class DossierModel {
     
         return $success;
     }
-    
-    
-    
-    
-    
-    
+
+    public function getDossiersByUser($userId) {
+        $query = "SELECT d.*, c.nom_commune 
+              FROM dossiers d
+              JOIN communes c ON d.id_commune = c.id_commune
+              WHERE d.id_utilisateur = :userId";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
+        $stmt->execute();
+        $dossiers = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $dossiers;
+    }
 }
 ?>
