@@ -121,16 +121,19 @@ function paginateDossiers(callback) {
 function updatePagination(totalItems) {
     const totalPages = Math.ceil(totalItems / itemsPerPage);
     const paginationContainer = document.getElementById("pagination");
-    // S'il n'existe pas de conteneur de pagination dans le HTML, on arrête ici
     if (!paginationContainer) return;
 
-    paginationContainer.innerHTML = ""; // Réinitialiser le conteneur
+    paginationContainer.innerHTML = ""; // Reset
 
     for (let i = 1; i <= totalPages; i++) {
         const pageButton = document.createElement("button");
         pageButton.textContent = i;
-        pageButton.classList.add("page-button");
-        // Ajoute un écouteur pour mettre à jour la page active lors du clic
+        pageButton.classList.add("btn", "me-1");
+        if (i === currentPage) {
+            pageButton.classList.add("btn-primary");
+        } else {
+            pageButton.classList.add("btn-outline-primary");
+        }
         pageButton.addEventListener("click", () => {
             currentPage = i;
             paginateDossiers();
@@ -138,6 +141,7 @@ function updatePagination(totalItems) {
         paginationContainer.appendChild(pageButton);
     }
 }
+
 
 // Fonction pour charger la liste des communes dans le <select>
 function loadCommunes() {
