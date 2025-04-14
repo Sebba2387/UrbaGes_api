@@ -1,17 +1,3 @@
-<style>
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-    th, td {
-        border: 1px solid black;
-        padding: 8px;
-        text-align: left;
-    }
-    th {
-        background-color: #f2f2f2;
-    }
-</style>
 <!-- Formulaire d'ajout de dossier -->
 <div id="form2" class="form-container mb-5 mt-5 h-auto" data-callback="initAddDossierForm">
     <button class="btn btn-primary fw-bold toggle-btn" onclick="toggleForm('form2')">
@@ -142,9 +128,9 @@
         </form>
     </div>
 </div>
-<h3>Résultats</h3>
-    <table>
-        <thead>
+<div class="table-responsive" id="dossierTableContainer" style="display: none;">
+    <table class="table table-bordered table-striped align-middle text-center">
+        <thead class="table-dark">
             <tr>
                 <th>Commune</th>
                 <th>Numéro Dossier</th>
@@ -162,5 +148,6 @@
         </thead>
         <tbody id="dossierTableBody"></tbody>
     </table>
+</div>
 <div id="pagination"></div>
 <script src="/public/assets/js/fetch/dossierFetch.js" defer></script>

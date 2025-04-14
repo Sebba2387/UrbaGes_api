@@ -1,17 +1,4 @@
-<style>
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-    th, td {
-        border: 1px solid black;
-        padding: 8px;
-        text-align: left;
-    }
-    th {
-        background-color: #f2f2f2;
-    }
-</style>
+
 <!-- Formulaire d'inscription -->
 <div id="form2" class="form-container expanded mb-5 mt-5 h-auto">
     <button class="btn btn-primary fw-bold toggle-btn" onclick="toggleForm('form2')">
@@ -83,9 +70,25 @@
         </form>
     </div>
 </div>
-<table>
-    <tbody id="searchResults">
-        <!-- Résultats affichés ici -->
-    </tbody>
-</table>
+<div class="table-responsive" id="searchResultsTableContainer" style="display: none;">
+    <table class="table table-bordered table-striped align-middle text-center">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Email</th>
+                <th>Année de Naissance</th>
+                <th>Pseudo</th>
+                <th>Genre</th>
+                <th>Poste</th>
+                <th colspan="2">Actions</th>
+            </tr>
+        </thead>
+        <tbody id="searchResultsTableBody">
+            <!-- Les résultats de la recherche seront insérés ici -->
+        </tbody>
+    </table>
+</div>
+
 <script src="/public/assets/js/fetch/userFetch.js" defer></script>

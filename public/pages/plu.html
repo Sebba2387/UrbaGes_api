@@ -41,27 +41,29 @@
     </div>
 </div>
 <!-- Table des résultats -->
-<table>
-    <thead>
-        <tr>
-            <th>Nom Commune</th>
-            <th>Code Commune</th>
-            <th>Code Postal</th>
-            <th>État PLU</th>
-            <th>Type PLU</th>
-            <th>Date PLU</th>
-            <th>Système Assainissement</th>
-            <th>Statut Zonage</th>
-            <th>Statut Présentation</th>
-            <th>Date Annexion</th>
-            <th>Lien Zonage</th>
-            <th>Lien DHUA</th>
-            <th>Observation</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
+<div class="table-responsive" id="pluTableContainer" style="display: none;">
+    <table class="table table-bordered table-striped align-middle text-center">
+        <thead class="table-dark">
+            <tr>
+                <th>Nom Commune</th>
+                <th>Code Commune</th>
+                <th>Code Postal</th>
+                <th>État PLU</th>
+                <th>Type PLU</th>
+                <th>Date PLU</th>
+                <th>Système Assainissement</th>
+                <th>Statut Zonage</th>
+                <th>Statut Présentation</th>
+                <th>Date Annexion</th>
+                <th>Lien Zonage</th>
+                <th>Lien DHUA</th>
+                <th>Observation</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
     <tbody id="pluResults">
         <!-- Les résultats de la recherche seront affichés ici -->
     </tbody>
-</table>
+    </table>
+</div>
 <script src="/public/assets/js/fetch/pluFetch.js" defer></script>

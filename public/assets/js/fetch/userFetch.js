@@ -24,7 +24,6 @@ function loginUser(email, password) {
     .catch(error => console.error('Erreur:', error));
 }
 
-
 // Fonction pour récupérer le profil utilisateur
 function fetchUserProfile() {
     const userId = localStorage.getItem('userId');
@@ -104,8 +103,8 @@ function displayUsersTable(users) {
             <td>${user.poste}</td>
             <td>${user.nom_role}</td>
             <td>
-                <button class="rounded" onclick="redirectToEdit(${user.id_utilisateur})"><i class="bi bi-pencil-fill fs-5"></i></button>
-                <button class="rounded" onclick="deleteUser(${user.id_utilisateur})"><i class="bi bi-trash-fill fs-5"></i></button>
+                <button class="btn btn-sm btn-warning" onclick="redirectToEdit(${user.id_utilisateur})"><i class="bi bi-pencil-fill fs-5"></i></button>
+                <button class="btn btn-sm btn-danger" onclick="deleteUser(${user.id_utilisateur})"><i class="bi bi-trash-fill fs-5"></i></button>
             </td>
         </tr>`;
         tableBody.innerHTML += row;
@@ -234,27 +233,23 @@ function searchUsers() {
 
 // Fonction pour afficher le résultat de la recherche
 function displaySearchResults(users) {
-    const resultsTable = document.getElementById("searchResults");
-    resultsTable.innerHTML = ""; // Vide le tableau avant d'afficher les nouveaux résultats
+    const tableContainer = document.getElementById("searchResultsTableContainer");
+    const tableBody = document.getElementById("searchResultsTableBody");
+    if (!tableBody) {
+        console.error('L\'élément avec l\'ID "searchResultsTableBody" est introuvable.');
+        return;
+    }
     if (users.length === 0) {
-        resultsTable.innerHTML = "<tr><td colspan='8'>Aucun utilisateur trouvé.</td></tr>";
+        tableBody.innerHTML = "<tr><td colspan='10'>Aucun utilisateur trouvé.</td></tr>";
+        tableContainer.style.display = "none";
     } else {
-        // Affichage des en-têtes du tableau si des utilisateurs sont trouvés
-        resultsTable.innerHTML = `
-            <tr>
-                <th>Nom</th>
-                <th>Prénom</th>
-                <th>Email</th>
-                <th>Année de Naissance</th>
-                <th>Pseudo</th>
-                <th>Genre</th>
-                <th>Poste</th>
-                <th>Actions</th>
-            </tr>
-        `;
+
+        tableContainer.style.display = "block";
+        tableBody.innerHTML = "";
+
         users.forEach(user => {
-            const row = document.createElement("tr");
-            row.innerHTML = `
+            let row = `<tr>
+                <td>${user.id_utilisateur || 'N/A'}</td>
                 <td>${user.nom || 'N/A'}</td>
                 <td>${user.prenom || 'N/A'}</td>
                 <td>${user.email || 'N/A'}</td>
@@ -263,15 +258,17 @@ function displaySearchResults(users) {
                 <td>${user.genre || 'N/A'}</td>
                 <td>${user.poste || 'N/A'}</td>
                 <td>
-                    <button onclick="redirectToEdit(${user.id_utilisateur})"><i class="bi bi-pencil-fill fs-5"></i></button>
-                    <button onclick="deleteUser(${user.id_utilisateur})"><i class="bi bi-trash-fill fs-5"></i></button>
+                    <button class="btn btn-sm btn-warning" onclick="redirectToEdit(${user.id_utilisateur})"><i class="bi bi-pencil-fill fs-5"></i></button>
+                    <button class="btn btn-sm btn-danger" onclick="deleteUser(${user.id_utilisateur})"><i class="bi bi-trash-fill fs-5"></i></button>
                 </td>
-            `;
-            resultsTable.appendChild(row);
+            </tr>`;
+            tableBody.innerHTML += row;
         });
     }
 }
-document.addEventListener("DOMContentLoaded", searchUsers);
+document.addEventListener("DOMContentLoaded", function() {
+    searchUsers();
+});
 
 // Fonction pour rediriger vers l'édition du profil
 function redirectToEdit(userId) {

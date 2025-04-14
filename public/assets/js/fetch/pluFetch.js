@@ -42,35 +42,58 @@ function searchPlu(callback) {
 
 // Fonction pour afficher les résultats et exécuter un callback
 function displayPlu(pluList, callback) {
+    const tableContainer = document.getElementById("pluTableContainer");
     const tableBody = document.getElementById("pluResults");
+
+    if (!tableContainer || !tableBody) {
+        console.error("Élément(s) manquant(s) : #pluTableContainer ou #pluResults");
+        return;
+    }
+
     tableBody.innerHTML = "";
+
+    if (!Array.isArray(pluList) || pluList.length === 0) {
+        tableContainer.style.display = "none";
+        tableBody.innerHTML = `
+            <tr>
+                <td colspan="14" class="text-center text-danger">
+                    Aucun résultat trouvé pour la recherche PLU.
+                </td>
+            </tr>
+        `;
+        return;
+    }
+
+    tableContainer.style.display = "block";
+
     pluList.forEach(plu => {
         const row = document.createElement("tr");
         row.innerHTML = `
-            <td>${plu.nom_commune}</td>
-            <td>${plu.code_commune}</td>
-            <td>${plu.cp_commune}</td>
-            <td>${plu.etat_plu}</td>
-            <td>${plu.type_plu}</td>
-            <td>${plu.date_plu}</td>
-            <td>${plu.systeme_ass}</td>
-            <td>${plu.statut_zonage}</td>
-            <td>${plu.statut_pres}</td>
-            <td>${plu.date_annexion}</td>
+            <td>${plu.nom_commune || "N/A"}</td>
+            <td>${plu.code_commune || "N/A"}</td>
+            <td>${plu.cp_commune || "N/A"}</td>
+            <td>${plu.etat_plu || "N/A"}</td>
+            <td>${plu.type_plu || "N/A"}</td>
+            <td>${plu.date_plu || "N/A"}</td>
+            <td>${plu.systeme_ass || "N/A"}</td>
+            <td>${plu.statut_zonage || "N/A"}</td>
+            <td>${plu.statut_pres || "N/A"}</td>
+            <td>${plu.date_annexion || "N/A"}</td>
             <td>${plu.lien_zonage ? `<a href="${plu.lien_zonage}" target="_blank">Lien</a>` : 'N/A'}</td>
             <td>${plu.lien_dhua ? `<a href="${plu.lien_dhua}" target="_blank">Lien</a>` : 'N/A'}</td>
-            <td>${plu.observation_plu}</td>
+            <td>${plu.observation_plu || "N/A"}</td>
             <td>
-                <button onclick="redirectToEdit(${plu.id_plu})"><i class="bi bi-pencil-fill fs-5"></i></button>
+                <button class="btn btn-sm btn-warning" onclick="redirectToEdit(${plu.id_plu})"><i class="bi bi-pencil-fill fs-5"></i></button>
             </td>
         `;
         tableBody.appendChild(row);
     });
-    // Exécuter le callback s’il est fourni
+
     if (typeof callback === 'function') {
         callback();
     }
 }
+
 
 // Fonction pour initialiser le formulaire de recherche de PLU
 function initSearchPluForm() {

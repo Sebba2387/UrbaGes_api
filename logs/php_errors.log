@@ -480,3 +480,224 @@ Stack trace:
   thrown in C:\xampp\htdocs\app\controllers\gepController.php on line 73
 [13-Apr-2025 00:20:00 Europe/Berlin] Données reçues : {"action":"updatePlu","id_plu":"1","type_plu":"PLU","etat_plu":"En vigueur","date_plu":"12\/07\/2023","systeme_ass":"VALENCE","statut_zonage":"en attente","statut_pres":"en attente","date_annexion":"31\/03\/2025","lien_zonage":"L:\\03 DT-DD\\02 Assainissement\\06_SUIVI_PATRIMONIAL\\8_ZONAGES_ASS_EPL\\ALIXAN","lien_dhua":"\\\\sysinfo.local\\src-data\\DirectionAgglo\\06 Inter-dep\\03 DT-DD\\08 Ressources suivi PLU\\26004_ALIXAN","observation_plu":""}
 
+[14-Apr-2025 19:06:00 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[14-Apr-2025 19:06:00 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[14-Apr-2025 19:52:05 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[14-Apr-2025 19:52:05 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[14-Apr-2025 19:54:01 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[14-Apr-2025 19:54:03 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[14-Apr-2025 19:54:06 Europe/Berlin] Données reçues : Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => Servitude
+    [sous_type_dossier] => 
+)
+
+[14-Apr-2025 19:54:06 Europe/Berlin] Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => Servitude
+    [sous_type_dossier] => 
+)
+
+[14-Apr-2025 19:54:58 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[14-Apr-2025 19:54:58 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[14-Apr-2025 19:55:02 Europe/Berlin] Données reçues : Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => Servitude
+    [sous_type_dossier] => 
+)
+
+[14-Apr-2025 19:55:02 Europe/Berlin] Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => Servitude
+    [sous_type_dossier] => 
+)
+
+[14-Apr-2025 19:56:08 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[14-Apr-2025 19:56:08 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[14-Apr-2025 19:56:12 Europe/Berlin] Données reçues : Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => 
+)
+
+[14-Apr-2025 19:56:12 Europe/Berlin] Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => 
+)
+
+[14-Apr-2025 19:57:06 Europe/Berlin] Données reçues : Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => Servitude
+    [sous_type_dossier] => 
+)
+
+[14-Apr-2025 19:57:06 Europe/Berlin] Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => Servitude
+    [sous_type_dossier] => 
+)
+
+[14-Apr-2025 19:57:19 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[14-Apr-2025 19:57:19 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[14-Apr-2025 20:00:28 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[14-Apr-2025 20:00:28 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[14-Apr-2025 20:01:21 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[14-Apr-2025 20:01:21 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[14-Apr-2025 20:01:26 Europe/Berlin] Données reçues : Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => Instruction complexe
+    [sous_type_dossier] => 
+)
+
+[14-Apr-2025 20:01:26 Europe/Berlin] Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => Instruction complexe
+    [sous_type_dossier] => 
+)
+
+[14-Apr-2025 20:05:01 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[14-Apr-2025 20:05:01 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[14-Apr-2025 20:05:03 Europe/Berlin] Données reçues : Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => DP02613924R0002
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => 
+)
+
+[14-Apr-2025 20:05:03 Europe/Berlin] Array
+(
+    [action] => searchDossier
+    [nom_commune] => 
+    [numero_dossier] => DP02613924R0002
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => 
+)
+
+[14-Apr-2025 20:08:27 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[14-Apr-2025 20:08:27 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[14-Apr-2025 20:13:06 Europe/Berlin] Données reçues : {"action":"updatePlu","id_plu":"1","type_plu":"PLU","etat_plu":"En vigueur","date_plu":"12\/07\/2023","systeme_ass":"VALENCE","statut_zonage":"en attente","statut_pres":"en attente","date_annexion":"31\/03\/2025","lien_zonage":"L:\\03 DT-DD\\02 Assainissement\\06_SUIVI_PATRIMONIAL\\8_ZONAGES_ASS_EPL\\ALIXAN","lien_dhua":"\\\\sysinfo.local\\src-data\\DirectionAgglo\\06 Inter-dep\\03 DT-DD\\08 Ressources suivi PLU\\26004_ALIXAN","observation_plu":"Abbes"}

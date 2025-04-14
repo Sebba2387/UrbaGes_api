@@ -1831,3 +1831,90 @@ Résultats: Array
 
 2025-04-13 01:18:25 - Requête reçue : {"action":"searchCommune"}
 2025-04-13 02:51:53 - Requête reçue : {"action":"searchCommune","code_commune":"26088"}
+2025-04-13 23:37:36 - Requête reçue : {"action":"logout"}
+2025-04-14 18:25:44 - Requête reçue : {"action":"login","email":"bouguerra.abbes@outlook.fr","password":"123"}
+2025-04-14 18:25:47 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 18:25:48 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 18:25:48 - Requête reçue : {"action":"getAllUsers"}
+2025-04-14 18:32:06 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 18:32:07 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 18:32:07 - Requête reçue : {"action":"getAllUsers"}
+2025-04-14 18:32:40 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 18:32:42 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 18:32:42 - Requête reçue : {"action":"getAllUsers"}
+2025-04-14 18:33:47 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 18:33:52 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"Instructrice assainissement"}
+2025-04-14 18:37:21 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 18:37:35 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 18:37:41 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"Instructrice assainissement"}
+2025-04-14 18:38:17 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 18:38:21 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"Instructrice assainissement"}
+2025-04-14 18:40:22 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 18:40:25 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"Instructrice assainissement"}
+2025-04-14 18:43:13 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 18:43:18 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"Instructrice assainissement"}
+2025-04-14 18:44:26 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 18:44:32 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"Instructrice assainissement"}
+2025-04-14 18:45:25 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 18:45:29 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"Instructrice assainissement"}
+2025-04-14 18:46:08 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 18:46:26 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"Instructrice assainissement"}
+2025-04-14 18:47:44 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 18:47:49 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"Instructrice assainissement"}
+2025-04-14 18:49:52 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 18:49:57 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"Instructrice assainissement"}
+2025-04-14 18:50:38 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 18:50:41 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"Directeur"}
+2025-04-14 18:50:47 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"Instructrice assainissement"}
+2025-04-14 18:51:23 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 18:51:27 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"Instructrice assainissement"}
+2025-04-14 18:53:01 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 18:53:04 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"Instructrice assainissement"}
+2025-04-14 18:53:29 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 18:53:32 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"Instructrice assainissement"}
+2025-04-14 18:54:52 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 18:54:56 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"Instructrice assainissement"}
+2025-04-14 18:57:32 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 18:57:45 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"Instructrice assainissement"}
+2025-04-14 18:58:07 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 18:58:15 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"Instructrice assainissement"}
+2025-04-14 18:58:27 - Requête reçue : {"action":"searchUsers","nom":"BOUGUERRA","prenom":"","poste":""}
+2025-04-14 18:59:49 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 18:59:55 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"Instructrice assainissement"}
+2025-04-14 19:02:59 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 19:03:03 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"Instructrice assainissement"}
+2025-04-14 19:03:27 - Requête reçue : {"action":"getUser","id_utilisateur":"9"}
+2025-04-14 19:03:40 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"Directeur"}
+2025-04-14 19:03:42 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"Directeur"}
+2025-04-14 19:03:47 - Requête reçue : {"action":"searchUsers","nom":"HOCINI","prenom":"","poste":""}
+2025-04-14 19:04:12 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 19:04:13 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 19:04:13 - Requête reçue : {"action":"getAllUsers"}
+2025-04-14 19:04:38 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 19:04:40 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 19:04:40 - Requête reçue : {"action":"getAllUsers"}
+2025-04-14 19:04:53 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 19:05:00 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"Instructrice assainissement"}
+2025-04-14 19:05:32 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 19:05:35 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"Instructrice assainissement"}
+2025-04-14 19:52:04 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 19:54:00 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 19:54:56 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 19:56:06 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 19:57:18 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 20:00:27 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 20:01:20 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 20:02:00 - Requête reçue : {"action":"searchCommune","nom_commune":"Alixan"}
+2025-04-14 20:02:08 - Requête reçue : {"action":"searchCommune"}
+2025-04-14 20:02:09 - Requête reçue : {"action":"searchCommune"}
+2025-04-14 20:02:11 - Requête reçue : {"action":"searchCommune"}
+2025-04-14 20:02:15 - Requête reçue : {"action":"searchCommune","nom_commune":"Malissar"}
+2025-04-14 20:04:32 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 20:04:37 - Requête reçue : {"action":"searchCommune","code_commune":"26004"}
+2025-04-14 20:08:26 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 20:12:46 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-14 20:12:51 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"Alixan","cp_commune":"","etat_plu":""}
+2025-04-14 20:12:59 - Requête reçue : {"action":"getPluById","id_plu":"1"}
+2025-04-14 20:13:06 - Requête reçue : {"action":"updatePlu","id_plu":"1","type_plu":"PLU","etat_plu":"En vigueur","date_plu":"12/07/2023","systeme_ass":"VALENCE","statut_zonage":"en attente","statut_pres":"en attente","date_annexion":"31/03/2025","lien_zonage":"L:\\03 DT-DD\\02 Assainissement\\06_SUIVI_PATRIMONIAL\\8_ZONAGES_ASS_EPL\\ALIXAN","lien_dhua":"\\\\sysinfo.local\\src-data\\DirectionAgglo\\06 Inter-dep\\03 DT-DD\\08 Ressources suivi PLU\\26004_ALIXAN","observation_plu":"Abbes"}
+2025-04-14 20:14:04 - Requête reçue : {"action":"searchPlu","code_commune":"","nom_commune":"GENISSIEUX","cp_commune":"","etat_plu":""}
+2025-04-14 20:14:44 - Requête reçue : {"action":"getProfile","userId":"1"}

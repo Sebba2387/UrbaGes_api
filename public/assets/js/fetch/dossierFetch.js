@@ -62,32 +62,45 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Fonction pour afficher des résultats de recherche
 function displayDossiers(dossiers, callback) {
+    const tableContainer = document.getElementById("dossierTableContainer");
     const tableBody = document.getElementById("dossierTableBody");
+    if (!tableBody || !tableContainer) {
+        console.error("Élément(s) manquant(s) dans le DOM : #dossierTableBody ou #dossierTableContainer");
+        return;
+    }
     tableBody.innerHTML = "";
+    if (dossiers.length === 0) {
+        tableContainer.style.display = "none";
+        tableBody.innerHTML = `<tr><td colspan="12">Aucun dossier trouvé.</td></tr>`;
+        return;
+    }
+    tableContainer.style.display = "block";
+
     dossiers.forEach(dossier => {
         const row = document.createElement("tr");
         row.id = `dossier-${dossier.id_dossier}`;
         row.innerHTML = `
-            <td>${dossier.nom_commune}</td>
-            <td>${dossier.numero_dossier}</td>
-            <td>${dossier.id_cadastre}</td>
-            <td>${dossier.type_dossier}</td>
-            <td>${dossier.sous_type_dossier}</td>
-            <td>${dossier.pseudo}</td>
-            <td>${dossier.libelle}</td>
-            <td>${dossier.date_demande}</td>
-            <td>${dossier.date_limite}</td>
-            <td>${dossier.statut}</td>
+            <td>${dossier.nom_commune || "N/A"}</td>
+            <td>${dossier.numero_dossier || "N/A"}</td>
+            <td>${dossier.id_cadastre || "N/A"}</td>
+            <td>${dossier.type_dossier || "N/A"}</td>
+            <td>${dossier.sous_type_dossier || "N/A"}</td>
+            <td>${dossier.pseudo || "N/A"}</td>
+            <td>${dossier.libelle || "N/A"}</td>
+            <td>${dossier.date_demande || "N/A"}</td>
+            <td>${dossier.date_limite || "N/A"}</td>
+            <td>${dossier.statut || "N/A"}</td>
             <td>${dossier.lien_calypso ? `<a href="${dossier.lien_calypso}" target="_blank">Lien</a>` : 'N/A'}</td>
             <td>
-                <button onclick="redirectToEdit(${dossier.id_dossier})"><i class="bi bi-pencil-fill fs-5"></i></button>
-                <button onclick="deleteDossier(${dossier.id_dossier})"><i class="bi bi-trash-fill fs-5"></i></button>
+                <button class="btn btn-sm btn-warning" onclick="redirectToEdit(${dossier.id_dossier})"><i class="bi bi-pencil-fill fs-5"></i></button>
+                <button class="btn btn-sm btn-danger" onclick="deleteDossier(${dossier.id_dossier})"><i class="bi bi-trash-fill fs-5"></i></button>
             </td>
         `;
         tableBody.appendChild(row);
     });
     paginateDossiers(callback);
 }
+
 
 // Fonction pour la pagination du résultat de la recherche
 let itemsPerPage = 10;  // Nombre de lignes à afficher par page

@@ -1,17 +1,3 @@
-<style>
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-    th, td {
-        border: 1px solid black;
-        padding: 8px;
-        text-align: left;
-    }
-    th {
-        background-color: #f2f2f2;
-    }
-</style>
 <!-- Formulaire de recherche de parcelle -->
 <div id="form3" class="form-container expanded mb-5 mt-5" data-callback="initGepSearchForm">
     <button class="btn btn-primary toggle-btn" onclick="toggleForm('form3')">
@@ -40,24 +26,26 @@
     </div>
 </div>
 
-<table>
-    <thead>
-        <tr>
-            <th>Commune</th>
-            <th>Section</th>
-            <th>Numéro</th>
-            <th>Surface</th>
-            <th>Captage</th>
-            <th>Règles de Captage</th>
-            <th>Dysfonctionnement</th>
-            <th>Sage (indice)</th>
-            <th>Zone de Montana</th>
-            <th>Sous-zone PLU</th>
-            <th>Règle PLU</th>
-        </tr>
+<div class="table-responsive" id="gepTableContainer" style="display: none;">
+    <table class="table table-bordered table-striped align-middle text-center">
+        <thead class="table-dark">
+            <tr>
+                <th>Commune</th>
+                <th>Section</th>
+                <th>Numéro</th>
+                <th>Surface</th>
+                <th>Captage</th>
+                <th>Règles de Captage</th>
+                <th>Dysfonctionnement</th>
+                <th>Sage (indice)</th>
+                <th>Zone de Montana</th>
+                <th>Sous-zone PLU</th>
+                <th>Règle PLU</th>
+            </tr>
     </thead>
     <tbody id="gepResults">
         <!-- Résultats injectés ici -->
     </tbody>
 </table>
+</div>
 <script src="/public/assets/js/fetch/gepFetch.js"></script>

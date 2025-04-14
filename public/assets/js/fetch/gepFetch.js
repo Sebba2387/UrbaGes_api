@@ -66,35 +66,48 @@ function searchGep() {
 
 // Fonction pour afficher les résultats dans un tableau
 function displayGep(geps) {
+    const tableContainer = document.getElementById("gepTableContainer");
     const tableBody = document.getElementById("gepResults");
+
+    if (!tableContainer || !tableBody) {
+        console.error("Élément(s) manquant(s) : #gepTableContainer ou #gepResults");
+        return;
+    }
+
     tableBody.innerHTML = "";
-    if (geps && geps.length > 0) {
-        geps.forEach(gep => {
-            const row = document.createElement("tr");
-            row.innerHTML = `
-                <td>${gep.nom_commune}</td>
-                <td>${gep.section}</td>
-                <td>${gep.numero}</td>
-                <td>${gep.surface}</td>
-                <td>${gep.captage}</td>
-                <td>${gep.captage_regles}</td>
-                <td>${gep.dys_pct}</td>
-                <td>${gep.sage_indice}</td>
-                <td>${gep.montana_zone}</td>
-                <td>${gep.plu_sous_zone}</td>
-                <td>${gep.plu_regle}</td>
-            `;
-            tableBody.appendChild(row);
-        });
-    } else {
+
+    if (!Array.isArray(geps) || geps.length === 0) {
+        tableContainer.style.display = "none";
+
         tableBody.innerHTML = `
             <tr>
                 <td colspan="11" class="text-center text-danger">
-                    Veuillez entrer au moins un critère de recherche pour effectuer la recherche.
+                    Aucune donnée GEP trouvée.
                 </td>
             </tr>
         `;
+        return;
     }
+
+    tableContainer.style.display = "block";
+
+    geps.forEach(gep => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${gep.nom_commune || "N/A"}</td>
+            <td>${gep.section || "N/A"}</td>
+            <td>${gep.numero || "N/A"}</td>
+            <td>${gep.surface || "N/A"}</td>
+            <td>${gep.captage || "N/A"}</td>
+            <td>${gep.captage_regles || "N/A"}</td>
+            <td>${gep.dys_pct || "N/A"}</td>
+            <td>${gep.sage_indice || "N/A"}</td>
+            <td>${gep.montana_zone || "N/A"}</td>
+            <td>${gep.plu_sous_zone || "N/A"}</td>
+            <td>${gep.plu_regle || "N/A"}</td>
+        `;
+        tableBody.appendChild(row);
+    });
 }
 
 // Appel de la fonction d'initialisation au chargement de la page

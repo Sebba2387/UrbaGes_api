@@ -40,23 +40,25 @@
         </form>
     </div>
 </div>
-<table>
-    <thead>
-        <tr>
-            <th>Nom</th>
-            <th>Code</th>
-            <th>CP</th>
-            <th>Email</th>
-            <th>Téléphone</th>
-            <th>Adresse</th>
-            <th>Contact</th>
-            <th>Réseau</th>
-            <th>Urbaniste</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody id="communeResults">
-        <!-- Résultats ici -->
-    </tbody>
-</table>
+<div class="table-responsive" id="communeTableContainer" style="display: none;">
+    <table class="table table-bordered table-striped align-middle text-center">
+        <thead class="table-dark">
+            <tr>
+                <th>Nom</th>
+                <th>Code</th>
+                <th>CP</th>
+                <th>Email</th>
+                <th>Téléphone</th>
+                <th>Adresse</th>
+                <th>Contact</th>
+                <th>Réseau</th>
+                <th>Urbaniste</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="communeResults">
+            <!-- Résultats ici -->
+        </tbody>
+    </table>
+</div>
 <script src="/public/assets/js/fetch/communeFetch.js" defer></script>

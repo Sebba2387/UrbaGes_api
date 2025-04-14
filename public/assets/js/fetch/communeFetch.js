@@ -40,41 +40,52 @@ window.initCommuneSearchForm = initCommuneSearchForm;
 
 // Fonction pour afficher les résultats dans un tableau
 function displayCommunes(communes) {
+    const tableContainer = document.getElementById("communeTableContainer");
     const tableBody = document.getElementById("communeResults");
+
+    if (!tableBody || !tableContainer) {
+        console.error("Élément(s) manquant(s) dans le DOM : #communeResults ou #communeTableContainer");
+        return;
+    }
+
     tableBody.innerHTML = "";
 
-    // Vérification que la réponse est bien un tableau
-    if (Array.isArray(communes)) {
-        communes.forEach(commune => {
-            const row = document.createElement("tr");
-            row.innerHTML = `
-                <td>${commune.nom_commune}</td>
-                <td>${commune.code_commune}</td>
-                <td>${commune.cp_commune}</td>
-                <td>${commune.email_commune}</td>
-                <td>${commune.tel_commune}</td>
-                <td>${commune.adresse_commune}</td>
-                <td>${commune.contact}</td>
-                <td>${commune.reseau_instruction}</td>
-                <td>${commune.urbaniste_vra}</td>
-                <td>
-                    <button onclick="redirectToEdit(${commune.id_commune})"><i class="bi bi-pencil-fill fs-5"></i></button>
-                    <button onclick="deleteCommune(${commune.id_commune})"><i class="bi bi-trash-fill fs-5"></i></button>
-                </td>
-            `;
-            tableBody.appendChild(row);
-        });
-    } else {
-        // Affichage d'un message d'erreur à l'utilisateur
+    if (!Array.isArray(communes) || communes.length === 0) {
+        tableContainer.style.display = "none"; // Cache le tableau s'il n'y a rien à afficher
+
         tableBody.innerHTML = `
-                <tr>
-                    <td colspan="10" class="text-center text-danger">
-                        Veuillez entrer au moins un critère de recherche pour effectuer la recherche.
-                    </td>
-                </tr>
-            `;
+            <tr>
+                <td colspan="10" class="text-center text-danger">
+                    Aucune commune trouvée.
+                </td>
+            </tr>
+        `;
+        return;
     }
+
+    tableContainer.style.display = "block"; // Affiche le tableau
+
+    communes.forEach(commune => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${commune.nom_commune || "N/A"}</td>
+            <td>${commune.code_commune || "N/A"}</td>
+            <td>${commune.cp_commune || "N/A"}</td>
+            <td>${commune.email_commune || "N/A"}</td>
+            <td>${commune.tel_commune || "N/A"}</td>
+            <td>${commune.adresse_commune || "N/A"}</td>
+            <td>${commune.contact || "N/A"}</td>
+            <td>${commune.reseau_instruction || "N/A"}</td>
+            <td>${commune.urbaniste_vra || "N/A"}</td>
+            <td>
+                <button class="btn btn-sm btn-warning" onclick="redirectToEdit(${commune.id_commune})"><i class="bi bi-pencil-fill fs-5"></i></button>
+                <button class="btn btn-sm btn-danger" onclick="deleteCommune(${commune.id_commune})"><i class="bi bi-trash-fill fs-5"></i></button>
+            </td>
+        `;
+        tableBody.appendChild(row);
+    });
 }
+
 
 // Redirection vers l'édition d'une commune
 function redirectToEdit(communeId) {
