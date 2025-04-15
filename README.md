@@ -30,9 +30,9 @@
 - Pagination 	✅
 - Bouton dark    ❌
 - Labels    ❌
-- Customisation des tableaux   ❌
+- Customisation des tableaux 	✅
 - Customisation des codes    ❌
-- Bouton pour vider vider les champs de rechercher    ❌
+- Bouton pour vider les champs de rechercher    ❌
 - Validation des champs 	❌
 - Contrôle des rôles 	❌
 
@@ -47,7 +47,7 @@
 - Model & Controller : filtrePlu, *updatePlu* (PDO-SQL) 	✅
 - Model & Controller : filtreDossier, updateDossier, deleteDossier, *attributeDossier*, *addDossier* (PDO-SQL-NoSQL) 	✅
 - Model & Controller : filtreGep 	✅
-- Model & Controller : filtreAttribution 	❌
+- Model & Controller : filtreAttribution 	✅
 - Model & Controller : filtreCourrier, updateCourrier, deleteCourrier, *addCourrier*  (PDO-SQL) 	❌
 
 # Full

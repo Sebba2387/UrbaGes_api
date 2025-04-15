@@ -1,7 +1,7 @@
-POST http://localhost/public/api/gepApi.php
+POST http://localhost/public/api/statsApi.php
 Content-Type: application/json
 Authorization: Bearer your_token_here
 
 {
-    "action": "getNomCommunes"
+    "action": "getStats"
 }
