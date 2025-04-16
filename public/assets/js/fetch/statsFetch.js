@@ -10,7 +10,6 @@ function fetchStats(callback) {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            console.log('Données reçues :', data.stats);
             if (typeof callback === 'function') {
                 callback(data.stats);
             }

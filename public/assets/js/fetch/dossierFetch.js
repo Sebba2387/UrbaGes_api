@@ -80,6 +80,7 @@ function displayDossiers(dossiers, callback) {
         const row = document.createElement("tr");
         row.id = `dossier-${dossier.id_dossier}`;
         row.innerHTML = `
+            <td>${dossier.id_dossier || "N/A"}</td>
             <td>${dossier.nom_commune || "N/A"}</td>
             <td>${dossier.numero_dossier || "N/A"}</td>
             <td>${dossier.id_cadastre || "N/A"}</td>
@@ -414,6 +415,7 @@ function fetchUserDossiers() {
                 data.dossiers.forEach(dossier => {
                     tbody.innerHTML += `
                         <tr>
+                            <td>${dossier.id_dossier}</td>
                             <td>${dossier.numero_dossier}</td>
                             <td>${dossier.nom_commune}</td>
                             <td>${dossier.type_dossier}</td>

@@ -1,78 +1,111 @@
 <!-- Formulaire d'ajout de courrier -->
-<div id="form1" class="form-container mb-5 mt-5">
+<div id="form1" class="form-container mb-5 mt-5" data-callback="initAddCourrierForm">
     <button class="btn btn-primary toggle-btn" onclick="toggleForm('form1')">
         <i class="bi bi-envelope-fill"></i> Ajouter
     </button>
     <div class="card">
-        <form>
+        <form id="addCourrierForm">
             <!-- Ligne 1 -->
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-12 col-md-4 mb-3">
-                    <input type="nombre" class="form-control" name="code_courrier" placeholder="Code courrier">
-                </div>
-                <div class="col-12 col-md-4 mb-3">
-                    <select class="form-control" name="type_courrier">
-                        <option value="" disabled selected>-- Sélectionnez le type de courrier --</option>
-                        <option>Instruction complexe</option>
-                        <option>Projet</option>
-                        <option>Accompagnement</option>
-                        <option>Note de calcul</option>
-                        <option>Servitude</option>
-                        <option>Réctrocession</option>
-                        <option>PLU</option>
+                    <select class="form-control" name="type_courrier" id="type_courrier">
+                        <option value="" disabled selected>-- Type de dossier --</option>
+                        <option value="Instruction complexe">Instruction complexe</option>
+                        <option value="Projet">Projet</option>
+                        <option value="Accompagnement">Accompagnement</option>
+                        <option value="Servitude">Servitude</option>
+                        <option value="Rétrocession">Rétrocession</option>
+                        <option value="Autre">Autre</option>
                     </select>
                 </div>
                 <div class="col-12 col-md-4 mb-3">
-                    <input type="text" class="form-control" name="libelle_courrier" placeholder="Libelle du courrier">
+                    <input type="text"  class="form-control" name="libelle_courrier" id="libelle_courrier" placeholder="Libelle du courrier" required>
                 </div>
             </div>
             <!-- Ligne 2 -->
-            <div class="row">
-                <div class="col-12 col-md-4 mb-3">
-                    <input type="text" class="form-control" name="lien_courrier" placeholder="Lien du courrier">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-12 mb-3">
+                    <textarea  class="form-control" rows="6" name="corps_courrier" id="corps_courrier" placeholder="Corps du courrier" required></textarea>
                 </div>
-                <div class="col-12 col-md-4 mb-3">
-                    <textarea type="textaria" class="form-control" name="description" placeholder="Description du courrier"></textarea>
-                </div>
-                <div class="col-12 col-md-4 mb-3">
+            </div>
+            <!-- Ligne 3 -->
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-3 mb-3">
                     <button type="submit" class="btn btn-primary fw-bold w-100">Ajouter</button>
                 </div>
             </div>
         </form>
     </div>
 </div>
-<!-- Formulaire de recherche de courrier -->
-<div id="form2" class="form-container mb-5 mt-5">
+
+<!-- Formulaire d'attribution de courrier -->
+<div id="form2" class="form-container expanded mb-5 mt-5">
     <button class="btn btn-primary toggle-btn" onclick="toggleForm('form2')">
-        <i class="bi bi-search"></i> Rechercher
+        <i class="bi bi-envelope-fill"></i> Générer
     </button>
     <div class="card">
         <form>
             <!-- Ligne 1 -->
             <div class="row justify-content-center">
-                <div class="col-12 col-md-2 mb-3">
-                    <input type="nombre" class="form-control" name="code_courrier" placeholder="Code courrier">
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text"  class="form-control" name="id_courrier" id="id_courrier" placeholder="Code courrier">
                 </div>
-                <div class="col-12 col-md-2 mb-3">
-                    <select class="form-control" name="type_courrier">
-                        <option value="" disabled selected>-- Sélectionnez le type de courrier --</option>
-                        <option>Instruction complexe</option>
-                        <option>Projet</option>
-                        <option>Accompagnement</option>
-                        <option>Note de calcul</option>
-                        <option>Servitude</option>
-                        <option>Réctrocession</option>
-                        <option>PLU</option>
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text"  class="form-control" name="id_courrier" id="id_dossier" placeholder="Code du dossier">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <button type="submit" class="btn btn-primary fw-bold w-100">Générer</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Formulaire de recherche de courrier -->
+<div id="form3" class="form-container expanded mb-5 mt-5" data-callback="initCourrierSearchForm">
+    <button class="btn btn-primary toggle-btn" onclick="toggleForm('form3')">
+        <i class="bi bi-search"></i> Rechercher
+    </button>
+    <div class="card">
+        <form id="searchCourrierForm">
+            <!-- Ligne 1 -->
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text"  class="form-control" name="code_courrier" id="codeCourrierSearch" placeholder="Code courrier">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <select class="form-control" name="type_courrier" id="typeCourrierSearch">
+                        <option value="" disabled selected>-- Type de dossier --</option>
+                        <option value="Instruction complexe">Instruction complexe</option>
+                        <option value="Projet">Projet</option>
+                        <option value="Accompagnement">Accompagnement</option>
+                        <option value="Servitude">Servitude</option>
+                        <option value="Rétrocession">Rétrocession</option>
+                        <option value="Autre">Autre</option>
                     </select>
                 </div>
-                <div class="col-12 col-md-2 mb-3">
-                    <input type="text" class="form-control" name="libelle_courrier" placeholder="Libelle du courrier">
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" name="libelle_courrier" id="libelleCourrierSearch" placeholder="Libelle du courrier">
                 </div>
-                <div class="col-12 col-md-2 mb-3">
+                <div class="col-12 col-md-3 mb-3">
                     <button type="submit" class="btn btn-primary fw-bold w-100">Rechercher</button>
                 </div>
             </div>
         </form>
     </div>
 </div>
-<a href="/editCourrier" onclick="route(event)">Édition du courrier</a>
+<div class="table-responsive" id="courrierTableContainer" style="display: none;">
+    <table class="table table-bordered table-striped align-middle text-center">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>type de courrier</th>
+                <th>Libelle de courrier</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="courrierTableBody"></tbody>
+    </table>
+</div>
+<div id="pagination"></div>
+<script src="/public/assets/js/fetch/courrierFetch.js" defer></script>

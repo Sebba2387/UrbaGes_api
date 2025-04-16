@@ -1,48 +1,43 @@
-<!-- Formulaire d'édition de courrier -->
-<div id="form1" class="form-container mb-5 mt-5">
+<!-- Formulaire d'ajout de courrier -->
+<div id="form1" class="form-container expanded mb-5 mt-5" data-callback="initEditCourrierForm">
     <button class="btn btn-primary toggle-btn" onclick="toggleForm('form1')">
         <i class="bi bi-envelope-fill"></i> Mise à jour
     </button>
     <div class="card">
-        <form>
+        <form id="editCourrierForm">
             <!-- Ligne 1 -->
             <div class="row">
                 <div class="col-12 col-md-4 mb-3">
-                    <input type="nombre" class="form-control" name="code_courrier" placeholder="Code courrier">
+                    <input type="text" class="form-control" name="id_courrier" id="id_courrier" placeholder="Code courrier" disabled>
                 </div>
                 <div class="col-12 col-md-4 mb-3">
-                    <select class="form-control" name="type_courrier">
-                        <option value="" disabled selected>-- Sélectionnez le type de courrier --</option>
-                        <option>Instruction complexe</option>
-                        <option>Projet</option>
-                        <option>Accompagnement</option>
-                        <option>Note de calcul</option>
-                        <option>Servitude</option>
-                        <option>Réctrocession</option>
-                        <option>PLU</option>
+                    <select class="form-control" name="type_courrier" id="type_courrier">
+                        <option value="" disabled selected>-- Type de dossier --</option>
+                        <option value="Instruction complexe">Instruction complexe</option>
+                        <option value="Projet">Projet</option>
+                        <option value="Accompagnement">Accompagnement</option>
+                        <option value="Servitude">Servitude</option>
+                        <option value="Rétrocession">Rétrocession</option>
+                        <option value="Autre">Autre</option>
                     </select>
                 </div>
                 <div class="col-12 col-md-4 mb-3">
-                    <input type="text" class="form-control" name="libelle_courrier" placeholder="Libelle du courrier">
+                    <input type="text"  class="form-control" name="libelle_courrier" id="libelle_courrier" placeholder="Libelle du courrier" required>
                 </div>
             </div>
             <!-- Ligne 2 -->
-            <div class="row">
-                <div class="col-12 col-md-4 mb-3">
-                    <div class="input-group d-flex">
-                        <button type="button" class="input-group-text" onclick="copierTexte(event, 'lien_courrier')">
-                            <i class="bi bi-copy"></i>
-                        </button>
-                        <input type="text" class="form-control" name="lien_courrier" placeholder="Lien du dossier">
-                    </div>
-                </div> 
-                <div class="col-12 col-md-4 mb-3">
-                    <textarea type="textaria" class="form-control" name="description" placeholder="Description du courrier"></textarea>
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-12 mb-3">
+                    <textarea  class="form-control" rows="6" name="corps_courrier" id="corps_courrier" placeholder="Corps du courrier" required></textarea>
                 </div>
-                <div class="col-12 col-md-4 mb-3">
-                    <button type="submit" class="btn btn-primary fw-bold w-100">Mise à jour</button>
+            </div>
+            <!-- Ligne 3 -->
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-3 mb-3">
+                    <button type="submit" class="btn btn-primary fw-bold w-100">Enregistrer</button>
                 </div>
             </div>
         </form>
     </div>
 </div>
+<script src="/public/assets/js/fetch/courrierFetch.js" defer></script>
