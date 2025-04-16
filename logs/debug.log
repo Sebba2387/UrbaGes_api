@@ -1992,3 +1992,5 @@ Résultats: Array
 2025-04-15 00:37:48 - Requête reçue : {"action":"getProfile","userId":"1"}
 2025-04-15 00:38:10 - Requête reçue : {"action":"getProfile","userId":"1"}
 2025-04-15 00:38:31 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-17 01:13:20 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-17 01:14:43 - Requête reçue : {"action":"getProfile","userId":"1"}

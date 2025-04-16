@@ -111,6 +111,25 @@ switch ($action) {
         }
         break;
 
+    case 'genererCourrier':
+        $id_courrier = $input['id_courrier'] ?? null;
+        $id_dossier = $input['id_dossier'] ?? null;
+    
+        if (!$id_courrier || !$id_dossier) {
+            echo json_encode(['success' => false, 'message' => 'id_courrier ou id_dossier manquant']);
+            exit;
+        }
+    
+        $result = $courrierModel->getDonneesCourrierAvecDossier($id_courrier, $id_dossier);
+    
+        if (!$result) {
+            echo json_encode(['success' => false, 'message' => 'Données introuvables']);
+            exit;
+        }
+    
+        echo json_encode(['success' => true, 'data' => $result]);
+        break;
+
     default:
         echo json_encode(["success" => false, "message" => "Action non reconnue"]);
         break;

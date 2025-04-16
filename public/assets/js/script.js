@@ -80,6 +80,19 @@ function copierTexte(event, inputName) {
     }
 }
 
+// Fonction pour copier les courriers dynamiques
+function copierTexte(event) {
+    event.preventDefault(); // Empêche la soumission du formulaire
+
+    let input = document.querySelector("textarea[name='corps_courrier_gen']");
+    if (input) {
+        input.select();
+        input.setSelectionRange(0, 99999);
+        navigator.clipboard.writeText(input.value) // Copie le texte
+            .catch(err => console.error("Erreur de copie :", err));
+    }
+}
+
 // Fonction pour afficher dynamiquement la photo de profil selon le genre
 function updateProfileImage(genre) {
     const photoProfil = document.querySelector(".photo-profil img");

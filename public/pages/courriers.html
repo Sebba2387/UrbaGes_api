@@ -39,23 +39,28 @@
 </div>
 
 <!-- Formulaire d'attribution de courrier -->
-<div id="form2" class="form-container expanded mb-5 mt-5">
+<div id="form2" class="form-container expanded mb-5 mt-5" data-callback="initGenererCourrierForm">
     <button class="btn btn-primary toggle-btn" onclick="toggleForm('form2')">
         <i class="bi bi-envelope-fill"></i> Générer
     </button>
     <div class="card">
-        <form>
+        <form id="genererCourrierForm">
             <!-- Ligne 1 -->
             <div class="row justify-content-center">
                 <div class="col-12 col-md-3 mb-3">
                     <input type="text"  class="form-control" name="id_courrier" id="id_courrier" placeholder="Code courrier">
                 </div>
                 <div class="col-12 col-md-3 mb-3">
-                    <input type="text"  class="form-control" name="id_courrier" id="id_dossier" placeholder="Code du dossier">
+                    <input type="text"  class="form-control" name="id_dossier" id="id_dossier" placeholder="Code du dossier">
                 </div>
-                <div class="col-12 col-md-3 mb-3">
+                <div class="col-12 col-md-12 mb-3">
+                    <textarea  class="form-control" rows="6" name="corps_courrier_gen" id="corps_courrier_gen" placeholder="Corps du courrier"></textarea>
+                </div>
+                <div class="col-12 col-md-3 mb-3 d-flex gap-2">
                     <button type="submit" class="btn btn-primary fw-bold w-100">Générer</button>
+                    <button class="btn btn-light" onclick="copierTexte(event, 'corps_courrier_gen')"><i class="bi bi-copy"></i></button>
                 </div>
+                
             </div>
         </form>
     </div>

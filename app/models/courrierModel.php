@@ -154,6 +154,29 @@ class CourrierModel {
     
         return $success;
     }
+
+    public function getDonneesCourrierAvecDossier($id_courrier, $id_dossier) {
+        // Récupération du courrier
+        $queryCourrier = $this->pdo->prepare("SELECT * FROM courriers WHERE id_courrier = :id_courrier");
+        $queryCourrier->execute(['id_courrier' => $id_courrier]);
+        $courrier = $queryCourrier->fetch(PDO::FETCH_ASSOC);
+
+        // Récupération du dossier
+        $queryDossier = $this->pdo->prepare("SELECT * FROM dossiers WHERE id_dossier = :id_dossier");
+        $queryDossier->execute(['id_dossier' => $id_dossier]);
+        $dossier = $queryDossier->fetch(PDO::FETCH_ASSOC);
+
+        // Vérification de l'existence
+        if (!$courrier || !$dossier) {
+            return null;
+        }
+
+        // Retourne les données combinées
+        return [
+            'courrier' => $courrier,
+            'dossier' => $dossier
+        ];
+    }
     
     
 }

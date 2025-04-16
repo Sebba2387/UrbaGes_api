@@ -296,3 +296,82 @@ function initEditCourrierForm() {
         console.warn("Formulaire 'editCourrierForm' introuvable.");
     }
 }
+
+// Fonction d'initialisation du formulaire pour générer un courrier
+function initGenererCourrierForm() {
+    const form = document.getElementById("genererCourrierForm");
+
+    if (form) {
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            genererCourrier(e); // Appel de la fonction genererCourrier avec l'événement
+        });
+    } else {
+        console.warn("Formulaire 'genererCourrierForm' introuvable.");
+    }
+}
+
+// Fonction pour générer le courrier
+async function genererCourrier(event) {
+    // Empêcher le comportement par défaut du formulaire
+    event.preventDefault();
+    const id_courrier = document.querySelector('#id_courrier').value.trim();
+    const id_dossier = document.querySelector('#id_dossier').value.trim();
+
+    // Vérification des champs
+    if (!id_courrier || !id_dossier) {
+        alert("Veuillez remplir les deux champs.");
+        return;
+    }
+    try {
+        const response = await fetch('http://localhost/public/api/courrierApi.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                action: 'genererCourrier',
+                id_courrier: id_courrier,
+                id_dossier: id_dossier
+            })
+        });
+        const textResponse = await response.text();
+        const result = JSON.parse(textResponse);
+        if (result.success) {
+            const { courrier, dossier } = result.data;
+            const corpsTemplate = courrier.corps_courrier;
+            const corpsFinal = corpsTemplate.replace(/{{(.*?)}}/g, (match, key) => {
+                const k = key.trim();
+                const value = dossier[k];
+                return value ?? `[${k} non trouvé]`;
+            });
+            const textarea = document.querySelector('#corps_courrier_gen');
+            if (textarea) {
+                textarea.value = corpsFinal;
+            } else {
+                console.warn("Textarea #corps_courrier introuvable dans le DOM !");
+            }
+        }
+    } catch (error) {
+        console.error("Erreur de récupération des données :", error);
+        alert("Une erreur est survenue lors de la génération du courrier.");
+    }
+}
+
+// Attacher le gestionnaire d'événement au formulaire
+const form = document.querySelector('form');
+if (form) {
+    form.addEventListener('submit', genererCourrier);
+} else {
+    console.error("Formulaire non trouvé !");
+}
+
+
+
+
+
+  
+  
+  
+  
+  

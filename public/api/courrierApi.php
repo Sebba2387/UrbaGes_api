@@ -23,6 +23,7 @@ require_once __DIR__ . '/../../app/controllers/courrierController.php';
 // 🔍 Récupération des données JSON envoyées par Fetch
 $data = json_decode(file_get_contents("php://input"), true);
 
+
 // Vérification de l'action
 if (!isset($data['action'])) {
     echo json_encode(["success" => false, "message" => "Aucune action reçue"]);
@@ -35,7 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action'])) {
         $data['action'] === 'deleteCourrier' ||
         $data['action'] === 'searchCourrier' ||
         $data['action'] === 'updateCourrier' ||
-        $data['action'] === 'getCourrierById'
+        $data['action'] === 'getCourrierById' ||
+        $data['action'] === 'genererCourrier'
     ) {
         require_once __DIR__ . '/../../app/controllers/courrierController.php';
     } else {
