@@ -11994,19 +11994,6 @@ header {
   margin: 20px 0;
 }
 
-/* Section avec une hauteur flexible */
-.section.bg-light {
-  min-height: 200px; /* Assure une hauteur minimale sur les petites tailles */
-}
-
-.section.bg-info {
-  min-height: 50vh; /* Section 2 prend au moins 50% de la hauteur de l'écran */
-}
-
-.section.bg-success {
-  min-height: 25vh; /* Section 3 prend au moins 25% de la hauteur de l'écran */
-}
-
 .section .flex-fill {
   padding: 10px;
   text-align: center;
