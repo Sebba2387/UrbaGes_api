@@ -12,7 +12,7 @@ class CommuneModel {
         $this->modificationCollection = $mongoConfig; 
     }
 
-    public function searchCommunes($code_commune, $nom_commune, $cp_commune) {
+    public function searchCommunes($code_commune, $id_commune, $cp_commune) {
         $query = "SELECT * FROM communes WHERE 1=1";
         $params = [];
     
@@ -20,21 +20,27 @@ class CommuneModel {
             $query .= " AND code_commune LIKE :code_commune";
             $params['code_commune'] = "%$code_commune%";
         }
-        if (!empty($nom_commune)) {
-            $query .= " AND nom_commune LIKE :nom_commune";
-            $params['nom_commune'] = "%$nom_commune%";
-        }
         if (!empty($cp_commune)) {
             $query .= " AND cp_commune LIKE :cp_commune";
             $params['cp_commune'] = "%$cp_commune%";
         }
-    
-        echo "SQL : " . $query . "\n";
-        echo "Params : " . json_encode($params) . "\n";
+        if (!empty($id_commune)) {
+            $query .= " AND id_commune LIKE :id_commune";
+            $params['id_commune'] = "%$id_commune%";
+        }
     
         $stmt = $this->pdo->prepare($query);
         $stmt->execute($params);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // Fonction pour récupérer le nom_commune
+    public function getAllCommunes() {
+        // Prépare la requête pour récupérer toutes les communes
+        $sql = "SELECT id_commune, nom_commune FROM communes";
+        $stmt = $this->pdo->query($sql);
+        $communes = $stmt->fetchAll(PDO::FETCH_ASSOC);        
+        return $communes;
     }
 
     // Fonction pour ajouter une commune

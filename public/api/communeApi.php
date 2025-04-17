@@ -38,6 +38,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action'])) {
         require_once __DIR__ . '/../../app/controllers/userController.php';
     } elseif ($data['action'] === 'updateCommune') {
         require_once __DIR__ . '/../../app/controllers/userController.php';
+    } elseif ($data['action'] === 'getCommune') {
+        require_once __DIR__ . '/../../app/controllers/userController.php';
+    } elseif ($data['action'] === 'getCommunes') {
+        require_once __DIR__ . '/../../app/controllers/userController.php';
     } elseif ($data['action'] === 'deleteCommune') {
         require_once __DIR__ . '/../../app/controllers/userController.php';
     }

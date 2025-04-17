@@ -55,14 +55,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action'])) {
                 $conditions[] = "code_commune = :code_commune";
                 $params['code_commune'] = $data['code_commune'];
             }
-            if (!empty($data['nom_commune'])) {
-                $conditions[] = "nom_commune LIKE :nom_commune";
-                $params['nom_commune'] = "%" . $data['nom_commune'] . "%";
-            }
             if (!empty($data['cp_commune'])) {
                 $conditions[] = "cp_commune = :cp_commune";
                 $params['cp_commune'] = $data['cp_commune'];
             }
+            if (!empty($data['id_commune'])) {
+                $conditions[] = "id_commune LIKE :id_commune";
+                $params['id_commune'] = $data['id_commune'];
+            }
+            
         
             // Si aucune condition n'est ajoutée, empêcher la recherche vide
             if (empty($conditions)) {
@@ -77,6 +78,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action'])) {
         
             echo json_encode($results);
             exit;
+
+        case 'getCommunes':
+            // Vérifie que la connexion à la base de données fonctionne
+            $communes = $communeModel->getAllCommunes();  // Appel à la méthode pour récupérer toutes les communes
+            
+            if ($communes) {
+                echo json_encode(['success' => true, 'communes' => $communes]);
+                exit;
+            } else {
+                echo json_encode(['success' => false, 'message' => 'Aucune commune trouvée']);
+                exit;
+            }
+            break;
+
+        case 'getCommune':
+            if (!isset($data['id_commune'])) {
+                echo json_encode(["success" => false, "message" => "ID de la commune manquant"]);
+                exit;
+            }
+            $result = $communeModel->getCommuneById($data['id_commune']);
+            echo json_encode($result);
+            exit;
+
         case 'addCommune':
             // Vérifie si l'utilisateur est authentifié
             if (!isset($_SESSION['user_id'])) {
@@ -94,32 +118,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action'])) {
             $communeModel->addCommune($data);
             echo json_encode(["success" => true, "message" => "Commune ajoutée avec succès"]);
             exit;
-            case 'getCommune':
-                if (!isset($data['id_commune'])) {
-                    echo json_encode(["success" => false, "message" => "ID de la commune manquant"]);
-                    exit;
-                }
-                $result = $communeModel->getCommuneById($data['id_commune']);
-                echo json_encode($result);
-                exit;
     
-            case 'updateCommune':
-                if (!isset($data['id_commune'])) {
-                    echo json_encode(["success" => false, "message" => "ID de la commune manquant"]);
-                    exit;
-                }
-                $success = $communeModel->updateCommune($data);
-                echo json_encode(["success" => $success, "message" => $success ? "Mise à jour réussie" : "Erreur de mise à jour"]);
+        case 'updateCommune':
+            if (!isset($data['id_commune'])) {
+                echo json_encode(["success" => false, "message" => "ID de la commune manquant"]);
                 exit;
-            
-            case 'deleteCommune':
-                if (!isset($data['id_commune'])) {
-                    echo json_encode(["success" => false, "message" => "ID de la commune manquant"]);
-                    exit;
-                }
-                $success = $communeModel->deleteCommune($data['id_commune']);
-                echo json_encode(["success" => $success, "message" => $success ? "Suppression réussie" : "Erreur de suppression"]);
+            }
+            $success = $communeModel->updateCommune($data);
+            echo json_encode(["success" => $success, "message" => $success ? "Mise à jour réussie" : "Erreur de mise à jour"]);
+            exit;
+        
+        case 'deleteCommune':
+            if (!isset($data['id_commune'])) {
+                echo json_encode(["success" => false, "message" => "ID de la commune manquant"]);
                 exit;
+            }
+            $success = $communeModel->deleteCommune($data['id_commune']);
+            echo json_encode(["success" => $success, "message" => $success ? "Suppression réussie" : "Erreur de suppression"]);
+            exit;
                 
         default:
             echo json_encode(["success" => false, "message" => "Action non définie"]);

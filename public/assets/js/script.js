@@ -47,6 +47,17 @@ function setupSidebarToggle() {
     }
 }
 
+// Fonction pour rediriger dynamiquement selon la connexion
+function updateProfileLink() {
+    const profileLink = document.querySelector(".navbar-brand");
+
+    if (profileLink) {
+        const userId = localStorage.getItem("id_utilisateur");
+        profileLink.setAttribute("href", userId ? "/profil" : "/");
+    }
+}
+// Appelle la fonction dès que le script est chargé
+document.addEventListener("DOMContentLoaded", updateProfileLink);
 
 // Fonction pour afficher les formulaires
 function toggleForm(formId, button) {

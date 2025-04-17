@@ -2,15 +2,17 @@
 function searchCommunes() {
     // Récupérer les valeurs des champs
     const codeCommune = document.getElementById("code_commune").value;
-    const nomCommune = document.getElementById("nom_commune").value;
     const cpCommune = document.getElementById("cp_commune").value;
+    const idCommune = document.getElementById("id_commune_search").value;
+    
 
     // Si tous les champs sont vides, on envoie une requête pour toutes les communes
     const searchData = {
         action: 'searchCommune',
         ...(codeCommune ? { code_commune: codeCommune } : {}),
-        ...(nomCommune ? { nom_commune: nomCommune } : {}),
-        ...(cpCommune ? { cp_commune: cpCommune } : {})
+        ...(cpCommune ? { cp_commune: cpCommune } : {}),
+        ...(idCommune ? { id_commune: idCommune } : {})
+        
     };
 
     // Envoyer la requête
@@ -21,6 +23,7 @@ function searchCommunes() {
     })
     .then(response => response.json())
     .then(data => {
+        console.log(data)
         displayCommunes(data);
     })
     .catch(error => console.error('Erreur lors de la recherche:', error));
@@ -30,6 +33,7 @@ function searchCommunes() {
 function initCommuneSearchForm() {
     const form = document.getElementById("communeSearchForm");
     if (form) {
+        loadCommunes();
         form.addEventListener("submit", function(event) {
             event.preventDefault();
             searchCommunes();
@@ -86,10 +90,41 @@ function displayCommunes(communes) {
     });
 }
 
+// Fonction pour charger la liste des communes dans le <select>
+function loadCommunes() {
+    fetch('http://localhost/public/api/communeApi.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'getCommunes' })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success && data.communes) {
+            const selects = [
+                document.getElementById("id_commune_search"),
+            ];
+
+            selects.forEach(select => {
+                if (select) {
+                    select.innerHTML = '<option value="" disabled selected>-- Choisir une commune --</option>';
+                    data.communes.forEach(commune => {
+                        const option = document.createElement("option");
+                        option.value = commune.id_commune;
+                        option.textContent = commune.nom_commune;
+                        select.appendChild(option);
+                    });
+                }
+            });
+        } else {
+            console.error("Aucune commune trouvée.");
+        }
+    })
+    .catch(error => console.error("Erreur lors du chargement des communes :", error));
+}
 
 // Redirection vers l'édition d'une commune
 function redirectToEdit(communeId) {
-    window.location.href = `/editCommune?id=${communeId}`;
+    changePage(`/editCommune?id=${communeId}`);
 }
 
 // Fonction pour ajouter une nouvelle commune via l'API
@@ -134,7 +169,8 @@ function addCommune() {
     .then(data => {
         if (data.success) {
             alert("Commune ajoutée avec succès !");
-            window.location.href = '/communes'; 
+            window.location.href = '/communes';
+             
         } else {
             alert("Erreur lors de l'ajout de la commune : " + data.message);
         }
@@ -221,7 +257,7 @@ function updateCommune() {
     .then(data => {
         alert(data.message);
         if (data.success) {
-            window.location.href = "/communes";
+            window.location.href = '/communes';
         }
     })
     .catch(error => console.error('Erreur lors de la mise à jour:', error));
