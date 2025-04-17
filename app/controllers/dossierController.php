@@ -64,7 +64,7 @@ $dossierModel = new DossierModel($pdo, $modificationCollection);
 switch ($action) {
     case 'searchDossier':
         $filters = [
-            "nom_commune" => $input['nom_commune'] ?? '',
+            "id_commune" => $input['id_commune'] ?? '',
             "numero_dossier" => $input['numero_dossier'] ?? '',
             "id_cadastre" => $input['id_cadastre'] ?? '',
             "type_dossier" => $input['type_dossier'] ?? '',

@@ -18,7 +18,7 @@ window.onload = function () {
 function searchDossier(callback) {
     const requestData = {
         action: "searchDossier",
-        nom_commune: document.getElementById("nom_commune").value.trim(),
+        id_commune: document.getElementById("id_commune_search").value.trim(),
         numero_dossier: document.getElementById("numero_dossier_search").value.trim(),
         id_cadastre: document.getElementById("id_cadastre_search").value.trim(),
         type_dossier: document.getElementById("type_dossier_search").value.trim(),
@@ -47,6 +47,7 @@ function initDossierSearchForm(callback) {
         console.error("Formulaire de recherche non trouvé");
         return;
     }
+    loadCommunes();
     form.addEventListener("submit", function (event) {
         event.preventDefault();
         searchDossier(() => {
@@ -56,9 +57,9 @@ function initDossierSearchForm(callback) {
     if (callback) callback();
 }
 // Appel de la fonction d'initialisation du formulaire de recherche
-document.addEventListener('DOMContentLoaded', function() {
-    initDossierSearchForm();
-});
+// document.addEventListener('DOMContentLoaded', function() {
+//     initDossierSearchForm();
+// });
 
 // Fonction pour afficher des résultats de recherche
 function displayDossiers(dossiers, callback) {
@@ -146,9 +147,6 @@ function updatePagination(totalItems) {
 
 // Fonction pour charger la liste des communes dans le <select>
 function loadCommunes() {
-    const communeSelect = document.getElementById("id_commune");
-    if (!communeSelect) return;
-
     fetch('http://localhost/public/api/dossierApi.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -157,12 +155,21 @@ function loadCommunes() {
     .then(response => response.json())
     .then(data => {
         if (data.success && data.communes) {
-            communeSelect.innerHTML = '<option value="" disabled selected>-- Choisir une commune --</option>';
-            data.communes.forEach(commune => {
-                const option = document.createElement("option");
-                option.value = commune.id_commune;
-                option.textContent = commune.nom_commune;
-                communeSelect.appendChild(option);
+            const selects = [
+                document.getElementById("id_commune_search"),
+                document.getElementById("id_commune_add")
+            ];
+
+            selects.forEach(select => {
+                if (select) {
+                    select.innerHTML = '<option value="" disabled selected>-- Choisir une commune --</option>';
+                    data.communes.forEach(commune => {
+                        const option = document.createElement("option");
+                        option.value = commune.id_commune;
+                        option.textContent = commune.nom_commune;
+                        select.appendChild(option);
+                    });
+                }
             });
         } else {
             console.error("Aucune commune trouvée.");
@@ -170,6 +177,7 @@ function loadCommunes() {
     })
     .catch(error => console.error("Erreur lors du chargement des communes :", error));
 }
+
 
 // Fonction pour ajouter un dossier
 function addDossier() {

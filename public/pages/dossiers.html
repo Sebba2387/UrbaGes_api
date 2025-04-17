@@ -67,7 +67,7 @@
                     </select>
                 </div>
                 <div class="col-12 col-md-3 mb-3">
-                    <select class="form-control" id="id_commune" name="id_commune">
+                    <select class="form-control" id="id_commune_add" name="id_commune_add">
                         <!-- Les options seront ajoutées ici par JavaScript -->
                     </select>
                 </div>
@@ -88,16 +88,21 @@
         <form id="searchDossierForm">
             <!-- Ligne 1 -->
             <div class="row">
-                <div class="col-12 col-md-2 mb-3">
-                    <input type="text" class="form-control" name="nom_commune" id="nom_commune" placeholder="Commune">
+                <div class="col-12 col-md-4 mb-3">
+                    <select class="form-control" id="id_commune_search" name="id_commune_search">
+                        <!-- Les options seront ajoutées ici par JavaScript -->
+                    </select>
                 </div>
-                <div class="col-12 col-md-2 mb-3">
+                <div class="col-12 col-md-4 mb-3">
                     <input type="text" class="form-control" name="numero_dossier" id="numero_dossier_search" placeholder="Numéro du dossier">
                 </div>
-                <div class="col-12 col-md-2 mb-3">
+                <div class="col-12 col-md-4 mb-3">
                     <input type="text" class="form-control" name="id_cadastre" id="id_cadastre_search" placeholder="Cadastre">
                 </div>
-                <div class="col-12 col-md-3 mb-3">
+            </div>
+            <!-- Ligne 1 -->
+            <div class="row">
+                <div class="col-12 col-md-4 mb-3">
                     <select class="form-control" id="type_dossier_search" name="type_dossier_search">
                         <option value="">-- Type de dossier --</option>
                         <option value="Instruction complexe">Instruction complexe</option>
@@ -107,7 +112,7 @@
                         <option value="Rétrocession">Rétrocession</option>
                     </select>
                 </div>
-                <div class="col-12 col-md-3 mb-3">
+                <div class="col-12 col-md-4 mb-3">
                     <select class="form-control" id="sous_type_dossier_search" name="sous_type_dossier_search">
                         <option value="">-- Sous-type de dossier --</option>
                         <option value="Demande de validation">Demande de validation</option>
@@ -121,7 +126,7 @@
                         <option value="Autre">Autre</option>
                     </select>
                 </div>
-                <div class="col-12 col-md-3 mb-3 d-flex gap-2 align-items-end offset-md-9">
+                <div class="col-12 col-md-4 mb-3 d-flex gap-2">
                     <button type="submit" class="btn btn-primary fw-bold w-100">Rechercher</button>
                     <button type="button" class="btn btn-light" onclick="resetForm('searchDossierForm')"><i class="bi bi-arrow-clockwise fs-6"></i></button>
                 </div>

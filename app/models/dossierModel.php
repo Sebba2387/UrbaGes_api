@@ -23,9 +23,9 @@ class DossierModel {
 
         $params = [];
 
-        if (!empty($filters['nom_commune'])) {
-            $sql .= " AND c.nom_commune LIKE :nom_commune";
-            $params[':nom_commune'] = "%" . $filters['nom_commune'] . "%";
+        if (!empty($filters['id_commune'])) {
+            $sql .= " AND d.id_commune = :id_commune";
+            $params[':id_commune'] = $filters['id_commune'];
         }
         if (!empty($filters['numero_dossier'])) {
             $sql .= " AND d.numero_dossier LIKE :numero_dossier";
