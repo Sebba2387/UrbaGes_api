@@ -56,10 +56,6 @@ function initDossierSearchForm(callback) {
     });
     if (callback) callback();
 }
-// Appel de la fonction d'initialisation du formulaire de recherche
-// document.addEventListener('DOMContentLoaded', function() {
-//     initDossierSearchForm();
-// });
 
 // Fonction pour afficher des résultats de recherche
 function displayDossiers(dossiers, callback) {

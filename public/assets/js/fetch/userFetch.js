@@ -4,7 +4,6 @@ function loginUser(email, password) {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            // 'Authorization': 'Bearer your_token_here' 
         },
         body: JSON.stringify({
             action: 'login',
@@ -35,7 +34,6 @@ function fetchUserProfile() {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            // 'Authorization': 'Bearer your_token_here'
         },
         body: JSON.stringify({
             action: 'getProfile',
