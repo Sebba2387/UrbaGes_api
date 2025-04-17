@@ -63,11 +63,11 @@ $pluModel = new PluModel($pdo, $modificationCollection);
 switch ($action) {
     case 'searchPlu':
         $id_commune = $input['id_commune'] ?? '';
-        $code_commune = $input['code_commune'] ?? '';
-        $cp_commune = $input['cp_commune'] ?? '';
+        $statut_zonage = $input['statut_zonage'] ?? '';
+        $statut_pres = $input['statut_pres'] ?? '';
         $etat_plu = $input['etat_plu'] ?? '';
         
-        $result = $pluModel->searchPlu($id_commune, $code_commune, $cp_commune, $etat_plu);
+        $result = $pluModel->searchPlu($id_commune, $statut_zonage, $statut_pres, $etat_plu);
         echo json_encode(["success" => true, "plu" => $result]);
         break;
 

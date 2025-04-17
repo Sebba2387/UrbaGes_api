@@ -1,11 +1,11 @@
 // Fonction pour rechercher les PLU avec callback
 function searchPlu(callback) {
     const id_commune = document.getElementById("id_commune_search").value.trim();
-    const code_commune = document.getElementById("code_commune").value.trim();
-    const cp_commune = document.getElementById("cp_commune").value.trim();
+    const statut_zonage = document.getElementById("statut_zonage").value.trim();
+    const statut_pres = document.getElementById("statut_pres").value.trim();
     const etat_plu = document.getElementById("etat_plu").value.trim();
 
-    if (!code_commune && !id_commune && !cp_commune && !etat_plu) {
+    if (!id_commune && !statut_zonage && !statut_pres && !etat_plu) {
         const tableBody = document.getElementById("pluResults");
         tableBody.innerHTML = `
             <tr>
@@ -20,8 +20,8 @@ function searchPlu(callback) {
     const searchData = {
         action: 'searchPlu',
         id_commune,
-        code_commune,
-        cp_commune,
+        statut_zonage,
+        statut_pres,
         etat_plu
     };
 

@@ -12,7 +12,7 @@ class PluModel {
         $this->modificationCollection = $mongoConfig; 
     }
 
-    public function searchPlu($id_commune, $code_commune, $cp_commune, $etat_plu) {
+    public function searchPlu($id_commune, $statut_zonage, $statut_pres, $etat_plu) {
         $query = "SELECT plu.*, communes.code_commune, communes.nom_commune, communes.cp_commune 
                   FROM plu 
                   JOIN communes ON plu.id_commune = communes.id_commune
@@ -23,13 +23,13 @@ class PluModel {
             $query .= " AND plu.id_commune = :id_commune";
             $params['id_commune'] = $id_commune;
         }
-        if (!empty($code_commune)) {
-            $query .= " AND communes.code_commune LIKE :code_commune";
-            $params['code_commune'] = "%$code_commune%";
+        if (!empty($statut_zonage)) {
+            $query .= " AND plu.statut_zonage = :statut_zonage";
+            $params['statut_zonage'] = $statut_zonage;
         }
-        if (!empty($cp_commune)) {
-            $query .= " AND communes.cp_commune LIKE :cp_commune";
-            $params['cp_commune'] = "%$cp_commune%";
+        if (!empty($statut_pres)) {
+            $query .= " AND plu.statut_pres = :statut_pres";
+            $params['statut_pres'] = $statut_pres;
         }
         if (!empty($etat_plu)) {
             $query .= " AND plu.etat_plu LIKE :etat_plu";

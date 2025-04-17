@@ -34,10 +34,22 @@
                     <input type="text" class="form-control" name="systeme_ass" id="systeme_ass" placeholder="Système d'assainissement">
                 </div>
                 <div class="col-12 col-md-2 mb-3">
-                    <input type="text" class="form-control" name="statut_zonage" id="statut_zonage" placeholder="Statut du zonage">
+                    <select class="form-control" name="statut_zonage" id="statut_zonage" placeholder="Statut du zonage">
+                        <option value="" disabled selected>-- Statut --</option>
+                        <option value="traité">traité</option>
+                        <option value="en cours">en cours</option>
+                        <option value="en attente">en attente</option>
+                        <option value="annulé">annulé</option>
+                    </select>
                 </div>
                 <div class="col-12 col-md-2 mb-3">
-                    <input type="text" class="form-control" name="statut_pres" id="statut_pres" placeholder="Statut des prescriptions">
+                    <select class="form-control" name="statut_pres" id="statut_pres" placeholder="Statut des prescriptions">
+                        <option value="" disabled selected>-- Statut --</option>
+                        <option value="traité">traité</option>
+                        <option value="en cours">en cours</option>
+                        <option value="en attente">en attente</option>
+                        <option value="annulé">annulé</option>
+                    </select>
                 </div>
                 <div class="col-12 col-md-2 mb-3">
                     <input type="text" class="form-control" name="date_annexion" id="date_annexion" placeholder="Date d'annexion">
