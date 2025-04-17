@@ -12,20 +12,20 @@ class PluModel {
         $this->modificationCollection = $mongoConfig; 
     }
 
-    public function searchPlu($code_commune, $nom_commune, $cp_commune, $etat_plu) {
+    public function searchPlu($id_commune, $code_commune, $cp_commune, $etat_plu) {
         $query = "SELECT plu.*, communes.code_commune, communes.nom_commune, communes.cp_commune 
                   FROM plu 
                   JOIN communes ON plu.id_commune = communes.id_commune
                   WHERE 1=1";
         $params = [];
     
+        if (!empty($id_commune)) {
+            $query .= " AND plu.id_commune = :id_commune";
+            $params['id_commune'] = $id_commune;
+        }
         if (!empty($code_commune)) {
             $query .= " AND communes.code_commune LIKE :code_commune";
             $params['code_commune'] = "%$code_commune%";
-        }
-        if (!empty($nom_commune)) {
-            $query .= " AND communes.nom_commune LIKE :nom_commune";
-            $params['nom_commune'] = "%$nom_commune%";
         }
         if (!empty($cp_commune)) {
             $query .= " AND communes.cp_commune LIKE :cp_commune";
@@ -36,12 +36,17 @@ class PluModel {
             $params['etat_plu'] = "%$etat_plu%";
         }
     
-        echo "SQL : " . $query . "\n";
-        echo "Params : " . json_encode($params) . "\n";
-    
         $stmt = $this->pdo->prepare($query);
         $stmt->execute($params);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getAllCommunes() {
+        // Prépare la requête pour récupérer toutes les communes
+        $sql = "SELECT id_commune, nom_commune FROM communes";
+        $stmt = $this->pdo->query($sql);
+        $communes = $stmt->fetchAll(PDO::FETCH_ASSOC);        
+        return $communes;
     }
 
     // Récupérer un PLU par son ID

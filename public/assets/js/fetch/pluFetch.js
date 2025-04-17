@@ -1,28 +1,30 @@
 // Fonction pour rechercher les PLU avec callback
 function searchPlu(callback) {
+    const id_commune = document.getElementById("id_commune_search").value.trim();
     const code_commune = document.getElementById("code_commune").value.trim();
-    const nom_commune = document.getElementById("nom_commune").value.trim();
     const cp_commune = document.getElementById("cp_commune").value.trim();
     const etat_plu = document.getElementById("etat_plu").value.trim();
-    // Vérifie si tous les champs sont vides
-    if (!code_commune && !nom_commune && !cp_commune && !etat_plu) {
+
+    if (!code_commune && !id_commune && !cp_commune && !etat_plu) {
         const tableBody = document.getElementById("pluResults");
         tableBody.innerHTML = `
             <tr>
                 <td colspan="14" class="text-center text-danger">
-                    Veuillez entrer au moins un critère de recherche pour effectuer la recherche.
+                    Veuillez entrer au moins un critère de recherche.
                 </td>
             </tr>
         `;
-        return; // Ne lance pas l'appel à l'API
+        return;
     }
+
     const searchData = {
         action: 'searchPlu',
+        id_commune,
         code_commune,
-        nom_commune,
         cp_commune,
         etat_plu
     };
+
     fetch('http://localhost/public/api/pluApi.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -30,15 +32,12 @@ function searchPlu(callback) {
     })
     .then(response => response.json())
     .then(data => {
-        if (data.success === false) {
-            console.error("Erreur de l'API :", data.message);
-            return;
-        }
-        const pluList = data || [];
+        const pluList = Array.isArray(data) ? data : data.plu || [];
         displayPlu(pluList, callback);
     })
     .catch(error => console.error("Erreur lors de la récupération des PLUs :", error));
 }
+
 
 // Fonction pour afficher les résultats et exécuter un callback
 function displayPlu(pluList, callback) {
@@ -46,7 +45,7 @@ function displayPlu(pluList, callback) {
     const tableBody = document.getElementById("pluResults");
 
     if (!tableContainer || !tableBody) {
-        console.error("Élément(s) manquant(s) : #pluTableContainer ou #pluResults");
+        console.error("Élément(s) introuvable(s) : #pluTableContainer ou #pluResults");
         return;
     }
 
@@ -95,26 +94,54 @@ function displayPlu(pluList, callback) {
 }
 
 
-// Fonction pour initialiser le formulaire de recherche de PLU
+// Initialisation du formulaire de recherche PLU
 function initSearchPluForm() {
     const form = document.getElementById("searchPluForm");
     if (form) {
+        loadCommunes();
         form.addEventListener("submit", function(event) {
             event.preventDefault();
-            searchPlu(); // Appel de la fonction searchPlu avec le callback optionnel
+            searchPlu();
         });
     } else {
-        console.warn("⚠️ Formulaire de recherche de PLU introuvable !");
+        console.warn("Formulaire de recherche de PLU introuvable !");
     }
 }
 window.initSearchPluForm = initSearchPluForm;
 
-// Fonction pour rediriger vers la page de modification d'un PLU
+// Redirection vers la page de modification d'un PLU
 function redirectToEdit(id_plu) {
     changePage(`/editPlu?id=${id_plu}`);
 }
 
-// Fonction pour initialiser le formulaire d'édition de PLU
+// Chargement des communes dans le <select>
+function loadCommunes() {
+    fetch('http://localhost/public/api/pluApi.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'getCommunes' })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success && data.communes) {
+            const select = document.getElementById("id_commune_search");
+            if (select) {
+                select.innerHTML = '<option value="" disabled selected>-- Choisir une commune --</option>';
+                data.communes.forEach(commune => {
+                    const option = document.createElement("option");
+                    option.value = commune.id_commune;
+                    option.textContent = commune.nom_commune;
+                    select.appendChild(option);
+                });
+            }
+        } else {
+            console.error("Aucune commune trouvée.");
+        }
+    })
+    .catch(error => console.error("Erreur lors du chargement des communes :", error));
+}
+
+// Initialisation du formulaire d'édition PLU
 function initEditPluForm() {
     const urlParams = new URLSearchParams(window.location.search);
     const id_plu = urlParams.get('id');
@@ -126,16 +153,12 @@ function initEditPluForm() {
 }
 window.initEditPluForm = initEditPluForm;
 
-// Fonction pour récupérer les données du PLU en call-back
+// Récupérer un PLU par son ID
 function getPluById(id_plu, callback) {
-    const requestData = {
-        action: 'getPluById',
-        id_plu: id_plu
-    };
     fetch('http://localhost/public/api/pluApi.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(requestData)
+        body: JSON.stringify({ action: 'getPluById', id_plu })
     })
     .then(response => response.json())
     .then(data => {
@@ -147,10 +170,10 @@ function getPluById(id_plu, callback) {
             console.error("Erreur lors de la récupération du PLU :", data.message);
         }
     })
-    .catch(error => console.error("Erreur de connexion à l'API :", error));
+    .catch(error => console.error("Erreur API :", error));
 }
 
-// Fonction pour pré-remplir le formulaire d'édition avec les données d'un PLU
+// Pré-remplissage du formulaire d’édition
 function populateEditForm(plu) {
     document.getElementById("id_plu").value = plu.id_plu;
     document.getElementById("etat_plu").value = plu.etat_plu;
@@ -164,18 +187,14 @@ function populateEditForm(plu) {
     document.getElementById("lien_dhua").value = plu.lien_dhua;
     document.getElementById("observation_plu").value = plu.observation_plu;
 }
-// Appel de la fonction pour initialiser le formulaire d'édition de PLU
-document.addEventListener("DOMContentLoaded", function () {
-    initEditPluForm();
-});
 
-// Fonction pour mettre à jour les données d'un PLU concerné
+// Mise à jour d’un PLU
 function updatePlu() {
-    let data = {
+    const data = {
         action: "updatePlu",
         id_plu: document.getElementById("id_plu").value,
-        type_plu: document.getElementById("type_plu").value,
         etat_plu: document.getElementById("etat_plu").value,
+        type_plu: document.getElementById("type_plu").value,
         date_plu: document.getElementById("date_plu").value,
         systeme_ass: document.getElementById("systeme_ass").value,
         statut_zonage: document.getElementById("statut_zonage").value,
@@ -185,19 +204,20 @@ function updatePlu() {
         lien_dhua: document.getElementById("lien_dhua").value,
         observation_plu: document.getElementById("observation_plu").value
     };
+
     fetch("http://localhost/public/api/pluApi.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
     })
     .then(response => response.json())
-    .then(data => {
-        if (data.success) {
+    .then(result => {
+        if (result.success) {
             alert("PLU mis à jour avec succès !");
-            changePage('/plu');
+            changePage("/plu");
         } else {
-            alert("Erreur : " + data.message);
+            alert("Erreur lors de la mise à jour : " + result.message);
         }
     })
-    .catch(error => console.error("Erreur de connexion à l'API :", error));
+    .catch(error => console.error("Erreur de mise à jour :", error));
 }
