@@ -59,6 +59,7 @@
                 <div class="col-12 col-md-3 mb-3 d-flex gap-2">
                     <button type="submit" class="btn btn-primary fw-bold w-100">Générer</button>
                     <button class="btn btn-light" onclick="copierCourrier(event)"><i class="bi bi-copy"></i></button>
+                    <button type="button" class="btn btn-light" onclick="resetForm('genererCourrierForm')"><i class="bi bi-arrow-clockwise fs-5"></i></button>
                 </div>
                 
             </div>
@@ -92,8 +93,9 @@
                 <div class="col-12 col-md-3 mb-3">
                     <input type="text" class="form-control" name="libelle_courrier" id="libelleCourrierSearch" placeholder="Libelle du courrier">
                 </div>
-                <div class="col-12 col-md-3 mb-3">
+                <div class="col-12 col-md-3 mb-3 d-flex gap-2">
                     <button type="submit" class="btn btn-primary fw-bold w-100">Rechercher</button>
+                    <button type="button" class="btn btn-light" onclick="resetForm('searchCourrierForm')"><i class="bi bi-arrow-clockwise fs-5"></i></button>
                 </div>
             </div>
         </form>

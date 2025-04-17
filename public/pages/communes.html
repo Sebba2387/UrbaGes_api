@@ -16,8 +16,9 @@
                 <div class="col-12 col-md-2 mb-3">
                     <input type="text" class="form-control" name="nom_commune" id="nom_commune"placeholder="Commune">
                 </div>
-                <div class="col-12 col-md-2 mb-3">
+                <div class="col-12 col-md-2 mb-3 d-flex gap-2">
                     <button type="submit" class="btn btn-primary fw-bold w-100">Rechercher</button>
+                    <button type="button" class="btn btn-light" onclick="resetForm('communeSearchForm')"><i class="bi bi-arrow-clockwise fs-6"></i></button>
                 </div>
                 <div class="col-12 col-md-2 mb-3">
                     <button type="button" onclick="location.href='/addCommune'" class="btn btn-primary fw-bold w-100">Ajouter</button>

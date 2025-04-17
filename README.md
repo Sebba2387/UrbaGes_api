@@ -28,11 +28,11 @@
 - Configuration des routes 	✅
 - Construction des pages 	✅
 - Pagination 	✅
-- Bouton dark    ❌
-- Labels    ❌
+- Bouton dark 	✅
+- Bouton pour vider les champs de rechercher 	✅
 - Customisation des tableaux 	✅
+- Labels    ❌
 - Customisation des codes    ❌
-- Bouton pour vider les champs de rechercher    ❌
 - Validation des champs 	❌
 - Contrôle des rôles 	❌
 

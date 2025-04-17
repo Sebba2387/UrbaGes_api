@@ -108,3 +108,19 @@ function updateProfileImage(genre) {
         tempImg.src = imageUrl;
     }
 }
+
+// Fonction pour réinitialiser les recherches
+function resetForm(formId) {
+    const form = document.getElementById(formId);
+    if (form && typeof form.reset === "function") {
+        form.reset();
+
+        const callback = form.getAttribute("data-callback");
+        if (callback && typeof window[callback] === "function") {
+            window[callback](new FormData(form));
+        }
+    } else {
+        console.warn(`L'élément avec l'ID '${formId}' n'est pas un formulaire valide.`);
+    }
+}
+
