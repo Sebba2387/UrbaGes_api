@@ -1,6 +1,6 @@
 <!-- Formulaire d'ajout de courrier -->
 <div id="form1" class="form-container mb-5 mt-5" data-callback="initAddCourrierForm">
-    <button class="btn btn-primary toggle-btn" onclick="toggleForm('form1')">
+    <button class="btn btn-dark text-light fw-bold toggle-btn" onclick="toggleForm('form1', this)">
         <i class="bi bi-envelope-fill"></i> Ajouter
     </button>
     <div class="card">
@@ -40,7 +40,7 @@
 
 <!-- Formulaire d'attribution de courrier -->
 <div id="form2" class="form-container expanded mb-5 mt-5" data-callback="initGenererCourrierForm">
-    <button class="btn btn-primary toggle-btn" onclick="toggleForm('form2')">
+    <button class="btn btn-dark text-primary fw-bold toggle-btn" onclick="toggleForm('form2', this)">
         <i class="bi bi-envelope-fill"></i> Générer
     </button>
     <div class="card">
@@ -58,7 +58,7 @@
                 </div>
                 <div class="col-12 col-md-3 mb-3 d-flex gap-2">
                     <button type="submit" class="btn btn-primary fw-bold w-100">Générer</button>
-                    <button class="btn btn-light" onclick="copierTexte(event, 'corps_courrier_gen')"><i class="bi bi-copy"></i></button>
+                    <button class="btn btn-light" onclick="copierCourrier(event)"><i class="bi bi-copy"></i></button>
                 </div>
                 
             </div>
@@ -68,7 +68,7 @@
 
 <!-- Formulaire de recherche de courrier -->
 <div id="form3" class="form-container expanded mb-5 mt-5" data-callback="initCourrierSearchForm">
-    <button class="btn btn-primary toggle-btn" onclick="toggleForm('form3')">
+    <button class="btn btn-dark text-primary fw-bold toggle-btn" onclick="toggleForm('form3', this)">
         <i class="bi bi-search"></i> Rechercher
     </button>
     <div class="card">
@@ -114,3 +114,4 @@
 </div>
 <div id="pagination"></div>
 <script src="/public/assets/js/fetch/courrierFetch.js" defer></script>
+

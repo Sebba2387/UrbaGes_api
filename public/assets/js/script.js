@@ -49,42 +49,37 @@ function setupSidebarToggle() {
 
 
 // Fonction pour afficher les formulaires
-function toggleForm(formId) {
+function toggleForm(formId, button) {
     let form = document.getElementById(formId);
     form.classList.toggle("expanded");
-}
 
-// Fonction pour copier les liens des dossiers
-function copierTexte(event) {
-    event.preventDefault(); // Empêche la soumission du formulaire
-
-    let input = document.querySelector("input[name='lien_courrier']");
-    if (input) {
-        input.select();
-        input.setSelectionRange(0, 99999);
-        navigator.clipboard.writeText(input.value) // Copie le texte
-            .catch(err => console.error("Erreur de copie :", err));
-    }
-}
-
-// Fonction pour copier les liens
-function copierTexte(event, inputName) {
-    event.preventDefault(); // Empêche la soumission du formulaire
-
-    let input = document.querySelector(`input[name='${inputName}']`);
-    if (input) {
-        input.select();
-        input.setSelectionRange(0, 99999);
-        navigator.clipboard.writeText(input.value) // Copie le texte
-            .catch(err => console.error("Erreur de copie :", err));
+    if (form.classList.contains("expanded")) {
+        button.classList.remove("text-light");
+        button.classList.add("text-primary");
+    } else {
+        button.classList.remove("text-primary");
+        button.classList.add("text-light");
     }
 }
 
 // Fonction pour copier les courriers dynamiques
-function copierTexte(event) {
+function copierCourrier(event) {
     event.preventDefault(); // Empêche la soumission du formulaire
 
     let input = document.querySelector("textarea[name='corps_courrier_gen']");
+    if (input) {
+        input.select();
+        input.setSelectionRange(0, 99999);
+        navigator.clipboard.writeText(input.value)
+            .catch(err => console.error("Erreur de copie :", err));
+    }
+}
+
+// Fonction pour copier le contenu d'un champs
+function copierTexte(event, inputName) {
+    event.preventDefault(); // Empêche la soumission du formulaire
+
+    let input = document.querySelector(`input[name='${inputName}']`);
     if (input) {
         input.select();
         input.setSelectionRange(0, 99999);
