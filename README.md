@@ -67,3 +67,17 @@
 - Changement dynamique de la photo de profil  	✅
 - Changement de critère de recherche PLU cp_commune => statut_zonage  	✅
 - Liste des communes  	✅
+
+
+# Instalaltion
+
+- Vérification de version PHP : php -v : PHP 8.2.4
+- Vérification MySQL : mysql --version : Ver 15.1 Distrib 10.4.28-MariaDB, for Win64 (AMD64)
+- Vérification Apache : httpd --version : Apache2.4
+- Vérification MongoDB : mongod --version : db version v8.0.5
+- Vérification MongoDB Shell : mongosh --version : 2.4.0
+- Vérification MongoCompass : mongodb-compass --version : 1.46.0
+- Vérification Composer : composer --version : version 2.8.5
+- Vérification Node.js : node --version : v20.6.1
+- Vérification Bootstrap : npm list bootstrap : "bootstrap": "^5.3.3", "bootstrap-icons": "^1.11.3"
+- Vérification Docker : docker --version : 27.5.1, build 9f9e405
