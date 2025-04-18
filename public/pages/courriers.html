@@ -7,9 +7,9 @@
         <form id="addCourrierForm">
             <!-- Ligne 1 -->
             <div class="row justify-content-center">
-                <div class="col-12 col-md-4 mb-3">
+                <div class="col-12 col-md-4 mb-3 mt-3">
                     <select class="form-control" name="type_courrier" id="type_courrier">
-                        <option value="" disabled selected>-- Type de dossier --</option>
+                        <option value="" disabled selected>-- Choisir un type de dossier --</option>
                         <option value="Instruction complexe">Instruction complexe</option>
                         <option value="Projet">Projet</option>
                         <option value="Accompagnement">Accompagnement</option>
@@ -18,14 +18,16 @@
                         <option value="Autre">Autre</option>
                     </select>
                 </div>
-                <div class="col-12 col-md-4 mb-3">
+                <div class="col-12 col-md-4 mb-3 mt-3 form-group">
                     <input type="text"  class="form-control" name="libelle_courrier" id="libelle_courrier" placeholder="Libelle du courrier" required>
+                    <label for="libelle_courrier" class="floating-label">Libelle du courrier</label>
                 </div>
             </div>
             <!-- Ligne 2 -->
             <div class="row justify-content-center">
-                <div class="col-12 col-md-12 mb-3">
+                <div class="col-12 col-md-12 mb-3 mt-3 form-group">
                     <textarea  class="form-control" rows="6" name="corps_courrier" id="corps_courrier" placeholder="Corps du courrier" required></textarea>
+                    <label for="corps_courrier" class="floating-label">Corps du courrier</label>
                 </div>
             </div>
             <!-- Ligne 3 -->
@@ -47,14 +49,17 @@
         <form id="genererCourrierForm">
             <!-- Ligne 1 -->
             <div class="row justify-content-center">
-                <div class="col-12 col-md-3 mb-3">
+                <div class="col-12 col-md-3 mb-3 mt-3 form-group">
                     <input type="text"  class="form-control" name="id_courrier" id="id_courrier" placeholder="Code courrier">
+                    <label for="id_courrier" class="floating-label">Code courrier</label>
                 </div>
-                <div class="col-12 col-md-3 mb-3">
+                <div class="col-12 col-md-3 mb-3 mt-3 form-group">
                     <input type="text"  class="form-control" name="id_dossier" id="id_dossier" placeholder="Code du dossier">
+                    <label for="id_dossier" class="floating-label">Code du dossier</label>
                 </div>
-                <div class="col-12 col-md-12 mb-3">
+                <div class="col-12 col-md-12 mb-3 mt-3 form-group">
                     <textarea  class="form-control" rows="6" name="corps_courrier_gen" id="corps_courrier_gen" placeholder="Corps du courrier"></textarea>
+                    <label for="corps_courrier_gen" class="floating-label">Corps du courrier</label>
                 </div>
                 <div class="col-12 col-md-3 mb-3 d-flex gap-2">
                     <button type="submit" class="btn btn-primary fw-bold w-100">Générer</button>

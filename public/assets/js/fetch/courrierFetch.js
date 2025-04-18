@@ -18,7 +18,7 @@ window.onload = function () {
 function searchCourrier(callback) {
     const requestData = {
         action: "searchCourrier",
-        code_courrier: document.getElementById("codeCourrierSearch").value.trim(),
+        id_courrier: document.getElementById("codeCourrierSearch").value.trim(),
         type_courrier: document.getElementById("typeCourrierSearch").value.trim(),
         libelle_courrier: document.getElementById("libelleCourrierSearch").value.trim(),
     };

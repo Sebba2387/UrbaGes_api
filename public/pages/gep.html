@@ -6,20 +6,22 @@
     <div class="card">
         <form id="gepSearchForm">
             <!-- Ligne 1 -->
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-3 mb-3">
+            <div class="row align-items-end">
+                <div class="col-12 col-md-3 mb-3 mt-3 form-group">
                     <select class="form-control" id="nom_commune" name="nom_commune" >
                         <!-- Les options seront ajoutées ici par JavaScript -->
                     </select>
                 </div>
-                <div class="col-12 col-md-3 mb-3">
+                <div class="col-12 col-md-3 mb-3 mt-3 form-group">
                     <input type="text" class="form-control" name="section" id="section" placeholder="Section">
+                    <label for="section" class="floating-label">Section</label>
                 </div>
-                <div class="col-12 col-md-3 mb-3">
+                <div class="col-12 col-md-3 mb-3 mt-3 form-group">
                     <input type="text" class="form-control" name="numero" id="numero" placeholder="Numéro">
+                    <label for="numero" class="floating-label">Numéro</label>
                 </div>
-                <div class="col-12 col-md-3 mb-3 d-flex gap-2">
-                    <button type="submit" class="btn btn-primary fw-bold w-100">Rechercher</button>
+                <div class="col-12 col-md-3 mb-3 form-group align-items-end d-flex gap-2">
+                    <button type="submit" class="form-control btn btn-primary fw-bold w-100">Rechercher</button>
                     <button type="button" class="btn btn-light" onclick="resetForm('gepSearchForm')"><i class="bi bi-arrow-clockwise fs-5"></i></button>
                 </div>
             </div>

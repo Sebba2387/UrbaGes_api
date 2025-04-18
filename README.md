@@ -31,7 +31,7 @@
 - Bouton dark 	✅
 - Bouton pour vider les champs de rechercher 	✅
 - Customisation des tableaux 	✅
-- Labels    ❌
+- Labels 	✅
 - Customisation des codes    ❌
 - Validation des champs 	❌
 - Contrôle des rôles 	❌

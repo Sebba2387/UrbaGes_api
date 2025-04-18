@@ -6,42 +6,51 @@
     <div class="card">
         <form id="editCommuneForm" data-callback="initUpdateCommuneForm">
             <!-- Ligne 1 -->
-            <div class="row">
+            <div class="row justify-content-center">
                 <input type="hidden" id="id_commune">
-                <div class="col-12 col-md-3 mb-3">
+                <div class="col-12 col-md-3 mb-3 mt-3 form-group">
                     <input type="text" class="form-control" name="code_commune" id="code_commune" placeholder="Code insee">
+                    <label for="code_commune" class="floating-label">Code insee</label>
                 </div>
-                <div class="col-12 col-md-3 mb-3">
+                <div class="col-12 col-md-3 mb-3 mt-3 form-group">
                     <input type="text" class="form-control" name="cp_commune" id="cp_commune" placeholder="Code postal">
+                    <label for="cp_commune" class="floating-label">Code postal</label>
                 </div>
-                <div class="col-12 col-md-3 mb-3">
+                <div class="col-12 col-md-3 mb-3 mt-3 form-group">
                     <input type="text" class="form-control" name="nom_commune" id="nom_commune" placeholder="Commune">
+                    <label for="nom_commune" class="floating-label">Commune</label>
                 </div>
-                <div class="col-12 col-md-3 mb-3">
+                <div class="col-12 col-md-3 mb-3 mt-3 form-group">
                     <input type="text" class="form-control" name="adresse_commune" id="adresse_commune" placeholder="Adresse">
+                    <label for="adresse_commune" class="floating-label">Adresse</label>
                 </div>
             </div>
             <!-- Ligne 2 -->
             <div class="row">
-                <div class="col-12 col-md-3 mb-3">
+                <div class="col-12 col-md-3 mb-3 mt-3 form-group">
                     <input type="text" class="form-control" name="urbaniste_vra" id="urbaniste_vra" placeholder="Urbaniste VRA en charge">
+                    <label for="urbaniste_vra" class="floating-label">Urbaniste VRA en charge</label>
                 </div>
-                <div class="col-12 col-md-3 mb-3">
+                <div class="col-12 col-md-3 mb-3 mt-3 form-group">
                     <input type="text" class="form-control" name="contact" id="contact" placeholder="Contact">
+                    <label for="contact" class="floating-label">Contact</label>
                 </div>
-                <div class="col-12 col-md-3 mb-3">
+                <div class="col-12 col-md-3 mb-3 mt-3 form-group">
                     <input type="email" class="form-control" name="email_commune" id="email_commune" placeholder="Email contact">
+                    <label for="email_commune" class="floating-label">Adresse mail contact</label>
                 </div>
-                <div class="col-12 col-md-3 mb-3">
+                <div class="col-12 col-md-3 mb-3 mt-3 form-group">
                     <input type="text" class="form-control" name="tel_commune" id="tel_commune" placeholder="Téléphone">
+                    <label for="tel_commune" class="floating-label">Téléphone contact</label>
                 </div>
-                <div class="col-12 col-md-3 mb-3">
+                <div class="col-12 col-md-3 mb-3 mt-3 form-group">
                     <select class="form-control" name="reseau_instruction" id="reseau_instruction" placeholder="Réseau d'instruction">
                         <option>C@rteADS</option>
                         <option>Hors C@rteADS</option>
                     </select>
+                    <label for="reseau_instruction" class="floating-label">Réseau d'instruction</label>
                 </div>
-                <div class="col-12 col-md-3 mb-3">
+                <div class="col-12 col-md-3 mb-3 mt-3">
                     <button type="submit" class="btn btn-primary fw-bold w-100">Mettre à jour</button>
                 </div>
             </div>

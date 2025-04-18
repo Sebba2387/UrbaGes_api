@@ -6,37 +6,45 @@
     <div class="card">
         <form>
             <!-- Ligne 1 -->
-            <div class="row">
-                <div class="col-12 col-md-3 mb-3">
+            <div class="row align-items-end">
+                <div class="col-12 col-md-3 mb-3 mt-3 form-group">
                     <input type="text" class="form-control" name="nom" id="nom" placeholder="Nom">
+                    <label for="nom" class="floating-label">Nom</label>
                 </div>
-                <div class="col-12 col-md-3 mb-3">
+                <div class="col-12 col-md-3 mb-3 mt-3 form-group">
                     <input type="text" class="form-control" name="prenom" id="prenom" placeholder="Prénom">
+                    <label for="prenom" class="floating-label">Prénom</label>
                 </div>
-                <div class="col-12 col-md-3 mb-3">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                <div class="col-12 col-md-3 mb-3 mt-3 form-group">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Adresse mail">
+                    <label for="email" class="floating-label">Adresse mail</label>
                 </div>
-                <div class="col-12 col-md-3 mb-3">
+                <div class="col-12 col-md-3 mb-3 mt-3 form-group">
                     <input type="text" class="form-control" name="anneeNaissance" id="anneeNaissance" placeholder="Année de naissance">
+                    <label for="anneeNaissance" class="floating-label">Année de naissance</label>
                 </div>
                 
             </div>
             <!-- Ligne 2 -->
-            <div class="row">
-                <div class="col-12 col-md-3 mb-3">
+            <div class="row align-items-end">
+                <div class="col-12 col-md-3 mb-3 form-group">
                     <input type="text" class="form-control" name="pseudo" id="pseudo" placeholder="Pseudo">
+                    <label for="pseudo" class="floating-label">Pseudo</label>
                 </div>
-                <div class="col-12 col-md-3 mb-3">
+                <div class="col-12 col-md-3 mb-3 form-group">
                     <input type="text" class="form-control" name="genre" id="genre" placeholder="Genre">
+                    <label for="genre" class="floating-label">Genre</label>
                 </div>
-                <div class="col-12 col-md-3 mb-3">
+                <div class="col-12 col-md-3 mb-3 form-group">
                     <input type="text" class="form-control" name="poste" id="poste" placeholder="Poste">
+                    <label for="poste" class="floating-label">Poste</label>
                 </div>
-                <div class="col-12 col-md-3 mb-3">
+                <div class="col-12 col-md-3 mb-3 form-group">
                     <input type="text" class="form-control" name="nom_role" id="nom_role" placeholder="Rôle">
+                    <label for="nom_role" class="floating-label">Rôle</label>
                 </div>
-                <div class="col-12 col-md-3 mb-3">
-                    <button type="button" onclick="location.href='/editPassword'" class="btn btn-primary fw-bold w-100">Changer le mot de passe</button>
+                <div class="col-12 col-md-3 mb-3 form-group">
+                    <button type="button" onclick="location.href='/editPassword'" class="btn btn-dark text-primary fw-bold w-100"><i class="bi bi-lock-fill"></i>  Changer de mot de passe</button>
                 </div>
             </div>
         </form>

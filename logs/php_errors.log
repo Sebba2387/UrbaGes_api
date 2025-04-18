@@ -719,3 +719,906 @@ Stack trace:
     [id_dossier] => 3
 )
 
+[18-Apr-2025 12:14:29 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:14:29 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:14:29 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:14:29 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:14:37 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:14:37 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:14:37 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:14:37 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:15:06 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:15:06 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:15:06 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:15:06 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:24:12 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:24:12 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:24:12 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:24:12 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:41:32 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:41:32 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:41:33 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:41:33 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:43:14 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:43:14 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:43:14 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:43:14 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:43:22 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:43:22 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:43:22 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:43:22 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:44:06 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[18-Apr-2025 12:44:06 Europe/Berlin] Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[18-Apr-2025 12:44:09 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:44:09 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:38:02 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:38:02 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:38:02 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:38:02 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:40:05 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:40:05 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:40:05 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:40:05 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:40:14 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:40:14 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:40:14 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:40:14 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:41:53 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:41:53 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:41:53 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:41:53 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:42:25 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:42:25 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:42:25 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:42:25 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:45:50 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:45:50 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:45:50 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:45:50 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:46:09 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:46:09 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:46:09 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:46:09 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:46:48 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:46:48 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:46:48 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:46:48 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:47:54 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:47:54 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:47:54 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:47:54 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:50:09 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:50:09 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:50:09 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:50:09 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:51:47 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:51:47 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:51:47 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:51:47 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:52:02 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[18-Apr-2025 14:52:02 Europe/Berlin] Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[18-Apr-2025 14:52:32 Europe/Berlin] Données reçues : Array
+(
+    [action] => searchDossier
+    [id_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => 
+)
+
+[18-Apr-2025 14:52:32 Europe/Berlin] Array
+(
+    [action] => searchDossier
+    [id_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => 
+)
+
+[18-Apr-2025 14:52:42 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossierById
+    [id_dossier] => 1
+)
+
+[18-Apr-2025 14:52:42 Europe/Berlin] Array
+(
+    [action] => getDossierById
+    [id_dossier] => 1
+)
+
+[18-Apr-2025 14:58:26 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossierById
+    [id_dossier] => 1
+)
+
+[18-Apr-2025 14:58:26 Europe/Berlin] Array
+(
+    [action] => getDossierById
+    [id_dossier] => 1
+)
+
+[18-Apr-2025 14:58:39 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[18-Apr-2025 14:58:39 Europe/Berlin] Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[18-Apr-2025 15:01:57 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:01:57 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:01:57 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:01:57 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:02:16 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:02:16 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:02:16 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:02:16 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:07:30 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:07:30 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:13:55 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:13:55 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:14:02 Europe/Berlin] Données reçues : Array
+(
+    [action] => searchPlu
+    [id_commune] => 1
+    [statut_zonage] => 
+    [statut_pres] => 
+    [etat_plu] => 
+)
+
+[18-Apr-2025 15:14:02 Europe/Berlin] Array
+(
+    [action] => searchPlu
+    [id_commune] => 1
+    [statut_zonage] => 
+    [statut_pres] => 
+    [etat_plu] => 
+)
+
+[18-Apr-2025 15:14:04 Europe/Berlin] Données reçues : Array
+(
+    [action] => getPluById
+    [id_plu] => 1
+)
+
+[18-Apr-2025 15:14:04 Europe/Berlin] Array
+(
+    [action] => getPluById
+    [id_plu] => 1
+)
+
+[18-Apr-2025 15:14:28 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:14:28 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:24:18 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:24:18 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:24:19 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:24:19 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:24:25 Europe/Berlin] Données reçues : Array
+(
+    [action] => getPluById
+    [id_plu] => 3
+)
+
+[18-Apr-2025 15:24:25 Europe/Berlin] Array
+(
+    [action] => getPluById
+    [id_plu] => 3
+)
+
+[18-Apr-2025 15:24:58 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:24:58 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:25:07 Europe/Berlin] Données reçues : Array
+(
+    [action] => getPluById
+    [id_plu] => 2
+)
+
+[18-Apr-2025 15:25:07 Europe/Berlin] Array
+(
+    [action] => getPluById
+    [id_plu] => 2
+)
+
+[18-Apr-2025 15:31:13 Europe/Berlin] Array
+(
+    [action] => searchCourrier
+    [code_courrier] => 1
+    [type_courrier] => 
+    [libelle_courrier] => 
+)
+
+[18-Apr-2025 15:31:25 Europe/Berlin] Array
+(
+    [action] => searchCourrier
+    [code_courrier] => 
+    [type_courrier] => Instruction complexe
+    [libelle_courrier] => 
+)
+
+[18-Apr-2025 15:31:27 Europe/Berlin] Array
+(
+    [action] => getCourrierById
+    [id_courrier] => 4
+)
+
+[18-Apr-2025 15:33:47 Europe/Berlin] Array
+(
+    [action] => getCourrierById
+    [id_courrier] => 4
+)
+
+[18-Apr-2025 15:34:06 Europe/Berlin] Array
+(
+    [action] => updateCourrier
+    [id_courrier] => 4
+    [type_courrier] => Instruction complexe
+    [libelle_courrier] => Accusé de réception
+    [corps_courrier] => Bonjour,
+
+Nous vous confirmons la prise en charge du dossier {{numero_dossier}} situé sur la parcelle {{id_cadastre}} est de type {{type_dossier}}.
+
+Bien cordialement,
+)
+
+[18-Apr-2025 15:34:16 Europe/Berlin] Array
+(
+    [action] => searchCourrier
+    [code_courrier] => 1
+    [type_courrier] => 
+    [libelle_courrier] => 
+)
+
+[18-Apr-2025 15:36:40 Europe/Berlin] Array
+(
+    [action] => searchCourrier
+    [code_courrier] => 
+    [type_courrier] => Autre
+    [libelle_courrier] => 
+)
+
+[18-Apr-2025 15:36:45 Europe/Berlin] Array
+(
+    [action] => searchCourrier
+    [code_courrier] => 
+    [type_courrier] => Autre
+    [libelle_courrier] => Demande de renseignement - avancement PLU
+)
+
+[18-Apr-2025 15:36:53 Europe/Berlin] Array
+(
+    [action] => searchCourrier
+    [code_courrier] => 1
+    [type_courrier] => 
+    [libelle_courrier] => 
+)
+
+[18-Apr-2025 15:38:06 Europe/Berlin] Array
+(
+    [action] => searchCourrier
+    [code_courrier] => 
+    [type_courrier] => 
+    [libelle_courrier] => 
+)
+
+[18-Apr-2025 15:38:07 Europe/Berlin] Array
+(
+    [action] => searchCourrier
+    [code_courrier] => 
+    [type_courrier] => 
+    [libelle_courrier] => 
+)
+
+[18-Apr-2025 15:38:10 Europe/Berlin] Array
+(
+    [action] => searchCourrier
+    [code_courrier] => 
+    [type_courrier] => Projet
+    [libelle_courrier] => 
+)
+
+[18-Apr-2025 15:38:13 Europe/Berlin] Array
+(
+    [action] => searchCourrier
+    [code_courrier] => 
+    [type_courrier] => Autre
+    [libelle_courrier] => 
+)
+
+[18-Apr-2025 15:38:15 Europe/Berlin] Array
+(
+    [action] => searchCourrier
+    [code_courrier] => 
+    [type_courrier] => 
+    [libelle_courrier] => 
+)
+
+[18-Apr-2025 15:40:16 Europe/Berlin] Array
+(
+    [action] => searchCourrier
+    [id_courrier] => 1
+    [type_courrier] => 
+    [libelle_courrier] => 
+)
+
+[18-Apr-2025 15:40:20 Europe/Berlin] Array
+(
+    [action] => getCourrierById
+    [id_courrier] => 1
+)
+
+[18-Apr-2025 15:40:23 Europe/Berlin] Array
+(
+    [action] => updateCourrier
+    [id_courrier] => 1
+    [type_courrier] => Autre
+    [libelle_courrier] => Demande de renseignement - avancement PLU
+    [corps_courrier] => Bonjour,
+
+Nous souhaitons obtenir des informations concernant l’avancement de la révision de votre document d’urbanisme (PLU).
+Auriez-vous entamé la rédaction du règlement (écrit et graphique) ? Les secteurs d’extension urbaine ont-ils été définis ?
+
+Je reste à votre disposition pour toute information complémentaire.
+
+Bien cordialement,
+)
+
+[18-Apr-2025 15:40:27 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:40:27 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:40:36 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[18-Apr-2025 15:40:36 Europe/Berlin] Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[18-Apr-2025 15:40:37 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:40:37 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:40:38 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:40:38 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:42:46 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:42:46 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:42:46 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:42:46 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:42:55 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:42:55 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:42:55 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:42:55 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:43:43 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:43:43 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:43:43 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:43:43 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:43:55 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[18-Apr-2025 15:43:55 Europe/Berlin] Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[18-Apr-2025 15:44:44 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:44:44 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:44:44 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:44:44 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:44:46 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[18-Apr-2025 15:44:46 Europe/Berlin] Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[18-Apr-2025 15:44:50 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:44:50 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
