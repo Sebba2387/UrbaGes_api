@@ -1622,3 +1622,65 @@ Bien cordialement,
     [action] => getCommunes
 )
 
+[19-Apr-2025 01:18:46 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[19-Apr-2025 01:18:46 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[19-Apr-2025 01:18:46 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[19-Apr-2025 01:18:46 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[19-Apr-2025 01:18:53 Europe/Berlin] Données reçues : Array
+(
+    [action] => searchDossier
+    [id_commune] => 1
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => 
+)
+
+[19-Apr-2025 01:18:53 Europe/Berlin] Array
+(
+    [action] => searchDossier
+    [id_commune] => 1
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => 
+)
+
+[19-Apr-2025 01:18:57 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[19-Apr-2025 01:18:57 Europe/Berlin] Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[19-Apr-2025 01:18:59 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[19-Apr-2025 01:18:59 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+

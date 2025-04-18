@@ -2205,3 +2205,8 @@ Résultats: Array
 2025-04-18 15:45:24 - Requête reçue : {"action":"getProfile","userId":"2"}
 2025-04-18 15:45:24 - Requête reçue : {"action":"getAllUsers"}
 2025-04-18 15:45:24 - Requête reçue : {"action":"getProfile","userId":"2"}
+2025-04-19 01:18:41 - Requête reçue : {"action":"login","email":"bouguerra.abbes@outlook.fr","password":"123"}
+2025-04-19 01:18:41 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-19 01:18:41 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-19 01:18:41 - Requête reçue : {"action":"getAllUsers"}
+2025-04-19 01:19:06 - Requête reçue : {"action":"logout"}
