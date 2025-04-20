@@ -1,0 +1,7 @@
+POST http://localhost/public/api/courrierApi.php
+Content-Type: application/json
+Authorization: Bearer your_token_here
+
+{
+    "action": "genererCourrier"
+}

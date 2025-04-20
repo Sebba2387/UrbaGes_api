@@ -1,0 +1,106 @@
+
+<!-- Formulaire d'inscription -->
+<div id="form2" class="form-container mb-5 mt-5 h-auto">
+    <button class="btn btn-dark text-light fw-bold toggle-btn" onclick="toggleForm('form2', this)">
+        <i class="bi bi-people-fill"></i> Inscription
+    </button>
+    <div class="card p-3">
+        <form id="registerForm" data-callback="initRegisterForm">
+            <div class="row align-items-end">
+                <div class="col-12 col-md-3 mb-3 form-group">
+                    <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" required>
+                    <label for="nom" class="floating-label">Nom</label>
+                </div>
+                <div class="col-12 col-md-3 mb-3 form-group">
+                    <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prénom" required>
+                    <label for="prenom" class="floating-label">Prénom</label>
+                </div>
+                <div class="col-12 col-md-3 mb-3 form-group">
+                    <select class="form-control" id="genre" name="genre" required>
+                        <option value="" disabled selected>--- Choisir un genre ---</option>
+                        <option>Homme</option>
+                        <option>Femme</option>
+                    </select>
+                    <!-- <label for="genre" class="floating-label">Genre</label> -->
+                </div>
+                <div class="col-12 col-md-3 mb-3 form-group">
+                    <input type="text" class="form-control" id="annee_naissance" name="annee_naissance" placeholder="Année de naissance" required>
+                    <label for="annee_naissance" class="floating-label">Année de naissance</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-3 mb-3 form-group">
+                    <input type="text" class="form-control" id="poste" name="poste" placeholder="Poste" required>
+                    <label for="poste" class="floating-label">Poste</label>
+                </div>
+                <div class="col-12 col-md-3 mb-3 form-group">
+                    <input type="email" class="form-control" id="email" name="email" autocomplete placeholder="Adresse mail" required>
+                    <label for="email" class="floating-label">Adreese mail</label>
+                </div>
+                <div class="col-12 col-md-3 mb-3 form-group">
+                    <input type="password" class="form-control" id="password" name="password" autocomplete placeholder="Mot de passe" required>
+                    <label for="password" class="floating-label">Mot de passe</label>
+                </div>
+                <div class="col-12 col-md-3 mb-3 form-group">
+                    <input type="text" class="form-control" id="pseudo" name="pseudo" autocomplete placeholder="Pseudo" required>
+                    <label for="pseudo" class="floating-label">Pseudo</label>
+                </div>
+                <div class="col-12 col-md-3 mb-3 align-items-end offset-md-9">
+                    <button type="submit" class="btn btn-primary fw-bold w-100 ">Inscrire</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Formulaire de recherche -->
+<div id="form3" class="form-container expanded mb-5 mt-5 h-auto">
+    <button class="btn btn-dark text-primary fw-bold toggle-btn" onclick="toggleForm('form3', this)">
+        <i class="bi bi-search"></i> Rechercher
+    </button>
+    <div class="card">
+        <form id="searchForm" data-callback="searchUsers">
+            <!-- Ligne 1 -->
+            <div class="row align-items-end">
+                <div class="col-12 col-md-3 mb-3 mt-3 form-group">
+                    <input type="text" class="form-control" id="searchPoste" name="poste" placeholder="Poste">
+                    <label for="searchPoste" class="floating-label">Poste</label>
+                </div>
+                <div class="col-12 col-md-3 mb-3 mt-3 form-group">
+                    <input type="text" class="form-control" id="searchNom" name="nom" placeholder="Nom">
+                    <label for="searchNom" class="floating-label">Nom</label>
+                </div>
+                <div class="col-12 col-md-3 mb-3 mt-3 form-group">
+                    <input type="text" class="form-control" id="searchPrenom" name="prenom" placeholder="Prénom">
+                    <label for="searchPrenom" class="floating-label">Prénom</label>
+                </div>
+                <div class="col-12 col-md-3 mb-3 d-flex gap-2">
+                    <button type="submit" class="form-control btn btn-primary fw-bold w-100">Rechercher</button>
+                    <button type="button" class="btn btn-light" onclick="resetForm('searchForm')"><i class="bi bi-arrow-clockwise fs-6"></i></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="table-responsive" id="searchResultsTableContainer" style="display: none;">
+    <table class="table table-bordered table-striped align-middle text-center">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Email</th>
+                <th>Année de Naissance</th>
+                <th>Pseudo</th>
+                <th>Genre</th>
+                <th>Poste</th>
+                <th colspan="2">Actions</th>
+            </tr>
+        </thead>
+        <tbody id="searchResultsTableBody">
+            <!-- Les résultats de la recherche seront insérés ici -->
+        </tbody>
+    </table>
+</div>
+
+<script src="/public/assets/js/fetch/userFetch.js" defer></script>

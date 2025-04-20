@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mise à jour du dossier</title>
+</head>
+<body>
+    <h2>mise à jour du Dossier</h2>
+<form id="editDossierForm">
+    <label for="nom_commune">Commune :</label>
+    <input type="text" id="nom_commune" name="nom_commune" /><br><br>
+
+    <label for="numero_dossier">Numéro de dossier :</label>
+    <input type="text" id="numero_dossier" name="numero_dossier" /><br><br>
+
+    <label for="id_cadastre">Référence cadastrales :</label>
+    <input type="text" id="id_cadastre" name="id_cadastre" /><br><br>
+
+    <label for="pseudo">Collaborateur :</label>
+    <select id="pseudo" name="pseudo"></select><br><br>
+
+    <label for="type_dossier">Type Dossier:</label>
+        <select id="type_dossier" name="type_dossier">
+            <option value="">-- Choisir --</option>
+            <option value="Instruction complexe">Instruction complexe</option>
+            <option value="Projet">Projet</option>
+            <option value="Accompagnement">Accompagnement</option>
+            <option value="Servitude">Servitude</option>
+            <option value="Rétrocession">Rétrocession</option>
+        </select><br><br>
+
+        <label for="sous_type_dossier">Sous-Type Dossier:</label>
+        <select id="sous_type_dossier" name="sous_type_dossier">
+            <option value="">-- Choisir --</option>
+            <option value="Demande de validation">Demande de validation</option>
+            <option value="Extension">Extension</option>
+            <option value="Branchement">Branchement</option>
+            <option value="Opération">Opération</option>
+            <option value="Direction">Direction</option>
+            <option value="SPANC">SPANC</option>
+            <option value="EUND">EUND</option>
+            <option value="SPGEP">SPGEP</option>
+            <option value="Autre">Autre</option>
+        </select><br><br>
+
+    <label for="libelle">Libellé :</label>
+    <input type="text" id="libelle" name="libelle" /><br><br>
+
+    <label for="date_demande">Date de demande :</label>
+    <input type="text" id="date_demande" name="date_demande" /><br><br>
+
+    <label for="date_limite">Date limite :</label>
+    <input type="text" id="date_limite" name="date_limite" /><br><br>
+
+    <label for="statut">Statut :</label>
+    <input type="text" id="statut" name="statut" /><br><br>
+
+    <label for="lien_calypso">Lien Calypso :</label>
+    <input type="text" id="lien_calypso" name="lien_calypso" /><br><br>
+
+    <button type="submit">Enregistrer</button>
+</form><br>
+<button type="button" onclick="location.href='/public/testPages/testProfil.html'">Retour au profil</button>
+<script src="/public/assets/js/fetch/dossierFetch.js" defer></script>
+</body>
+</html>

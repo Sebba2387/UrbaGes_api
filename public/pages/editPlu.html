@@ -1,0 +1,86 @@
+<!-- Formulaire d'édition de PLU -->
+<div id="form3" class="form-container expanded mb-5 mt-5" data-callback="initEditPluForm">
+    <button class="btn btn-dark text-primary fw-bold toggle-btn" onclick="toggleForm('form3', this)">
+        <i class="bi bi-map-fill"></i> Mise à jour
+    </button>
+    <div class="card">
+        <form onsubmit="updatePlu(); return false;">
+            <!-- Ligne 1 -->
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-2 mb-3 mt-3 form-group">
+                    <input type="text" class="form-control" name="id_plu" id="id_plu" placeholder="ID du PLU" readonly>
+                    <label for="id_plu" class="floating-label">ID du PLU</label>
+                </div>
+                <div class="col-12 col-md-2 mb-3 mt-3 form-group">
+                    <input type="text" class="form-control" name="type_plu" id="type_plu" placeholder="Type du PLU">
+                    <label for="type_plu" class="floating-label">Type du PLU</label>
+                </div>
+                <div class="col-12 col-md-2 mb-3 mt-3 form-group">
+                    <input type="text" class="form-control" name="etat_plu" id="etat_plu" placeholder="État du PLU">
+                    <label for="etat_plu" class="floating-label">État du PLU</label>
+                </div>
+                <div class="col-12 col-md-2 mb-3 mt-3 form-group">
+                    <input type="text" class="form-control" name="date_plu" id="date_plu" placeholder="Date du PLU">
+                    <label for="date_plu" class="floating-label">Date du PLU</label>
+                </div>
+                <div class="col-12 col-md-3 mb-3 mt-3 form-group">
+                    <div class="input-group d-flex">
+                        <button type="button" class="input-group-text" onclick="copierTexte(event, 'lien_dhua')">
+                            <i class="bi bi-copy"></i>
+                        </button>
+                        <input type="text" class="form-control" name="lien_dhua" id="lien_dhua" placeholder="Lien du dossier">
+                        <label for="lien_dhua" class="floating-label">Lien du dossier</label>
+                    </div>
+                </div>
+            </div>
+            <!-- Ligne 2 -->
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-2 mb-3 form-group">
+                    <input type="text" class="form-control" name="systeme_ass" id="systeme_ass" placeholder="Système d'assainissement">
+                    <label for="systeme_ass" class="floating-label">Système d'assainissement</label>
+                </div>
+                <div class="col-12 col-md-2 mb-3 form-group">
+                    <select class="form-control" name="statut_zonage" id="statut_zonage" placeholder="Statut du zonage">
+                        <option value="" disabled selected>-- Statut --</option>
+                        <option value="traité">traité</option>
+                        <option value="en cours">en cours</option>
+                        <option value="en attente">en attente</option>
+                        <option value="annulé">annulé</option>
+                    </select>
+                    <label for="statut_zonage" class="floating-label">Statut du zonage</label>
+                </div>
+                <div class="col-12 col-md-2 mb-3 form-group">
+                    <select class="form-control" name="statut_pres" id="statut_pres" placeholder="Statut des prescriptions">
+                        <option value="" disabled selected>-- Statut --</option>
+                        <option value="traité">traité</option>
+                        <option value="en cours">en cours</option>
+                        <option value="en attente">en attente</option>
+                        <option value="annulé">annulé</option>
+                    </select>
+                    <label for="statut_pres" class="floating-label">Statut des prescriptions</label>
+                </div>
+                <div class="col-12 col-md-2 mb-3 form-group">
+                    <input type="text" class="form-control" name="date_annexion" id="date_annexion" placeholder="Date d'annexion">
+                    <label for="date_annexion" class="floating-label">Date d'annexion</label>
+                </div>
+                <div class="col-12 col-md-3 mb-3 form-group">
+                    <div class="input-group d-flex">
+                        <button type="button" class="input-group-text" onclick="copierTexte(event, 'lien_zonage')">
+                            <i class="bi bi-copy"></i>
+                        </button>
+                        <input type="text" class="form-control" name="lien_zonage" id="lien_zonage" placeholder="Lien du zonage">
+                        <label for="lien_zonage" class="floating-label">Lien du zonage</label>
+                    </div>
+                </div>  
+                <div class="col-12 col-md-6 mb-3 form-group">
+                    <textarea type="textaria" class="form-control" name="observation_plu" id="observation_plu" placeholder="Observation" rows="6"></textarea>
+                    <label for="observation_plu" class="floating-label">Observation</label>
+                </div>
+                <div class="col-12 col-md-2 mb-3 d-flex align-items-end offset-md-10">
+                    <button type="submit" class="btn btn-primary fw-bold w-100">Mise à jour</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="/public/assets/js/fetch/pluFetch.js" defer></script>

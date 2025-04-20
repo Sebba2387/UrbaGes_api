@@ -1,0 +1,70 @@
+<!-- Formulaire de recherche de dossier -->
+<div id="form3" class="form-container expanded mb-5 mt-5" data-callback="initSearchPluForm">
+    <button class="btn btn-dark text-primary fw-bold toggle-btn" onclick="toggleForm('form3', this)">
+        <i class="bi bi-search"></i> Rechercher
+    </button>
+    <div class="card" >
+        <form id="searchPluForm">
+            <!-- Ligne 1 -->
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-3 mb-3">
+                    <select class="form-control" id="id_commune_search" name="id_commune_search"  placeholder="Commune">
+                        <!-- Les options seront ajoutées ici par JavaScript -->
+                    </select>
+                </div>
+                <div class="col-12 col-md-2 mb-3">
+                    <input type="text" class="form-control" name="etat_plu" id="etat_plu" placeholder="État du PLU">
+                </div>
+                <div class="col-12 col-md-2 mb-3">
+                    <select class="form-control" name="statut_zonage" id="statut_zonage" placeholder="Statut du zonage">
+                        <option value="" disabled selected>-- Zonage --</option>
+                        <option value="traité">traité</option>
+                        <option value="en cours">en cours</option>
+                        <option value="en attente">en attente</option>
+                        <option value="annulé">annulé</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-2 mb-3">
+                    <select class="form-control" name="statut_pres" id="statut_pres" placeholder="Statut des prescriptions">
+                        <option value="" disabled selected>-- Prescriptions --</option>
+                        <option value="traité">traité</option>
+                        <option value="en cours">en cours</option>
+                        <option value="en attente">en attente</option>
+                        <option value="annulé">annulé</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-2 mb-3 d-flex gap-2">
+                    <button type="submit" class="btn btn-primary fw-bold w-100">Rechercher</button>
+                    <button type="button" class="btn btn-light" onclick="resetForm('searchPluForm')"><i class="bi bi-arrow-clockwise fs-5"></i></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Table des résultats -->
+<div class="table-responsive" id="pluTableContainer" style="display: none;">
+    <table class="table table-bordered table-striped align-middle text-center">
+        <thead class="table-dark">
+            <tr>
+                <th>Nom Commune</th>
+                <th>Code Commune</th>
+                <th>Code Postal</th>
+                <th>État PLU</th>
+                <th>Type PLU</th>
+                <th>Date PLU</th>
+                <th>Système Assainissement</th>
+                <th>Statut Zonage</th>
+                <th>Statut Présentation</th>
+                <th>Date Annexion</th>
+                <th>Lien Zonage</th>
+                <th>Lien DHUA</th>
+                <th>Observation</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+    <tbody id="pluResults">
+        <!-- Les résultats de la recherche seront affichés ici -->
+    </tbody>
+    </table>
+</div>
+<script src="/public/assets/js/fetch/pluFetch.js" defer></script>
