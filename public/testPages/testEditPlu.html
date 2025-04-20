@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier le PLU</title>
+</head>
+<body>
+    <h1>Modification du PLU</h1>
+    <form onsubmit="updatePlu(); return false;">
+        <label for="id_plu">ID PLU:</label>
+        <input type="text" id="id_plu" name="id_plu" readonly><br><br>
+        <label for="etat_plu">État du PLU:</label>
+        <input type="text" id="etat_plu" name="etat_plu"><br><br>
+        <label for="type_plu">Type du PLU:</label>
+        <input type="text" id="type_plu" name="type_plu"><br><br>
+        <label for="date_plu">Date du PLU:</label>
+        <input type="text" id="date_plu" name="date_plu"><br><br>
+        <label for="systeme_ass">Système d'assainissement:</label>
+        <input type="text" id="systeme_ass" name="systeme_ass"><br><br>
+        <label for="statut_zonage">Statut du zonage:</label>
+        <input type="text" id="statut_zonage" name="statut_zonage"><br><br>
+        <label for="statut_pres">Statut des prescriptions:</label>
+        <input type="text" id="statut_pres" name="statut_pres"><br><br>
+        <label for="date_annexion">Date d'annexion:</label>
+        <input type="text" id="date_annexion" name="date_annexion"><br><br>
+        <label for="lien_zonage">Lien zonage:</label>
+        <input type="text" id="lien_zonage" name="lien_zonage"><br><br>
+        <label for="lien_dhua">Lien DHUA:</label>
+        <input type="text" id="lien_dhua" name="lien_dhua"><br><br>
+        <label for="observation_plu">Observations:</label>
+        <textarea id="observation_plu" name="observation_plu"></textarea><br><br>
+        <button type="button" onclick="updatePlu()">Mettre à jour</button>
+    </form>
+    <script src="/public/assets/js/fetch/pluFetch.js" defer></script>
+</body>
+</html>

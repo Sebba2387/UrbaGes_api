@@ -1,0 +1,1624 @@
+
+[24-Mar-2025 15:14:34 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'mot_de_passe' in 'field list' in C:\xampp\htdocs\app\models\userModel.php:66
+Stack trace:
+#0 C:\xampp\htdocs\app\models\userModel.php(66): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\app\controllers\userController.php(150): UserModel->registerUser('BONTE', 'Baptiste', 'bonte.baptiste@...', '123', 'user')
+#2 C:\xampp\htdocs\public\api\userApi.php(7): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\app\models\userModel.php on line 66
+[24-Mar-2025 15:34:23 Europe/Berlin] PHP Warning:  Undefined array key "annee_naissance" in C:\xampp\htdocs\app\controllers\userController.php on line 151
+[24-Mar-2025 15:34:23 Europe/Berlin] PHP Warning:  Undefined array key "pseudo" in C:\xampp\htdocs\app\controllers\userController.php on line 151
+[24-Mar-2025 15:34:23 Europe/Berlin] PHP Warning:  Undefined array key "genre" in C:\xampp\htdocs\app\controllers\userController.php on line 151
+[25-Mar-2025 21:17:11 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'field list' in C:\xampp\htdocs\app\controllers\userController.php:287
+Stack trace:
+#0 C:\xampp\htdocs\app\controllers\userController.php(287): PDOStatement->execute()
+#1 C:\xampp\htdocs\public\api\userApi.php(7): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\app\controllers\userController.php on line 287
+[26-Mar-2025 22:58:09 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "CommuneModel" not found in C:\xampp\htdocs\app\controllers\communeController.php:38
+Stack trace:
+#0 C:\xampp\htdocs\public\api\communeApi.php(4): require_once()
+#1 {main}
+  thrown in C:\xampp\htdocs\app\controllers\communeController.php on line 38
+[26-Mar-2025 22:58:20 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "CommuneModel" not found in C:\xampp\htdocs\app\controllers\communeController.php:38
+Stack trace:
+#0 C:\xampp\htdocs\public\api\communeApi.php(4): require_once()
+#1 {main}
+  thrown in C:\xampp\htdocs\app\controllers\communeController.php on line 38
+[26-Mar-2025 22:58:45 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "CommuneModel" not found in C:\xampp\htdocs\app\controllers\communeController.php:38
+Stack trace:
+#0 C:\xampp\htdocs\public\api\communeApi.php(4): require_once()
+#1 {main}
+  thrown in C:\xampp\htdocs\app\controllers\communeController.php on line 38
+[27-Mar-2025 00:01:22 Europe/Berlin] PHP Fatal error:  Uncaught Error: Using $this when not in object context in C:\xampp\htdocs\app\controllers\communeController.php:93
+Stack trace:
+#0 C:\xampp\htdocs\public\api\communeApi.php(7): require_once()
+#1 {main}
+  thrown in C:\xampp\htdocs\app\controllers\communeController.php on line 93
+[27-Mar-2025 00:04:27 Europe/Berlin] PHP Fatal error:  Uncaught Error: Using $this when not in object context in C:\xampp\htdocs\app\controllers\communeController.php:93
+Stack trace:
+#0 C:\xampp\htdocs\public\api\communeApi.php(7): require_once()
+#1 {main}
+  thrown in C:\xampp\htdocs\app\controllers\communeController.php on line 93
+[27-Mar-2025 00:10:49 Europe/Berlin] PHP Warning:  Undefined property: MongoDB\Collection::$logDB in C:\xampp\htdocs\app\models\communeModel.php on line 15
+[27-Mar-2025 00:10:49 Europe/Berlin] PHP Warning:  Attempt to read property "modificationCollection" on null in C:\xampp\htdocs\app\models\communeModel.php on line 15
+[27-Mar-2025 00:10:49 Europe/Berlin] PHP Fatal error:  Uncaught Error: Using $this when not in object context in C:\xampp\htdocs\app\controllers\communeController.php:93
+Stack trace:
+#0 C:\xampp\htdocs\public\api\communeApi.php(7): require_once()
+#1 {main}
+  thrown in C:\xampp\htdocs\app\controllers\communeController.php on line 93
+[27-Mar-2025 00:13:56 Europe/Berlin] PHP Warning:  Undefined property: MongoDB\Collection::$logDB in C:\xampp\htdocs\app\models\communeModel.php on line 15
+[27-Mar-2025 00:13:56 Europe/Berlin] PHP Warning:  Attempt to read property "modificationCollection" on null in C:\xampp\htdocs\app\models\communeModel.php on line 15
+[27-Mar-2025 00:13:56 Europe/Berlin] PHP Fatal error:  Uncaught Error: Using $this when not in object context in C:\xampp\htdocs\app\controllers\communeController.php:93
+Stack trace:
+#0 C:\xampp\htdocs\public\api\communeApi.php(7): require_once()
+#1 {main}
+  thrown in C:\xampp\htdocs\app\controllers\communeController.php on line 93
+[27-Mar-2025 00:18:42 Europe/Berlin] PHP Fatal error:  Uncaught Error: Cannot use object of type MongoDB\Collection as array in C:\xampp\htdocs\app\models\communeModel.php:13
+Stack trace:
+#0 C:\xampp\htdocs\app\controllers\communeController.php(38): CommuneModel->__construct(Object(PDO), Object(MongoDB\Collection))
+#1 C:\xampp\htdocs\public\api\communeApi.php(7): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\app\models\communeModel.php on line 13
+[27-Mar-2025 00:18:55 Europe/Berlin] PHP Fatal error:  Uncaught Error: Cannot use object of type MongoDB\Collection as array in C:\xampp\htdocs\app\models\communeModel.php:13
+Stack trace:
+#0 C:\xampp\htdocs\app\controllers\communeController.php(38): CommuneModel->__construct(Object(PDO), Object(MongoDB\Collection))
+#1 C:\xampp\htdocs\public\api\communeApi.php(7): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\app\models\communeModel.php on line 13
+[27-Mar-2025 00:21:58 Europe/Berlin] PHP Fatal error:  Uncaught Error: Cannot use object of type MongoDB\Collection as array in C:\xampp\htdocs\app\models\communeModel.php:13
+Stack trace:
+#0 C:\xampp\htdocs\app\controllers\communeController.php(39): CommuneModel->__construct(Object(PDO), Object(MongoDB\Collection))
+#1 C:\xampp\htdocs\public\api\communeApi.php(7): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\app\models\communeModel.php on line 13
+[27-Mar-2025 00:22:12 Europe/Berlin] PHP Fatal error:  Uncaught Error: Cannot use object of type MongoDB\Collection as array in C:\xampp\htdocs\app\models\communeModel.php:13
+Stack trace:
+#0 C:\xampp\htdocs\app\controllers\communeController.php(39): CommuneModel->__construct(Object(PDO), Object(MongoDB\Collection))
+#1 C:\xampp\htdocs\public\api\communeApi.php(7): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\app\models\communeModel.php on line 13
+[27-Mar-2025 21:50:18 Europe/Berlin] PHP Fatal error:  Uncaught Error: Cannot use object of type MongoDB\Collection as array in C:\xampp\htdocs\app\models\communeModel.php:13
+Stack trace:
+#0 C:\xampp\htdocs\app\controllers\communeController.php(39): CommuneModel->__construct(Object(PDO), Object(MongoDB\Collection))
+#1 C:\xampp\htdocs\public\api\communeApi.php(7): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\app\models\communeModel.php on line 13
+[27-Mar-2025 21:50:22 Europe/Berlin] PHP Fatal error:  Uncaught Error: Cannot use object of type MongoDB\Collection as array in C:\xampp\htdocs\app\models\communeModel.php:13
+Stack trace:
+#0 C:\xampp\htdocs\app\controllers\communeController.php(39): CommuneModel->__construct(Object(PDO), Object(MongoDB\Collection))
+#1 C:\xampp\htdocs\public\api\communeApi.php(7): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\app\models\communeModel.php on line 13
+[27-Mar-2025 21:55:07 Europe/Berlin] PHP Fatal error:  Uncaught Error: Cannot use object of type MongoDB\Collection as array in C:\xampp\htdocs\app\models\communeModel.php:12
+Stack trace:
+#0 C:\xampp\htdocs\app\controllers\communeController.php(39): CommuneModel->__construct(Object(PDO), Object(MongoDB\Collection))
+#1 C:\xampp\htdocs\public\api\communeApi.php(7): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\app\models\communeModel.php on line 12
+[27-Mar-2025 21:58:33 Europe/Berlin] PHP Fatal error:  Uncaught Error: Using $this when not in object context in C:\xampp\htdocs\app\controllers\communeController.php:94
+Stack trace:
+#0 C:\xampp\htdocs\public\api\communeApi.php(7): require_once()
+#1 {main}
+  thrown in C:\xampp\htdocs\app\controllers\communeController.php on line 94
+[27-Mar-2025 22:21:02 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\xampp\htdocs\app\models\communeModel.php:92
+Stack trace:
+#0 C:\xampp\htdocs\app\models\communeModel.php(92): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\app\controllers\communeController.php(111): CommuneModel->updateCommune(Array)
+#2 C:\xampp\htdocs\public\api\communeApi.php(7): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\app\models\communeModel.php on line 92
+[27-Mar-2025 22:29:42 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\xampp\htdocs\app\models\communeModel.php:92
+Stack trace:
+#0 C:\xampp\htdocs\app\models\communeModel.php(92): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\app\controllers\communeController.php(111): CommuneModel->updateCommune(Array)
+#2 C:\xampp\htdocs\public\api\communeApi.php(7): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\app\models\communeModel.php on line 92
+[27-Mar-2025 22:31:04 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\xampp\htdocs\app\models\communeModel.php:95
+Stack trace:
+#0 C:\xampp\htdocs\app\models\communeModel.php(95): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\app\controllers\communeController.php(111): CommuneModel->updateCommune(Array)
+#2 C:\xampp\htdocs\public\api\communeApi.php(7): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\app\models\communeModel.php on line 95
+[28-Mar-2025 17:12:42 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'mot_de_passe' in 'field list' in C:\xampp\htdocs\app\controllers\userController.php:306
+Stack trace:
+#0 C:\xampp\htdocs\app\controllers\userController.php(306): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\public\api\userApi.php(7): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\app\controllers\userController.php on line 306
+[28-Mar-2025 17:15:31 Europe/Berlin] PHP Warning:  Undefined array key "mot_de_passe" in C:\xampp\htdocs\app\controllers\userController.php on line 309
+[28-Mar-2025 17:15:31 Europe/Berlin] PHP Deprecated:  password_verify(): Passing null to parameter #2 ($hash) of type string is deprecated in C:\xampp\htdocs\app\controllers\userController.php on line 309
+[29-Mar-2025 18:39:19 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "PluModel" not found in C:\xampp\htdocs\app\controllers\pluController.php:37
+Stack trace:
+#0 C:\xampp\htdocs\public\api\pluApi.php(8): require_once()
+#1 {main}
+  thrown in C:\xampp\htdocs\app\controllers\pluController.php on line 37
+[29-Mar-2025 23:48:25 Europe/Berlin] PHP Warning:  Constant DEBUG_LOG already defined in C:\xampp\htdocs\public\api\pluApi.php on line 16
+[29-Mar-2025 23:49:01 Europe/Berlin] PHP Warning:  Constant DEBUG_LOG already defined in C:\xampp\htdocs\public\api\pluApi.php on line 16
+[30-Mar-2025 23:03:29 Europe/Berlin] Données reçues : {"action":"getPluById","id_plu":"1"}
+[30-Mar-2025 23:04:00 Europe/Berlin] Données reçues : {"action":"updatePlu","id_plu":"1","type_plu":"PLU","etat_plu":"En vigueur","date_plu":"12\/07\/2023","systeme_ass":"VALENCE","statut_zonage":"en attente","statut_pres":"en attente","date_annexion":"30\/05\/2025","lien_zonage":null,"lien_dhua":null,"observation_plu":"Abbes"}
+[31-Mar-2025 20:19:15 Europe/Berlin] Données reçues : {"action":"updatePlu","id_plu":"1","type_plu":"PLU","etat_plu":"En vigueur","date_plu":"12\/07\/2023","systeme_ass":"VALENCE","statut_zonage":"en attente","statut_pres":"en attente","date_annexion":"","lien_zonage":"","lien_dhua":"","observation_plu":""}
+[31-Mar-2025 22:43:18 Europe/Berlin] Données reçues : {"action":"updatePlu","id_plu":"1","type_plu":"PLU","etat_plu":"En vigueur","date_plu":"12\/07\/2023","systeme_ass":"VALENCE","statut_zonage":"en attente","statut_pres":"en attente","date_annexion":"31\/03\/2025","lien_zonage":"L:\\03 DT-DD\\02 Assainissement\\06_SUIVI_PATRIMONIAL\\8_ZONAGES_ASS_EPL\\ALIXAN","lien_dhua":"\\\\sysinfo.local\\src-data\\DirectionAgglo\\06 Inter-dep\\03 DT-DD\\08 Ressources suivi PLU\\26004_ALIXAN","observation_plu":""}
+[31-Mar-2025 22:47:17 Europe/Berlin] Données reçues : {"action":"updatePlu","id_plu":"29","type_plu":"PLU","etat_plu":"En vigueur","date_plu":"07\/11\/2023","systeme_ass":"AUCUN","statut_zonage":"en attente","statut_pres":"en attente","date_annexion":"31\/03\/2025","lien_zonage":"L:\u00003 DT-DD\u00002 Assainissement\u00006_SUIVI_PATRIMONIAL8_ZONAGES_ASS_EPLMONTELEGER","lien_dhua":"\\sysinfo.localsrc-dataDirectionAgglo\u00006 Inter-dep\u00003 DT-DD\u00008 Ressources suivi PLU26196_MONTELEGER","observation_plu":"\nAbbes"}
+[31-Mar-2025 22:50:52 Europe/Berlin] Données reçues : {"action":"updatePlu","id_plu":"29","type_plu":"PLU","etat_plu":"En vigueur","date_plu":"07\/11\/2023","systeme_ass":"AUCUN","statut_zonage":"en attente","statut_pres":"en attente","date_annexion":"31\/03\/2025","lien_zonage":"L:\u00003 DT-DD\u00002 Assainissement\u00006_SUIVI_PATRIMONIAL8_ZONAGES_ASS_EPLMONTELEGER","lien_dhua":"\\sysinfo.localsrc-dataDirectionAgglo\u00006 Inter-dep\u00003 DT-DD\u00008 Ressources suivi PLU26196_MONTELEGER","observation_plu":"\n"}
+[31-Mar-2025 22:56:48 Europe/Berlin] Données reçues : {"action":"updatePlu","id_plu":"1","type_plu":"PLU","etat_plu":"En vigueur","date_plu":"12\/07\/2023","systeme_ass":"VALENCE","statut_zonage":"en attente","statut_pres":"en attente","date_annexion":"31\/03\/2025","lien_zonage":"L:\\03 DT-DD\\02 Assainissement\\06_SUIVI_PATRIMONIAL\\8_ZONAGES_ASS_EPL\\ALIXAN","lien_dhua":"\\\\sysinfo.local\\src-data\\DirectionAgglo\\06 Inter-dep\\03 DT-DD\\08 Ressources suivi PLU\\26004_ALIXAN","observation_plu":"Abbes"}
+[31-Mar-2025 22:58:24 Europe/Berlin] Données reçues : {"action":"updatePlu","id_plu":"29","type_plu":"PLU","etat_plu":"En vigueur","date_plu":"07\/11\/2023","systeme_ass":"AUCUN","statut_zonage":"en attente","statut_pres":"en attente","date_annexion":"31\/03\/2025","lien_zonage":"L:\u00003 DT-DD\u00002 Assainissement\u00006_SUIVI_PATRIMONIAL8_ZONAGES_ASS_EPLMONTELEGER","lien_dhua":"\\sysinfo.localsrc-dataDirectionAgglo\u00006 Inter-dep\u00003 DT-DD\u00008 Ressources suivi PLU26196_MONTELEGER","observation_plu":"Abbes\n"}
+[31-Mar-2025 23:20:18 Europe/Berlin] Données reçues : {"action":"updatePlu","id_plu":"1","type_plu":"PLU","etat_plu":"En vigueur","date_plu":"12\/07\/2023","systeme_ass":"VALENCE","statut_zonage":"en attente","statut_pres":"en attente","date_annexion":"31\/03\/2025","lien_zonage":"L:\\03 DT-DD\\02 Assainissement\\06_SUIVI_PATRIMONIAL\\8_ZONAGES_ASS_EPL\\ALIXAN","lien_dhua":"\\\\sysinfo.local\\src-data\\DirectionAgglo\\06 Inter-dep\\03 DT-DD\\08 Ressources suivi PLU\\26004_ALIXAN","observation_plu":""}
+[31-Mar-2025 23:23:27 Europe/Berlin] Données reçues : {"action":"updatePlu","id_plu":"29","type_plu":"PLU","etat_plu":"En vigueur","date_plu":"07\/11\/2023","systeme_ass":"AUCUN","statut_zonage":"en attente","statut_pres":"en attente","date_annexion":"31\/03\/2025","lien_zonage":"L:\u00003 DT-DD\u00002 Assainissement\u00006_SUIVI_PATRIMONIAL8_ZONAGES_ASS_EPLMONTELEGER","lien_dhua":"\\sysinfo.localsrc-dataDirectionAgglo\u00006 Inter-dep\u00003 DT-DD\u00008 Ressources suivi PLU26196_MONTELEGER","observation_plu":"\n"}
+[01-Apr-2025 22:53:59 Europe/Berlin] Données reçues : {"action":"updatePlu"}
+[03-Apr-2025 20:44:33 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:66) in C:\xampp\htdocs\public\api\dossierApi.php on line 22
+[03-Apr-2025 20:44:33 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:66) in C:\xampp\htdocs\public\api\dossierApi.php on line 23
+[03-Apr-2025 20:44:33 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:66) in C:\xampp\htdocs\public\api\dossierApi.php on line 24
+[03-Apr-2025 20:44:33 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:66) in C:\xampp\htdocs\public\api\dossierApi.php on line 25
+[03-Apr-2025 20:44:33 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:66) in C:\xampp\htdocs\public\api\dossierApi.php on line 26
+[03-Apr-2025 20:44:38 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:66) in C:\xampp\htdocs\public\api\dossierApi.php on line 22
+[03-Apr-2025 20:44:38 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:66) in C:\xampp\htdocs\public\api\dossierApi.php on line 23
+[03-Apr-2025 20:44:38 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:66) in C:\xampp\htdocs\public\api\dossierApi.php on line 24
+[03-Apr-2025 20:44:38 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:66) in C:\xampp\htdocs\public\api\dossierApi.php on line 25
+[03-Apr-2025 20:44:38 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:66) in C:\xampp\htdocs\public\api\dossierApi.php on line 26
+[03-Apr-2025 23:38:53 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.user_id' in 'on clause' in C:\xampp\htdocs\app\models\dossierModel.php:55
+Stack trace:
+#0 C:\xampp\htdocs\app\models\dossierModel.php(55): PDOStatement->execute()
+#1 C:\xampp\htdocs\app\controllers\dossierController.php(82): DossierModel->getDossierById('3')
+#2 C:\xampp\htdocs\public\api\dossierApi.php(8): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\app\models\dossierModel.php on line 55
+[03-Apr-2025 23:41:20 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.user_id' in 'on clause' in C:\xampp\htdocs\app\models\dossierModel.php:55
+Stack trace:
+#0 C:\xampp\htdocs\app\models\dossierModel.php(55): PDOStatement->execute()
+#1 C:\xampp\htdocs\app\controllers\dossierController.php(82): DossierModel->getDossierById('3')
+#2 C:\xampp\htdocs\public\api\dossierApi.php(8): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\app\models\dossierModel.php on line 55
+[03-Apr-2025 23:41:39 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.user_id' in 'on clause' in C:\xampp\htdocs\app\models\dossierModel.php:55
+Stack trace:
+#0 C:\xampp\htdocs\app\models\dossierModel.php(55): PDOStatement->execute()
+#1 C:\xampp\htdocs\app\controllers\dossierController.php(82): DossierModel->getDossierById('3')
+#2 C:\xampp\htdocs\public\api\dossierApi.php(8): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\app\models\dossierModel.php on line 55
+[03-Apr-2025 23:44:52 Europe/Berlin] PHP Warning:  Undefined variable $input in C:\xampp\htdocs\app\controllers\dossierController.php on line 29
+[03-Apr-2025 23:44:52 Europe/Berlin] 
+[03-Apr-2025 23:44:52 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.user_id' in 'on clause' in C:\xampp\htdocs\app\models\dossierModel.php:55
+Stack trace:
+#0 C:\xampp\htdocs\app\models\dossierModel.php(55): PDOStatement->execute()
+#1 C:\xampp\htdocs\app\controllers\dossierController.php(84): DossierModel->getDossierById('3')
+#2 C:\xampp\htdocs\public\api\dossierApi.php(8): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\app\models\dossierModel.php on line 55
+[03-Apr-2025 23:46:13 Europe/Berlin] PHP Warning:  Undefined variable $input in C:\xampp\htdocs\app\controllers\dossierController.php on line 30
+[03-Apr-2025 23:46:13 Europe/Berlin] 
+[03-Apr-2025 23:46:13 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.user_id' in 'on clause' in C:\xampp\htdocs\app\models\dossierModel.php:55
+Stack trace:
+#0 C:\xampp\htdocs\app\models\dossierModel.php(55): PDOStatement->execute()
+#1 C:\xampp\htdocs\app\controllers\dossierController.php(85): DossierModel->getDossierById('3')
+#2 C:\xampp\htdocs\public\api\dossierApi.php(8): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\app\models\dossierModel.php on line 55
+[03-Apr-2025 23:47:14 Europe/Berlin] PHP Warning:  Undefined variable $input in C:\xampp\htdocs\app\controllers\dossierController.php on line 30
+[03-Apr-2025 23:47:14 Europe/Berlin] 
+[03-Apr-2025 23:49:20 Europe/Berlin] PHP Warning:  Undefined variable $input in C:\xampp\htdocs\app\controllers\dossierController.php on line 30
+[03-Apr-2025 23:49:20 Europe/Berlin] 
+[03-Apr-2025 23:49:20 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.user_id' in 'on clause' in C:\xampp\htdocs\app\models\dossierModel.php:55
+Stack trace:
+#0 C:\xampp\htdocs\app\models\dossierModel.php(55): PDOStatement->execute()
+#1 C:\xampp\htdocs\app\controllers\dossierController.php(85): DossierModel->getDossierById('3')
+#2 C:\xampp\htdocs\public\api\dossierApi.php(8): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\app\models\dossierModel.php on line 55
+[03-Apr-2025 23:49:29 Europe/Berlin] PHP Warning:  Undefined variable $input in C:\xampp\htdocs\app\controllers\dossierController.php on line 30
+[03-Apr-2025 23:49:29 Europe/Berlin] 
+[03-Apr-2025 23:50:42 Europe/Berlin] PHP Warning:  Undefined variable $input in C:\xampp\htdocs\app\controllers\dossierController.php on line 30
+[03-Apr-2025 23:50:42 Europe/Berlin] 
+[03-Apr-2025 23:50:42 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.user_id' in 'on clause' in C:\xampp\htdocs\app\models\dossierModel.php:55
+Stack trace:
+#0 C:\xampp\htdocs\app\models\dossierModel.php(55): PDOStatement->execute()
+#1 C:\xampp\htdocs\app\controllers\dossierController.php(85): DossierModel->getDossierById('3')
+#2 C:\xampp\htdocs\public\api\dossierApi.php(8): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\app\models\dossierModel.php on line 55
+[03-Apr-2025 23:50:47 Europe/Berlin] PHP Warning:  Undefined variable $input in C:\xampp\htdocs\app\controllers\dossierController.php on line 30
+[03-Apr-2025 23:50:47 Europe/Berlin] 
+[03-Apr-2025 23:54:07 Europe/Berlin] PHP Warning:  Undefined variable $input in C:\xampp\htdocs\app\controllers\dossierController.php on line 30
+[03-Apr-2025 23:54:07 Europe/Berlin] 
+[03-Apr-2025 23:54:07 Europe/Berlin] Array
+(
+    [action] => getDossierById
+    [id_dossier] => 3
+)
+
+[03-Apr-2025 23:54:07 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.user_id' in 'on clause' in C:\xampp\htdocs\app\models\dossierModel.php:55
+Stack trace:
+#0 C:\xampp\htdocs\app\models\dossierModel.php(55): PDOStatement->execute()
+#1 C:\xampp\htdocs\app\controllers\dossierController.php(91): DossierModel->getDossierById('3')
+#2 C:\xampp\htdocs\public\api\dossierApi.php(8): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\app\models\dossierModel.php on line 55
+[03-Apr-2025 23:54:29 Europe/Berlin] PHP Warning:  Undefined variable $input in C:\xampp\htdocs\app\controllers\dossierController.php on line 30
+[03-Apr-2025 23:54:29 Europe/Berlin] 
+[03-Apr-2025 23:54:29 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.user_id' in 'on clause' in C:\xampp\htdocs\app\models\dossierModel.php:55
+Stack trace:
+#0 C:\xampp\htdocs\app\models\dossierModel.php(55): PDOStatement->execute()
+#1 C:\xampp\htdocs\app\controllers\dossierController.php(85): DossierModel->getDossierById('3')
+#2 C:\xampp\htdocs\public\api\dossierApi.php(8): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\app\models\dossierModel.php on line 55
+[03-Apr-2025 23:54:35 Europe/Berlin] PHP Warning:  Undefined variable $input in C:\xampp\htdocs\app\controllers\dossierController.php on line 30
+[03-Apr-2025 23:54:35 Europe/Berlin] 
+[03-Apr-2025 23:57:36 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossierById
+    [id_dossier] => 3
+)
+
+[03-Apr-2025 23:57:36 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.user_id' in 'on clause' in C:\xampp\htdocs\app\models\dossierModel.php:55
+Stack trace:
+#0 C:\xampp\htdocs\app\models\dossierModel.php(55): PDOStatement->execute()
+#1 C:\xampp\htdocs\app\controllers\dossierController.php(85): DossierModel->getDossierById('3')
+#2 C:\xampp\htdocs\public\api\dossierApi.php(8): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\app\models\dossierModel.php on line 55
+[03-Apr-2025 23:57:47 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossierById
+)
+
+[03-Apr-2025 23:58:56 Europe/Berlin] PHP Warning:  Undefined variable $input in C:\xampp\htdocs\app\controllers\dossierController.php on line 28
+[03-Apr-2025 23:58:56 Europe/Berlin] 
+[03-Apr-2025 23:58:56 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossierById
+)
+
+[04-Apr-2025 00:00:17 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossierById
+    [id_dossier] => 3
+)
+
+[04-Apr-2025 00:00:17 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.user_id' in 'on clause' in C:\xampp\htdocs\app\models\dossierModel.php:55
+Stack trace:
+#0 C:\xampp\htdocs\app\models\dossierModel.php(55): PDOStatement->execute()
+#1 C:\xampp\htdocs\app\controllers\dossierController.php(89): DossierModel->getDossierById('3')
+#2 C:\xampp\htdocs\public\api\dossierApi.php(8): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\app\models\dossierModel.php on line 55
+[04-Apr-2025 00:00:25 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossierById
+)
+
+[04-Apr-2025 00:00:51 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossierById
+    [id_dossier] => 3
+)
+
+[04-Apr-2025 00:00:51 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.user_id' in 'on clause' in C:\xampp\htdocs\app\models\dossierModel.php:55
+Stack trace:
+#0 C:\xampp\htdocs\app\models\dossierModel.php(55): PDOStatement->execute()
+#1 C:\xampp\htdocs\app\controllers\dossierController.php(89): DossierModel->getDossierById('3')
+#2 C:\xampp\htdocs\public\api\dossierApi.php(8): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\app\models\dossierModel.php on line 55
+[04-Apr-2025 00:01:42 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossierById
+    [id_dossier] => 3
+)
+
+[04-Apr-2025 00:01:42 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'u.id' in 'on clause' in C:\xampp\htdocs\app\models\dossierModel.php:55
+Stack trace:
+#0 C:\xampp\htdocs\app\models\dossierModel.php(55): PDOStatement->execute()
+#1 C:\xampp\htdocs\app\controllers\dossierController.php(89): DossierModel->getDossierById('3')
+#2 C:\xampp\htdocs\public\api\dossierApi.php(8): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\app\models\dossierModel.php on line 55
+
+[04-Apr-2025 00:33:50 Europe/Berlin] Données reçues : {"action":"updatePlu","id_plu":"29","type_plu":"PLU","etat_plu":"En vigueur","date_plu":"07\/11\/2023","systeme_ass":"AUCUN","statut_zonage":"en attente","statut_pres":"en attente","date_annexion":"31\/03\/2025","lien_zonage":"L:\u00003 DT-DD\u00002 Assainissement\u00006_SUIVI_PATRIMONIAL8_ZONAGES_ASS_EPLMONTELEGER","lien_dhua":"\\sysinfo.localsrc-dataDirectionAgglo\u00006 Inter-dep\u00003 DT-DD\u00008 Ressources suivi PLU26196_MONTELEGER","observation_plu":"Abbes\n"}
+[04-Apr-2025 12:11:24 Europe/Berlin] Données reçues : Array
+
+[04-Apr-2025 12:18:29 Europe/Berlin] PHP Warning:  Undefined variable $model in C:\xampp\htdocs\app\controllers\dossierController.php on line 100
+[04-Apr-2025 12:18:29 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function updateDossier() on null in C:\xampp\htdocs\app\controllers\dossierController.php:100
+Stack trace:
+#0 C:\xampp\htdocs\public\api\dossierApi.php(8): require_once()
+#1 {main}
+  thrown in C:\xampp\htdocs\app\controllers\dossierController.php on line 100
+
+[04-Apr-2025 14:39:05 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function DossierModel::__construct(), 1 passed in C:\xampp\htdocs\app\controllers\dossierController.php on line 61 and exactly 2 expected in C:\xampp\htdocs\app\models\dossierModel.php:8
+Stack trace:
+#0 C:\xampp\htdocs\app\controllers\dossierController.php(61): DossierModel->__construct(Object(PDO))
+#1 C:\xampp\htdocs\public\api\dossierApi.php(8): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\app\models\dossierModel.php on line 8
+[04-Apr-2025 14:39:16 Europe/Berlin] Données reçues : Array
+
+[04-Apr-2025 14:39:16 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function DossierModel::__construct(), 1 passed in C:\xampp\htdocs\app\controllers\dossierController.php on line 61 and exactly 2 expected in C:\xampp\htdocs\app\models\dossierModel.php:8
+Stack trace:
+#0 C:\xampp\htdocs\app\controllers\dossierController.php(61): DossierModel->__construct(Object(PDO))
+#1 C:\xampp\htdocs\public\api\dossierApi.php(8): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\app\models\dossierModel.php on line 8
+[04-Apr-2025 14:44:49 Europe/Berlin] Données reçues : Array
+
+
+[04-Apr-2025 14:44:49 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function DossierModel::__construct(), 1 passed in C:\xampp\htdocs\app\controllers\dossierController.php on line 61 and exactly 2 expected in C:\xampp\htdocs\app\models\dossierModel.php:8
+Stack trace:
+#0 C:\xampp\htdocs\app\controllers\dossierController.php(61): DossierModel->__construct(Object(PDO))
+#1 C:\xampp\htdocs\public\api\dossierApi.php(8): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\app\models\dossierModel.php on line 8
+[04-Apr-2025 14:44:54 Europe/Berlin] Données reçues : Array
+
+
+[04-Apr-2025 14:44:54 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function DossierModel::__construct(), 1 passed in C:\xampp\htdocs\app\controllers\dossierController.php on line 61 and exactly 2 expected in C:\xampp\htdocs\app\models\dossierModel.php:8
+Stack trace:
+#0 C:\xampp\htdocs\app\controllers\dossierController.php(61): DossierModel->__construct(Object(PDO))
+#1 C:\xampp\htdocs\public\api\dossierApi.php(8): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\app\models\dossierModel.php on line 8
+[04-Apr-2025 14:46:19 Europe/Berlin] Données reçues : Array
+
+[04-Apr-2025 14:46:19 Europe/Berlin] PHP Warning:  Undefined variable $mongoConfig in C:\xampp\htdocs\app\controllers\dossierController.php on line 61
+[04-Apr-2025 14:46:19 Europe/Berlin] Array
+
+[05-Apr-2025 23:06:39 Europe/Berlin] PHP Warning:  Undefined array key "email" in C:\xampp\htdocs\app\controllers\dossierController.php on line 134
+[05-Apr-2025 23:06:39 Europe/Berlin] PHP Warning:  Undefined array key "id_utilisateur" in C:\xampp\htdocs\app\models\dossierModel.php on line 155
+[05-Apr-2025 23:06:39 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_utilisateur' cannot be null in C:\xampp\htdocs\app\models\dossierModel.php:145
+Stack trace:
+#0 C:\xampp\htdocs\app\models\dossierModel.php(145): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\app\controllers\dossierController.php(122): DossierModel->addDossier(Array)
+#2 C:\xampp\htdocs\public\api\dossierApi.php(8): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\app\models\dossierModel.php on line 145
+
+
+[05-Apr-2025 23:07:45 Europe/Berlin] PHP Warning:  Undefined array key "email" in C:\xampp\htdocs\app\controllers\dossierController.php on line 134
+[05-Apr-2025 23:07:45 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`urbages_db`.`dossiers`, CONSTRAINT `dossiers_ibfk_2` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateurs` (`id_utilisateur`) ON DELETE CASCADE) in C:\xampp\htdocs\app\models\dossierModel.php:145
+Stack trace:
+#0 C:\xampp\htdocs\app\models\dossierModel.php(145): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\app\controllers\dossierController.php(122): DossierModel->addDossier(Array)
+#2 C:\xampp\htdocs\public\api\dossierApi.php(8): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\app\models\dossierModel.php on line 145
+[05-Apr-2025 23:08:10 Europe/Berlin] Données reçues : Array
+
+[05-Apr-2025 23:08:10 Europe/Berlin] PHP Warning:  Undefined array key "email" in C:\xampp\htdocs\app\controllers\dossierController.php on line 134
+[05-Apr-2025 23:08:10 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`urbages_db`.`dossiers`, CONSTRAINT `dossiers_ibfk_2` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateurs` (`id_utilisateur`) ON DELETE CASCADE) in C:\xampp\htdocs\app\models\dossierModel.php:145
+Stack trace:
+#0 C:\xampp\htdocs\app\models\dossierModel.php(145): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\app\controllers\dossierController.php(122): DossierModel->addDossier(Array)
+#2 C:\xampp\htdocs\public\api\dossierApi.php(8): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\app\models\dossierModel.php on line 145
+
+
+[05-Apr-2025 23:36:12 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:75) in C:\xampp\htdocs\public\api\dossierApi.php on line 17
+[05-Apr-2025 23:36:12 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:75) in C:\xampp\htdocs\public\api\dossierApi.php on line 18
+[05-Apr-2025 23:36:12 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:75) in C:\xampp\htdocs\public\api\dossierApi.php on line 19
+[05-Apr-2025 23:36:12 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:75) in C:\xampp\htdocs\public\api\dossierApi.php on line 20
+[05-Apr-2025 23:36:12 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:75) in C:\xampp\htdocs\public\api\dossierApi.php on line 21
+
+
+
+[05-Apr-2025 23:37:21 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:75) in C:\xampp\htdocs\public\api\dossierApi.php on line 22
+[05-Apr-2025 23:37:21 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:75) in C:\xampp\htdocs\public\api\dossierApi.php on line 23
+[05-Apr-2025 23:37:21 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:75) in C:\xampp\htdocs\public\api\dossierApi.php on line 24
+[05-Apr-2025 23:37:21 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:75) in C:\xampp\htdocs\public\api\dossierApi.php on line 25
+[05-Apr-2025 23:37:21 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:75) in C:\xampp\htdocs\public\api\dossierApi.php on line 26
+
+
+
+[05-Apr-2025 23:37:43 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:75) in C:\xampp\htdocs\public\api\dossierApi.php on line 22
+[05-Apr-2025 23:37:43 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:75) in C:\xampp\htdocs\public\api\dossierApi.php on line 23
+[05-Apr-2025 23:37:43 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:75) in C:\xampp\htdocs\public\api\dossierApi.php on line 24
+[05-Apr-2025 23:37:43 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:75) in C:\xampp\htdocs\public\api\dossierApi.php on line 25
+[05-Apr-2025 23:37:43 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:75) in C:\xampp\htdocs\public\api\dossierApi.php on line 26
+
+
+
+[06-Apr-2025 00:24:42 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\models\dossierModel.php:146) in C:\xampp\htdocs\public\api\dossierApi.php on line 17
+[06-Apr-2025 00:24:42 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\models\dossierModel.php:146) in C:\xampp\htdocs\public\api\dossierApi.php on line 18
+[06-Apr-2025 00:24:42 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\models\dossierModel.php:146) in C:\xampp\htdocs\public\api\dossierApi.php on line 19
+[06-Apr-2025 00:24:42 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\models\dossierModel.php:146) in C:\xampp\htdocs\public\api\dossierApi.php on line 20
+[06-Apr-2025 00:24:42 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\models\dossierModel.php:146) in C:\xampp\htdocs\public\api\dossierApi.php on line 21
+
+
+
+[06-Apr-2025 01:04:52 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:75) in C:\xampp\htdocs\public\api\dossierApi.php on line 17
+[06-Apr-2025 01:04:52 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:75) in C:\xampp\htdocs\public\api\dossierApi.php on line 18
+[06-Apr-2025 01:04:52 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:75) in C:\xampp\htdocs\public\api\dossierApi.php on line 19
+[06-Apr-2025 01:04:52 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:75) in C:\xampp\htdocs\public\api\dossierApi.php on line 20
+[06-Apr-2025 01:04:52 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:75) in C:\xampp\htdocs\public\api\dossierApi.php on line 21
+
+[06-Apr-2025 01:09:47 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:75) in C:\xampp\htdocs\public\api\dossierApi.php on line 17
+[06-Apr-2025 01:09:47 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:75) in C:\xampp\htdocs\public\api\dossierApi.php on line 18
+[06-Apr-2025 01:09:47 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:75) in C:\xampp\htdocs\public\api\dossierApi.php on line 19
+[06-Apr-2025 01:09:47 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:75) in C:\xampp\htdocs\public\api\dossierApi.php on line 20
+[06-Apr-2025 01:09:47 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\app\controllers\dossierController.php:75) in C:\xampp\htdocs\public\api\dossierApi.php on line 21
+[06-Apr-2025 01:23:01 Europe/Berlin] PHP Warning:  Undefined variable $email in C:\xampp\htdocs\app\controllers\dossierController.php on line 162
+[06-Apr-2025 01:25:17 Europe/Berlin] PHP Warning:  Undefined variable $email in C:\xampp\htdocs\app\controllers\dossierController.php on line 162
+[06-Apr-2025 01:25:17 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\app\models\dossierModel.php on line 205
+[06-Apr-2025 01:28:21 Europe/Berlin] PHP Warning:  Undefined variable $email in C:\xampp\htdocs\app\controllers\dossierController.php on line 162
+[06-Apr-2025 01:31:55 Europe/Berlin] PHP Warning:  Undefined variable $email in C:\xampp\htdocs\app\controllers\dossierController.php on line 162
+[06-Apr-2025 01:35:00 Europe/Berlin] PHP Warning:  Undefined variable $email in C:\xampp\htdocs\app\controllers\dossierController.php on line 162
+
+
+
+[07-Apr-2025 19:34:37 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'section' in 'where clause' in C:\xampp\htdocs\app\controllers\gepController.php:65
+Stack trace:
+#0 C:\xampp\htdocs\app\controllers\gepController.php(65): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\public\api\gepApi.php(7): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\app\controllers\gepController.php on line 65
+[07-Apr-2025 19:34:49 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'section' in 'where clause' in C:\xampp\htdocs\app\controllers\gepController.php:65
+Stack trace:
+#0 C:\xampp\htdocs\app\controllers\gepController.php(65): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\public\api\gepApi.php(7): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\app\controllers\gepController.php on line 65
+[07-Apr-2025 19:36:08 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'section' in 'where clause' in C:\xampp\htdocs\app\controllers\gepController.php:65
+Stack trace:
+#0 C:\xampp\htdocs\app\controllers\gepController.php(65): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\public\api\gepApi.php(7): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\app\controllers\gepController.php on line 65
+
+[07-Apr-2025 20:07:18 Europe/Berlin] PHP Warning:  Undefined variable $dossierModel in C:\xampp\htdocs\app\controllers\gepController.php on line 73
+[07-Apr-2025 20:07:18 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getAllCommunes() on null in C:\xampp\htdocs\app\controllers\gepController.php:73
+Stack trace:
+#0 C:\xampp\htdocs\public\api\gepApi.php(7): require_once()
+#1 {main}
+  thrown in C:\xampp\htdocs\app\controllers\gepController.php on line 73
+[07-Apr-2025 20:24:07 Europe/Berlin] PHP Warning:  Undefined variable $dossierModel in C:\xampp\htdocs\app\controllers\gepController.php on line 73
+[07-Apr-2025 20:24:07 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getAllCommunes() on null in C:\xampp\htdocs\app\controllers\gepController.php:73
+Stack trace:
+#0 C:\xampp\htdocs\public\api\gepApi.php(7): require_once()
+#1 {main}
+  thrown in C:\xampp\htdocs\app\controllers\gepController.php on line 73
+[13-Apr-2025 00:20:00 Europe/Berlin] Données reçues : {"action":"updatePlu","id_plu":"1","type_plu":"PLU","etat_plu":"En vigueur","date_plu":"12\/07\/2023","systeme_ass":"VALENCE","statut_zonage":"en attente","statut_pres":"en attente","date_annexion":"31\/03\/2025","lien_zonage":"L:\\03 DT-DD\\02 Assainissement\\06_SUIVI_PATRIMONIAL\\8_ZONAGES_ASS_EPL\\ALIXAN","lien_dhua":"\\\\sysinfo.local\\src-data\\DirectionAgglo\\06 Inter-dep\\03 DT-DD\\08 Ressources suivi PLU\\26004_ALIXAN","observation_plu":""}
+[15-Apr-2025 00:16:44 Europe/Berlin] PHP Warning:  Undefined variable $userId in C:\xampp\htdocs\app\controllers\dossierController.php on line 168
+[15-Apr-2025 00:17:22 Europe/Berlin] PHP Warning:  Undefined variable $userId in C:\xampp\htdocs\app\controllers\dossierController.php on line 168
+
+
+[15-Apr-2025 00:25:16 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[15-Apr-2025 00:25:16 Europe/Berlin] Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[15-Apr-2025 00:30:21 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[15-Apr-2025 00:30:21 Europe/Berlin] Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[15-Apr-2025 00:30:30 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossierById
+    [id_dossier] => 7
+)
+
+[15-Apr-2025 00:30:30 Europe/Berlin] Array
+(
+    [action] => getDossierById
+    [id_dossier] => 7
+)
+
+[15-Apr-2025 00:30:34 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[15-Apr-2025 00:30:34 Europe/Berlin] Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[15-Apr-2025 00:32:12 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[15-Apr-2025 00:32:12 Europe/Berlin] Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[15-Apr-2025 00:33:27 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[15-Apr-2025 00:33:27 Europe/Berlin] Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[15-Apr-2025 00:33:56 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[15-Apr-2025 00:33:56 Europe/Berlin] Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[15-Apr-2025 00:34:56 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[15-Apr-2025 00:34:56 Europe/Berlin] Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[15-Apr-2025 00:35:35 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[15-Apr-2025 00:35:35 Europe/Berlin] Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[15-Apr-2025 00:36:37 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[15-Apr-2025 00:36:37 Europe/Berlin] Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[15-Apr-2025 00:37:50 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[15-Apr-2025 00:37:50 Europe/Berlin] Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[15-Apr-2025 00:38:12 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[15-Apr-2025 00:38:12 Europe/Berlin] Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[15-Apr-2025 00:38:33 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[15-Apr-2025 00:38:33 Europe/Berlin] Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[15-Apr-2025 00:38:39 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[15-Apr-2025 00:38:39 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[15-Apr-2025 00:38:43 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[15-Apr-2025 00:38:43 Europe/Berlin] Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[15-Apr-2025 00:39:07 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[15-Apr-2025 00:39:07 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[15-Apr-2025 00:39:10 Europe/Berlin] Données reçues : Array
+(
+    [action] => searchDossier
+    [nom_commune] => Alixan
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => 
+)
+
+[15-Apr-2025 00:39:10 Europe/Berlin] Array
+(
+    [action] => searchDossier
+    [nom_commune] => Alixan
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => 
+)
+
+[17-Apr-2025 01:13:25 Europe/Berlin] Array
+(
+    [action] => genererCourrier
+    [id_courrier] => 4
+    [id_dossier] => 5
+)
+
+[17-Apr-2025 01:13:45 Europe/Berlin] Array
+(
+    [action] => genererCourrier
+    [id_courrier] => 4
+    [id_dossier] => 6
+)
+
+[17-Apr-2025 01:14:48 Europe/Berlin] Array
+(
+    [action] => genererCourrier
+    [id_courrier] => 4
+    [id_dossier] => 5
+)
+
+[17-Apr-2025 01:15:02 Europe/Berlin] Array
+(
+    [action] => genererCourrier
+    [id_courrier] => 4
+    [id_dossier] => 3
+)
+
+[18-Apr-2025 12:14:29 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:14:29 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:14:29 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:14:29 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:14:37 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:14:37 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:14:37 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:14:37 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:15:06 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:15:06 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:15:06 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:15:06 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:24:12 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:24:12 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:24:12 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:24:12 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:41:32 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:41:32 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:41:33 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:41:33 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:43:14 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:43:14 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:43:14 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:43:14 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:43:22 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:43:22 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:43:22 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:43:22 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:44:06 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[18-Apr-2025 12:44:06 Europe/Berlin] Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[18-Apr-2025 12:44:09 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 12:44:09 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:38:02 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:38:02 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:38:02 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:38:02 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:40:05 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:40:05 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:40:05 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:40:05 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:40:14 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:40:14 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:40:14 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:40:14 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:41:53 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:41:53 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:41:53 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:41:53 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:42:25 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:42:25 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:42:25 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:42:25 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:45:50 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:45:50 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:45:50 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:45:50 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:46:09 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:46:09 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:46:09 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:46:09 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:46:48 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:46:48 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:46:48 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:46:48 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:47:54 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:47:54 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:47:54 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:47:54 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:50:09 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:50:09 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:50:09 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:50:09 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:51:47 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:51:47 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:51:47 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:51:47 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 14:52:02 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[18-Apr-2025 14:52:02 Europe/Berlin] Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[18-Apr-2025 14:52:32 Europe/Berlin] Données reçues : Array
+(
+    [action] => searchDossier
+    [id_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => 
+)
+
+[18-Apr-2025 14:52:32 Europe/Berlin] Array
+(
+    [action] => searchDossier
+    [id_commune] => 
+    [numero_dossier] => 
+    [id_cadastre] => 
+    [type_dossier] => 
+    [sous_type_dossier] => 
+)
+
+[18-Apr-2025 14:52:42 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossierById
+    [id_dossier] => 1
+)
+
+[18-Apr-2025 14:52:42 Europe/Berlin] Array
+(
+    [action] => getDossierById
+    [id_dossier] => 1
+)
+
+[18-Apr-2025 14:58:26 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossierById
+    [id_dossier] => 1
+)
+
+[18-Apr-2025 14:58:26 Europe/Berlin] Array
+(
+    [action] => getDossierById
+    [id_dossier] => 1
+)
+
+[18-Apr-2025 14:58:39 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[18-Apr-2025 14:58:39 Europe/Berlin] Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[18-Apr-2025 15:01:57 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:01:57 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:01:57 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:01:57 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:02:16 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:02:16 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:02:16 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:02:16 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:07:30 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:07:30 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:13:55 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:13:55 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:14:02 Europe/Berlin] Données reçues : Array
+(
+    [action] => searchPlu
+    [id_commune] => 1
+    [statut_zonage] => 
+    [statut_pres] => 
+    [etat_plu] => 
+)
+
+[18-Apr-2025 15:14:02 Europe/Berlin] Array
+(
+    [action] => searchPlu
+    [id_commune] => 1
+    [statut_zonage] => 
+    [statut_pres] => 
+    [etat_plu] => 
+)
+
+[18-Apr-2025 15:14:04 Europe/Berlin] Données reçues : Array
+(
+    [action] => getPluById
+    [id_plu] => 1
+)
+
+[18-Apr-2025 15:14:04 Europe/Berlin] Array
+(
+    [action] => getPluById
+    [id_plu] => 1
+)
+
+[18-Apr-2025 15:14:28 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:14:28 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:24:18 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:24:18 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:24:19 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:24:19 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:24:25 Europe/Berlin] Données reçues : Array
+(
+    [action] => getPluById
+    [id_plu] => 3
+)
+
+[18-Apr-2025 15:24:25 Europe/Berlin] Array
+(
+    [action] => getPluById
+    [id_plu] => 3
+)
+
+[18-Apr-2025 15:24:58 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:24:58 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:25:07 Europe/Berlin] Données reçues : Array
+(
+    [action] => getPluById
+    [id_plu] => 2
+)
+
+[18-Apr-2025 15:25:07 Europe/Berlin] Array
+(
+    [action] => getPluById
+    [id_plu] => 2
+)
+
+[18-Apr-2025 15:31:13 Europe/Berlin] Array
+(
+    [action] => searchCourrier
+    [code_courrier] => 1
+    [type_courrier] => 
+    [libelle_courrier] => 
+)
+
+[18-Apr-2025 15:31:25 Europe/Berlin] Array
+(
+    [action] => searchCourrier
+    [code_courrier] => 
+    [type_courrier] => Instruction complexe
+    [libelle_courrier] => 
+)
+
+[18-Apr-2025 15:31:27 Europe/Berlin] Array
+(
+    [action] => getCourrierById
+    [id_courrier] => 4
+)
+
+[18-Apr-2025 15:33:47 Europe/Berlin] Array
+(
+    [action] => getCourrierById
+    [id_courrier] => 4
+)
+
+[18-Apr-2025 15:34:06 Europe/Berlin] Array
+(
+    [action] => updateCourrier
+    [id_courrier] => 4
+    [type_courrier] => Instruction complexe
+    [libelle_courrier] => Accusé de réception
+    [corps_courrier] => Bonjour,
+
+Nous vous confirmons la prise en charge du dossier {{numero_dossier}} situé sur la parcelle {{id_cadastre}} est de type {{type_dossier}}.
+
+Bien cordialement,
+)
+
+[18-Apr-2025 15:34:16 Europe/Berlin] Array
+(
+    [action] => searchCourrier
+    [code_courrier] => 1
+    [type_courrier] => 
+    [libelle_courrier] => 
+)
+
+[18-Apr-2025 15:36:40 Europe/Berlin] Array
+(
+    [action] => searchCourrier
+    [code_courrier] => 
+    [type_courrier] => Autre
+    [libelle_courrier] => 
+)
+
+[18-Apr-2025 15:36:45 Europe/Berlin] Array
+(
+    [action] => searchCourrier
+    [code_courrier] => 
+    [type_courrier] => Autre
+    [libelle_courrier] => Demande de renseignement - avancement PLU
+)
+
+[18-Apr-2025 15:36:53 Europe/Berlin] Array
+(
+    [action] => searchCourrier
+    [code_courrier] => 1
+    [type_courrier] => 
+    [libelle_courrier] => 
+)
+
+[18-Apr-2025 15:38:06 Europe/Berlin] Array
+(
+    [action] => searchCourrier
+    [code_courrier] => 
+    [type_courrier] => 
+    [libelle_courrier] => 
+)
+
+[18-Apr-2025 15:38:07 Europe/Berlin] Array
+(
+    [action] => searchCourrier
+    [code_courrier] => 
+    [type_courrier] => 
+    [libelle_courrier] => 
+)
+
+[18-Apr-2025 15:38:10 Europe/Berlin] Array
+(
+    [action] => searchCourrier
+    [code_courrier] => 
+    [type_courrier] => Projet
+    [libelle_courrier] => 
+)
+
+[18-Apr-2025 15:38:13 Europe/Berlin] Array
+(
+    [action] => searchCourrier
+    [code_courrier] => 
+    [type_courrier] => Autre
+    [libelle_courrier] => 
+)
+
+[18-Apr-2025 15:38:15 Europe/Berlin] Array
+(
+    [action] => searchCourrier
+    [code_courrier] => 
+    [type_courrier] => 
+    [libelle_courrier] => 
+)
+
+[18-Apr-2025 15:40:16 Europe/Berlin] Array
+(
+    [action] => searchCourrier
+    [id_courrier] => 1
+    [type_courrier] => 
+    [libelle_courrier] => 
+)
+
+[18-Apr-2025 15:40:20 Europe/Berlin] Array
+(
+    [action] => getCourrierById
+    [id_courrier] => 1
+)
+
+[18-Apr-2025 15:40:23 Europe/Berlin] Array
+(
+    [action] => updateCourrier
+    [id_courrier] => 1
+    [type_courrier] => Autre
+    [libelle_courrier] => Demande de renseignement - avancement PLU
+    [corps_courrier] => Bonjour,
+
+Nous souhaitons obtenir des informations concernant l’avancement de la révision de votre document d’urbanisme (PLU).
+Auriez-vous entamé la rédaction du règlement (écrit et graphique) ? Les secteurs d’extension urbaine ont-ils été définis ?
+
+Je reste à votre disposition pour toute information complémentaire.
+
+Bien cordialement,
+)
+
+[18-Apr-2025 15:40:27 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:40:27 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:40:36 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[18-Apr-2025 15:40:36 Europe/Berlin] Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[18-Apr-2025 15:40:37 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:40:37 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:40:38 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:40:38 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:42:46 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:42:46 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:42:46 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:42:46 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:42:55 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:42:55 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:42:55 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:42:55 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:43:43 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:43:43 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:43:43 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:43:43 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:43:55 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[18-Apr-2025 15:43:55 Europe/Berlin] Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[18-Apr-2025 15:44:44 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:44:44 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:44:44 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:44:44 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:44:46 Europe/Berlin] Données reçues : Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[18-Apr-2025 15:44:46 Europe/Berlin] Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[18-Apr-2025 15:44:50 Europe/Berlin] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[18-Apr-2025 15:44:50 Europe/Berlin] Array
+(
+    [action] => getCommunes
+)
+

@@ -1,0 +1,54 @@
+<!-- Formulaire de recherche de parcelle -->
+<div id="form3" class="form-container expanded mb-5 mt-5" data-callback="initGepSearchForm">
+    <button class="btn btn-dark text-primary fw-bold toggle-btn" onclick="toggleForm('form3', this)">
+        <i class="bi bi-search"></i> Rechercher
+    </button>
+    <div class="card">
+        <form id="gepSearchForm">
+            <!-- Ligne 1 -->
+            <div class="row align-items-end">
+                <div class="col-12 col-md-3 mb-3 mt-3 form-group">
+                    <select class="form-control" id="nom_commune" name="nom_commune" >
+                        <!-- Les options seront ajoutées ici par JavaScript -->
+                    </select>
+                </div>
+                <div class="col-12 col-md-3 mb-3 mt-3 form-group">
+                    <input type="text" class="form-control" name="section" id="section" placeholder="Section">
+                    <label for="section" class="floating-label">Section</label>
+                </div>
+                <div class="col-12 col-md-3 mb-3 mt-3 form-group">
+                    <input type="text" class="form-control" name="numero" id="numero" placeholder="Numéro">
+                    <label for="numero" class="floating-label">Numéro</label>
+                </div>
+                <div class="col-12 col-md-3 mb-3 form-group align-items-end d-flex gap-2">
+                    <button type="submit" class="form-control btn btn-primary fw-bold w-100">Rechercher</button>
+                    <button type="button" class="btn btn-light" onclick="resetForm('gepSearchForm')"><i class="bi bi-arrow-clockwise fs-5"></i></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="table-responsive" id="gepTableContainer" style="display: none;">
+    <table class="table table-bordered table-striped align-middle text-center">
+        <thead class="table-dark">
+            <tr>
+                <th>Commune</th>
+                <th>Section</th>
+                <th>Numéro</th>
+                <th>Surface</th>
+                <th>Captage</th>
+                <th>Règles de Captage</th>
+                <th>Dysfonctionnement</th>
+                <th>Sage (indice)</th>
+                <th>Zone de Montana</th>
+                <th>Sous-zone PLU</th>
+                <th>Règle PLU</th>
+            </tr>
+    </thead>
+    <tbody id="gepResults">
+        <!-- Résultats injectés ici -->
+    </tbody>
+</table>
+</div>
+<script src="/public/assets/js/fetch/gepFetch.js"></script>

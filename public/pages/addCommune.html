@@ -1,0 +1,50 @@
+<!-- Formulaire mon profil -->
+<div id="form1" class="form-container expanded mb-5 mt-5 h-auto" data-callback="initAddCommuneForm">
+    <button class="btn btn-dark text-primary fw-bold toggle-btn" onclick="toggleForm('form1', this)">
+        <i class="bi bi-layers-fill"></i> Commune
+    </button>
+    <div class="card">
+        <form id="addCommuneForm">
+            <!-- Ligne 1 -->
+            <div class="row">
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" name="code_commune" id="code_commune" placeholder="Code insee">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" name="cp_commune" id="cp_commune" placeholder="Code postal">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" name="nom_commune" id="nom_commune" placeholder="Commune">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" name="adresse_commune" id="adresse_commune" placeholder="Adresse">
+                </div>
+            </div>
+            <!-- Ligne 2 -->
+            <div class="row">
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" name="urbaniste_vra" id="urbaniste_vra" placeholder="Urbaniste VRA en charge">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" name="contact" id="contact" placeholder="Contact">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="email" class="form-control" name="email_commune" id="email_commune" placeholder="Email contact">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <input type="text" class="form-control" name="tel_commune" id="tel_commune" placeholder="Téléphone">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <select class="form-control" name="reseau_instruction" id="reseau_instruction" placeholder="Réseau d'instruction">
+                        <option>C@rteADS</option>
+                        <option>Hors C@rteADS</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <button type="submit" class="btn btn-primary fw-bold w-100">Ajouter</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="/public/assets/js/fetch/communeFetch.js" defer></script>

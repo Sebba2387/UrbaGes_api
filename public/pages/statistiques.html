@@ -1,0 +1,87 @@
+<!-- Contenu principal -->
+<div id="content" data-callback="initStats">
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form>
+                    <div class="mb-3">
+                        <label for="fileInput" class="form-label text-dark fw-bold">Insérer les instructions du mois</label>
+                        <div class="input-group">
+                            <input type="file" class="form-control" id="fileInput" aria-label="Choisir un fichier" />
+                            <button class="btn btn-primary text-dark fw-bold" type="button" id="uploadBtn">
+                                <i class="bi bi-upload me-2"></i>Télécharger
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="section row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-3">
+        <div class="col">
+            <div class="bg-secondary text-dark text-center rounded-3 p-3 h-100 d-flex flex-column justify-content-center">
+                <p class="fw-bold mb-1">Instructions</p>
+                <p id="totalInstructions" class="display-6 mb-0">0</p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="bg-secondary text-dark text-center rounded-3 p-3 h-100 d-flex flex-column justify-content-center">
+                <p class="fw-bold mb-1">Instruction complexe</p>
+                <p id="complexEnCours" class="display-6 mb-0">0</p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="bg-secondary text-dark text-center rounded-3 p-3 h-100 d-flex flex-column justify-content-center">
+                <p class="fw-bold mb-1">SPGEP</p>
+                <p id="spgepEnCours" class="display-6 mb-0">0</p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="bg-secondary text-dark text-center rounded-3 p-3 h-100 d-flex flex-column justify-content-center">
+                <p class="fw-bold mb-1">Servitudes</p>
+                <p id="servitudeEnCours" class="display-6 mb-0">0</p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="bg-secondary text-dark text-center rounded-3 p-3 h-100 d-flex flex-column justify-content-center">
+                <p class="fw-bold mb-1">Rétrocessions</p>
+                <p id="retrocessionEnCours" class="display-6 mb-0">0</p>
+            </div>
+        </div>
+    </div>
+    <!-- Section 2 - INSTRUCTIONS -->
+    <div class="section d-flex flex-column flex-md-row gap-3">
+        <div class="flex-fill rounded-3 bg-light" style="min-height: 25vh;">
+            <p class="text-center mt-2">Instruction (évolution)</p>
+            <canvas id="instructionsGraph"></canvas>
+        </div>
+        <div class="flex-fill rounded-3 bg-light" style="min-height: 25vh;">
+            <p class="text-center mt-2">Instruction (intervenant)</p>
+            <canvas id="instructionsParIntervenant"></canvas>
+        </div>
+    </div>
+    <!-- Section 3 - SERVITUDES -->
+    <div class="section d-flex flex-column flex-md-row gap-3">
+        <div class="flex-fill rounded-3 bg-light" style="min-height: 25vh;">
+            <p class="text-center mt-2">Servitude (évolution)</p>
+            <canvas id="servitudeGraph"></canvas>
+        </div>
+        <div class="flex-fill rounded-3 bg-light" style="min-height: 25vh;">
+            <p class="text-center mt-2">Servitude (statut)</p>
+            <canvas id="servitudeStatusGraph"></canvas>
+        </div>
+    </div>
+    <!-- Section 3 - IVP -->
+    <div class="section d-flex flex-column flex-md-row gap-3">
+        <div class="flex-fill rounded-3 bg-light" style="min-height: 25vh;">
+            <p class="text-center mt-2">Rétrocession (évolution)</p>
+            <canvas id="retrocessionGraph"></canvas>
+        </div>
+        <div class="flex-fill rounded-3 bg-light" style="min-height: 25vh;">
+            <p class="text-center mt-2">Rétrocession (statut)</p>
+            <canvas id="retrocessionStatusGraph"></canvas>
+        </div>
+    </div>
+</div>
+<script src="/public/assets/js/fetch/statsFetch.js" defer></script>
+

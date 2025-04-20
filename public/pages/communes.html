@@ -1,0 +1,53 @@
+<!-- Formulaire de recherche de commune -->
+<div id="form3" class="form-container expanded mb-5 mt-5" data-callback="initCommuneSearchForm">
+    <button class="btn btn-dark text-primary fw-bold toggle-btn" onclick="toggleForm('form3', this)">
+        <i class="bi bi-search"></i> Rechercher
+    </button>
+    <div class="card">
+        <form id="communeSearchForm">
+            <!-- Ligne 1 -->
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-2 mb-3">
+                    <input type="text" class="form-control" name="code_commune" id="code_commune" placeholder="Code insee">
+                </div>
+                <div class="col-12 col-md-2 mb-3">
+                    <input type="text" class="form-control" name="cp_commune" id="cp_commune" placeholder="Code postal">
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <select class="form-control" id="id_commune_search" name="id_commune_search">
+                        <!-- Les options seront ajoutées ici par JavaScript -->
+                    </select>
+                </div>
+                <div class="col-12 col-md-2 mb-3 d-flex gap-2">
+                    <button type="submit" class="btn btn-primary fw-bold w-100">Rechercher</button>
+                    <button type="button" class="btn btn-light" onclick="resetForm('communeSearchForm')"><i class="bi bi-arrow-clockwise fs-6"></i></button>
+                </div>
+                <div class="col-12 col-md-2 mb-3">
+                    <button type="button" onclick="location.href='/addCommune'" class="btn btn-primary fw-bold w-100">Ajouter</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="table-responsive" id="communeTableContainer" style="display: none;">
+    <table class="table table-bordered table-striped align-middle text-center">
+        <thead class="table-dark">
+            <tr>
+                <th>Nom</th>
+                <th>Code</th>
+                <th>CP</th>
+                <th>Email</th>
+                <th>Téléphone</th>
+                <th>Adresse</th>
+                <th>Contact</th>
+                <th>Réseau</th>
+                <th>Urbaniste</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="communeResults">
+            <!-- Résultats ici -->
+        </tbody>
+    </table>
+</div>
+<script src="/public/assets/js/fetch/communeFetch.js" defer></script>

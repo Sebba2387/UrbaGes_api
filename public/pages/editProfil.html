@@ -1,0 +1,48 @@
+<div id="form1" class="form-container expanded mb-5 mt-5 h-auto" data-callback="initEditForm">
+    <button class="btn btn-dark text-primary fw-bold toggle-btn" onclick="toggleForm('form1', this)">
+        <i class="bi bi-people-fill"></i> Profil
+    </button>
+    <div class="card">
+        <form id="editForm">
+            <!-- Ligne 1 -->
+            <div class="row align-items-end">
+                <input type="hidden" class="form-control" name="user_id" id="user_id" placeholder="Nom">
+                <div class="col-12 col-md-3 mb-3 mt-3 form-group">
+                    <input type="text" class="form-control" name="nom" id="nom" placeholder="Nom">
+                    <label for="nom" class="floating-label">Nom</label>
+                </div>
+                <div class="col-12 col-md-3 mb-3 mt-3 form-group">
+                    <input type="text" class="form-control" name="prenom" id="prenom" placeholder="Prénom">
+                    <label for="prenom" class="floating-label">Prénom</label>
+                </div>
+                <div class="col-12 col-md-3 mb-3 mt-3 form-group">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Adresse mail">
+                    <label for="email" class="floating-label">Adresse mail</label>
+                </div>
+                <div class="col-12 col-md-3 mb-3 mt-3 form-group">
+                    <input type="text" class="form-control" name="annee_naissance" id="annee_naissance" placeholder="Année de naissance">
+                    <label for="annee_naissance" class="floating-label">Année de naissance</label>
+                </div>
+            </div>
+            <!-- Ligne 2 -->
+            <div class="row">
+                <div class="col-12 col-md-3 mb-3 form-group">
+                    <input type="text" class="form-control" name="pseudo" id="pseudo" placeholder="Pseudo">
+                    <label for="pseudo" class="floating-label">Pseudo</label>
+                </div>
+                <div class="col-12 col-md-3 mb-3 form-group">
+                    <input type="text" class="form-control" name="genre" id="genre" placeholder="Genre">
+                    <label for="genre" class="floating-label">Genre</label>
+                </div>
+                <div class="col-12 col-md-3 mb-3 form-group">
+                    <input type="text" class="form-control" name="poste" id="poste" placeholder="Poste">
+                    <label for="poste" class="floating-label">Poste</label>
+                </div>
+                <div class="col-12 col-md-3 mb-3  form-group d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary fw-bold w-100">Enregistrer</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="/public/assets/js/fetch/userFetch.js" defer></script>
