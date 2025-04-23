@@ -1,6 +1,6 @@
 // Fonction principale pour récupérer les stats et exécuter un callback
 function fetchStats(callback) {
-    fetch('http://localhost/public/api/statsApi.php', {
+    fetch('http://localhost:8080/public/api/statsApi.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

@@ -24,7 +24,7 @@ function searchDossier(callback) {
         type_dossier: document.getElementById("type_dossier_search").value.trim(),
         sous_type_dossier: document.getElementById("sous_type_dossier_search").value.trim(),
     };
-    fetch("http://localhost/public/api/dossierApi.php", {
+    fetch("http://localhost:8080/public/api/dossierApi.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(requestData),
@@ -143,7 +143,7 @@ function updatePagination(totalItems) {
 
 // Fonction pour charger la liste des communes dans le <select>
 function loadCommunes() {
-    fetch('http://localhost/public/api/dossierApi.php', {
+    fetch('http://localhost:8080/public/api/dossierApi.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ action: 'getCommunes' })
@@ -190,7 +190,7 @@ function addDossier() {
         sous_type_dossier: document.getElementById("sous_type_dossier").value,
         id_commune: document.getElementById("id_commune").value
     };
-    fetch("http://localhost/public/api/dossierApi.php", {
+    fetch("http://localhost:8080/public/api/dossierApi.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
@@ -237,7 +237,7 @@ function deleteDossier(id_dossier) {
             action: 'deleteDossier',
             id_dossier: id_dossier
         };
-        fetch("http://localhost/public/api/dossierApi.php", {
+        fetch("http://localhost:8080/public/api/dossierApi.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -270,7 +270,7 @@ function redirectToEdit(id_dossier) {
 
 // Fonction pour récupérer les infos d'un dossier et préremplir testEditDossier.html
 function getDossierById(id_dossier) {
-    fetch("http://localhost/public/api/dossierApi.php", {
+    fetch("http://localhost:8080/public/api/dossierApi.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -350,7 +350,7 @@ function updateDossier() {
         sous_type_dossier: document.getElementById("sous_type_dossier").value
     };
 
-    fetch("http://localhost/public/api/dossierApi.php", {
+    fetch("http://localhost:8080/public/api/dossierApi.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
@@ -399,7 +399,7 @@ function fetchUserDossiers() {
         return;
     }
     // Envoi de la requête pour récupérer les dossiers de l'utilisateur
-    fetch('http://localhost/public/api/dossierApi.php', {
+    fetch('http://localhost:8080/public/api/dossierApi.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

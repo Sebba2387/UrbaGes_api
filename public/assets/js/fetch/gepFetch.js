@@ -15,7 +15,7 @@ function initGepSearchForm() {
 function loadCommunes(callback) {
     const communeSelect = document.getElementById("nom_commune");
     if (!communeSelect) return;
-    fetch('http://localhost/public/api/gepApi.php', {
+    fetch('http://localhost:8080/public/api/gepApi.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ action: 'getNomCommunes' })
@@ -50,7 +50,7 @@ function searchGep() {
         section: document.getElementById("section").value,
         numero: document.getElementById("numero").value
     };
-    fetch('http://localhost/public/api/gepApi.php', {
+    fetch('http://localhost:8080/public/api/gepApi.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(searchData)
