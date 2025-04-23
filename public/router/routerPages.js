@@ -18,6 +18,7 @@ const routes = [
     { path: '/addCommune', component: 'addCommune.html' },
     { path: '/courriers', component: 'courriers.html' },
     { path: '/editCourrier', component: 'editCourrier.html' },
+    { path: '/verif', component: 'verif.php' },
 ];
 
 // Flag pour savoir si le header et la sidebar sont déjà chargés
@@ -61,7 +62,7 @@ async function loadHeaderAndSidebar() {
     // Appeler ici pour changer l'image / pseudo de profil
     const userId = localStorage.getItem('userId');
     if (userId) {
-        fetch('http://localhost/public/api/userApi.php', {
+        fetch('http://localhost:8080/public/api/userApi.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action: 'getProfile', userId })

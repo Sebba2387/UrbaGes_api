@@ -25,7 +25,7 @@ function searchPlu(callback) {
         etat_plu
     };
 
-    fetch('http://localhost/public/api/pluApi.php', {
+    fetch('http://localhost:8080/public/api/pluApi.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(searchData)
@@ -116,7 +116,7 @@ function redirectToEdit(id_plu) {
 
 // Chargement des communes dans le <select>
 function loadCommunes() {
-    fetch('http://localhost/public/api/pluApi.php', {
+    fetch('http://localhost:8080/public/api/pluApi.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ action: 'getCommunes' })
@@ -155,7 +155,7 @@ window.initEditPluForm = initEditPluForm;
 
 // Récupérer un PLU par son ID
 function getPluById(id_plu, callback) {
-    fetch('http://localhost/public/api/pluApi.php', {
+    fetch('http://localhost:8080/public/api/pluApi.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ action: 'getPluById', id_plu })
@@ -205,7 +205,7 @@ function updatePlu() {
         observation_plu: document.getElementById("observation_plu").value
     };
 
-    fetch("http://localhost/public/api/pluApi.php", {
+    fetch("http://localhost:8080/public/api/pluApi.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)

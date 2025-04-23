@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../../vendor/autoload.php'; // Charger MongoDB Driver
 
 // Connexion à MongoDB
-$mongoClient = new MongoDB\Client("mongodb://localhost:27017");
+$mongoClient = new MongoDB\Client("mongodb://mongo:27017");
 $logDB = $mongoClient->urbages_logs;
 
 // Définir les collections

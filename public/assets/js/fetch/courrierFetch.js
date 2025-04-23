@@ -23,7 +23,7 @@ function searchCourrier(callback) {
         libelle_courrier: document.getElementById("libelleCourrierSearch").value.trim(),
     };
 
-    fetch("http://localhost/public/api/courrierApi.php", {
+    fetch("http://localhost:8080/public/api/courrierApi.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(requestData),
@@ -140,7 +140,7 @@ function addCourrier() {
         libelle_courrier: document.getElementById("libelle_courrier").value.trim(),
         corps_courrier: document.getElementById("corps_courrier").value.trim(),
     };
-    fetch("http://localhost/public/api/courrierApi.php", {
+    fetch("http://localhost:8080/public/api/courrierApi.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
@@ -184,7 +184,7 @@ function deleteCourrier(id_courrier) {
             action: 'deleteCourrier',
             id_courrier: id_courrier
         };
-        fetch("http://localhost/public/api/courrierApi.php", {
+        fetch("http://localhost:8080/public/api/courrierApi.php", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
@@ -215,7 +215,7 @@ function redirectToEditCourrier(id_courrier) {
 
 // Fonction pour récupérer les infos d'un courrier et préremplir le formulaire d'édition
 function getCourrierById(id_courrier) {
-    fetch("http://localhost/public/api/courrierApi.php", {
+    fetch("http://localhost:8080/public/api/courrierApi.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ action: "getCourrierById", id_courrier })
@@ -258,7 +258,7 @@ function updateCourrier() {
         corps_courrier: document.getElementById("corps_courrier").value.trim(),
     };
 
-    fetch("http://localhost/public/api/courrierApi.php", {
+    fetch("http://localhost:8080/public/api/courrierApi.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
@@ -324,7 +324,7 @@ async function genererCourrier(event) {
         return;
     }
     try {
-        const response = await fetch('http://localhost/public/api/courrierApi.php', {
+        const response = await fetch('http://localhost:8080/public/api/courrierApi.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

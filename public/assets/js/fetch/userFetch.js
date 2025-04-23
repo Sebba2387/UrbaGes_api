@@ -1,6 +1,6 @@
 // Fonction pour connecter l'utilisateur
 function loginUser(email, password) {
-    fetch('http://localhost/public/api/userApi.php', {
+    fetch('http://localhost:8080/public/api/userApi.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -11,7 +11,9 @@ function loginUser(email, password) {
             password: password
         })
     })
-    .then(response => response.json())
+    .then(response => {
+        return response.json();  // Convertit la réponse en JSON
+    })
     .then(data => {
         if (data.success) {
             localStorage.setItem('userId', data.user.id_utilisateur);
@@ -30,7 +32,7 @@ function fetchUserProfile() {
         changePage('/');
         return;
     }
-    fetch('http://localhost/public/api/userApi.php', {
+    fetch('http://localhost:8080/public/api/userApi.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -64,7 +66,6 @@ function fetchUserProfile() {
                     pseudoInput.value = data.user.pseudo;
                     posteInput.value = data.user.poste;
                     roleInput.value = data.user.nom_role;
-                    console.log('Formulaire mis à jour');
                 } else {
                     console.error('Un ou plusieurs champs du formulaire sont manquants');
                 }
@@ -115,7 +116,7 @@ function fetchAllUsers() {
     if (!tableBody) {
         return;
     }
-    fetch('http://localhost/public/api/userApi.php', {
+    fetch('http://localhost:8080/public/api/userApi.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -124,7 +125,7 @@ function fetchAllUsers() {
             action: 'getAllUsers'
         })
     })
-    .then(response => response.json())
+    .then(response => response.json())  // Convertit la réponse en JSON
     .then(data => {
         if (data.success) {
             if (data.userRole === 'admin' || data.userRole === 'moderateur') {
@@ -164,7 +165,7 @@ function initRegisterForm() {
                 genre: document.getElementById("genre").value,
                 poste: document.getElementById("poste").value
             };
-            fetch('http://localhost/public/api/userApi.php', {
+            fetch('http://localhost:8080/public/api/userApi.php', {
                 method: 'POST',
                 credentials: 'include',
                 headers: { 'Content-Type': 'application/json' },
@@ -208,7 +209,7 @@ function searchUsers() {
                 prenom: prenom,
                 poste: poste
             };
-            fetch('http://localhost/public/api/userApi.php', {
+            fetch('http://localhost:8080/public/api/userApi.php', {
                 method: 'POST',
                 credentials: 'include',
                 headers: { 'Content-Type': 'application/json' },
@@ -286,7 +287,7 @@ function updateUserProfile(userId) {
         genre: document.getElementById("genre").value.trim(),
         poste: document.getElementById("poste").value.trim()
     };
-    fetch('http://localhost/public/api/userApi.php', {
+    fetch('http://localhost:8080/public/api/userApi.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(userData)
@@ -315,7 +316,7 @@ function initEditForm() {
         return;
     }
     // Pré-remplissage des champs avec les données utilisateur
-    fetch('http://localhost/public/api/userApi.php', {
+    fetch('http://localhost:8080/public/api/userApi.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ action: 'getUser', id_utilisateur: userId })
@@ -353,7 +354,7 @@ function deleteUser(userId) {
             action: 'deleteUser',
             id_utilisateur: userId
         };
-        fetch('http://localhost/public/api/userApi.php', {
+        fetch('http://localhost:8080/public/api/userApi.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(userData)
@@ -391,7 +392,7 @@ function initPasswordForm() {
             alert("Veuillez remplir les deux champs de mot de passe.");
             return;
         }
-        fetch('http://localhost/public/api/userApi.php', {
+        fetch('http://localhost:8080/public/api/userApi.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -417,7 +418,7 @@ document.addEventListener("DOMContentLoaded", initPasswordForm);
 
 // Fonction pour déconnecter l'utilisateur
 function logoutUser() {
-    fetch('http://localhost/public/api/userApi.php', {
+    fetch('http://localhost:8080/public/api/userApi.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ action: 'logout' })

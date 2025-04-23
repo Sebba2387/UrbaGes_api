@@ -2205,8 +2205,168 @@ Résultats: Array
 2025-04-18 15:45:24 - Requête reçue : {"action":"getProfile","userId":"2"}
 2025-04-18 15:45:24 - Requête reçue : {"action":"getAllUsers"}
 2025-04-18 15:45:24 - Requête reçue : {"action":"getProfile","userId":"2"}
+<<<<<<< HEAD
 2025-04-19 01:18:41 - Requête reçue : {"action":"login","email":"bouguerra.abbes@outlook.fr","password":"123"}
 2025-04-19 01:18:41 - Requête reçue : {"action":"getProfile","userId":"1"}
 2025-04-19 01:18:41 - Requête reçue : {"action":"getProfile","userId":"1"}
 2025-04-19 01:18:41 - Requête reçue : {"action":"getAllUsers"}
 2025-04-19 01:19:06 - Requête reçue : {"action":"logout"}
+=======
+2025-04-22 21:06:12 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-22 21:29:56 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-22 21:32:01 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-22 21:32:28 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-22 21:52:29 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-22 21:56:18 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-22 21:57:55 - Requête reçue : {
+    "action": "login"
+}
+2025-04-22 21:59:44 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-22 22:08:29 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-22 22:11:48 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-22 22:12:02 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-22 22:12:48 - Requête reçue : {
+    "action": "login"
+}
+2025-04-22 22:14:41 - Requête reçue : 
+2025-04-22 22:18:12 - Requête reçue : {"action":"login","email":"test@example.com","password":"paswword"}
+2025-04-22 22:19:46 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-22 22:19:57 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-22 22:20:10 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-22 22:20:34 - Requête reçue : {"action":"login","email":"test@example.com","password":"$2y$10$dGrloZa1Rf0fIWcEeglcvuOfVNO5IhpglzeG0JK/DKSlqsMXbDjHm"}
+2025-04-22 22:20:46 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-22 22:21:58 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-22 22:22:08 - Requête reçue : {
+    "action": "login"
+}
+2025-04-22 22:27:45 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-22 23:14:31 - Requête reçue : {"action":"login","email":"test@example.com","password":"$2y$10$dGrloZa1Rf0fIWcEeglcvuOfVNO5IhpglzeG0JK/DKSlqsMXbDjHm"}
+2025-04-22 23:17:13 - Requête reçue : {"action":"login","email":"test@example.com","password":"$2y$10$dGrloZa1Rf0fIWcEeglcvuOfVNO5IhpglzeG0JK/DKSlqsMXbDjHm"}
+2025-04-22 23:20:12 - Requête reçue : {"action":"login","email":"test@example.com","password":"$2y$10$dGrloZa1Rf0fIWcEeglcvuOfVNO5IhpglzeG0JK/DKSlqsMXbDjHm"}
+2025-04-22 23:21:30 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-22 23:23:07 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-22 23:24:51 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-22 23:25:41 - Requête reçue : {
+    "action": "login"
+}
+2025-04-22 23:26:06 - Requête reçue : 
+2025-04-22 23:38:29 - Requête reçue : 
+2025-04-22 23:38:43 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-23 00:03:34 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-23 00:03:57 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-23 00:06:12 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-23 00:06:13 - Requête reçue : {"action":"getAllUsers"}
+2025-04-23 00:06:14 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:06:34 - Requête reçue : {"action":"getAllUsers"}
+2025-04-23 00:06:35 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:06:43 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"Instructrice assainissement"}
+2025-04-23 00:07:50 - Requête reçue : {"action":"logout"}
+2025-04-23 00:07:58 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-23 00:07:59 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:07:59 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:08:00 - Requête reçue : {"action":"getAllUsers"}
+2025-04-23 00:08:10 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:08:12 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"Instructrice assainissement"}
+2025-04-23 00:08:59 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:09:27 - Requête reçue : {"action":"logout"}
+2025-04-23 00:10:13 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-23 00:10:14 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:10:14 - Requête reçue : {"action":"getAllUsers"}
+2025-04-23 00:10:14 - Erreur SQL: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'u.annee_naissance' in 'field list'
+2025-04-23 00:10:15 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:11:29 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:11:29 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:11:30 - Requête reçue : {"action":"getAllUsers"}
+2025-04-23 00:11:30 - Erreur SQL: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'u.annee_naissance' in 'field list'
+2025-04-23 00:12:54 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:12:55 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:12:55 - Requête reçue : {"action":"getAllUsers"}
+2025-04-23 00:12:55 - Erreur SQL: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'u.annee_naissance' in 'field list'
+2025-04-23 00:14:54 - Requête reçue : {"action":"logout"}
+2025-04-23 00:14:56 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-23 00:14:57 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:14:57 - Requête reçue : {"action":"getAllUsers"}
+2025-04-23 00:14:57 - Erreur SQL: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'u.poste' in 'field list'
+2025-04-23 00:14:58 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:17:41 - Requête reçue : {"action":"logout"}
+2025-04-23 00:17:44 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-23 00:17:44 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:17:45 - Requête reçue : {"action":"getAllUsers"}
+2025-04-23 00:17:45 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:18:07 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:18:14 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":""}
+2025-04-23 00:18:17 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":""}
+2025-04-23 00:18:46 - Requête reçue : {"action":"registerUser","nom":"BOUGUERRA","prenom":"Abbes","email":"test2@example.com","password":"password","annee_naissance":"1974","pseudo":"Sebba","genre":"Homme","poste":"Directeur"}
+2025-04-23 00:18:52 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":""}
+2025-04-23 00:19:27 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:19:28 - Requête reçue : {"action":"getAllUsers"}
+2025-04-23 00:19:28 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:19:37 - Requête reçue : {"action":"logout"}
+2025-04-23 00:41:29 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-23 00:41:41 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-23 00:41:46 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-23 00:41:52 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-23 00:42:54 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-23 00:43:44 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-23 00:43:46 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:43:46 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:43:46 - Requête reçue : {"action":"getAllUsers"}
+2025-04-23 00:44:01 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:44:01 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:44:01 - Requête reçue : {"action":"getAllUsers"}
+2025-04-23 00:44:12 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:44:18 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:44:18 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:44:18 - Requête reçue : {"action":"getAllUsers"}
+2025-04-23 00:45:44 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:45:45 - Requête reçue : {"action":"getAllUsers"}
+2025-04-23 00:45:45 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:47:29 - Requête reçue : {
+    "action": "login"
+}
+2025-04-23 00:48:57 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:48:57 - Requête reçue : {"action":"getAllUsers"}
+2025-04-23 00:48:57 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:49:46 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:49:59 - Requête reçue : {"action":"registerUser","nom":"BOUGUERRA","prenom":"Abbes","email":"test2@example.com","password":"password","annee_naissance":"1974","pseudo":"Sebba","genre":"Homme","poste":"Directeur"}
+2025-04-23 00:50:07 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":""}
+2025-04-23 00:50:13 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:50:14 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:50:14 - Requête reçue : {"action":"getAllUsers"}
+2025-04-23 00:51:01 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:51:03 - Requête reçue : {"action":"getAllUsers"}
+2025-04-23 00:51:03 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:51:29 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:51:29 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:51:29 - Requête reçue : {"action":"getAllUsers"}
+2025-04-23 00:51:35 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 00:51:40 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":""}
+2025-04-23 00:51:42 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":""}
+2025-04-23 00:53:33 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 01:06:29 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 01:06:55 - Requête reçue : {"action":"getCommunes"}
+2025-04-23 01:07:02 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 01:07:28 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 01:08:43 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 01:08:57 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-23 01:08:57 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 01:08:58 - Requête reçue : {"action":"getAllUsers"}
+2025-04-23 01:08:58 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 01:09:10 - Requête reçue : {"action":"logout"}
+2025-04-23 01:27:23 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-23 01:27:24 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 01:27:24 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 01:27:25 - Requête reçue : {"action":"getAllUsers"}
+2025-04-23 01:27:34 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 01:27:35 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 01:27:35 - Requête reçue : {"action":"getAllUsers"}
+2025-04-23 01:27:42 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 01:27:52 - Requête reçue : {"action":"registerUser","nom":"BOUGUERRA","prenom":"Abbes","email":"test@example.com","password":"password","annee_naissance":"1974","pseudo":"Sebba","genre":"Homme","poste":"Directeur"}
+2025-04-23 01:28:06 - Requête reçue : {"action":"registerUser","nom":"BOUGUERRA","prenom":"Abbes","email":"test2@example.com","password":"password","annee_naissance":"1974","pseudo":"Sebba","genre":"Homme","poste":"Directeur"}
+2025-04-23 01:28:14 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 01:28:16 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":""}
+2025-04-23 01:28:54 - Requête reçue : {"action":"registerUser","nom":"HOCINI","prenom":"Fouad","email":"test3@example.com","password":"password","annee_naissance":"1981","pseudo":"Foufou","genre":"Homme","poste":"Responsable commercial"}
+2025-04-23 01:29:03 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":""}
+2025-04-23 01:29:41 - Requête reçue : {"action":"getCommunes"}
+2025-04-23 01:29:50 - Requête reçue : {"action":"getProfile","userId":"1"}
+>>>>>>> prod

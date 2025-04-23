@@ -1,4 +1,5 @@
 <?php
+error_log("Je suis dans userApi");
 // Démarrer la session si elle n'est pas déjà active
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -6,8 +7,9 @@ if (session_status() === PHP_SESSION_NONE) {
 
 require_once __DIR__ . '/../../app/controllers/userController.php';
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-ini_set('display_errors', 1); // Affiche les erreurs directement
 
 header('Content-Type: application/json');
 

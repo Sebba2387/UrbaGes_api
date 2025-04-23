@@ -16,7 +16,7 @@ function searchCommunes() {
     };
 
     // Envoyer la requête
-    fetch('http://localhost/public/api/communeApi.php', {
+    fetch('http://localhost:8080/public/api/communeApi.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(searchData)
@@ -92,7 +92,7 @@ function displayCommunes(communes) {
 
 // Fonction pour charger la liste des communes dans le <select>
 function loadCommunes() {
-    fetch('http://localhost/public/api/communeApi.php', {
+    fetch('http://localhost:8080/public/api/communeApi.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ action: 'getCommunes' })
@@ -158,7 +158,7 @@ function addCommune() {
         urbaniste_vra: urbanisteVra
     };
     // Envoyer la requête POST à l'API
-    fetch('http://localhost/public/api/communeApi.php', {
+    fetch('http://localhost:8080/public/api/communeApi.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -199,7 +199,7 @@ function loadCommuneDetails() {
     const id_commune = urlParams.get('id');
 
     if (id_commune) {
-        fetch('http://localhost/public/api/communeApi.php', {
+        fetch('http://localhost:8080/public/api/communeApi.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action: 'getCommune', id_commune })
@@ -248,7 +248,7 @@ function updateCommune() {
         urbaniste_vra : document.getElementById("urbaniste_vra").value,
     };
 
-    fetch('http://localhost/public/api/communeApi.php', {
+    fetch('http://localhost:8080/public/api/communeApi.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updateData)
@@ -277,7 +277,7 @@ window.onload = initUpdateCommuneForm;
 // Fonction pour supprimer une commune avec callback
 function deleteCommune(communeId, callback) {
     if (confirm("Voulez-vous vraiment supprimer cette commune ?")) {
-        fetch('http://localhost/public/api/communeApi.php', {
+        fetch('http://localhost:8080/public/api/communeApi.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action: 'deleteCommune', id_commune: communeId })
