@@ -3,6 +3,13 @@
 SET NAMES utf8mb4;
 SET time_zone = '+00:00';
 
+-- ROLES
+CREATE TABLE IF NOT EXISTS roles (
+    id_role INT AUTO_INCREMENT PRIMARY KEY,
+    nom_role ENUM('admin', 'moderateur', 'utilisateur') NOT NULL UNIQUE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
 -- UTILISATEURS
 CREATE TABLE IF NOT EXISTS utilisateurs (
     id_utilisateur INT AUTO_INCREMENT PRIMARY KEY,
@@ -15,12 +22,6 @@ CREATE TABLE IF NOT EXISTS utilisateurs (
     genre ENUM('homme', 'femme') NOT NULL,
     poste VARCHAR(50) NOT NULL,
     id_role INT DEFAULT 3
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- ROLES
-CREATE TABLE IF NOT EXISTS roles (
-    id_role INT AUTO_INCREMENT PRIMARY KEY,
-    nom_role ENUM('admin', 'moderateur', 'utilisateur') NOT NULL UNIQUE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Insertion des rôles de test
@@ -126,7 +127,8 @@ CREATE TABLE IF NOT EXISTS courriers (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- INSERTS DE TEST (vides) pour valider les insertions
-INSERT INTO utilisateurs (nom, prenom, email, password, annee_naissance, pseudo, poste, genre, id_role) VALUES (
+INSERT INTO utilisateurs (nom, prenom, email, password, annee_naissance, pseudo, poste, genre, id_role
+) VALUES (
     'Test', 'User', 'test@example.com', 
     '$2y$10$dGrloZa1Rf0fIWcEeglcvuOfVNO5IhpglzeG0JK/DKSlqsMXbDjHm', '1990-01-01', 'testuser', 'Responsable', 'homme', 1);
 
@@ -135,24 +137,24 @@ VALUES (12345, 'Paris', 75000, 'contact@paris.fr', '01 23 45 67 89', '12 rue de 
 
 INSERT INTO dossiers (
     id_commune, id_utilisateur, numero_dossier, id_cadastre, libelle, type_dossier, sous_type_dossier, date_demande, date_limite, statut, 
-    lien_calypso, lien_dossier, observation);
-VALUES (
+    lien_calypso, lien_dossier, observation
+    ) VALUES (
     1, 1, 'D12345', 'C123', 'Dossier de projet de branchement', 
     'Projet', 'Branchement', '2025-04-01', '2025-05-01', 'en cours', 
-    'https://calypso.exemple.com/dossier/D12345', 'https://dossier.exemple.com/D12345', 'Aucune observation')
+    'https://calypso.exemple.com/dossier/D12345', 'https://dossier.exemple.com/D12345', 'Aucune observation');
 
 INSERT INTO instructions (
-    id_commune, id_utilisateur, numero_dossier, libelle, date_demande, date_limite) 
-VALUES (
-    1, 1, 'INST-2025-001', 'Instruction pour projet d’extension', 
+    id_commune, id_utilisateur, numero_dossier, libelle, date_demande, date_limite
+    ) VALUES (
+    1, 1, 'INST-2025-001', 'Instruction pour projet extension', 
     '2025-04-10', '2025-05-10');
 
 INSERT INTO plu (
     id_commune, type_plu, etat_plu, date_plu, systeme_ass,
     statut_zonage, statut_pres, date_annexion, lien_zonage,
-    lien_dhua, observation_plu) 
-VALUES (
-    1, 'PLU approuvé', 'en vigueur', '2023-06-15', 'Tout à l’égout',
+    lien_dhua, observation_plu
+    ) VALUES (
+    1, 'PLU approuvé', 'en vigueur', '2023-06-15', 'Tout à égout',
     'en cours', 'en attente', '2023-07-01', 
     'https://example.com/zonage.pdf',
     'https://example.com/dhua.pdf',
@@ -164,7 +166,7 @@ INSERT INTO gep (
     dys_pct, sage_indice, sage_pct, montana_zone,
     plu_sous_zone, plu_regle)
 VALUES (
-    12345, 'Commune de Test', 'AB123', 'A', 456,
+    12345, 'Commune de Test', 'AB123', 'AB', 123,
     1542.75, 'Captage Nord', 'Règlement captage en vigueur', 80,
     10, 5, 60, 1,
     'Zone Uc', 'Règles de la zone Uc concernant les hauteurs et emprises');
