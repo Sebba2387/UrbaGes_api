@@ -126,7 +126,7 @@ CREATE TABLE IF NOT EXISTS courriers (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- INSERTS DE TEST (vides) pour valider les insertions
-INSERT INTO utilisateurs (nom, prenom, email, password, annee_naissance, pseudo, poste, genre) VALUES (
+INSERT INTO utilisateurs (nom, prenom, email, password, annee_naissance, pseudo, poste, genre, id_role) VALUES (
     'Test', 'User', 'test@example.com', 
     '$2y$10$dGrloZa1Rf0fIWcEeglcvuOfVNO5IhpglzeG0JK/DKSlqsMXbDjHm', '1990-01-01', 'testuser', 'Responsable', 'homme', 1);
 
@@ -135,7 +135,7 @@ VALUES (12345, 'Paris', 75000, 'contact@paris.fr', '01 23 45 67 89', '12 rue de 
 
 INSERT INTO dossiers (
     id_commune, id_utilisateur, numero_dossier, id_cadastre, libelle, type_dossier, sous_type_dossier, date_demande, date_limite, statut, 
-    lien_calypso, lien_dossier, observation) 
+    lien_calypso, lien_dossier, observation);
 VALUES (
     1, 1, 'D12345', 'C123', 'Dossier de projet de branchement', 
     'Projet', 'Branchement', '2025-04-01', '2025-05-01', 'en cours', 
@@ -145,7 +145,7 @@ INSERT INTO instructions (
     id_commune, id_utilisateur, numero_dossier, libelle, date_demande, date_limite) 
 VALUES (
     1, 1, 'INST-2025-001', 'Instruction pour projet d’extension', 
-    '2025-04-10', '2025-05-10')
+    '2025-04-10', '2025-05-10');
 
 INSERT INTO plu (
     id_commune, type_plu, etat_plu, date_plu, systeme_ass,
@@ -156,18 +156,18 @@ VALUES (
     'en cours', 'en attente', '2023-07-01', 
     'https://example.com/zonage.pdf',
     'https://example.com/dhua.pdf',
-    'Zonage en révision pour le secteur nord.')
+    'Zonage en révision pour le secteur nord.');
 
 INSERT INTO gep (
     code_commune, nom_commune, cadastre, section, numero,
     surface, captage, captage_regles, captage_pct,
     dys_pct, sage_indice, sage_pct, montana_zone,
-    plu_sous_zone, plu_regle) 
+    plu_sous_zone, plu_regle)
 VALUES (
     12345, 'Commune de Test', 'AB123', 'A', 456,
     1542.75, 'Captage Nord', 'Règlement captage en vigueur', 80,
     10, 5, 60, 1,
-    'Zone Uc', 'Règles de la zone Uc concernant les hauteurs et emprises')
+    'Zone Uc', 'Règles de la zone Uc concernant les hauteurs et emprises');
 
 INSERT INTO courriers (
     type_courrier, libelle_courrier, corps_courrier
@@ -175,4 +175,4 @@ INSERT INTO courriers (
     'Projet',
     'Demande de complément',
     'Madame, Monsieur,<br><br>Nous vous prions de bien vouloir nous faire parvenir les pièces complémentaires nécessaires à votre dossier. Sans ces éléments, Le diagnostic ne pourra être poursuivie.<br><br>Veuillez agréer, Madame, Monsieur, nos salutations distinguées.'
-)
+);
