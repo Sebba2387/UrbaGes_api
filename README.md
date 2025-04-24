@@ -1,83 +1,102 @@
-#### UrbaGes API ####
-│── app/                
-│   ├── config/               
-│   ├── controllers/
-│   ├── models/
-│── public/
-│   ├── api/
-│   ├── assets/
-│   │   ├── components/
-│   │   ├── scss/
-│   │   ├── js/
-│   │   │   ├── fetch/
-│   │   ├── node_modules/
-│   │   ├── images/
-│   │   ├── pages/
-│   ├── router/
-│   ├── index.html 
-# Installation de l'environnement de développement
-- Bootstrap 	✅
-- Costumisation de Bootstrap (LiveComplier Sass) 	✅
-- Configuration du Docker 	❌
-- Configuration de MongoDB 	❌
-    + composer init
-    + composer require mongodb/mongodb
+# Manuel de déploiement de l'application Urbages (Déploiement local avec Docker)
 
-# Frontend
-- Index.html 	✅
-- Configuration des routes 	✅
-- Construction des pages 	✅
-- Pagination 	✅
-- Bouton dark 	✅
-- Bouton pour vider les champs de rechercher 	✅
-- Customisation des tableaux 	✅
-- Labels 	✅
-- Customisation des codes    ❌
-- Validation des champs 	❌
-- Contrôle des rôles 	❌
+Projet PHP MVC utilisant MySQL et MongoDB, conçu pour être lancé localement en quelques commandes via Docker.
 
-# Backend
-- Diagramme MCD 	✅
-- Construction de la base de donnée SQL	✅
-- Construction de la base de donnée NoSQL	✅
-- Configuration des : database, mongodb, config (PDO) 	✅
-- Model & Controller : connexion, déconnexion, changement de mot de passe, *inscription* (PDO-SQL-NoSQL) 	✅
-- Model & Controller : *filtreUtilisateur*, *updateUtilisater*, *deleteUtilisateur* (PDO-SQL) 	✅
-- Model & Controller : filtreCommune, *updateCommune*, *deleteCommune*, *addCommune*  (PDO-SQL) 	✅
-- Model & Controller : filtrePlu, *updatePlu* (PDO-SQL) 	✅
-- Model & Controller : filtreDossier, updateDossier, deleteDossier, *attributeDossier*, *addDossier* (PDO-SQL-NoSQL) 	✅
-- Model & Controller : filtreGep 	✅
-- Model & Controller : filtreAttribution 	✅
-- Model & Controller : filtreCourrier, updateCourrier, deleteCourrier, *addCourrier*  (PDO-SQL) 	✅
+## Structure du projet
 
-# Full
-- Connexion 	✅
-- Déconnexion 	✅
-- Inscription 	✅
-- Profil 	✅
-- Recherche d'utilisateur 	✅
-- Mise à jour information utilisateur 	✅
-- Suppression d'un utilisateur 	✅
-- Changement de mot de passe  	✅
-- Commune CRUD  	✅
-- PLU CRUD  	✅
-- GEP Search  	✅
-- Dossier CRUD  	✅
-- Eviter le rechargement de la page complet (header, sidebar)  	✅
-- Changement dynamique de la photo de profil  	✅
-- Changement de critère de recherche PLU cp_commune => statut_zonage  	✅
-- Liste des communes  	✅
+/UrbaGes
+│── app/	# Code métier de l'application (architecture MVC)                
+│   ├── config/		# Fichiers de configuration (base de données, MongoDB, etc.)          
+│   ├── controllers/	# Contrôleurs : logique de traitement des requêtes
+│   ├── models/	# Modèles : interaction avec les bases de données
+│── logs/	# Fichiers de logs (journalisation, erreurs, etc.)
+│── public/	# Répertoire destiné à être accessible par public
+│   ├── api/	# API REST côté serveur
+│   ├── assets/	# Ressources statiques
+│   │   ├── scss/	# Feuilles de style SCSS
+│   │   ├── js/	# Scripts JavaScript
+│   │   │   ├── fetch/	# Requêtes fetch() pour l'API 
+│   │   ├── images/	# Images utilisées dans l'interface
+│   ├── pages/	# Pages HTML accessibles depuis le routeur JS
+│   ├── router/	# Gestion du routage côté client (JavaScript)
+│   ├── components/	# Composants réutilisables HTML/JS 
+│   ├── node_modules/ # Bibliothèque Bootstrap et Bootstrap icons
+│── ressources/	 # Fichiers annexes
+│── vendor/	# Dépendances PHP installées via Composer 
+│   ├── index.html
+├── apache/
+│	└── 000-default.conf # Configuration Apache personnalisée
+├── sql/ 
+│	└── init.sql # Script de création de la base MySQL et données de test
+├── docker-compose.yml # Orchestration des services
+├── Dockerfile # Configuration PHP + Apache + MongoDB
 
+## Prérequis
 
-# Instalaltion
+- Installation du [Docker] : https://www.docker.com
+- Installation du [Docker Compose] : https://docs.docker.com/compose
 
-- Vérification de version PHP : php -v : PHP 8.2.4
-- Vérification MySQL : mysql --version : Ver 15.1 Distrib 10.4.28-MariaDB, for Win64 (AMD64)
-- Vérification Apache : httpd --version : Apache2.4
-- Vérification MongoDB : mongod --version : db version v8.0.5
-- Vérification MongoDB Shell : mongosh --version : 2.4.0
-- Vérification MongoCompass : mongodb-compass --version : 1.46.0
-- Vérification Composer : composer --version : version 2.8.5
-- Vérification Node.js : node --version : v20.6.1
-- Vérification Bootstrap : npm list bootstrap : "bootstrap": "^5.3.3", "bootstrap-icons": "^1.11.3"
-- Vérification Docker : docker --version : 27.5.1, build 9f9e405
+## Lancement des services :
+
+À partir d'un terminal, se placer à la racine du projet et exécuter : 
+```bash
+docker-compose up --build
+```
+
+### Accés aux services :
+
+- Site web : http://localhost:8080
+- phpMyAdmin (MySQL) : http://localhost:8081
+
+### Identifiants phpMyAdmin (MySQL) :
+
+- Serveur : mysql
+- Utilisateur : user
+- Mot de passe : pass
+
+### Base de données
+
+#### MySQL
+
+- Nom de la base de données MySQL : urbages_db : Création automatique via 'sql/init.sql', ainsi que les tables suivantes :
+	* utilisateurs
+	* roles
+	* dossiers
+	* instructions
+	* communes
+	* plu
+	* gep
+	* courriers
+
+#### MongoDB
+- Nom de la base de données NoSQL : urbages_logs : Création automatique lors du premier insert.
+	* Collections : logs, modifications
+	* Connexion via "mongo.php"
+
+### Utilisateurs de test
+
+- **Email** : test@example.com
+- **Mot de passe** : password
+
+## Technologie utilisées :
+
+- PHP 8.2 + Apache
+- MySQL (MariaDB 10.4)
+- MongoDB 8.0
+- phpMyAdmin
+- PDO pour MySQL
+- MongoDB Client PHP (via Composer)
+
+## Arrêt les services
+
+À partir d'un terminal, se placer à la racine du projet et exécuter : 
+```bash
+docker-compose down # Arrêter les services
+docker-compose down -v # Arrêter les services et vider les volumes
+
+```
+
+## Contact
+
+Ce projet a été réalisé dans le cadre de la formation Graduate Flutter.
+Pour toute question, suggestion ou contribution, n'hésitez pas à nous contacter directement via ce dépôt GitHub.
