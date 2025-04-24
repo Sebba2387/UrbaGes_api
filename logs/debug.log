@@ -2370,3 +2370,24 @@ Résultats: Array
 2025-04-23 01:29:41 - Requête reçue : {"action":"getCommunes"}
 2025-04-23 01:29:50 - Requête reçue : {"action":"getProfile","userId":"1"}
 >>>>>>> prod
+2025-04-23 23:37:33 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-23 23:37:34 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 23:37:35 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 23:37:35 - Requête reçue : {"action":"getAllUsers"}
+2025-04-23 23:37:43 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 23:37:43 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 23:37:44 - Requête reçue : {"action":"getAllUsers"}
+2025-04-23 23:37:47 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 23:37:50 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":"Instructrice assainissement"}
+2025-04-23 23:37:53 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":""}
+2025-04-23 23:37:57 - Requête reçue : {"action":"getUser","id_utilisateur":"1"}
+2025-04-23 23:38:03 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 23:38:04 - Requête reçue : {"action":"searchUsers","nom":"","prenom":"","poste":""}
+2025-04-23 23:38:06 - Requête reçue : {"action":"getUser","id_utilisateur":"2"}
+2025-04-23 23:38:21 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 23:38:22 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 23:46:54 - Requête reçue : {"action":"login","email":"test@example.com","password":"password"}
+2025-04-23 23:46:55 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 23:46:55 - Requête reçue : {"action":"getProfile","userId":"1"}
+2025-04-23 23:46:56 - Requête reçue : {"action":"getAllUsers"}
+2025-04-23 23:47:05 - Requête reçue : {"action":"logout"}

@@ -6,6 +6,7 @@ class StatsModel {
         $this->pdo = $pdo;
     }
 
+    // ⚙️ Récupérer les statistiques
     public function getStats() {
         $currentYear = date("Y");
         $previousYears = range($currentYear - 5, $currentYear);
@@ -58,7 +59,6 @@ class StatsModel {
         $stmt->execute();
         $servitudeParStatut = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-
         // Statistiques Rétrocession sur les 5 dernières années
         $retrocessionGraph = [];
         foreach ($previousYears as $year) {
@@ -67,7 +67,7 @@ class StatsModel {
             $stmt->execute(['year' => $year]);
             $retrocessionGraph[] = ['year' => $year, 'total' => $stmt->fetchColumn()];
         }
-
+        
         // Statistiques Rétrocession par statut
         $query = "SELECT statut, COUNT(*) AS total FROM dossiers WHERE type_dossier = 'Rétrocession' GROUP BY statut";
         $stmt = $this->pdo->prepare($query);

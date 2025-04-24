@@ -966,3 +966,35 @@ Stack trace:
     [action] => getCommunes
 )
 
+[23-Apr-2025 23:52:31 UTC] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[23-Apr-2025 23:52:31 UTC] Array
+(
+    [action] => getCommunes
+)
+
+[23-Apr-2025 23:52:31 UTC] Données reçues : Array
+(
+    [action] => getCommunes
+)
+
+[23-Apr-2025 23:52:31 UTC] Array
+(
+    [action] => getCommunes
+)
+
+[23-Apr-2025 23:52:35 UTC] Données reçues : Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+
+[23-Apr-2025 23:52:35 UTC] Array
+(
+    [action] => getDossiersByUser
+    [userId] => 1
+)
+

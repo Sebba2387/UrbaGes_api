@@ -1,24 +1,25 @@
 <?php
-// Démarrage de la session si elle n'est pas déjà active
+// Vérification et démarrage de la session
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Headers CORS et JSON
+// Inclusion des fichiers nécessaires
+require_once __DIR__ . '/../../app/controllers/statsController.php';
+
+// CORS (pour éviter les blocages cross-origin)
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Credentials: true");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 header("Content-Type: application/json");
 
-// Inclusion des dépendances
-require_once __DIR__ . '/../../app/controllers/statsController.php';
-
-// Récupération des données envoyées en JSON
+// Lecture des données brutes JSON envoyées, puis décodage en tableau associatif PHP
 $input = file_get_contents("php://input");
-error_log("Données reçues : " . $input);  // Log des données brutes reçues
+// error_log("Données reçues : " . $input);  // Log des données brutes reçues
 
-// Si les données sont manquantes ou invalides
+
+// Vérification de l'action
 if (!$input || !isset($input['action'])) {
     echo json_encode([
         "success" => false,
@@ -29,8 +30,9 @@ if (!$input || !isset($input['action'])) {
 
 // Décoder le JSON reçu
 $data = json_decode($input, true);
-error_log("Données décodées : " . print_r($data, true));  // Log des données décodées
+// error_log("Données décodées : " . print_r($data, true));  // Log des données décodées
 
+// Vérification que la requête est de type POST et de l'action définie dans les données reçues
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action'])) {
     switch ($data['action']) {
         case 'getStats':
@@ -45,10 +47,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action'])) {
     exit;
 }
 
-// Activer le mode debug
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-ini_set('error_log', __DIR__ . '/../../logs/php_errors.log');
-error_log(print_r($data, true));  // Log des données après traitement
-
+// Fichier de log pour debug
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// ini_set('error_log', __DIR__ . '/../../logs/php_errors.log');
+// error_log(print_r($data, true));  // Log des données après traitement
 ?>

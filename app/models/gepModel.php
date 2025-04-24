@@ -8,6 +8,7 @@ class GepModel {
         $this->pdo = $pdo;
     }
 
+    // 📌 Récupérer les noms des communes concernées
     public function getNomCommunes() {
         $sql = "SELECT DISTINCT nom_commune FROM gep ORDER BY nom_commune ASC";
         $stmt = $this->pdo->query($sql);
@@ -16,7 +17,8 @@ class GepModel {
         }
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-
+    
+    // 🔍 Rechercher des règlements de GEP
     public function searchGep($nom_commune, $section, $numero) {
         $query = "SELECT * FROM gep WHERE 1=1";
         $params = [];

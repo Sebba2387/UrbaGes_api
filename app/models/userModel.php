@@ -11,6 +11,7 @@ class UserModel {
         $this->logCollection = $logCollection;
     }
 
+    // 🔓 Connecter l'utilisateur
     public function login($email, $password) {
         $stmt = $this->pdo->prepare("
             SELECT u.*, r.nom_role 
@@ -23,12 +24,12 @@ class UserModel {
 
         if ($user && password_verify($password, $user['password'])) {
             if (session_status() == PHP_SESSION_NONE) {
-                session_start();  // Démarre la session
+                session_start();
             }
     
             // Stocke l'email dans la session
-            $_SESSION['email'] = $email;  // Email de l'utilisateur stocké dans la session
-            // Log l'événement de connexion dans MongoDB
+            $_SESSION['email'] = $email; 
+
             $logData = [
                 'email' => $email,
                 'action' => 'login',
@@ -40,9 +41,9 @@ class UserModel {
         }
         return false;
     }
-
+    
+    // 📌 Récupérer les données de l'utilisateur connecté
     public function getUserById($id) {
-        // Ne jamais exposer de données sensibles comme les mots de passe
         $stmt = $this->pdo->prepare("
             SELECT u.id_utilisateur, u.nom, u.prenom, u.email, u.annee_naissance, 
                    u.pseudo, u.genre, u.poste, r.nom_role 
@@ -54,6 +55,7 @@ class UserModel {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    // 📌 Récupérer tous les utilisateurs
     public function getAllUsers() {
         $stmt = $this->pdo->prepare("
             SELECT u.id_utilisateur, u.nom, u.prenom, u.email, u.annee_naissance, 
@@ -65,6 +67,7 @@ class UserModel {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    // ➕ Ajouter un utilisateur
     public function registerUser($nom, $prenom, $email, $password, $annee_naissance, $pseudo, $genre, $poste) {
         try {
             $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
@@ -104,6 +107,7 @@ class UserModel {
         }
     }
 
+    // ✏️ Mettre à jour les données d'un utilisateur
     public function updateUser($id_utilisateur, $nom, $prenom, $email, $annee_naissance, $pseudo, $genre, $poste) {
         try {
             $stmt = $this->pdo->prepare("
@@ -129,6 +133,7 @@ class UserModel {
         }
     }
 
+    // 🔒 Changer le mot de passe
     public function updatePassword($id_utilisateur, $nouveau_mot_de_passe) {
         // Hachage du nouveau mot de passe
         $hashed_password = password_hash($nouveau_mot_de_passe, PASSWORD_DEFAULT);
@@ -143,7 +148,7 @@ class UserModel {
         $stmt->execute(['id_utilisateur' => $id_utilisateur]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($user) {
-            // Log dans MongoDB
+
             $logData = [
                 'email' => $user['email'],
                 'action' => 'changement de mot de passe',
@@ -154,7 +159,8 @@ class UserModel {
         }
         return ["success" => true, "message" => "Mot de passe mis à jour avec succès"];
     }
-
+    
+    // ❌ Déconnexion
     public function logoutUser($email) {
         // Détruire la session
         session_unset();

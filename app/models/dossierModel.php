@@ -14,6 +14,7 @@ class DossierModel {
         $this->modificationCollection = $mongoConfig;
     }
 
+    // 🔍 Rechercher un dossier
     public function searchDossier($filters) {
         $sql = "SELECT d.*, c.nom_commune, u.pseudo 
                 FROM dossiers d
@@ -49,9 +50,8 @@ class DossierModel {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // 📄 Récupérer un dossier par son ID
+    // 📌 Récupérer les données d'un dossier
     public function getDossierById($id_dossier) {
-        // Récupération du dossier avec le pseudo lié
         $sql = "SELECT d.id_dossier, u.pseudo, c.nom_commune, d.numero_dossier, d.type_dossier, d.sous_type_dossier, d.id_cadastre, d.libelle, d.date_demande, d.date_limite, d.statut, d.lien_calypso, d.id_utilisateur
                 FROM dossiers d
                 JOIN utilisateurs u ON d.id_utilisateur = u.id_utilisateur
@@ -75,6 +75,7 @@ class DossierModel {
         ];
     }
 
+    // ✏️ Mettre à jour un dossier
     public function updateDossier($data) {
         // Trouver l'id_utilisateur à partir du pseudo reçu
         $stmt = $this->pdo->prepare("SELECT id_utilisateur FROM utilisateurs WHERE pseudo = :pseudo");
@@ -136,6 +137,7 @@ class DossierModel {
         return $success;
     }
 
+    // 📌 Récupérer les noms de toutes les communes 
     public function getAllCommunes() {
         // Prépare la requête pour récupérer toutes les communes
         $sql = "SELECT id_commune, nom_commune FROM communes";
@@ -144,7 +146,7 @@ class DossierModel {
         return $communes;
     }
     
-
+    // ➕ Ajouter un dossier
     public function addDossier($data) {
         // Prépare la requête SQL pour insérer un nouveau dossier
         $sql = "INSERT INTO dossiers 
@@ -200,6 +202,7 @@ class DossierModel {
         return $success;
     }
 
+    // 🗑️ Supprimer un dossier
     public function deleteDossier($id_dossier) {
         // Trouver l'email de l'utilisateur connecté depuis la session
         if (session_status() == PHP_SESSION_NONE) {
@@ -237,6 +240,7 @@ class DossierModel {
         return $success;
     }
 
+    // 📌Récupérer l'utilisateur constructeur du dossier
     public function getDossiersByUser($userId) {
         $query = "SELECT d.*, c.nom_commune 
               FROM dossiers d

@@ -5,13 +5,12 @@ class PluModel {
     private $pdo;
     private $modificationCollection;
 
-    // Constructeur qui prend en charge la connexion PDO et la collection MongoDB
     public function __construct($pdo, $mongoConfig) {
         $this->pdo = $pdo;
-        // Initialisation de la collection MongoDB pour les logs de modification
         $this->modificationCollection = $mongoConfig; 
     }
 
+    // 🔍 Rechercher un PLU
     public function searchPlu($id_commune, $statut_zonage, $statut_pres, $etat_plu) {
         $query = "SELECT plu.*, communes.code_commune, communes.nom_commune, communes.cp_commune 
                   FROM plu 
@@ -41,6 +40,7 @@ class PluModel {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    // 📌 Récupérer les noms de toutes les communes
     public function getAllCommunes() {
         // Prépare la requête pour récupérer toutes les communes
         $sql = "SELECT id_commune, nom_commune FROM communes";
@@ -49,7 +49,7 @@ class PluModel {
         return $communes;
     }
 
-    // Récupérer un PLU par son ID
+    // 📌 Récupérer les données d'un PLU
     public function getPluById($id_plu) {
         $query = "SELECT * FROM plu WHERE id_plu = :id_plu";
         $stmt = $this->pdo->prepare($query);
@@ -58,7 +58,7 @@ class PluModel {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    // Modifier un PLU
+    // ✏️ Mettre à jour des données d'un PLU
     public function updatePlu($data) {
         $sql = "UPDATE plu SET 
                     type_plu = :type_plu,
@@ -89,7 +89,6 @@ class PluModel {
             ':id_plu' => $data['id_plu']
         ]);
 
-        // Enregistrement dans MongoDB
         $logData = [
             'action' => 'Mise à jour des données de PLU',
             'Dossier' => $data['id_plu'],
@@ -98,10 +97,9 @@ class PluModel {
             'date' => date("c")
         ];
     
-        // Insérer un log dans la collection MongoDB pour les modifications
         $this->modificationCollection->insertOne($logData);
     
-        return true;  // Retourner true si la mise à jour réussit
+        return true;
     }
 
 }

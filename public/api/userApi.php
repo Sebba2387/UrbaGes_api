@@ -1,16 +1,13 @@
 <?php
-error_log("Je suis dans userApi");
-// Démarrer la session si elle n'est pas déjà active
+// Vérification et démarrage de la session
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+// Inclusion des fichiers nécessaires
 require_once __DIR__ . '/../../app/controllers/userController.php';
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
+// CORS (pour éviter les blocages cross-origin)
 header('Content-Type: application/json');
 
 // Vérification de l'authentification (si l'utilisateur est connecté)
@@ -19,11 +16,10 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-// Récupérer les données envoyées par la requête
+// Lecture des données brutes JSON envoyées, puis décodage en tableau associatif PHP
 $data = json_decode(file_get_contents("php://input"), true);
 
-// Debug : Affiche ce que reçoit le serveur
-var_dump($data);
+// Vérification que la requête est de type POST et de l'action définie dans les données reçues
 
 // Si l'action est 'login', on l'appelle pour gérer l'authentification
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action'])) {
@@ -86,5 +82,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action'])) {
     }
 }
 
-
+// Fichier de log pour debug
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
+// Debug : Affiche ce que reçoit le serveur
+// var_dump($data);
 ?>

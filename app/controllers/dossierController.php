@@ -4,12 +4,13 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// ⚠ Vérifie si les headers sont déjà envoyés
+// Vérification si les headers sont déjà envoyés
 if (headers_sent($file, $line)) {
     error_log("Les headers ont déjà été envoyés dans $file à la ligne $line");
     exit;
 }
 
+// Inclusion des fichiers nécessaires
 require_once __DIR__ . '/../models/dossierModel.php';
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../config/mongo.php';
@@ -21,35 +22,26 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 header("Content-Type: application/json");
 
-// Activer le mode debug
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-ini_set('error_log', __DIR__ . '/../../logs/php_errors.log');
-
 // Vérification de la connexion à la base de données
 if (!isset($pdo) || !$pdo) {
     echo json_encode(["success" => false, "message" => "Erreur de connexion à la base de données"]);
     exit;
 }
 
-// Lire l'entrée JSON en vérifiant si elle est vide
+// Lecture des données brutes JSON envoyées, puis décodage en tableau associatif PHP
 $rawInput = file_get_contents("php://input");
 if (!$rawInput) {
     echo json_encode(["success" => false, "message" => "Aucune donnée reçue"]);
     exit;
 }
 
-// Décoder l'entrée JSON
+// Vérification que les données JSON ont été correctement décodées
 $input = json_decode($rawInput, true);
 
-// Vérifier si le JSON est bien formé
 if (!$input) {
     echo json_encode(["success" => false, "message" => "Requête invalide (JSON mal formé)"]);
     exit;
 }
-
-// Log des données reçues pour déboguer
-error_log("Données reçues : " . print_r($input, true));
 
 // Vérifier si l'action est définie dans les données reçues
 $action = $input['action'] ?? null;
@@ -58,10 +50,12 @@ if (!$action) {
     exit;
 }
 
+// Instanciation du modèle DossierModel
 $dossierModel = new DossierModel($pdo, $modificationCollection);
 
-// Traiter l'action en fonction du type demandé
+// Vérification que la requête est de type POST et de l'action définie dans les données reçues
 switch ($action) {
+    // 🔍 Rechercher un dossier
     case 'searchDossier':
         $filters = [
             "id_commune" => $input['id_commune'] ?? '',
@@ -70,20 +64,17 @@ switch ($action) {
             "type_dossier" => $input['type_dossier'] ?? '',
             "sous_type_dossier" => $input['sous_type_dossier'] ?? '',
         ];
-
         $result = $dossierModel->searchDossier($filters);
         echo json_encode(["success" => true, "dossiers" => $result]);
         break;
-
+    // 📌 Récupérer les données d'un dossier
     case 'getDossierById':
         if (!isset($input['id_dossier'])) {
             echo json_encode(["success" => false, "message" => "ID dossier manquant"]);
             exit;
         }
-    
         $id_dossier = $input['id_dossier'];
         $result = $dossierModel->getDossierById($id_dossier);
-    
         if ($result && isset($result['dossier'])) {
             echo json_encode([
                 "success" => true,
@@ -95,7 +86,7 @@ switch ($action) {
             exit;
         }
         break;
-
+    // ✏️ Mettre à jour un dossier
     case 'updateDossier':
         $success = $dossierModel->updateDossier([
             'id_dossier' => $input['id_dossier'],
@@ -112,10 +103,9 @@ switch ($action) {
         ]);
         echo json_encode(['success' => $success]);
         break;
-
+    // 📌 Récupérer les noms de toutes les communes 
     case 'getCommunes':
-        // Vérifie que la connexion à la base de données fonctionne
-        $communes = $dossierModel->getAllCommunes();  // Appel à la méthode pour récupérer toutes les communes
+        $communes = $dossierModel->getAllCommunes(); 
         
         if ($communes) {
             echo json_encode(['success' => true, 'communes' => $communes]);
@@ -123,14 +113,13 @@ switch ($action) {
             echo json_encode(['success' => false, 'message' => 'Aucune commune trouvée']);
         }
         break;
-
+    // ➕ Ajouter un dossier
     case 'addDossier':
         // Vérifie que les données nécessaires sont présentes
         if (!isset($input['numero_dossier']) || !isset($input['id_cadastre']) || !isset($input['libelle']) || !isset($input['date_demande']) || !isset($input['date_limite']) || !isset($input['statut']) || !isset($input['lien_calypso']) || !isset($input['type_dossier']) || !isset($input['sous_type_dossier']) || !isset($input['id_commune'])) {
             echo json_encode(["success" => false, "message" => "Données manquantes pour l'ajout du dossier"]);
             exit;
         }
-    
         // Récupère les données de l'input
         $data = [
             'numero_dossier' => $input['numero_dossier'],
@@ -144,13 +133,12 @@ switch ($action) {
             'sous_type_dossier' => $input['sous_type_dossier'],
             'id_commune' => $input['id_commune']
         ];
-    
         // Appelle la méthode pour ajouter le dossier
         $success = $dossierModel->addDossier($data);
         // Retourne une réponse JSON
         echo json_encode(['success' => $success]);
         break;
-    
+    // 🗑️ Supprimer un dossier
     case 'deleteDossier':
         // Vérifie que l'ID du dossier est présent
         if (!isset($input['id_dossier'])) {
@@ -163,7 +151,7 @@ switch ($action) {
         // Retourne la réponse
         echo json_encode(["success" => $success, "message" => $success ? "Dossier supprimé avec succès" : "Erreur lors de la suppression du dossier"]);
         break;
-
+    // 📌Récupérer l'utilisateur constructeur du dossier
     case 'getDossiersByUser':
         // Récupérer les données envoyées via POST
         $inputData = json_decode(file_get_contents('php://input'), true);
@@ -181,10 +169,16 @@ switch ($action) {
             echo json_encode(['success' => false, 'message' => 'ID utilisateur manquant']);
         }
         break;
-
+    // Cas par défault
     default:
         echo json_encode(["success" => false, "message" => "Action non valide"]);
         break;
 }
 
+// Fichier de log pour debug
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// ini_set('error_log', __DIR__ . '/../../logs/php_errors.log');
+// Log des données reçues pour déboguer
+// error_log("Données reçues : " . print_r($input, true));
 ?>

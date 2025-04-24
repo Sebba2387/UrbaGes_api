@@ -11,6 +11,7 @@ class CourrierModel {
         $this->modificationCollection = $modificationCollection;
     }
 
+    // 🔍 Rechercher un courrier
     public function searchCourrier($filters) {
         $sql = "SELECT * FROM courriers WHERE 1=1";
 
@@ -34,8 +35,8 @@ class CourrierModel {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    // 📌 Récupérer les données d'un courrier
     public function getCourrierById($id_courrier) {
-        // Récupération du courrier par son ID
         $sql = "SELECT id_courrier, type_courrier, libelle_courrier, corps_courrier
                 FROM courriers
                 WHERE id_courrier = :id_courrier";
@@ -50,6 +51,7 @@ class CourrierModel {
         ];
     }
 
+    // ✏️ Mettre à jour un courrier
     public function updateCourrier($data) {
         $sql = "UPDATE courriers SET 
                     type_courrier = :type_courrier,
@@ -84,8 +86,8 @@ class CourrierModel {
         return $success;
     }
 
+    // ➕ Ajouter un courrier
     public function addCourrier($data) {
-        // Prépare la requête SQL pour insérer un nouveau courrier
         $sql = "INSERT INTO courriers (type_courrier, libelle_courrier, corps_courrier)
                 VALUES (:type_courrier, :libelle_courrier, :corps_courrier)";
         
@@ -114,32 +116,29 @@ class CourrierModel {
         return $success;
     }
     
+    // 🗑️ Supprimer un courrier
     public function deleteCourrier($id_courrier) {
-        // Démarrage de la session si nécessaire
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
     
         $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'inconnu';
     
-        // Récupérer les détails du courrier avant suppression
         $stmt = $this->pdo->prepare("SELECT type_courrier, libelle_courrier FROM courriers WHERE id_courrier = :id_courrier");
         $stmt->bindParam(':id_courrier', $id_courrier, PDO::PARAM_INT);
         $stmt->execute();
         $courrier = $stmt->fetch(PDO::FETCH_ASSOC);
     
         if (!$courrier) {
-            return false; // Aucun courrier trouvé
+            return false;
         }
     
-        // Suppression du courrier
         $sql = "DELETE FROM courriers WHERE id_courrier = :id_courrier";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':id_courrier', $id_courrier, PDO::PARAM_INT);
         $success = $stmt->execute();
     
         if ($success) {
-            // Log MongoDB
             $logData = [
                 'action' => 'Suppression d\'un courrier type',
                 'courrier' => $id_courrier,
@@ -155,6 +154,7 @@ class CourrierModel {
         return $success;
     }
 
+    // ⚙️ Générer un courrier
     public function getDonneesCourrierAvecDossier($id_courrier, $id_dossier) {
         // Récupération du courrier
         $queryCourrier = $this->pdo->prepare("SELECT * FROM courriers WHERE id_courrier = :id_courrier");
@@ -177,6 +177,5 @@ class CourrierModel {
             'dossier' => $dossier
         ];
     }
-    
     
 }

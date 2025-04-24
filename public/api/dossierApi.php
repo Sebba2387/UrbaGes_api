@@ -1,5 +1,5 @@
 <?php
-// Démarrer la session si elle n'est pas déjà active
+// Vérification et démarrage de la session
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -17,10 +17,10 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-// Inclure le modèle et le contrôleur pour gérer les dossiers
+// Inclusion des fichiers nécessaires
 require_once __DIR__ . '/../../app/controllers/dossierController.php';
 
-// 🔍 Récupération des données JSON envoyées par Fetch
+// Lecture des données brutes JSON envoyées, puis décodage en tableau associatif PHP
 $data = json_decode(file_get_contents("php://input"), true);
 
 // Vérification de l'action
@@ -29,6 +29,7 @@ if (!isset($data['action'])) {
     exit;
 }
 
+// Vérification que la requête est de type POST et de l'action définie dans les données reçues
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action'])) {
     if (
         $data['action'] === 'searchDossier' ||
@@ -46,8 +47,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($data['action'])) {
     }
 }
 
-// Activer le mode debug
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-error_log(print_r($data, true));  // Affiche les données dans le fichier de log PHP
+// Fichier de log pour debug
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// error_log(print_r($data, true));  // Affiche les données dans le fichier de log PHP
 ?>

@@ -4,6 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+// Inclusion des fichiers nécessaires
 require_once __DIR__ . '/../models/userModel.php';
 require_once __DIR__ . '/../config/mongo.php';
 
@@ -15,17 +16,7 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 header("Content-Type: application/json");
 
-
-
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-ini_set('error_log', __DIR__ . '/../../logs/php_errors.log'); // Vérifie que le chemin est correct
-// Fichier de log pour debug
-define('DEBUG_LOG', __DIR__ . '/../../logs/debug.log');
-file_put_contents(DEBUG_LOG, date("Y-m-d H:i:s") . " - Requête reçue : " . file_get_contents("php://input") . "\n", FILE_APPEND);
-
-
-
+// Ici, on renvoie simplement un code 200 OK et on termine le script.
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
     exit;
@@ -37,22 +28,23 @@ if (!isset($pdo) || !$pdo) {
     exit;
 }
 
-// Instanciation du modèle utilisateur
+// Instanciation du modèle UserModel
 $userModel = new UserModel($pdo, $logCollection);
+// Lecture des données brutes JSON envoyées, puis décodage en tableau associatif PHP
 $data = json_decode(file_get_contents("php://input"), true);
 
-// Vérification si les données sont bien envoyées
+// Vérification si $data contient bien les infos attendues (JSON)
 if (!$data || !isset($data['action'])) {
     echo json_encode(["success" => false, "message" => "Données invalides"]);
     exit;
 }
 
-// Récupération de l'action demandée
+// Vérification que la requête est de type POST et de l'action définie dans les données reçues
 $action = $data['action'];
 
 switch ($action) {
     
-    // 🔐 Connexion utilisateur
+    // 🔓 Connecter l'utilisateur
     case 'login':
         if (!isset($data['email']) || !isset($data['password'])) {
             echo json_encode(["success" => false, "message" => "Email et mot de passe requis"]);
@@ -68,7 +60,7 @@ switch ($action) {
         }
         exit;
 
-    // 👤 Récupération du profil utilisateur
+    // 📌 Récupérer les données de l'utilisateur connecté
     case 'getProfile':
         if (!isset($data['userId'])) {
             echo json_encode(["success" => false, "message" => "ID utilisateur requis"]);
@@ -83,7 +75,7 @@ switch ($action) {
         }
         exit;
 
-    // 📋 Récupération de tous les utilisateurs via userModel.php
+    // 📌 Récupérer tous les utilisateurs
     case 'getAllUsers':
         try {
             // Vérification si l'utilisateur est connecté et a un rôle admin ou moderateur
@@ -91,20 +83,16 @@ switch ($action) {
                 echo json_encode(["success" => false, "message" => "Utilisateur non authentifié"]);
                 exit;
             }
-
             // Récupération des informations de l'utilisateur connecté
             $stmt = $pdo->prepare("SELECT nom_role FROM utilisateurs INNER JOIN roles ON utilisateurs.id_role = roles.id_role WHERE utilisateurs.id_utilisateur = :id_utilisateur");
             $stmt->execute(['id_utilisateur' => $_SESSION['user_id']]);
             $userRole = $stmt->fetch(PDO::FETCH_ASSOC);
-
+            // Vérification si l'utilisateur est un admin ou un modérateur
             if (!$userRole || !in_array($userRole['nom_role'], ['admin', 'moderateur'])) {
                 echo json_encode(["success" => false, "message" => "Accès refusé : rôle insuffisant"]);
                 exit;
             }
-
-            // Si l'utilisateur est un admin ou un modérateur, on continue avec la récupération des utilisateurs
             $users = $userModel->getAllUsers();
-
             if (!$users) {
                 echo json_encode(["success" => false, "message" => "Aucun utilisateur trouvé"]);
                 exit;
@@ -117,20 +105,20 @@ switch ($action) {
             echo json_encode(["success" => false, "message" => "Erreur lors de la récupération des utilisateurs"]);
         }
         exit;
-    
-    // 📋 inscription d'un utilisateur via userModel.php
+
+    // ➕ Ajouter un utilisateur
     case 'registerUser':
-        // Vérifie si l'utilisateur est authentifié
+        // Vérification si l'utilisateur est authentifié
         if (!isset($_SESSION['user_id'])) {
             echo json_encode(["success" => false, "message" => "Utilisateur non authentifié"]);
             exit;
         }
-        // Vérifie la présence de toutes les données requises
+        // Vérification la présence de toutes les données requises
         if (!isset($data['nom'], $data['prenom'], $data['email'], $data['password'], $data['annee_naissance'], $data['pseudo'], $data['genre'], $data['poste'])) {
             echo json_encode(["success" => false, "message" => "Données incomplètes"]);
             exit;
         }
-        // Appelle la fonction du modèle pour enregistrer l'utilisateur
+        // Appelle de la fonction du modèle pour enregistrer l'utilisateur
         $result = $userModel->registerUser(
             $data['nom'], 
             $data['prenom'], 
@@ -144,14 +132,14 @@ switch ($action) {
         echo json_encode($result);
         exit;
 
-    // 👤 Récupération des données d'un utilisateur
+    // 📌 Récupérer les données d'un utilisateur
     case 'getUser':
-        // Vérifie si l'utilisateur est authentifié et a un rôle autorisé
+        // Vérification si l'utilisateur est authentifié et a un rôle autorisé
         if (!isset($_SESSION['user_id'])) {
             echo json_encode(["success" => false, "message" => "Utilisateur non authentifié"]);
             exit;
         }
-        // Vérifie le rôle de l'utilisateur
+        // Vérification le rôle de l'utilisateur
         $stmt = $pdo->prepare("
             SELECT nom_role 
             FROM utilisateurs 
@@ -165,7 +153,7 @@ switch ($action) {
             echo json_encode(["success" => false, "message" => "Accès refusé"]);
             exit;
         }
-        // Vérifie si l'ID de l'utilisateur est fourni pour récupérer les informations
+        // Vérification si l'ID de l'utilisateur est fourni pour récupérer les informations
         if (!isset($data['id_utilisateur'])) {
             echo json_encode(["success" => false, "message" => "ID utilisateur manquant"]);
             exit;
@@ -175,14 +163,14 @@ switch ($action) {
         echo json_encode($user);
         exit;
 
-    // 📋 Mise à jour des données d'un utilisateur via userModel.php
+    // ✏️ Mettre à jour les données d'un utilisateur
     case 'updateUser':
-        // Vérifie si l'utilisateur est authentifié et a un rôle autorisé
+        // Vérification si l'utilisateur est authentifié et a un rôle autorisé
         if (!isset($_SESSION['user_id'])) {
             echo json_encode(["success" => false, "message" => "Utilisateur non authentifié"]);
             exit;
         }
-        // Vérifie le rôle de l'utilisateur
+        // Vérification le rôle de l'utilisateur
         $stmt = $pdo->prepare("
             SELECT nom_role 
             FROM utilisateurs 
@@ -196,12 +184,12 @@ switch ($action) {
             echo json_encode(["success" => false, "message" => "Accès refusé"]);
             exit;
         }
-        // Vérifie la présence de toutes les données requises pour la mise à jour
+        // Vérification la présence de toutes les données requises pour la mise à jour
         if (!isset($data['id_utilisateur'], $data['nom'], $data['prenom'], $data['email'], $data['annee_naissance'], $data['pseudo'], $data['genre'], $data['poste'])) {
             echo json_encode(["success" => false, "message" => "Données incomplètes"]);
             exit;
         }
-        // Met à jour les informations de l'utilisateur
+        // Mise à jour les informations de l'utilisateur
         $result = $userModel->updateUser(
             $data['id_utilisateur'],
             $data['nom'],
@@ -242,18 +230,18 @@ switch ($action) {
             exit;
         }
     
-        // Vérifie que l'ID utilisateur est passé et est valide
+        // Vérification que l'ID utilisateur est passé et est valide
         if (!isset($data['id_utilisateur'])) {
             echo json_encode(["success" => false, "message" => "ID utilisateur manquant"]);
             exit;
         }
     
-        // Supprime l'utilisateur
+        // Suppression de l'utilisateur
         $stmt = $pdo->prepare("DELETE FROM utilisateurs WHERE id_utilisateur = :id_utilisateur");
         $stmt->bindParam(':id_utilisateur', $data['id_utilisateur'], PDO::PARAM_INT);
         $stmt->execute();
     
-        // Vérifie si la suppression a été effectuée
+        // Vérification si la suppression a été effectuée
         if ($stmt->rowCount() > 0) {
             echo json_encode(["success" => true, "message" => "Utilisateur supprimé avec succès"]);
         } else {
@@ -282,8 +270,8 @@ switch ($action) {
     
         echo json_encode(["success" => true, "users" => $users]);
         exit;
-    
-    // Changement de mot de passe
+
+    // 🔒 Changer le mot de passe
     case 'updatePassword':
         if (!isset($_SESSION['user_id'])) {
             echo json_encode(["success" => false, "message" => "Utilisateur non authentifié"]);
@@ -307,8 +295,8 @@ switch ($action) {
         $result = $userModel->updatePassword($_SESSION['user_id'], $data['nouveau_mot_de_passe']);
         echo json_encode($result);
         exit;
-
-    // 🔴 Déconnexion
+        
+    // ❌ Déconnexion
     case 'logout':
         if (!isset($_SESSION['user_id'])) {
             echo json_encode(["success" => false, "message" => "Utilisateur non authentifié"]);
@@ -329,12 +317,17 @@ switch ($action) {
         $result = $userModel->logoutUser($user['email']);
         echo json_encode($result);
         exit;
-        
-        
-    
-    // ❌ Action inconnue
+    // Cas par défaut
     default:
         echo json_encode(["success" => false, "message" => "Action non valide"]);
         exit;
 }
+
+// Fichier de log pour debug
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// ini_set('error_log', __DIR__ . '/../../logs/php_errors.log'); // Vérifie que le chemin est correct
+
+// define('DEBUG_LOG', __DIR__ . '/../../logs/debug.log');
+// file_put_contents(DEBUG_LOG, date("Y-m-d H:i:s") . " - Requête reçue : " . file_get_contents("php://input") . "\n", FILE_APPEND);
 ?>
