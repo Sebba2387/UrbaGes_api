@@ -4,7 +4,7 @@ export async function loadComponent(componentPath) {
         const html = await response.text();
 
         const container = document.getElementById('main-page');
-        if (!container) throw new Error("⚠️ L'élément #main-page est introuvable.");
+        if (!container) throw new Error("L'élément #main-page est introuvable.");
 
         container.innerHTML = html;
 
@@ -13,7 +13,7 @@ export async function loadComponent(componentPath) {
 
         scripts.forEach(oldScript => {
 
-            // ✅ Ne pas réinjecter si déjà présent
+            // Ne pas réinjecter si déjà présent
             if (document.querySelector(`script[src="${oldScript.src}"]`)) return;
             
             const newScript = document.createElement('script');
@@ -33,22 +33,22 @@ export async function loadComponent(componentPath) {
             document.body.appendChild(newScript);
         });
 
-        // ⏳ Attendre le chargement de tous les scripts
+        // Attendre le chargement de tous les scripts
         await Promise.all(scriptPromises);
 
-        // 🔁 Chercher TOUS les éléments ayant un data-callback
+        // Chercher TOUS les éléments ayant un data-callback
         const callbackElements = container.querySelectorAll('[data-callback]');
         callbackElements.forEach(el => {
             const callbackName = el.getAttribute('data-callback');
             if (callbackName && typeof window[callbackName] === 'function') {
-                console.log(`🚀 Appel de la fonction : ${callbackName}()`);
+                // console.log(`Appel de la fonction : ${callbackName}()`);
                 window[callbackName]();  // Appeler la fonction du callback
             } else {
-                console.warn(`⚠️ Fonction callback "${callbackName}" introuvable`);
+                console.warn(`Fonction callback "${callbackName}" introuvable`);
             }
         });
 
     } catch (err) {
-        console.error("❌ Erreur dans loadComponent :", err);
+        console.error("Erreur dans loadComponent :", err);
     }
 }

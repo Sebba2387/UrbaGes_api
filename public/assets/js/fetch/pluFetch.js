@@ -188,7 +188,7 @@ function populateEditForm(plu) {
     document.getElementById("observation_plu").value = plu.observation_plu;
 }
 
-// Mise à jour d’un PLU
+// Fonction pour mettre à jour d’un PLU
 function updatePlu() {
     const data = {
         action: "updatePlu",

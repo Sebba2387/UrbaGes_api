@@ -44,7 +44,7 @@ async function loadHeaderAndSidebar() {
 
         // Initialiser le toggle de la sidebar après son chargement
         setupSidebarToggle();
-        componentsLoaded = true;  // Marquer que les composants sont chargés
+        componentsLoaded = true; 
 
     } catch (error) {
         console.error('Erreur de chargement du header ou de la sidebar:', error);

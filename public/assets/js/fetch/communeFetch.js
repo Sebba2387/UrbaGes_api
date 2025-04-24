@@ -5,7 +5,6 @@ function searchCommunes() {
     const cpCommune = document.getElementById("cp_commune").value;
     const idCommune = document.getElementById("id_commune_search").value;
     
-
     // Si tous les champs sont vides, on envoie une requête pour toutes les communes
     const searchData = {
         action: 'searchCommune',
@@ -179,6 +178,7 @@ function addCommune() {
         console.error("Erreur lors de l'ajout de la commune :", error);
     });
 }
+
 //Fonction pour initialiser le formulaire d'ajout d'une commune
 function initAddCommuneForm() {
     const form = document.getElementById("addCommuneForm");
@@ -188,7 +188,7 @@ function initAddCommuneForm() {
             addCommune(); 
         });
     } else {
-        console.warn("⚠️ Formulaire d'ajout de commune introuvable !");
+        console.warn("Formulaire d'ajout de commune introuvable !");
     }
 }
 window.initAddCommuneForm = initAddCommuneForm;

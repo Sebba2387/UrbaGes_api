@@ -178,10 +178,10 @@ function initRegisterForm() {
                     changePage('/monEquipe');
                 }
             })
-            .catch(error => console.error('❌ Erreur lors de la requête :', error));
+            .catch(error => console.error('Erreur lors de la requête :', error));
         });
     } else {
-        console.warn("⚠️ Formulaire introuvable !");
+        console.warn("Formulaire introuvable !");
     }
 }
 document.addEventListener("DOMContentLoaded", initRegisterForm);
@@ -196,7 +196,7 @@ function searchUsers() {
             const searchPrenomElement = document.getElementById("searchPrenom");
             const searchPosteElement = document.getElementById("searchPoste");
             if (!searchNomElement || !searchPrenomElement || !searchPosteElement) {
-                console.error('❌ Un ou plusieurs champs de recherche sont introuvables !');
+                console.error('Un ou plusieurs champs de recherche sont introuvables !');
                 return;
             }
             const nom = searchNomElement.value.trim();
@@ -223,10 +223,10 @@ function searchUsers() {
                     alert(data.message || 'Aucun utilisateur trouvé');
                 }
             })
-            .catch(error => console.error('❌ Erreur lors de la requête :', error));
+            .catch(error => console.error('Erreur lors de la requête :', error));
         });
     } else {
-        console.warn("⚠️ Formulaire de recherche introuvable !");
+        console.warn("Formulaire de recherche introuvable !");
     }
 }
 
@@ -299,20 +299,20 @@ function updateUserProfile(userId) {
             changePage('/profil');
         }
     })
-    .catch(error => console.error('❌ Erreur lors de la mise à jour :', error));
+    .catch(error => console.error('Erreur lors de la mise à jour :', error));
 }
 
 //Fonction pour initialiser le formulaire d'édition
 function initEditForm() {
     const form = document.getElementById("editForm");
     if (!form) {
-        console.warn("⚠️ Formulaire de profil non trouvé.");
+        console.warn("Formulaire de profil non trouvé.");
         return;
     }
     const params = new URLSearchParams(window.location.search);
     const userId = params.get("id");
     if (!userId) {
-        console.warn("⚠️ Aucun ID utilisateur trouvé dans l'URL.");
+        console.warn("Aucun ID utilisateur trouvé dans l'URL.");
         return;
     }
     // Pré-remplissage des champs avec les données utilisateur
@@ -324,7 +324,7 @@ function initEditForm() {
     .then(response => response.json())
     .then(user => {
         if (!user || !user.id_utilisateur) {
-            console.warn("⚠️ Utilisateur non trouvé.");
+            console.warn("Utilisateur non trouvé.");
             return;
         }
         document.getElementById("user_id").value = user.id_utilisateur;
@@ -340,7 +340,7 @@ function initEditForm() {
             updateUserProfile(user.id_utilisateur);
         });
     })
-    .catch(error => console.error('❌ Erreur lors de la récupération du profil :', error));
+    .catch(error => console.error('Erreur lors de la récupération du profil :', error));
 }
 // Appel au chargement du DOM
 document.addEventListener("DOMContentLoaded", initEditForm);
@@ -375,7 +375,7 @@ function deleteUser(userId) {
 function initPasswordForm() {
     const passwordForm = document.getElementById("passwordForm");
     if (!passwordForm) {
-        console.warn("⚠️ Formulaire de changement de mot de passe introuvable !");
+        console.warn("Formulaire de changement de mot de passe introuvable !");
         return;
     }
     passwordForm.addEventListener("submit", (event) => {
@@ -383,7 +383,7 @@ function initPasswordForm() {
         const ancienInput = document.getElementById("ancien_mot_de_passe");
         const nouveauInput = document.getElementById("nouveau_mot_de_passe");
         if (!ancienInput || !nouveauInput) {
-            console.error("❌ Champs de mot de passe non trouvés dans le DOM !");
+            console.error("Champs de mot de passe non trouvés dans le DOM !");
             return;
         }
         const ancienMotDePasse = ancienInput.value.trim();
@@ -409,7 +409,7 @@ function initPasswordForm() {
                 changePage('/');
             }
         })
-        .catch(error => console.error('❌ Erreur lors du changement de mot de passe :', error));
+        .catch(error => console.error('Erreur lors du changement de mot de passe :', error));
     });
 }
 // Activer au chargement de la page
