@@ -1,35 +1,35 @@
 # Manuel de déploiement de l'application Urbages (Déploiement local avec Docker)
 
-Projet PHP MVC utilisant MySQL et MongoDB, conçu pour être lancé localement en quelques commandes via Docker.
+Projet développé avec PDO PHP, en architecture MVC utilisant MySQL et MongoDB, conçu pour être lancé localement en quelques commandes via Docker.
 
 ## Structure du projet
 
 /UrbaGes
-│── app/	# Code métier de l'application (architecture MVC)                
-│   ├── config/		# Fichiers de configuration (base de données, MongoDB, etc.)          
-│   ├── controllers/	# Contrôleurs : logique de traitement des requêtes
-│   ├── models/	# Modèles : interaction avec les bases de données
-│── logs/	# Fichiers de logs (journalisation, erreurs, etc.)
-│── public/	# Répertoire destiné à être accessible par public
-│   ├── api/	# API REST côté serveur
-│   ├── assets/	# Ressources statiques
-│   │   ├── scss/	# Feuilles de style SCSS
-│   │   ├── js/	# Scripts JavaScript
-│   │   │   ├── fetch/	# Requêtes fetch() pour l'API 
-│   │   ├── images/	# Images utilisées dans l'interface
-│   ├── pages/	# Pages HTML accessibles depuis le routeur JS
-│   ├── router/	# Gestion du routage côté client (JavaScript)
-│   ├── components/	# Composants réutilisables HTML/JS 
-│   ├── node_modules/ # Bibliothèque Bootstrap et Bootstrap icons
-│── ressources/	 # Fichiers annexes
-│── vendor/	# Dépendances PHP installées via Composer 
-│   ├── index.html
-├── apache/
-│	└── 000-default.conf # Configuration Apache personnalisée
-├── sql/ 
-│	└── init.sql # Script de création de la base MySQL et données de test
-├── docker-compose.yml # Orchestration des services
-├── Dockerfile # Configuration PHP + Apache + MongoDB
+- app/	# Code métier de l'application (architecture MVC)                
+	* config/		# Fichiers de configuration (base de données, MongoDB, etc.)          
+	* controllers/	# Contrôleurs : logique de traitement des requêtes
+	* models/	# Modèles : interaction avec les bases de données
+- logs/	# Fichiers de logs (journalisation, erreurs, etc.)
+- public/	# Répertoire destiné à être accessible par public
+	* api/	# API REST côté serveur
+	* assets/	# Ressources statiques
+		* scss/	# Feuilles de style SCSS
+		* js/	# Scripts JavaScript
+			* fetch/	# Requêtes fetch() pour l'API 
+		* images/	# Images utilisées dans l'interface
+	* pages/	# Pages HTML accessibles depuis le routeur JS
+	* router/	# Gestion du routage côté client (JavaScript)
+	* components/	# Composants réutilisables HTML/JS 
+	* node_modules/ # Bibliothèque Bootstrap et Bootstrap icons
+- ressources/	 # Fichiers annexes
+- vendor/	# Dépendances PHP installées via Composer 
+- index.html
+-  apache/
+	* 000-default.conf # Configuration Apache personnalisée
+- sql/ 
+	* init.sql # Script de création de la base MySQL et données de test
+- docker-compose.yml # Orchestration des services
+- Dockerfile # Configuration PHP + Apache + MongoDB
 
 ## Prérequis
 
